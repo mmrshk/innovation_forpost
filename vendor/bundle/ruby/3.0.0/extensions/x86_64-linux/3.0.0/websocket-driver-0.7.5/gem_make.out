@@ -1,0 +1,15 @@
+current directory: /home/sinner/projects/innovation_forpost/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+/home/sinner/.rvm/rubies/ruby-3.0.4/bin/ruby -I /home/sinner/.rvm/rubies/ruby-3.0.4/lib/ruby/3.0.0 -r ./siteconf20220621-41070-q5a482.rb extconf.rb
+creating Makefile
+
+current directory: /home/sinner/projects/innovation_forpost/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\= clean
+
+current directory: /home/sinner/projects/innovation_forpost/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\=
+compiling websocket_mask.c
+linking shared-object websocket_mask.so
+
+current directory: /home/sinner/projects/innovation_forpost/vendor/bundle/ruby/3.0.0/gems/websocket-driver-0.7.5/ext/websocket-driver
+make DESTDIR\= install
+/usr/bin/install -m 0755 websocket_mask.so ./.gem.20220621-41070-6kf5aq
