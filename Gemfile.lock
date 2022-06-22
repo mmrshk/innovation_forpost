@@ -75,6 +75,7 @@ GEM
     childprocess (4.1.0)
     concurrent-ruby (1.1.10)
     crass (1.0.6)
+    diff-lcs (1.5.0)
     erubi (1.10.0)
     ffi (1.15.5)
     globalid (1.0.0)
@@ -100,6 +101,8 @@ GEM
     msgpack (1.5.2)
     nio4r (2.5.8)
     nokogiri (1.13.6-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.6-x86_64-linux)
       racc (~> 1.4)
     pg (1.4.0)
     public_suffix (4.0.7)
@@ -143,6 +146,23 @@ GEM
       ffi (~> 1.0)
     regexp_parser (2.5.0)
     rexml (3.2.5)
+    rspec-core (3.11.0)
+      rspec-support (~> 3.11.0)
+    rspec-expectations (3.11.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.11.0)
+    rspec-mocks (3.11.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.11.0)
+    rspec-rails (5.1.2)
+      actionpack (>= 5.2)
+      activesupport (>= 5.2)
+      railties (>= 5.2)
+      rspec-core (~> 3.10)
+      rspec-expectations (~> 3.10)
+      rspec-mocks (~> 3.10)
+      rspec-support (~> 3.10)
+    rspec-support (3.11.0)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
@@ -201,6 +221,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap (>= 1.4.2)
@@ -211,6 +232,7 @@ DEPENDENCIES
   pg
   puma (~> 4.1)
   rails (~> 6.0.5)
+  rspec-rails
   sass-rails (>= 6)
   selenium-webdriver
   spring
