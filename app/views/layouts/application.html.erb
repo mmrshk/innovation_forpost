@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>InnovationForpost</title>
+    <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,5 +11,6 @@
 
   <body>
     <%= yield %>
+    <div><%= debug(params) if Rails.env.development? %></div>
   </body>
 </html>
