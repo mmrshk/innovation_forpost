@@ -23,6 +23,12 @@ gem 'rails-i18n', '~> 6.0'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+#linters
+gem "overcommit"
+gem "rubocop", require: false
+gem "brakeman", require: false
+gem "rails_best_practices"
+
 # authorization:
 gem 'devise', '~> 4.8', '>= 4.8.1'
 
