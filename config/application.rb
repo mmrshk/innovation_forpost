@@ -18,5 +18,8 @@ module InnovationForpost
     config.generators do |g|
       g.test_framework :rspec
     end
+
+    config.i18n.available_locales = [:en, :ua]
+    config.i18n.default_locale = :ua
   end
 end
