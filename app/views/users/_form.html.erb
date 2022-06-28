@@ -26,16 +26,28 @@
     <%= form.telephone_field :tel %>
   </div>
   
-  <div class="field">
-    <%= form.label     :password %>
-    <%= form.password_field :password %>
+  <div>
+    <% if super_admin? %>
+      <%= form.radio_button :role, 'user' %>
+      <%= form.label :user, "user" %>
+      <%= form.radio_button :role, 'admin' %>
+      <%= form.label :admin, "admin" %>
+      <%= form.radio_button :role, 'super_admin' %>
+      <%= form.label :super_admin, "super_admin" %>
+    <% end %>
   </div>
 
-  <div class="field">
-    <%= form.label     :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
-  </div>
+  <% unless super_admin? %>
+    <div class="field">
+      <%= form.label     :password %>
+      <%= form.password_field :password %>
+    </div>
 
+    <div class="field">
+      <%= form.label     :password_confirmation %>
+      <%= form.password_field :password_confirmation %>
+    </div>
+  <% end %>
   <div class="actions">
     <%= form.submit %>
   </div>

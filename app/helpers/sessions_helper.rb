@@ -11,6 +11,16 @@ module SessionsHelper
     end
   end
 
+  #Check if super_admin
+  def super_admin?
+    @current_user && @current_user.role == 'super_admin'
+  end
+
+  #Check if admin
+  def admin?
+    @current_user && @current_user.role == 'admin'
+  end
+
   #returns true if the given user is current user
   def current_user?(user)
     user && user == current_user

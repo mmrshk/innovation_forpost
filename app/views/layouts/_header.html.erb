@@ -7,15 +7,16 @@
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Help", "#" %></li>
         <% if logged_in? %>
-          <li><%= link_to "Users", users_path %></li>
+          
           <li><%= link_to "Profile", current_user %></li>
           <li><%= link_to "Settings", edit_user_path(current_user) %></li>
           <li><%= link_to "Log out", logout_path, method: :delete %></li>
-          <% if @current_user.role == 'super_admin' || 'admin' %>
+          <% if @current_user.role == 'admin' %>
             <li><%= link_to "Articles", admins_articles_show_path %></li>
-            <% if @current_user.role == 'super_admin' %>
-              <li><%= link_to "Users", admins_users_show_path %></li>
-            <% end %>
+          <% end %>
+          <% if @current_user.role == 'super_admin' %>
+            <li><%= link_to "Articles", admins_articles_show_path %></li>
+            <li><%= link_to "Users", admins_users_show_path %></li>
           <% end %>
         <% else %>
           <li><%= link_to "Log in", login_path %></li>
