@@ -12,5 +12,5 @@ PrePush:
   Brakeman:
     enabled: true
     on_warn: fail
-    problem_on_unmodified_line: ignore
+    problem_on_unmodified_line: ignore    
     

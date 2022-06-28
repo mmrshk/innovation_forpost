@@ -12,7 +12,6 @@
 :ignore_file: ".brakeman.ignore"
 :ignore_ifs: true
 :pager: true
-
 :safe_methods:
 - method_name
 :url_safe_methods:
