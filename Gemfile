@@ -16,6 +16,7 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 
 group :development, :test do
   gem 'pry', '~> 0.13.1'
+  gem 'rspec-rails'
 end
 
 group :development do
