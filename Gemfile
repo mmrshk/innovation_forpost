@@ -45,6 +45,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  #linters
+  gem "overcommit", '~> 0.59.1'
+  gem "rubocop", '~> 1.31.1', require: false
+  gem "brakeman", '~> 5.2.3', require: false
+  gem "rails_best_practices" ,'~> 1.23.1'
 end
 
 group :test do
