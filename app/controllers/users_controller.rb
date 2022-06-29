@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :authorized_user?, only: [:show, :edit, :update, :destroy]
   before_action :current_user
 
   # GET /users or /users.json
@@ -27,11 +27,11 @@ class UsersController < ApplicationController
     @user.role = 'user'
     respond_to do |format|
       if @user.save
-        unless super_admin?
-          path = user_url(@user)
-        else
+        if super_admin?
           path = admins_users_show_url
+        else
           log_in @user
+          path = user_url(@user)
         end
         format.html { redirect_to path, notice: "User was successfully created." }
         format.json { render :show, status: :created, location: @user }
@@ -40,7 +40,7 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
-  end
+  end 
 
   # PATCH/PUT /users/1 or /users/1.json
   def update
@@ -74,6 +74,25 @@ class UsersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+    end
+
+    # Confirms a logged-in user.
+    def logged_in_user
+      unless logged_in?
+        flash.now[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+
+    #Check users permitions to do with DB 
+    def authorized_user?
+      set_user
+      unless current_user?(@user) || super_admin?
+        respond_to do |format|
+          format.html { redirect_to root_url, notice: "You have no permitions to do that!" }
+          format.json { head :no_content }
+        end
+      end
     end
 
     # Only allow a list of trusted parameters through.
