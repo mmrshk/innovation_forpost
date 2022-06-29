@@ -1,0 +1,16 @@
+PreCommit:
+  RuboCop:
+    enabled: true
+    on_warn: fail
+    problem_on_unmodified_line: ignore
+    flags: ['--disable-pending-cops']
+  RailsBestPractices:
+    enabled: true
+    on_warn: fail
+    problem_on_unmodified_line: ignore
+PrePush:
+  Brakeman:
+    enabled: true
+    on_warn: fail
+    problem_on_unmodified_line: ignore
+    
