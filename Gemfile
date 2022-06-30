@@ -15,8 +15,12 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
+<<<<<<< HEAD
   gem 'pry', '~> 0.13.1'
   gem 'rspec-rails'
+=======
+  
+>>>>>>> f6ff7f8b1448423a2bd27231566c39d6ca0a5651
 end
 
 group :development do
@@ -30,4 +34,8 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+<<<<<<< HEAD
 end
+=======
+end
+>>>>>>> f6ff7f8b1448423a2bd27231566c39d6ca0a5651
