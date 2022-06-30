@@ -30,8 +30,7 @@ Metrics/BlockLength:
 Style/Documentation:
   Enabled: false
 AllCops:
+  NewCops: enable
   Exclude:
     - db/**/*
     - config/**/*
-AllCops:
-  NewCops: enable
