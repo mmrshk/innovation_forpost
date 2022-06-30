@@ -29,6 +29,6 @@ Metrics/BlockLength:
     - group
 Style/Documentation:
   Enabled: false
-
-
-    
+AllCops:
+  Exclude:
+    - db/schema.rb
