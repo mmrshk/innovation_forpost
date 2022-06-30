@@ -34,7 +34,7 @@ AllCops:
     - db/**
     - db/migrate/**
     - config/**
-    - config/enviroments/**
+    - config/environments/**
     - config/initializers/**
     - config/locales/**
     - config/webpack/**
