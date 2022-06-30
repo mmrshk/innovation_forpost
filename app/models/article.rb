@@ -1,18 +1,19 @@
 class Article < ApplicationRecord
-  enum status: {
-    draft: "draft",
-    published: "published",
-    trashed: "trashed"
-  }
+  # enum article_status: {
+  #   draft: "draft",
+  #   published: "published",
+  #   trashed: "trashed"
+  # }, prefix: :articles
   include PGEnum(status: %w[draft published trashed])
 
-  has_many :taggings, dependent: :destroy
-  has_many :tags, through: :taggings
-  has_one  :user
+  has_many    :taggings, dependent: :destroy
+  has_many    :tags, through: :taggings
+  belongs_to  :user
 
-  validates :title, presence: true, length: { maximum: 50 }
-  validates :text, presence: true
-  validates :autor, presence: true
-  validates :status, presence: true
+  default_scope -> { order(created_at: :desc) }
 
+  validates   :title, presence: true, length: { maximum: 50 }
+  validates   :text, presence: true
+  validates   :user, presence: true
+  validates   :status, presence: true
 end

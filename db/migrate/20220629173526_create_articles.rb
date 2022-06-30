@@ -1,26 +1,15 @@
 class CreateArticles < ActiveRecord::Migration[6.0]
-
-  # def up
-  #   execute <<-SQL
-  #     CREATE TYPE status AS ENUM ('draft', 'published', 'trashed');
-  #   SQL
-  # end
   
   def change
     create_table :articles do |t|
       t.string :title, null: false
       t.text :text, null: false
-      t.string :autor, null: false
-      # t.string :status, default: 0, null: false
+      t.references :user, null: false, foreign_key: true
+      # t.references :autor, null: false, foreign_key: { to_table: 'users' }
 
       t.timestamps
     end
+    add_index :articles, [:user_id, :created_at]
+    # add_index :articles, [:autor, :created_at]
   end
-
-  # def down
-  #   remove_column :articles, :status
-  #   execute <<-SQL
-  #     DROP TYPE status;
-  #   SQL
-  # end
 end
