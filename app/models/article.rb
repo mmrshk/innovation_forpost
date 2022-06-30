@@ -1,9 +1,4 @@
 class Article < ApplicationRecord
-  # enum article_status: {
-  #   draft: "draft",
-  #   published: "published",
-  #   trashed: "trashed"
-  # }, prefix: :articles
   include PGEnum(status: %w[draft published trashed])
 
   has_many    :taggings, dependent: :destroy
