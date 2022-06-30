@@ -31,4 +31,5 @@ Style/Documentation:
   Enabled: false
 AllCops:
   Exclude:
-    - db/schema.rb
+    - db/**
+    - config/**
