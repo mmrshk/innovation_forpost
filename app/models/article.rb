@@ -1,5 +1,6 @@
 class Article < ApplicationRecord
   include PGEnum(status: %w[draft published trashed])
+  include PGEnum(language: %w[ukr eng])
 
   has_many    :taggings, dependent: :destroy
   has_many    :tags, through: :taggings
@@ -11,4 +12,5 @@ class Article < ApplicationRecord
   validates   :text, presence: true
   validates   :user, presence: true
   validates   :status, presence: true
+  validates   :language, presence: true
 end
