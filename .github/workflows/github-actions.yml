@@ -55,4 +55,4 @@ jobs:
           bundle-audit update
           bundle-audit
          # bundle exec rubocop
-         # bundle exec brakeman -z
+           bundle exec brakeman -z
