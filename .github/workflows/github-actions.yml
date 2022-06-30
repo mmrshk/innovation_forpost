@@ -54,5 +54,5 @@ jobs:
           gem install bundle-audit
           bundle-audit update
           bundle-audit
-         # bundle exec rubocop
+           bundle exec rubocop
            bundle exec brakeman -z
