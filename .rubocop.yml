@@ -32,4 +32,9 @@ Style/Documentation:
 AllCops:
   Exclude:
     - db/**
+    - db/migrate/**
     - config/**
+    - config/enviroments/**
+    - config/initializers/**
+    - config/locales/**
+    - config/webpack/**
