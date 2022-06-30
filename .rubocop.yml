@@ -34,4 +34,3 @@ AllCops:
   Exclude:
     - db/**/*
     - config/**/*
-    - vendor/bundle/**/*
