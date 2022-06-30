@@ -33,4 +33,5 @@ AllCops:
   Exclude:
     - db/**/*
     - config/**/*
+AllCops:
   NewCops: enable
