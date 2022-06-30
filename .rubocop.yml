@@ -31,10 +31,5 @@ Style/Documentation:
   Enabled: false
 AllCops:
   Exclude:
-    - db/**
-    - db/migrate/**
-    - config/**
-    - config/environments/**
-    - config/initializers/**
-    - config/locales/**
-    - config/webpack/**
+    - db/**/*
+    - config/**/*
