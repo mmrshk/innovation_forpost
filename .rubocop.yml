@@ -36,5 +36,3 @@ AllCops:
     - config/**/*
     - vendor/bundle/**/*
     - bin/**/*
-
-
