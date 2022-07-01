@@ -34,3 +34,5 @@ AllCops:
   Exclude:
     - db/**/*
     - config/**/*
+
+
