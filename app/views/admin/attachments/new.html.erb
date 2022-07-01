@@ -1,0 +1,10 @@
+<% if @attachment.errors.present? %>
+  <% @attachment.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>>
+<% end %>
+<%= form_for @attachment, url: { controller: "admin/attachments", action: "create" } do |f| %>
+  <%= f.text_field :name%>
+  <%= f.file_field :media_file %>
+  <%= f.submit %>
+<% end %>
