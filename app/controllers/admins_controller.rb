@@ -2,14 +2,10 @@ class AdminsController < ApplicationController
   before_action :current_user, :logged_in_user
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :check_if_super_admmin?, only: [:users_show, :edit, :update, :destroy]
   
-
-
-
   def users_show
-    if @logged_in_user.role == 'super_admin'
     @users ||= User.all
-    end
   end
 
   def articles_show
@@ -58,6 +54,10 @@ class AdminsController < ApplicationController
 
     def logged_in_user
       @logged_in_user = current_user
+    end
+
+    def check_if_super_admmin?
+      true if @logged_in_user.role == 'super_admin'
     end
 
     def user_params
