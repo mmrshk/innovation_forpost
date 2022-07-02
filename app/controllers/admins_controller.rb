@@ -1,18 +1,19 @@
 class AdminsController < ApplicationController
-  before_action :current_user
+  before_action :current_user, :logged_in_user
   before_action :authenticate_user!
   
 
 
 
   def users_show
-    @user = current_user
-    if @user.role == 'super_admin'
-      @users ||= User.all
+    #logged_in_user
+    if @logged_in_user.role == 'super_admin'
+    @users ||= User.all
     end
   end
 
   def articles_show
+    #logged_in_user
     @user = current_user
     #if super_admin? || admin?
       #@articles ||= Articles.all
@@ -22,6 +23,7 @@ class AdminsController < ApplicationController
   # GET /users/1 or /users/1.json
   def show
     set_user
+    #logged_in_user
   end
 
   # GET /users/new
@@ -32,6 +34,7 @@ class AdminsController < ApplicationController
   # GET /users/1/edit
   def edit
     set_user
+    #logged_in_user
   end
 
   # POST /users or /users.json
@@ -90,12 +93,8 @@ class AdminsController < ApplicationController
       @user = User.find_by(id: params[:id])
     end
 
-    # Confirms a logged-in user.
     def logged_in_user
-      unless logged_in?
-        flash.now[:danger] = "Please log in."
-        redirect_to login_url
-      end
+      @logged_in_user = current_user
     end
 
     #Check users permitions to do with DB 

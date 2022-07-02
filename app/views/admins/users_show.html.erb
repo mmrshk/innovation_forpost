@@ -45,11 +45,11 @@
   <% end %>
     <br>
     
-    <%= link_to 'Add User', '#' %>
+  <h3>Information about logged in user:</h3>
   <% if user_signed_in? %>
-    <p>user:<%= @user.email %></p>
-    <p>role:<%= @user.role %></p>
-    <p>user's id: <%= @user.id %></p>
+    <p>user: <%= @logged_in_user.email %></p>
+    <p>role: <%= @logged_in_user.role %></p>
+    <p>user's id : <%= @logged_in_user.id %></p>
   <% end %>
 
 
