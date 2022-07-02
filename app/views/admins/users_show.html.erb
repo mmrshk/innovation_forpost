@@ -2,12 +2,14 @@
 <p id="notice"><%= notice %></p>
 
 <ul>
+<!--            -----Now it redundant because of using navbar -----
   <% if user_signed_in? %>
-    <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+    <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
   <% else %>
     <li><%= link_to 'Register', new_user_registration_path %></li>
     <li><%= link_to 'sign in', new_user_session_path %></li>
   <% end %>
+!-->  
 </ul>
   <% if super_admin? %>
     <h1>Users</h1>
@@ -39,12 +41,14 @@
         <% end %>
       </tbody>
     </table>
+  <h3>Some additional features:</h3>
+  <%= button_to 'Create new user', new_user_registration_path %>
   <% else %>
     <h1>Access dinied</h1>
     <h2>You should log in as a super_admin first!</h2>
   <% end %>
     <br>
-    
+
   <h3>Information about logged in user:</h3>
   <% if user_signed_in? %>
     <p>user: <%= @logged_in_user.email %></p>
