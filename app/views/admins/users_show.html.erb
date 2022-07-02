@@ -11,10 +11,11 @@
   <% end %>
 !-->  
 </ul>
+<div class= "body-container">
   <% if super_admin? %>
-    <h1>Users</h1>
+    <h1>Registered users</h1>
 
-    <table>
+    <table class="body-table">
       <thead>
         <tr>
           <th>Id</th>
@@ -42,7 +43,13 @@
       </tbody>
     </table>
   <h3>Some additional features:</h3>
-  <%= button_to 'Create new user', new_user_registration_path %>
+  <div class="add-features">
+    <ul>
+      <li><%= button_to 'Create new user', new_user_registration_path %></li>
+      <li><%= button_to 'Feature 2', new_user_registration_path %></li>
+      <li><%= button_to 'Feature 3', new_user_registration_path %></li>
+    </ul>
+  </div>
   <% else %>
     <h1>Access dinied</h1>
     <h2>You should log in as a super_admin first!</h2>
@@ -55,5 +62,5 @@
     <p>role: <%= @logged_in_user.role %></p>
     <p>user's id : <%= @logged_in_user.id %></p>
   <% end %>
-
+</div>
 
