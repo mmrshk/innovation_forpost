@@ -7,6 +7,9 @@ class AdminsController < ApplicationController
 
   def users_show
     @user = current_user
+    #@c_u = current_user
+    #puts "#### c_u: #{@c_u.id}"
+
     if @user.role == 'super_admin'
       @users ||= User.all
     end
