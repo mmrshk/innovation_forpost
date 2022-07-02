@@ -74,17 +74,9 @@ class AdminsController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
+    set_user
     @user.destroy
-
-    respond_to do |format|
-      if super_admin?
-        format.html { redirect_to admins_users_show_url, notice: "User was successfully destroyed." }
-        format.json { head :no_content }
-      else
-        format.html { redirect_to users_url, notice: "User was successfully destroyed." }
-        format.json { head :no_content }
-      end
-    end
+    redirect_to root_path    
   end
 
   private
