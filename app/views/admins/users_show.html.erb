@@ -2,17 +2,20 @@
 <p id="notice"><%= notice %></p>
 
 <ul>
+<!--            -----Now it redundant because of using navbar -----
   <% if user_signed_in? %>
-    <li><%= link_to 'Sign out', destroy_user_session_path, method: :delete %></li>
+    <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
   <% else %>
     <li><%= link_to 'Register', new_user_registration_path %></li>
     <li><%= link_to 'sign in', new_user_session_path %></li>
   <% end %>
+!-->  
 </ul>
+<div class= "body-container">
   <% if super_admin? %>
-    <h1>Users</h1>
+    <h1>Registered users</h1>
 
-    <table>
+    <table class="body-table">
       <thead>
         <tr>
           <th>Id</th>
@@ -34,22 +37,34 @@
             <td><%= user.role %></td>
             <td><%= link_to 'Show', user_path(user) %></td>
             <td><%= link_to 'Edit', edit_user_path(user) %></td>
-            <td><%= link_to 'Delete', user_path(user) %></td>
+            <% if user.role == 'super_admin' && last_super_admin? %>
+              <td class="last-super-admin-msg">You are a last super admin</td>
+            <% else %>
+              <td><%= button_to 'Destroy', delete_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
     </table>
+  <h3>Some additional features:</h3>
+  <div class="add-features">
+    <ul>
+      <li><%= button_to 'Create new user', new_user_registration_path %></li>
+      <li><%= link_to 'Feature 2', "#" %></li>
+      <li><%= link_to 'Feature 3', "#" %></li>
+    </ul>
+  </div>
   <% else %>
     <h1>Access dinied</h1>
     <h2>You should log in as a super_admin first!</h2>
   <% end %>
     <br>
-    
-    <%= link_to 'Add User', '#' %>
-  <% if user_signed_in? %>
-    <p>user:<%= @user.email %></p>
-    <p>role:<%= @user.role %></p>
-    <p>user's id: <%= @user.id %></p>
-  <% end %>
 
+  <h3>Information about logged in user:</h3>
+  <% if user_signed_in? %>
+    <p>user: <%= @logged_in_user.email %></p>
+    <p>role: <%= @logged_in_user.role %></p>
+    <p>user's id : <%= @logged_in_user.id %></p>
+  <% end %>
+</div>
 

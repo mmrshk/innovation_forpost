@@ -1,25 +1,22 @@
 <div class="container">
-    <%= link_to "Home", root_path, id: "logo" %>
-    <nav>
-      
-      <ul>
-        <li><%= link_to "Home", root_path %></li>
-        <li><%= link_to "Help", "#" %></li>
-        <% if user_signed_in? %>
-          
-          <li><%= link_to "Profile", user_path(@user) %></li>
-          <li><%= link_to "Settings", '#' %></li>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-          <% if admin? %>
-            <li><%= link_to "Articles", admins_articles_show_path %></li>
-          <% end %>
+  <%= link_to "Root", root_path, id: "logo" %>
+  <nav class="admin-navbar">
+    <ul class="ul-admin-navbar" >
+      <% if user_signed_in? %>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "Profile", user_path(@logged_in_user) %></li>
+        <li><%= link_to "Settings", edit_user_path(@logged_in_user) %></li>
+        <% if admin? || super_admin? %>
+          <li><%= link_to "Articles", admins_articles_show_path %></li>
+          <li><%= link_to "Link3", '#' %></li>
+          <li><%= link_to "Link4", "#" %></li>
           <% if super_admin? %>
-            <li><%= link_to "Articles", admins_articles_show_path %></li>
             <li><%= link_to "Users", admins_users_show_path %></li>
           <% end %>
-        <% else %>
-          <li><%= link_to "Log in", new_user_session_path %></li>
         <% end %>
-      </ul>
-    </nav>
-  </div>
+      <% else %>
+        <li><%= link_to "Log in", new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+</div>
