@@ -80,14 +80,14 @@ body {
 .body-container {
   margin: 0.0em 0 0 0;
   padding: 0 0 0 0;
-  width: 50%;
+  width: 60%;
 
   h1 {
     text-align: center;
   }
   
   .body-table {
-    font-size: 1.2em;
+    font-size: 1.0em;
   }
   thead {
     border: dotted 3px;
@@ -127,4 +127,11 @@ body {
       }
     }
   }
+}
+
+// admins/_form.html.erb
+
+.last-super-admin-msg {
+  color: red;
+  font-weight: bold;
 }

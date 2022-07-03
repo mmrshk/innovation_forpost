@@ -37,7 +37,11 @@
             <td><%= user.role %></td>
             <td><%= link_to 'Show', user_path(user) %></td>
             <td><%= link_to 'Edit', edit_user_path(user) %></td>
-            <td><%= button_to 'Destroy', delete_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% if user.role == 'super_admin' && last_super_admin? %>
+              <td class="last-super-admin-msg">You are a last super admin</td>
+            <% else %>
+              <td><%= button_to 'Destroy', delete_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

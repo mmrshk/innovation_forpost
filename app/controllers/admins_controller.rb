@@ -4,6 +4,7 @@ class AdminsController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :check_if_super_admmin?, only: [:users_show, :edit, :update, :destroy]
   
+  
   def users_show
     @users ||= User.all
   end
@@ -30,19 +31,19 @@ class AdminsController < ApplicationController
   end 
 
   def update
-    respond_to do |format|
+    unless User.find_by(id: params[:id]).role == 'super_admin' && last_super_admin? && params[:user][:role] != 'super_admin'
       if @user.update(user_params)
-        format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
-        format.json { render :show, status: :ok, location: @user }
+        redirect_to user_url(@user), notice: "User was successfully updated."
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        render :edit, status: :unprocessable_entity
       end
+    else
+      redirect_to user_url(@user), notice: "You cannot change a super_admin status being the last one."
     end
   end
 
   def destroy
-    @user.destroy
+    @user.destroy unless last_super_admin?
     redirect_to root_path    
   end
 
@@ -58,6 +59,15 @@ class AdminsController < ApplicationController
 
     def check_if_super_admmin?
       true if @logged_in_user.role == 'super_admin'
+    end
+
+    def last_super_admin?
+      super_admin_count = 0
+      @users ||= User.all
+      @users.map { |user|
+        super_admin_count += 1 if user.role == 'super_admin'
+      }
+      true if super_admin_count < 2
     end
 
     def user_params
