@@ -5,9 +5,9 @@ require 'rails_helper'
 RSpec.describe ArticleTag, type: :model do
   # it 'returns tag' do
   #   article = Article.create(
-  #     title: 'First Article', 
-  #     text: 'Some text for First Article', 
-  #     user_id: 1, 
+  #     title: 'First Article',
+  #     text: 'Some text for First Article',
+  #     user_id: 1,
   #     status: 'published',
   #     language: 'eng'
   #   )
