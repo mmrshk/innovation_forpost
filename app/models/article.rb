@@ -15,6 +15,6 @@ class Article < ApplicationRecord
   validates   :title, presence: true, length: { maximum: 50 }
   validates   :text, presence: true
   validates   :user, presence: true
-  validates   :status, presence: true, inclusion: { in: VALID_STATUSES }
-  validates   :language, presence: true, inclusion: { in: LANGUAGES }
+  validates   :status, presence: true
+  validates   :language, presence: true
 end
