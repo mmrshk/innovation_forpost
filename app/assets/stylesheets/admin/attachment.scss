@@ -1,3 +1,56 @@
 // Place all the styles related to the admin/attachment controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.table-attachment {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid #999;
+  padding: 0.5rem;
+ 
+}
+
+.title {
+  margin-left: 20px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: grey;
+}
+
+.block-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  
+}
+
+.submit-button {
+  font-size: 14px;
+  width: 200px;
+  height:30px;
+  margin-top: 10px;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 2px;
+}
+
+.path-new-attachment {
+  text-decoration: none;
+  color: grey;
+}
+
+.path-attachment {
+  margin: 20px;
+  margin-top: 20px;
+}
+
+.attachment-link {
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    color: blue;
+  }
+}

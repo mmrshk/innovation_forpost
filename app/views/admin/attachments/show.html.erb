@@ -1,0 +1,6 @@
+<ul>
+  <li><%= @attachment.id %></li>
+  <li><%= @attachment.name %></li>
+  <li><%= image_tag @attachment.media_file %></li>
+  <li><%= link_to "Delete", admin_attachment_path(@attachment.id), method: :delete %></li>
+</ul>

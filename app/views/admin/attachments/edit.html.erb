@@ -4,8 +4,6 @@
   <% end %>
 <% end %>
 
-<p class="title">Add an attachment:</p>
-
 <div class="block-form">
   <%= form_for @attachment, url: { controller: "admin/attachments", action: "create" } do |f| %>
     <%= f.label :name, 'Name:' %>

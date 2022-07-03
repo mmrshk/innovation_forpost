@@ -3,6 +3,10 @@ class Admin::AttachmentsController < ApplicationController
     @attachments = Attachment.all
   end
 
+  def show 
+    @attachment = Attachment.find(params[:id])
+  end
+
   def new
     @attachment = Attachment.new
   end
@@ -16,19 +20,26 @@ class Admin::AttachmentsController < ApplicationController
     end
   end
 
-  def update
-    @attachment = Dog.find(params[:id])
-    @attachment.update(attachment_params)
+  def edit
+    @attachment = Attachment.find(params[:id])
+  end
 
-    redirect_to new_admin_attachment_path
+  def update
+    @attachment = Attachment.find(params[:id])
+    if @attachment.update(attachment_params)
+      redirect_to admin_attachment_path(@attachment.id)
+    else
+      render :edit
+    end
   end
 
   def destroy
     @attachment = Attachment.find(params[:id])
     @attachment.destroy
-
-    redirect_to new_admin_attachment_path
+    redirect_to admin_attachments_path
   end
+
+  private
 
   def attachment_params
     params.require(:attachment).permit(:name, :media_file)

@@ -1,5 +1,27 @@
-<ul>
-  <% @attachments.each do |attachment| %>
-    <li><%= attachment.name %> </li>
-  <% end %>
-</ul>
+<div class="path-attachment"><%= link_to "Add attachment", new_admin_attachment_path, class: 'path-new-attachment' %></div>
+<table class="table-attachment">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Image</th>
+      <th>Links</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @attachments.each do |attachment| %>
+      <tr>
+        <td><%= attachment.id %></td>
+        <td><%= attachment.name %></td>
+        <td> 
+          <%= image_tag attachment.media_file.variant(resize: "200x200"), skip_pipeline: true if attachment.media_file.attached? %>
+        </td>
+        <td>
+          <%= link_to "Show", admin_attachment_path(attachment.id), class: "attachment-link" %> 
+          <%= link_to "Edit", edit_admin_attachment_path(attachment.id), class: "attachment-link" %> 
+          <%= link_to "Delete", admin_attachment_path(attachment.id), method: :delete, class: "attachment-link" %> 
+        </td>
+      </tr>
+    <% end %>  
+  </tbody>
+</table> 
