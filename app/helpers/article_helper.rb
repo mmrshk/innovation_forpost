@@ -5,10 +5,9 @@ module ArticleHelper
     draft: 0,
     published: 1,
     trashed: 2
-   }
-   
+  }.freeze
   LANGUAGES = {
     ukr: 0,
-    eng: 1,
-   }
+    eng: 1
+  }.freeze
 end

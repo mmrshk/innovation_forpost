@@ -5,9 +5,9 @@ require 'rails_helper'
 RSpec.describe Article, type: :model do
   it 'returns title' do
     article = Article.create(
-      title: 'First Article', 
-      text: 'Some text for First Article', 
-      user_id: 1, 
+      title: 'First Article',
+      text: 'Some text for First Article',
+      user_id: 1,
       status: 'published',
       language: 'eng'
     )
@@ -16,9 +16,9 @@ RSpec.describe Article, type: :model do
 
   it 'returns text' do
     article = Article.create(
-      title: 'First Article', 
-      text: 'Some text for First Article', 
-      user_id: 1, 
+      title: 'First Article',
+      text: 'Some text for First Article',
+      user_id: 1,
       status: 'published',
       language: 'eng'
     )
@@ -27,9 +27,9 @@ RSpec.describe Article, type: :model do
 
   it 'returns status' do
     article = Article.create(
-      title: 'First Article', 
-      text: 'Some text for First Article', 
-      user_id: 1, 
+      title: 'First Article',
+      text: 'Some text for First Article',
+      user_id: 1,
       status: 'published',
       language: 'eng'
     )
@@ -38,9 +38,9 @@ RSpec.describe Article, type: :model do
 
   it 'returns language' do
     article = Article.create(
-      title: 'First Article', 
-      text: 'Some text for First Article', 
-      user_id: 1, 
+      title: 'First Article',
+      text: 'Some text for First Article',
+      user_id: 1,
       status: 'published',
       language: 'eng'
     )
