@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class Article < ApplicationRecord
   include ArticleHelper
 
-  enum status: VALID_STATUSES, _prefix: true
+  enum status:   VALID_STATUSES, _prefix: true
   enum language: LANGUAGES, _prefix: true
 
   has_many    :article_tags

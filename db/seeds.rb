@@ -23,6 +23,5 @@ end
     text: "Text #{x} Words go here Idk",
     language: ["ukr", "eng"].sample,
     status: ["draft", "published", "trashed"].sample
-    
   )
 end

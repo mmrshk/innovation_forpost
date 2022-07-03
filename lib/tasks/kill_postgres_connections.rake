@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 task :kill_postgres_connections => :environment do
   db_name = "#{Rails.configuration.database_configuration[Rails.env]['database']}"
   sh = "ps xa | grep postgres | grep #{db_name} | awk '{print $1}' | sudo xargs kill"
