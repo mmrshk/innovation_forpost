@@ -1,0 +1,39 @@
+<%= form_with model: article do |form| %>
+  <div>
+    <%= label_tag("Title:") %> <br>
+    <%= form.text_field :title %>
+    <% article.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= label_tag("Autor:") %> <br>
+    <%= form.text_field :user_id %>
+    <% article.errors.full_messages_for(:user_id).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= label_tag("Text:") %><br>
+    <%= form.text_area :text %>
+    <% article.errors.full_messages_for(:text).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= label_tag("Language:") %> <br>
+    <%= form.select :language, ['ukr', 'eng',] %>
+  </div>
+
+  <div>
+    <%= label_tag("Status:") %><br>
+    <%= form.select :status, ['draft', 'published', 'trashed'] %>
+  </div>
+
+  <div>
+    <p><%= form.submit %></p>
+  </div>
+<% end %>

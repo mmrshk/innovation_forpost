@@ -1,0 +1,17 @@
+<h1><%= @article.title %></h1>
+<span><%= @article.user.email %></span> |
+<span><%= @article.created_at %></span>
+
+<div> <%= raw @article.text %></div>
+
+<hr>
+<div><%= @article.tags.name %></div>
+<hr>
+
+<div>
+  <%= link_to "Edit", edit_article_path(@article) %> |
+  <%= link_to "Delete", article_path(@article), :confirm => "Are you sure?", :method => :delete %> | 
+  <%= link_to 'Back', articles_path %>
+</div>
+<hr>
+
