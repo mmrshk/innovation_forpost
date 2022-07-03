@@ -2,8 +2,8 @@ class Article < ApplicationRecord
   include PGEnum(status: %w[draft published trashed])
   include PGEnum(language: %w[ukr eng])
 
-  has_many    :taggings, dependent: :destroy
-  has_many    :tags, through: :taggings
+  has_many    :article_tags
+  has_many    :tags, through: :article_tags
   belongs_to  :user
 
   default_scope -> { order(created_at: :desc) }
