@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
-
   def index
     @articles = Article.all
   end
@@ -40,12 +39,13 @@ class ArticlesController < ApplicationController
 
   def destroy
     @article = Article.find(params[:id]).destroy
-    flash[:success] = "The article was successfully destroyed!"
+    flash[:success] = 'The article was successfully destroyed!'
     redirect_to articles_path, status: :see_other
   end
 
   private
-    def article_params
-      params.require(:article).permit(:title, :text, :user_id, :language, :status)
-    end
+
+  def article_params
+    params.require(:article).permit(:title, :text, :user_id, :language, :status)
+  end
 end
