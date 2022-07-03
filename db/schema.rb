@@ -15,10 +15,6 @@ ActiveRecord::Schema.define(version: 2022_07_03_122917) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  # These are custom enum types that must be created before they can be used in the schema definition
-  create_enum "languages", ["ukr", "eng"]
-  create_enum "statuses", ["draft", "published", "trashed"]
-
   create_table "article_tags", force: :cascade do |t|
     t.bigint "tag_id", null: false
     t.bigint "article_id", null: false
@@ -34,8 +30,8 @@ ActiveRecord::Schema.define(version: 2022_07_03_122917) do
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.enum "status", as: "statuses"
-    t.enum "language", as: "languages"
+    t.integer "status", default: 0
+    t.integer "language", default: 0
     t.index ["user_id", "created_at"], name: "index_articles_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
