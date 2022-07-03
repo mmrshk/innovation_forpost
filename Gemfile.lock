@@ -234,6 +234,8 @@ GEM
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     sexp_processor (4.16.1)
+    shoulda-matchers (5.1.0)
+      activesupport (>= 5.2.0)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -299,6 +301,7 @@ DEPENDENCIES
   rubocop (~> 1.31.1)
   sass-rails (>= 6)
   selenium-webdriver
+  shoulda-matchers (~> 5.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
