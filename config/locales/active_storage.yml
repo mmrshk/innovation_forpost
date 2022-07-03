@@ -1,5 +1,11 @@
 ua:
-  errors:
+  activerecord:
+    errors:
+      models:
+        attachment:
+          attributes:
+            media_file:
+              blank: "should be attached"
     messages:
       content_type_invalid: "has an invalid content type"
       file_size_out_of_range: "size %{file_size} is not between required range"
