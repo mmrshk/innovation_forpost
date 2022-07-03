@@ -1,7 +1,16 @@
 # frozen_string_literal: true
 
 class Article < ApplicationRecord
-  include ArticleHelper
+  VALID_STATUSES = {
+    draft: 0,
+    published: 1,
+    trashed: 2
+  }.freeze
+
+  LANGUAGES = {
+    ukr: 0,
+    eng: 1
+  }.freeze
 
   enum status:   VALID_STATUSES, _prefix: true
   enum language: LANGUAGES, _prefix: true
