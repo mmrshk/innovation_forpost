@@ -12,6 +12,9 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+    <%= render 'admins/navbar' %> 
+    <div class="yield-body">
+      <%= yield %>
+    </div>
   </body>
 </html>

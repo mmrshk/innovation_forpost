@@ -1,0 +1,63 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <% form.label     :name %>
+    <% form.text_area :name %>
+  </div>
+
+  <div class= "form-field-block">
+    <div class="field">
+      <p><%= form.label :email %>:</p>
+      <%= form.email_field :email, class: 'field-string' %>
+    </div>  
+
+    <div class="field">
+      <p><%= form.label "Contact number" %>:</p>
+      <%= form.telephone_field :phone_number, class: 'field-string' %>
+    </div>
+  </div>
+
+  <div>
+    <% if super_admin? %>
+      <% if @user.role == 'super_admin' && last_super_admin? %>
+        <div class="last-super-admin-msg">You are a last super admin, leave yourself alive, please.</div>
+      <% else %>
+        <div class="radio-block">
+          <p>Role selector</p>
+          <%= form.radio_button :role, 'user' %>
+          <%= form.label :user, "Row user" %>
+          <%= form.radio_button :role, 'admin' %>
+          <%= form.label :admin, "Admin" %>
+          <%= form.radio_button :role, 'super_admin' %>
+          <%= form.label :super_admin, "Super admin" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <% unless super_admin? %>
+    <div class="field">
+      <%= form.label     :password %>
+      <%= form.password_field :password %>
+    </div>
+
+    <div class="field">
+      <%= form.label     :password_confirmation %>
+      <%= form.password_field :password_confirmation %>
+    </div>
+  <% end %>
+  <div class="actions">
+    <%= form.submit "Apply changes" %>
+  </div>
+<% end %>
