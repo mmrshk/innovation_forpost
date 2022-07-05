@@ -21,5 +21,6 @@ module InnovationForpost
 
     config.i18n.available_locales = [:en, :ua]
     config.i18n.default_locale = :ua
+    config.factory_bot.definition_file_paths = ["spec/factories"]
   end
 end
