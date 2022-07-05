@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 class Article < ApplicationRecord
+  # this is required for the following function
+  # scope :sorted, -> { order(created_at: :desc) }
+
   VALID_STATUSES = {
     draft: 0,
     published: 1,
@@ -8,22 +11,17 @@ class Article < ApplicationRecord
   }.freeze
 
   LANGUAGES = {
-    ukr: 0,
-    eng: 1
+    ua: 0,
+    en: 1
   }.freeze
 
-  enum status:   VALID_STATUSES, _prefix: true
-  enum language: LANGUAGES, _prefix: true
+  enum status:   VALID_STATUSES
+  enum language: LANGUAGES
 
-  has_many    :article_tags
-  has_many    :tags, through: :article_tags
   belongs_to  :user
+  has_many    :article_tags, dependent: :nullify
+  has_many    :tags, through: :article_tags, dependent: :nullify
 
-  default_scope -> { order(created_at: :desc) }
-
-  validates   :title, presence: true, length: { maximum: 50 }
-  validates   :text, presence: true
-  validates   :user, presence: true
-  validates   :status, presence: true
-  validates   :language, presence: true
+  validates   :title, :text, :user, :status, :language, presence: true
+  validates   :title, length: { maximum: 50 }
 end
