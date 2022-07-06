@@ -21,9 +21,9 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
-  gem 'pry', '~> 0.14.1'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'pry', '~> 0.14.1'
   gem 'rspec-rails'
 end
 
