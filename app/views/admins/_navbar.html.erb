@@ -1,0 +1,22 @@
+<div class="container">
+  <%= link_to "Root", root_path, id: "logo" %>
+  <nav class="admin-navbar">
+    <ul class="ul-admin-navbar" >
+      <% if user_signed_in? %>
+        <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
+        <li><%= link_to "Profile", '#' %></li>
+        <li><%= link_to "Settings", '#' %></li>
+        <% if admin? || super_admin? %>
+          <li><%= link_to "Articles", '#' %></li>
+          <li><%= link_to "Link3", '#' %></li>
+          <li><%= link_to "Link4", "#" %></li>
+          <% if super_admin? %>
+            <li><%= link_to "Users", admins_users_path %></li>
+          <% end %>
+        <% end %>
+      <% else %>
+        <li><%= link_to "Log in", new_user_session_path %></li>
+      <% end %>
+    </ul>
+  </nav>
+</div>
