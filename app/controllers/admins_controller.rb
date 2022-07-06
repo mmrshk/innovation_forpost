@@ -6,7 +6,7 @@ class AdminsController < ApplicationController
   
   
   def users_show
-    @users ||= User.all
+    @users = User.all
   end
 
   def articles_show
@@ -31,14 +31,14 @@ class AdminsController < ApplicationController
   end 
 
   def update
-    if User.find_by(id: params[:id]).role == 'super_admin' && last_super_admin? && params[:user][:role] == 'super_admin'
-      redirect_to user_url(@user), notice: "You cannot change a super_admin status being the last one."
-    else
+    unless User.find_by(id: params[:id]).role == 'super_admin' && last_super_admin? && params[:user][:role] != 'super_admin'
       if @user.update(user_params)
         redirect_to user_url(@user), notice: "User was successfully updated."
       else
         render :edit, status: :unprocessable_entity
       end
+    else
+      redirect_to user_url(@user), notice: "You cannot change a super_admin status being the last one."
     end
   end
 
@@ -47,20 +47,22 @@ class AdminsController < ApplicationController
     redirect_to root_path    
   end
 
+  def logged_in_user
+    @logged_in_user = current_user
+  end
+
+  def check_if_super_admmin?
+    current_user.role == 'super_admin'
+  end
   
   private
-    
     def set_user
-      @user ||= User.find(params[:id]) rescue not_found
+      @user = User.find_by(id: params[:id])
     end
 
-    def logged_in_user
-      @logged_in_user = current_user
-    end
+    
 
-    def check_if_super_admmin?
-      true if @logged_in_user.role == 'super_admin'
-    end
+    
 
     def last_super_admin?
       super_admin_count = 0
