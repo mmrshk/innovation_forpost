@@ -1,0 +1,35 @@
+.radio-block {
+  border: 1px dotted;
+  width: fit-content;
+  margin: 0.6em 0 0.6em 0;
+
+
+  p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 0.3em 0 .5em 0;
+  }
+}
+
+.form-field-block {
+  margin: 1.5em 0 1.5em 0;
+
+  .field {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+    width: fit-content;
+    margin: 0.2em 0 0.2em 0;
+
+    p {
+      margin: 0.2em 0 0.2em 0;
+    }
+
+    .field-string {
+      font-size: 0.8em;
+      font-family: 'Courier New', Courier, monospace
+
+    }
+  }
+}

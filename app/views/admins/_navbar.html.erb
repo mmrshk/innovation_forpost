@@ -4,14 +4,14 @@
     <ul class="ul-admin-navbar" >
       <% if user_signed_in? %>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-        <li><%= link_to "Profile", user_path(@logged_in_user) %></li>
-        <li><%= link_to "Settings", edit_user_path(@logged_in_user) %></li>
+        <li><%= link_to "Profile", '#' %></li>
+        <li><%= link_to "Settings", '#' %></li>
         <% if admin? || super_admin? %>
-          <li><%= link_to "Articles", admins_articles_show_path %></li>
+          <li><%= link_to "Articles", '#' %></li>
           <li><%= link_to "Link3", '#' %></li>
           <li><%= link_to "Link4", "#" %></li>
           <% if super_admin? %>
-            <li><%= link_to "Users", admins_users_show_path %></li>
+            <li><%= link_to "Users", admins_users_path %></li>
           <% end %>
         <% end %>
       <% else %>
