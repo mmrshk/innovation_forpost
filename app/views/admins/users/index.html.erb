@@ -45,14 +45,14 @@
         <% end %>
       </tbody>
     </table>
-  <h3>Some additional features:</h3>
-  <div class="add-features">
-    <ul>
-      <li><%= link_to 'Create new user', new_admins_user_path %></li>
-      <li><%= link_to 'Feature 2', "#" %></li>
-      <li><%= link_to 'Feature 3', "#" %></li>
-    </ul>
-  </div>
+    <h3>Some additional features:</h3>
+    <div class="add-features">
+      <ul>
+        <li><%= link_to 'Create new user', new_admins_user_path %></li>
+        <li><%= link_to 'Feature 2', "#" %></li>
+        <li><%= link_to 'Feature 3', "#" %></li>
+      </ul>
+    </div>
   <% else %>
     <h1>Access dinied</h1>
     <h2>You should log in as a super_admin first!</h2>
@@ -64,5 +64,7 @@
     <p>user: <%= current_user.email %></p>
     <p>role: <%= current_user.role %></p>
     <p>user's id : <%= current_user.id %></p>
+  <% else %>
+    <%= redirect_to new_user_session_path %>
   <% end %>
 </div>

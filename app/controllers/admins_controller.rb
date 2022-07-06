@@ -13,7 +13,7 @@ class AdminsController < ApplicationController
   end
 
   def admin?
-    current_user.role == 'admin'
+    true if signed_in? && current_user.role == 'admin'
   end
 
   def set_user
