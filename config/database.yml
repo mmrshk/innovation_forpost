@@ -10,7 +10,7 @@ default: &default
 
 development:
   <<: *default
-  database: 'innovation-forpost_development'
+  database: 'inn_forp_dev_t2'
 
 production:
   <<: *default
@@ -18,4 +18,4 @@ production:
 
 test:
   <<: *default
-  database: 'innovation-forpost_test'
+  database: 'inn_forp_test_ts'
