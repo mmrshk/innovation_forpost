@@ -1,0 +1,63 @@
+// navigation
+#logo {
+  font-size: 1.5em;
+  font-style: italic;
+  color: rgb(230, 241, 67);
+  &:hover{
+    color: rgb(247, 156, 156);
+  }
+}
+
+a {
+  color: black;
+}
+.container {
+  display: grid;
+  grid-template-columns: 180px;
+  background-color: rgb(105, 105, 105);
+  color: rgb(66, 40, 40);
+  margin-left: 0%;
+  padding-right: 5%;
+  font-size: 1.1em;
+  font-weight: bold;
+  display: flex;
+  place-content: space-between;
+  justify-content: unset;
+  
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  background: none;
+  position: unset;
+  height: 60px;
+  width: 100%;
+  padding: 0;
+
+ 
+}
+
+.ul-admin-navbar {
+  display: flex;
+  list-style-type: none;
+  margin-left: 0px;
+  padding: 0px;
+  color: black;
+    
+  a {
+    color: black;
+    font-size: 1.2em;
+    padding: 0.1em 1em;
+    //margin: 0 1.5em 0 1.5em;
+  }
+
+  li {
+    &:hover{
+      font-weight: bold;
+      font-size: 1.0em;
+      a {
+        color: rgb(255, 255, 255);
+      }
+    }
+  }
+}
