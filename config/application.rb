@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'boot'
 
 require 'rails/all'
@@ -19,8 +21,8 @@ module InnovationForpost
       g.test_framework :rspec
     end
 
-    config.i18n.available_locales = [:en, :ua]
-    config.i18n.default_locale = :ua
-    config.factory_bot.definition_file_paths = ["spec/factories"]
+    config.i18n.available_locales = %i[en ua]
+    config.i18n.default_locale = :en
+    config.factory_bot.definition_file_paths = ['spec/factories']
   end
 end
