@@ -21,10 +21,10 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <%# <div class="fields"> %>
-  <%#   <%= f.label :phone %1><br /> %>
-  <%#   <%= f.field :phone %1> %>
-  <%# </div> %>
+  <div class="field">
+    <%= f.label :phone_number %><br />
+    <%= f.text_field :phone_number, autofocus: true %>
+  </div>
 
   <div class="actions">
     <%= f.submit "Sign up" %>
