@@ -22,6 +22,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'pry', '~> 0.14.1'
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'rspec-rails'
 end
 
@@ -42,5 +44,9 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 5.0'
+<<<<<<< HEAD
+=======
+  # Easy installation and use of web drivers to run system tests with browsers
+>>>>>>> main
   gem 'webdrivers'
 end
