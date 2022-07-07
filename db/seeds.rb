@@ -10,7 +10,7 @@
 
 5.times do |x|
   User.create!(
-    email: "user#{x}@example.com",
+    email: "user#{x + 5}@example.com",
     password: '123456',
     password_confirmation: '123456',
     role: %w[admin superadmin].sample,
