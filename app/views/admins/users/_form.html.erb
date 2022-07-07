@@ -27,7 +27,7 @@
   </div>
   
   <div>
-    <% if super_admin? %>
+    <% if super_admin? && @path == "/admins/users/#{@user.id}" %>
       <% if @user.role == 'super_admin' && last_super_admin? %>
         <div class="last-super-admin-msg">You are a last super admin, leave yourself alive, please.</div>
       <% else %>
