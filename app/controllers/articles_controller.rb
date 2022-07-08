@@ -2,11 +2,9 @@
 
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy]
-  rescue_from ActiveRecord::RecordNotDestroyed, with: :article_not_destroyed
-  rescue_from ActiveRecord::RecordNotFound, with: :article_not_found
 
   def index
-    @articles = Article.sorted.paginate(page: params[:page])
+    @articles = Article.sorted_desc.paginate(page: params[:page])
   end
 
   def show; end
@@ -18,9 +16,9 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     if @article.save
-      redirect_to @article, notice: 'The article was successfully created.'
+      redirect_to @article, notice: I18n.t('controllers.admin.article.create_success')
     else
-      flash.now[:alert] = 'Could not create the article. Please try again'
+      flash.now[:alert] = I18n.t('controllers.admin.article.create_unsuccess')
       render :new
     end
   end
@@ -29,15 +27,20 @@ class ArticlesController < ApplicationController
 
   def update
     if @article.update(article_params)
-      redirect_to article_path(@article), notice: 'The article was successfully updated.'
+      redirect_to article_path(@article), notice: I18n.t('controllers.admin.article.create_unsuccess')
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
   def destroy
-    article = set_article.destroy
-    redirect_to articles_path, notice: "The article '#{article.title}' was successfully destroyed."
+    article = set_article
+    if @article.destroy!
+      redirect_to articles_path, notice: "#{I18n.t('controllers.admin.article.destroy_success_1')}'#{article.title}'
+      #{I18n.t('controllers.admin.article.destroy_success_2')}"
+    else
+      flash[:notice] = @article.errors
+    end
   end
 
   private
@@ -47,16 +50,6 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:title, :text, :user_id, :language, :status)
-  end
-
-  def article_not_destroyed(err)
-    message_result_deleted = "Article failed to delete: #{err.record.errors.full_messages}"
-    redirect_to articles_path, notice: message_result_deleted
-  end
-
-  def article_not_found
-    flash[:notice] = 'Article not found'
-    redirect_to articles_path # redirect_to page_404
+    params.require(:article).permit(:title, :text, :user_id, :language, :status, :tag_list)
   end
 end
