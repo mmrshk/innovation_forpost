@@ -1,1 +1,9 @@
 ua:
+  controllers:
+    admin:
+      article:
+        create_success: 'Статтяуспішно створена.'
+        create_unsuccess: Неможливо створити статтю. Спробуйте пізніше'
+        update_success: 'Стаття була успішно оновлена.'
+        destroy_success_1: 'Стаття '
+        destroy_success_2: ' була успішно видалена.'
