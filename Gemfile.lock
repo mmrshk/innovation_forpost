@@ -125,10 +125,6 @@ GEM
     nokogiri (1.13.6)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    nokogiri (1.13.6-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.13.6-x86_64-linux)
-      racc (~> 1.4)
     orm_adapter (0.5.0)
     overcommit (0.59.1)
       childprocess (>= 0.6.3, < 5)
@@ -298,8 +294,8 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise (~> 4.8, >= 4.8.1)
-  factory_bot_rails
-  faker
+  factory_bot_rails (~> 6.2.0)
+  faker (~> 2)
   jbuilder (~> 2.7)
   listen (~> 3.2)
   overcommit (~> 0.59.1)
