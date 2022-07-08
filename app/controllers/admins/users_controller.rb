@@ -33,7 +33,8 @@ module Admins
     end
 
     def update
-      if User.find_by(id: params[:id]).role == 'super_admin' && last_super_admin? && params[:user][:role] == 'super_admin'
+      role = 'super_admin'
+      if User.find_by(id: params[:id]).role == role && last_super_admin? && params[:user][:role] == role
         redirect_to admins_user_url(@user), notice: 'You cannot change a super_admin status being the last one.'
       elsif @user.update(user_params)
         redirect_to admins_user_url(@user), notice: 'User was successfully updated.'
