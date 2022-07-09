@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class Article < ApplicationRecord
+  TITLE_LENGTH_MAX = 50
   VALID_STATUSES = {
     draft: 0,
     published: 1,
@@ -20,7 +21,7 @@ class Article < ApplicationRecord
   has_many    :tags, through: :article_tags
 
   validates   :title, :text, :user, :status, :language, presence: true
-  validates   :title, length: { maximum: 50 }
+  validates   :title, length: { maximum: TITLE_LENGTH_MAX }
 
   # This is required for the following function in another PR
   # scope :sorted_desc, -> { order(created_at: :desc) }
