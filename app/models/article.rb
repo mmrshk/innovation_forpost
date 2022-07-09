@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 
 class Article < ApplicationRecord
-  # this is required for the following function
-  scope :sorted, -> { order(created_at: :desc) }
-
   VALID_STATUSES = {
     draft: 0,
     published: 1,
@@ -24,6 +21,8 @@ class Article < ApplicationRecord
 
   validates   :title, :text, :user, :status, :language, presence: true
   validates   :title, length: { maximum: 50 }
+
+  # scope :sorted_desc, -> { order(created_at: :desc) }
 
   def tag_list=(tags_string)
     tag_names = tags_string.split(',').collect { |s| s.strip.downcase }.uniq
