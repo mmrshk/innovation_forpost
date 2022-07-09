@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   # devise said he wants to have a specified root rout, so:
   root to: 'home#index'
   resources :articles
+  resources :tags
 end

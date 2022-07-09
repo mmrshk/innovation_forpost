@@ -1,1 +1,10 @@
 en:
+  controllers:
+    admin:
+      article:
+        create_success: 'Article was successfully created.'
+        create_unsuccess: 'Could not create the article. Please try again'
+        update_success: 'Article was successfully updated.'
+        destroy_success_1: 'The article '
+        destroy_success_2: ' was successfully destroyed.'
+        

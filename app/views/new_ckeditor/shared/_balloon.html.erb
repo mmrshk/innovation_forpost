@@ -1,0 +1,81 @@
+<div id="<%= id %>_div"></div>
+
+<script>
+  document.getElementById("<%= id %>_div").innerHTML = document.getElementById("<%= id %>").value;
+
+  BalloonEditor
+      .create( document.querySelector( '#<%= id %>_div' ), {
+        toolbar: {
+					items: [
+						'heading',
+						'|',
+						'bold',
+						'italic',
+						'underline',
+						'strikethrough',
+						'link',
+						'bulletedList',
+						'numberedList',
+						'alignment',
+						'|',
+						'indent',
+						'outdent',
+						'|',
+						'imageUpload',
+						'blockQuote',
+						'insertTable',
+						'mediaEmbed',
+						'undo',
+						'redo',
+						'fontFamily',
+						'fontSize',
+						'fontColor',
+						'fontBackgroundColor',
+						'highlight',
+						'horizontalLine',
+						'removeFormat',
+						'code',
+						'codeBlock',
+						'specialCharacters'
+          ]
+        },
+        simpleUpload: {
+          uploadUrl: '/upload',
+          headers: {
+              'X-CSRF-Token': document.querySelectorAll('meta[name="csrf-token"]')[0].content
+          }
+        },
+        language: 'en',
+        image: {
+          toolbar: [ 'imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight' ],
+
+            styles: [
+                'full',
+                'alignLeft',
+                'alignRight'
+            ]
+        },
+        table: {
+					contentToolbar: [
+						'tableColumn',
+						'tableRow',
+						'mergeTableCells',
+						'tableCellProperties',
+						'tableProperties'
+					]
+        },
+      } )
+      .then( editor => {
+        // edit code here
+        // if you want to change logic and for example
+        // to send data to server using AJAX
+        var editorHiddenField = document.getElementById("<%= id %>");
+        editor.model.document.on( 'change:data', () => {
+          editorHiddenField.value = editor.getData();
+          <%= raw options.dig("editor", "js") %>;
+        });
+      } )
+      .catch( error => {
+        console.error( error );
+      } );
+</script>

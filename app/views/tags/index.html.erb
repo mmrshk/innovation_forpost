@@ -1,0 +1,6 @@
+<% @tags.each do |tag| %>
+    <ul>
+      <li><%= link_to tag, tag_path(tag) %>
+    </ul>
+<% end %>
+<%= link_to 'Back', url_for(:back) %>
