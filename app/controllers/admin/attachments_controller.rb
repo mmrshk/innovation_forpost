@@ -37,8 +37,8 @@ module Admin
     end
 
     def destroy
-      @attachment = Attachment.find(params[:id])
-      @attachment.destroy
+      attachment = Attachment.find(params[:id])
+      attachment.destroy
       redirect_to admin_attachments_path
     end
 
