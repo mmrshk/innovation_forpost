@@ -19,7 +19,7 @@ module InnovationForpost
       g.test_framework :rspec
     end
 
-    config.i18n.available_locales = [:en, :ua]
-    config.i18n.default_locale = :ua
+    config.i18n.available_locales = [:en, :uk]
+    config.i18n.default_locale = :uk
   end
 end

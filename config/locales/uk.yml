@@ -1,5 +1,9 @@
-ua:
+uk:
+  en: "Англійська"
+  uk: "Українська"
   menu:
     innovateForpost: "Індиструальні парки"
     about: "Про нас"
     contacts: "Контакти"
+    signout: "Вийти"
+    login: "Увійти"

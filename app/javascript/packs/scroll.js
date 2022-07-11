@@ -1,12 +1,13 @@
 window.addEventListener('scroll', () => {
-  const topbar = document.getElementsByClassName("top-bar")[0];
-  const container = document.getElementsByClassName("container")[0];
+  const top = document.querySelector(".header-top"),
+  container = document.querySelector(".header-container"),
+  active = document.querySelector(".active");
 
-  if (window.scrollY > 30) {
-    topbar.style.padding = "0";
+  if (window.scrollY > 30 && !active) {
+    top.style.padding = "10px 0";
     container.style.boxShadow = "0 0 60px 0 #989898";
   } else {
-    topbar.style.padding = "30px 0";
+    top.style.padding = "30px 0";
     container.style.boxShadow = "none";
   }
 });

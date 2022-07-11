@@ -1,8 +1,25 @@
-<header>
-  <div class="container br">
-    <div class="top-bar">
+<div class="mobile-menu">
+  <ul class="mobile-menu_list">
+    <li class="item"><%= link_to t('menu.innovateForpost'), '#' %></li>
+    <li class="item"><%= link_to t('menu.about'), '#' %></li>
+    <li class="item"><%= link_to t('menu.contacts'), '#' %></li>
+    <% if user_signed_in? %>
+      <li class="item"><%= button_to t('menu.signout'), destroy_user_session_path, method: :delete %></li>
+    <% else %>
+      <li class="item"><%= link_to t('menu.login'), new_user_session_path, class: "mobile-login" %></li>
+    <% end %>
+    <% if params[:locale] == "uk" %>
+      <li class="item"><%= link_to t('en'), root_path(locale: :en) %></li>
+    <% else %>
+      <li class="item"><%= link_to t('uk'), root_path(locale: :uk) %></li>
+    <% end %>
+  </ul>
+</div>
+<header class="header">
+  <div class="header-container">
+    <div class="header-top">
       <%= link_to root_path do %>
-        <svg id="logoMain" viewBox="0 0 114 41">
+        <svg id="logo-main" viewBox="0 0 114 41">
           <path d="M1.3,25.46l5.8,0c0.33,0,0.61,0.24,0.68,0.56c0.45,1.99,1.97,2.97,4.27,2.97c2.27,0,3.71-0.83,3.71-2.37
             c0-2.13-2.88-2.37-6.03-2.92C5.61,23,1.2,21.89,1.2,16.33c0-5.01,4.64-7.61,10.25-7.61c6.32,0,9.9,2.58,10.61,6.79
             c0.07,0.43-0.25,0.82-0.68,0.82l-5.6,0c-0.32,0-0.59-0.22-0.67-0.52c-0.43-1.72-1.8-2.26-3.71-2.26c-1.86,0-3.29,0.7-3.29,2.18
@@ -28,11 +45,27 @@
         </svg>
       <% end %>
       <ul class="menu">
-        <li><%= link_to t('menu.innovateForpost'), '#' %></li>
-        <li><%= link_to t('menu.about'), '#' %></li>
-        <li><%= link_to t('menu.contacts'), '#' %></li>
-        <li><%= link_to "мова", '#' %></li>
+        <li class="item"><%= link_to t('menu.innovateForpost'), '#' %></li>
+        <li class="item"><%= link_to t('menu.about'), '#' %></li>
+        <li class="item"><%= link_to t('menu.contacts'), '#' %></li>
+        <% if user_signed_in? %>
+          <li class="item"><%= button_to t('menu.signout'), destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to t('menu.login'), new_user_session_path, class: "login" %></li>
+        <% end %>
+        <div class="dropdown">
+          <button class="dropbtn"><%= t( I18n.locale ) %></button>
+          <ul class="dropdown-content">
+            <li><%= link_to t('en'), root_path(locale: :en) %></li>
+            <li><%= link_to t('uk'), root_path(locale: :uk) %></li>
+          </ul>
+        </div>
       </ul>
+      <div class="nav-trigger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </div>
   </div>  
 </header>

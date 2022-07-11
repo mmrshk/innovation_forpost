@@ -1,5 +1,9 @@
 en:
+  en: "English"
+  uk: "Ukraine"
   menu:
     innovateForpost: "Innovate fortpost"
     about: "About"
     contacts: "Contacts"
+    signout: "Sign out"
+    login: "Log in"
