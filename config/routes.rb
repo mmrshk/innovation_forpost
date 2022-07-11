@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   # devise said he wants to have a specified root rout, so:
   root to: 'home#index'
   get '/questions', to: 'questions#index'
+  get '/questions/new', to: 'questions#new'
 end

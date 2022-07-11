@@ -1,0 +1,8 @@
+<h1>New question</h1>
+
+<%= simple_form_for @question do |q| %>
+  <%= q.input :title, label: 'Title'%>
+  <%= q.input :body, label: 'Body'%>
+
+  <%= q.button :submit, class: "btn-primary"%>
+<%end%>
