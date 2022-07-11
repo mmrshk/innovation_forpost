@@ -36,3 +36,5 @@ AllCops:
     - config/**/*
     - vendor/bundle/**/*
     - bin/**/*
+Style/FrozenStringLiteralComment:
+  Enabled: false
