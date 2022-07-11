@@ -2,13 +2,11 @@
 
 module Admins
   class UsersController < AdminsController
-    before_action :current_user, :super_admin?
-    before_action :authenticate_user!
-    before_action :set_user, only: %i[show edit update destroy]
-    before_action :super_admin?, only: %i[index edit update destroy]
+    before_action :user, :super_admin, only: %i[index show edit update destroy]
+    helper_method :super_admin?, :admin?, :last_super_admin?
 
     def index
-      @users = User.all if super_admin?
+      @users = User.all
     end
 
     def show; end
@@ -20,11 +18,12 @@ module Admins
 
     def create
       @user = User.new(user_params)
-      @user.role = 'user'
+      @user.role = ROW_USER
       if @user.save
-        redirect_to root_path, notice: 'User was successfully created.'
+        redirect_to root_path, notice: CREATE_SUCCESS
       else
-        render :edit, status: :unprocessable_entity
+        @path = '/admins/users'
+        render :new, status: :unprocessable_entity
       end
     end
 
@@ -33,14 +32,7 @@ module Admins
     end
 
     def update
-      role = 'super_admin'
-      if User.find_by(id: params[:id]).role == role && last_super_admin? && params[:user][:role] == role
-        redirect_to admins_user_url(@user), notice: 'You cannot change a super_admin status being the last one.'
-      elsif @user.update(user_params)
-        redirect_to admins_user_url(@user), notice: 'User was successfully updated.'
-      else
-        render :edit, status: :unprocessable_entity
-      end
+      last_super_admin_update
     end
 
     def destroy
@@ -50,8 +42,48 @@ module Admins
 
     private
 
+    def user
+      @user ||= User.find_by(id: params[:id])
+    end
+
+    def super_admin
+      return true if super_admin?
+      return render 'admins/users/access_denied', notice: PROHIBITED_ACCESS if user_signed_in?
+
+      redirect_to new_user_session, notice: LogInFirst
+    end
+
+    def last_super_admin_update
+      role = SUPER_ADMIN
+      if User.find_by(id: params[:id]).role == role && last_super_admin? && (params[:user][:role] == role)
+        return redirect_to admins_user_url(@user), notice: SUPER_ADMIN_CHANGE_PROHIBITED
+      end
+      return redirect_to admins_user_url(@user), notice: UPDATE_SUCCESS if @user.update(user_params)
+
+      render :edit, status: :unprocessable_entity
+    end
+
+    def super_admin?
+      return true if current_user.role == SUPER_ADMIN
+
+      false
+    end
+
+    def admin?
+      return true if current_user.role == ADMIN
+
+      false
+    end
+
+    def last_super_admin?
+      @users ||= User.all
+      return true if @users.where(role: SUPER_ADMIN).count < 2
+
+      false
+    end
+
     def user_params
-      params.require(:user).permit(:name, :email, :phone_number, :role, :password, :password_confirmation)
+      params.require(:user).permit(:email, :phone_number, :role, :password, :password_confirmation)
     end
   end
 end

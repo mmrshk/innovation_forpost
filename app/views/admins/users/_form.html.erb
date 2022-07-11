@@ -27,16 +27,16 @@
   </div>
   
   <div>
-    <% if super_admin? %>
-      <% if @user.role == 'super_admin' && last_super_admin? %>
+    <% if super_admin? && @path == "/admins/users/#{@user.id}" %>
+      <% if @user.role == SUPER_ADMIN && last_super_admin? %>
         <div class="last-super-admin-msg">You are a last super admin, leave yourself alive, please.</div>
       <% else %>
-        <%= form.radio_button :role, 'user' %>
-        <%= form.label :user, "user" %>
-        <%= form.radio_button :role, 'admin' %>
-        <%= form.label :admin, "admin" %>
-        <%= form.radio_button :role, 'super_admin' %>
-        <%= form.label :super_admin, "super_admin" %>
+        <%= form.radio_button :role, ROW_USER %>
+        <%= form.label :user, ROW_USER %>
+        <%= form.radio_button :role, ADMIN %>
+        <%= form.label :admin, ADMIN %>
+        <%= form.radio_button :role, SUPER_ADMIN %>
+        <%= form.label :super_admin, SUPER_ADMIN %>
       <% end %>
     <% end %>
   </div>

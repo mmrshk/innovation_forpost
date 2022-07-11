@@ -1,5 +1,3 @@
-<p>Hello index</p>
-
 <ul>
 <!--            -----Now it redundant because of using navbar -----
   <% if user_signed_in? %>
@@ -36,7 +34,7 @@
             <td><%= user.role %></td>
             <td><%= link_to 'Show', admins_user_path(user) %></td>
             <td><%= link_to 'Edit', edit_admins_user_path(user) %></td>
-            <% if user.role == 'super_admin' && last_super_admin? %>
+            <% if user.role == SUPER_ADMIN && last_super_admin? %>
               <td class="last-super-admin-msg">You are a last super admin</td>
             <% else %>
               <td><%= button_to 'Destroy', admins_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
