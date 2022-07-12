@@ -76,7 +76,8 @@
         let editorHiddenField = document.getElementById("<%= id %>");
         editor.model.document.on( 'change:data', () => {
           editorHiddenField.value = editor.getData();
-          <%= raw options.dig("editor", "js") %>;
+          // <%= raw options.dig("editor", "js") %>;
+          <%= options.dig("editor", "js") %>;
 				});
       } )
       .catch( error => {
