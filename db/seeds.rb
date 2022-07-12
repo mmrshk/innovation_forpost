@@ -6,12 +6,19 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+admin = User.create!(
+  email: "admin@example.com", 
+  password: "123456",
+  password_confirmation: "123456",
+  role: :super_admin
+)
+
 5.times do |x|
   User.create!(
     email: "user#{x}@example.com", 
     password: "123456",
     password_confirmation: "123456", 
-    role: ["admin", "superadmin"].sample,
+    role: [:admin, :user].sample,
     phone_number:"06#{x}12#{x}3#{x}5#{x}"
   )
 end

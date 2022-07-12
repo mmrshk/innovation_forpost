@@ -1,9 +1,7 @@
 
 <h1>Editing User</h1>
 
-<%= render 'form', user: @user %>
+<%= render 'form', user: @user, url: admins_user_path(@user),  method: :put %>
 
 <%= link_to 'Show', admins_user_path %> |
 <%= link_to 'Back', admins_users_path %>
-<div><%= "@user.id: #{@user.id}" %></div>
-<div><%= "@user.role: #{@user.role}" %></div>
