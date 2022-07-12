@@ -10,6 +10,8 @@
 
 users_role = %w[admin superadmin]
 
+
+
 5.times do
   password = Faker::Internet.password(min_length: 8, max_length: 20, mix_case: true, special_characters: true)
   User.create!(

@@ -7,8 +7,9 @@ FactoryBot.define do
   #     article_tags_count { 2 }
   #   end
   factory :article do
+    user
+
     title { Faker::Lorem.sentence(word_count: 3) }
-    user_id { User.all.sample.id }
     text { Faker::Lorem.paragraphs(number: 3) }
     language { Article.languages[Article.languages.keys.sample] }
     status { Article.statuses[Article.statuses.keys.sample] }

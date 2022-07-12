@@ -17,9 +17,8 @@ module Admin
     end
 
     def create
-      current_user = User.first
-      @create_form = Articles::CreateForm.new(current_user, article_params)
-      # @article = Article.new(article_params)
+      @create_form = Articles::CreateForm.new(current_user: current_user, params: article_params)
+
       if @create_form.save
         redirect_to admin_articles_path, notice: I18n.t('controllers.admin.article.create_success')
       else

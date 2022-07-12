@@ -6,17 +6,9 @@ module Articles
 
     attr_accessor :params, :article_tags
 
-    # def initialize(params, user)
-    #   @params = params
-    #   @user = user
-
-    #   # super(params)
-    # end
-
-    def initialize(user, params = {})
-      @user = user
+    def initialize(current_user:, params:)
+      @user = current_user
       @params = params
-      # super(params)
     end
 
     def save
@@ -35,11 +27,12 @@ module Articles
     private
 
     def create_article!
-      @article = @user.articles.create!(params[:article])
-      # @article = Article.create!(params[:article])
+      @article = Article.create!(params)
     end
 
     def create_article_tags!
+      return unless params[:article_tags]&.empty?
+
       @article.article_tags.create!(params[:article_tags])
     end
   end
