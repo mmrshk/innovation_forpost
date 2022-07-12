@@ -10,7 +10,8 @@
 <span><%= @article.user.email %></span> |
 <span><%= date_as_month_and_year(@article.created_at) %></span>
 
-<%# <div class="ck-content"> <%= raw @article.text %></div> %>
+<div class="ck-content"> <%# raw @article.text</div> %>
+<div class="ck-content"> <%= @article.text</div> %>
 <div class="ck-content"> <%= @article.text %></div>
 <div>
 <hr>
