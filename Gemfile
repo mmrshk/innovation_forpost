@@ -22,6 +22,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'lit', '~> 1.1.6'
 
+gem 'ancestry', '~> 4.2'
+
 group :development, :test do
   gem 'factory_bot_rails'
   gem 'faker'
