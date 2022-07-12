@@ -55,7 +55,7 @@ module Admins
 
     def last_super_admin_update
       role = SUPER_ADMIN
-      if User.find_by(id: params[:id]).role == role && last_super_admin? && (params[:user][:role] == role)
+      if User.find_by(id: params[:id]).role_super_admin? && last_super_admin? && params[:user][:role] == role
         return redirect_to admins_user_url(@user), notice: SUPER_ADMIN_CHANGE_PROHIBITED
       end
       return redirect_to admins_user_url(@user), notice: UPDATE_SUCCESS if @user.update(user_params)
@@ -64,13 +64,13 @@ module Admins
     end
 
     def super_admin?
-      return true if current_user.role == SUPER_ADMIN
+      return true if current_user.role_super_admin?
 
       false
     end
 
     def admin?
-      return true if current_user.role == ADMIN
+      return true if current_user.role_admin?
 
       false
     end

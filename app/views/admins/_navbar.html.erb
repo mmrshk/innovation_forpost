@@ -4,8 +4,8 @@
     <ul class="ul-admin-navbar" >
       <% if user_signed_in? %>
         <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
-        <li><%= link_to "Profile", '#' %></li>
-        <li><%= link_to "Settings", '#' %></li>
+        <li><%= link_to "Profile", admins_user_path(current_user) %></li>
+        <li><%= link_to "Settings", edit_admins_user_path(current_user) %></li>
         <% if admin? || super_admin? %>
           <li><%= link_to "Articles", '#' %></li>
           <li><%= link_to "Link3", '#' %></li>

@@ -28,7 +28,7 @@
   
   <div>
     <% if super_admin? && @path == "/admins/users/#{@user.id}" %>
-      <% if @user.role == SUPER_ADMIN && last_super_admin? %>
+      <% if @user.role_super_admin? && last_super_admin? %>
         <div class="last-super-admin-msg">You are a last super admin, leave yourself alive, please.</div>
       <% else %>
         <%= form.radio_button :role, ROW_USER %>
