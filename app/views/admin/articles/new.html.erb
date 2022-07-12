@@ -1,0 +1,39 @@
+<h1>New Article</h1>
+
+<%= render "form", article: @article %>
+
+<% if false %>
+  <%= form_for @form, as: :article, url: admin_articles_path, method: "post" do |f| %>
+    <%# render partial: "errors" %>
+
+    <div class="form-group">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :text %>
+      <%= f.ckeditor :text %>
+      <%# form.ckeditor :text %>
+      <%# f.ckeditor :text %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :user_id %>
+      <%= f.text_field :user %>
+    </div>
+
+    <div>
+      <%= f.label :language %>
+      <%= f.select :language, ['ua', 'en',] %>
+    </div>
+
+      <div>
+      <%= f.label :status %>
+      <%= f.select :status, ['draft', 'published', 'trashed'] %>
+    </div>
+
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+<% end %>
+<div><%= link_to "Back", admin_articles_path %></div>

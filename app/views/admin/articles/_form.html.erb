@@ -1,0 +1,16 @@
+<%= content_for :js do %>
+  <%= javascript_include_tag 'app', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'new_ckeditor/classic/ckeditor', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<%# simple_form_for @article, url: (@article.new_record? ? admin_articles_path : admin_article_path)  do |f| %>
+<%= simple_form_for @article, url: admin_articles_path, method: "post" do |f| %>
+  <%= f.input :title %>
+  <%# f.input :user_id %>
+  <%= f.association :user %>
+  <%= f.ckeditor :text %>
+  <%= f.select :language, ['ua', 'en',] %> <br>
+  <%= f.select :status, ['draft', 'published', 'trashed'] %>
+  <%# f.input :tag_list, input_html: { value: @article.tag_list_names } %>
+  <%= f.button :submit %>
+<% end %>

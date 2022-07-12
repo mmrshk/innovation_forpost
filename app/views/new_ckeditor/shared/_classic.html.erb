@@ -4,7 +4,7 @@
 	document.getElementById("<%= id %>_div").innerHTML = document.getElementById("<%= id %>").value;
   ClassicEditor
       .create( document.querySelector( '#<%= id %>' ), {
-				// plugins: [ MediaEmbed, ... ],
+
         toolbar: {
           items: [
 						'undo',
@@ -42,11 +42,9 @@
 						'horizontalLine',
           ]
         },
-				// mediaEmbed: {
-        //     removeProviders: [ 'youtube','instagram', 'twitter', 'googleMaps', 'facebook' ]
-        // },
+
         simpleUpload: {
-          uploadUrl: '/articles/upload',
+          uploadUrl: '/admin/articles/upload',
           headers: {
               'X-CSRF-Token': document.querySelectorAll('meta[name="csrf-token"]')[0].content
           }

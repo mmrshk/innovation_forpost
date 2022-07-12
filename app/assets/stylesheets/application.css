@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require new_ckeditor/ckeditor.css
  */
 
  body {

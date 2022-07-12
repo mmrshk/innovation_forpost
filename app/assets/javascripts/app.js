@@ -1,3 +1,4 @@
+// ORIGINAL CODE
 function sendData(url, content) {
   var xhr = new XMLHttpRequest();
 

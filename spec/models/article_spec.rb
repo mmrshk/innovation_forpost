@@ -3,5 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe Article, type: :model do
-  # I will add tests with factory_bot
+  let(:article) { create(:article) }
+  it { expected(article).to be_valid }
 end

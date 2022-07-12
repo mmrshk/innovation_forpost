@@ -1,0 +1,27 @@
+<span class='button'><%= link_to 'New Article', new_admin_article_path %></span></p>
+<table>
+<thead>
+  <tr>
+    <td>Title</td>
+    <td>Autor</td>
+    <td>Status</td>
+    <td>Language</td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</thead>
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= link_to article.title, article_path(article) %></td>
+      <td><%= link_to article.user.email, '#' %></td>
+      <td><%= article.status %></td>
+      <td><%= article.language %></td>
+      <td><%= link_to 'Show', article_path(article) %></td>
+      <td><%= link_to "Edit", edit_admin_article_path(article) %></td>
+      <td><%= link_to "Delete", admin_article_path(article), method: :delete, 
+        data: { confirm: "Are you sure?" } %>
+      </td>
+    </tr>
+  <% end %>
+</table>

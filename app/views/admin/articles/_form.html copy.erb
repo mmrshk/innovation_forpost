@@ -1,0 +1,56 @@
+<%= content_for :js do %>
+  <%= javascript_include_tag 'app', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'new_ckeditor/classic/ckeditor', 'data-turbolinks-track': 'reload' %>
+<% end %>
+
+<%# form_with model: article, local: true do |form| %>
+ 
+<%# form_for @article, local: true, url: admin_article_path do |form| %> <%# <-- work for admin %>
+<%# form_with model: @article, local: true, url: admin_articles_path, method: 'index' do |form| %>
+<%= form_with model: [:admin, @article], local: true, url: admin_articles_path do |form| %>
+
+  <div>
+    <%= label_tag :title %>
+    <%= form.text_field :title %>
+    <% @article.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= label_tag("Autor") %>
+    <%= form.text_field :user_id %>
+    <% @article.errors.full_messages_for(:user).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%# label_tag("Text:") %>
+    <%= form.ckeditor :text %>
+    <%# form.ckeditor :text editor: { template: :classic, type: :classic }%>
+    <% @article.errors.full_messages_for(:text).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= label_tag :language %>
+    <%= form.select :language, ['ua', 'en',] %>
+  </div>
+
+  <div>
+    <%= label_tag :status %>
+    <%= form.select :status, ['draft', 'published', 'trashed'] %>
+  </div>
+  
+  <div>
+    <%= form.label :tag_list %>
+    <%= form.text_field :tag_list, value: @article.tag_list_names%>
+    <%# form.text_field (article.tag_list) %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
