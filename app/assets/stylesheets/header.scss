@@ -38,16 +38,28 @@
   padding: 0;
   margin: 0;
 
-  .login {
-    padding: 20px 35px;
+  #login {
     border-radius: 50px;
     margin-right: 20px;
     background-color: $black-color;
     color: $white-color;
-    text-decoration: none;
 
     &:hover {
       background-color: $base-color;
+    }
+  }
+
+  .log-out {
+    cursor: pointer;
+    border: none;
+    font-size: 15px;
+    font-weight: 700;
+    margin-right: 20px;
+    background-color: $white-color;
+    color: $black-color;
+
+    &:hover {
+      color: $base-color;
     }
   }
 
@@ -184,14 +196,15 @@
       list-style: none;
       padding: 25px 30px;
 
-      .mobile-login {
+      .mobile-log {
+        border: none;
         border-radius: 50px;
         background-color: $black-color;
-        padding: 20px 90px;
+        padding: 20px 80px;
         color: $white-color;
       }
 
-      a {
+      a, input {
         font-size: 18px;
         font-weight: 800;
         color: $black-color;
