@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def extract_locale
-    parased_locale = params[:locale]
-    I18n.available_locales.map(&:to_s).include?(parased_locale) ? parased_locale.to_sym : nil
+    parsed_locale = params[:locale]
+    I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale.to_sym : nil
   end
 end
