@@ -22,16 +22,20 @@
   </div>
   
   <div>
-    <% if last_super_admin? %>
+    <% if last_super_admin? && current_user == user %>
       <div class="last-super-admin-msg">You are a last super admin, leave yourself alive, please.</div>
+      <% button_block_protector = true %>
+    <% else %>
+      <% button_block_protector = false %>
     <% end %>
-
-    <%= form.radio_button :role, User::USER_ROLES[:user], disabled: true %>
-    <%= form.label :user, User::USER_ROLES[:user] %>
-    <%= form.radio_button :role, User::USER_ROLES[:admin], disabled: true %>
-    <%= form.label :admin, User::USER_ROLES[:admin] %>
-    <%= form.radio_button :role, User::USER_ROLES[:super_admin], disabled: true %>
-    <%= form.label :super_admin, User::USER_ROLES[:super_admin] %>
+    <% if current_user.role_super_admin? %>
+      <%= form.radio_button :role, User::USER_ROLES[:user], disabled: button_block_protector %>
+      <%= form.label :user, User::USER_ROLES[:user] %>
+      <%= form.radio_button :role, User::USER_ROLES[:admin], disabled: button_block_protector %>
+      <%= form.label :admin, User::USER_ROLES[:admin] %>
+      <%= form.radio_button :role, User::USER_ROLES[:super_admin], disabled: button_block_protector  %>
+      <%= form.label :super_admin, User::USER_ROLES[:super_admin] %>
+    <% end %>
   </div>
 
   <div class="field">
