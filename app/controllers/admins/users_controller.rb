@@ -6,7 +6,7 @@ module Admins
     helper_method :last_super_admin?
 
     def index
-      @users = User.all if current_user.role_super_admin?
+      @users = User.all
     end
 
     def show; end
@@ -54,7 +54,7 @@ module Admins
     end
 
     def last_super_admin?
-      User.where(role: User::USER_ROLES[:super_admin]).size < 2
+      @last_super_admin ||= User.where(role: User::USER_ROLES[:super_admin]).size < 2
     end
 
     def user_params
