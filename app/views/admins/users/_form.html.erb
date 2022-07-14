@@ -23,7 +23,7 @@
   
   <div>
     <% if last_super_admin? && current_user == user %>
-      <div class="last-super-admin-msg">You are a last super admin, leave yourself alive, please.</div>
+      <div class="last-super-admin-msg"><%= "#{t('SUPER_ADMIN_CHANGE_PROHIBITED')}" %></div>
       <% button_block_protector = true %>
     <% else %>
       <% button_block_protector = false %>

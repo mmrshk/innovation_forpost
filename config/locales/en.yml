@@ -5,3 +5,4 @@ en:
   UPDATE_SUCCESS: 'User was successfully updated.'
   CREATE_SUCCESS: 'User was successfully created.'
   LOG_IN_FIRST: 'Please log in first'
+  LAST_SUPER_ADMIN: 'You are a last super admin'
