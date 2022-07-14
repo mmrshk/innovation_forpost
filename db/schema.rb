@@ -60,3 +60,4 @@ ActiveRecord::Schema.define(version: 2022_07_03_122917) do
   add_foreign_key "article_tags", "tags"
   add_foreign_key "articles", "users"
 end
+
