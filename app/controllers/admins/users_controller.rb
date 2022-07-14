@@ -17,7 +17,6 @@ module Admins
 
     def create
       @user = User.new(user_params)
-      @user.role_user! unless current_user.role_super_admin?
       if @user.save
         redirect_to admins_user_url(@user), notice: t('admins.users.create_success')
       else
