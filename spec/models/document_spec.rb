@@ -8,9 +8,7 @@ RSpec.describe Document, type: :model do
   end
 
   describe 'associations' do
-    document = FactoryBot.create(:document)
-    FactoryBot.create(:document, parent_id: document.id)
-    FactoryBot.create(:document, parent_id: document.id)
+    let(:document) { FactoryBot.create(:document, :with_children) }
 
     it 'should have two children' do
       expect(document.children.count).to eql(2)
