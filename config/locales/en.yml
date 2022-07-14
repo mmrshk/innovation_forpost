@@ -1,8 +1,10 @@
 #camel_case
 en:
-  PROHIBITED_ACCESS: 'You have no permitions to do this, please log in as a super_admin'
-  SUPER_ADMIN_CHANGE_PROHIBITED: 'You cannot change a super_admin status being the last one.'
-  UPDATE_SUCCESS: 'User was successfully updated.'
-  CREATE_SUCCESS: 'User was successfully created.'
-  LOG_IN_FIRST: 'Please log in first'
-  LAST_SUPER_ADMIN: 'You are a last super admin'
+  admins:
+    users:
+      create_success: 'User was successfully created.'
+      update_success: 'User was successfully updated.'
+      pohibited_access: 'You have no permitions to do this, please log in as a super_admin'
+      super_admin_change_prohibited: 'You cannot change a super_admin status being the last one.'
+      last_super_admin: 'You are a last super admin'
+  log_in_first: 'Please log in first'

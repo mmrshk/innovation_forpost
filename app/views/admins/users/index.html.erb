@@ -24,7 +24,7 @@
             <td><%= link_to 'Edit', edit_admins_user_path(user) %></td>
 
             <% if user.role_super_admin? && last_super_admin? %>
-              <td class="last-super-admin-msg"><%= t('LAST_SUPER_ADMIN') %></td>
+              <td class="last-super-admin-msg"><%= t('admins.users.last_super_admin') %></td>
             <% else %>
               <td><%= button_to 'Destroy', admins_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% end %>

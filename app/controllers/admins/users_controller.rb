@@ -19,7 +19,7 @@ module Admins
       @user = User.new(user_params)
       @user.role_user! unless current_user.role_super_admin?
       if @user.save
-        redirect_to admins_user_url(@user), notice: t('CREATE_SUCCESS')
+        redirect_to admins_user_url(@user), notice: t('admins.users.create_success')
       else
         render :new, status: :unprocessable_entity
       end
@@ -29,9 +29,9 @@ module Admins
 
     def update
       if last_super_admin_tries_to_update_its_role?
-        redirect_to admins_user_url(@user), notice: t('PROHIBITED_ACCESS')
+        redirect_to admins_user_url(@user), notice: t('admins.users.super_admin_change_prohibited')
       elsif @user.update(user_params)
-        redirect_to admins_user_url(@user), notice: t('UPDATE_SUCCESS')
+        redirect_to admins_user_url(@user), notice: t('admins.users.update_success')
       else
         render :edit, status: :unprocessable_entity
       end
