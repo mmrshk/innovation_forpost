@@ -1,22 +1,11 @@
-<ul>
-<!--            -----Now it redundant because of using navbar -----
-  <% if user_signed_in? %>
-    <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
-  <% else %>
-    <li><%= link_to 'Register', new_user_registration_path %></li>
-    <li><%= link_to 'sign in', new_user_session_path %></li>
-  <% end %>
-!-->  
-</ul>
 <div class= "body-container">
-  <% if super_admin? %>
-    <h1>Registered users</h1>
+  <h1>Registered users</h1>
 
+  <% if current_user.role_super_admin? %>
     <table class="body-table">
       <thead>
         <tr>
           <th>Id</th>
-          
           <th>Email</th>
           <th>Tel.</th>
           <th>Role</th>
@@ -28,14 +17,14 @@
         <% @users.each do |user| %>
           <tr>
             <td><%= user.id %></td>
-            
             <td><%= user.email %></td>
             <td><%= user.phone_number %></td>
             <td><%= user.role %></td>
             <td><%= link_to 'Show', admins_user_path(user) %></td>
             <td><%= link_to 'Edit', edit_admins_user_path(user) %></td>
+
             <% if user.role_super_admin? && last_super_admin? %>
-              <td class="last-super-admin-msg">You are a last super admin</td>
+              <td class="last-super-admin-msg"><%= t('admins.users.last_super_admin') %></td>
             <% else %>
               <td><%= button_to 'Destroy', admins_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% end %>
@@ -43,26 +32,12 @@
         <% end %>
       </tbody>
     </table>
-    <h3>Some additional features:</h3>
     <div class="add-features">
       <ul>
         <li><%= link_to 'Create new user', new_admins_user_path %></li>
-        <li><%= link_to 'Feature 2', "#" %></li>
-        <li><%= link_to 'Feature 3', "#" %></li>
       </ul>
     </div>
-  <% else %>
-    <h1>Access dinied</h1>
-    <h2>You should log in as a super_admin first!</h2>
-  <% end %>
-    <br>
-
-  <h3>Information about logged in user:</h3>
-  <% if user_signed_in? %>
-    <p>user: <%= current_user.email %></p>
-    <p>role: <%= current_user.role %></p>
-    <p>user's id : <%= current_user.id %></p>
-  <% else %>
-    <%= redirect_to new_user_session_path %>
+  <% else%>
+    <h2>Log in as a super_admin first</h2>
   <% end %>
 </div>
