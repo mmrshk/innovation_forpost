@@ -24,6 +24,10 @@
       fill: $white-color;
     }
   }
+
+  &.scroll {
+    box-shadow: 0 0 60px 0 $scrool-gray-color;
+  }
 }
 
 #logo-main {
@@ -35,8 +39,6 @@
 .menu {
   display: flex;
   list-style: none;
-  padding: 0;
-  margin: 0;
 
   #login {
     border-radius: 50px;
@@ -76,11 +78,19 @@
 }
 
 .header-top {
-  padding: 30px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 30px 0;
   transition: all 0.5s ease;
+
+  &.active {
+    padding: 25px 0;
+  }
+
+  &.scroll {
+    padding: 10px 0;
+  }
 }
 
 .dropbtn {
@@ -100,8 +110,6 @@
   position: absolute;
   min-width: 100px;
   list-style: none;
-  padding: 0;
-  margin: 0;
   box-shadow: 0px 8px 16px 0px $black-color;
   z-index: 1;
 
@@ -144,7 +152,6 @@
   .header-container {
     max-width: 750px;
     padding: 0 30px;
-    border-radius: 0;
   }
 
   .nav-trigger {
@@ -171,6 +178,7 @@
 @media screen and (max-width: 640px) {
   .header-container {
     padding: 0 15px;
+    border-radius: 0;
   }
 }
 
@@ -187,7 +195,6 @@
     flex-direction: column;
     text-align: center;
     width: 300px;
-    padding: 0;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

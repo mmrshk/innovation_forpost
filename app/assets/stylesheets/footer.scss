@@ -22,7 +22,6 @@
 .footer-links { 
   display: flex;
   list-style: none;
-  padding: 0;
 
   &_item {
     padding: 10px 70px 20px 0;
@@ -60,6 +59,10 @@
 
   .footer-container {
     padding: 0 20px;
+
+    .copyright {
+      margin-top: 50px;
+    }
   }
 
   .footer-links { 
