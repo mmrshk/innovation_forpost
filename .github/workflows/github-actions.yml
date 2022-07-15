@@ -48,11 +48,11 @@ jobs:
           POSTGRES_PASSWORD: postgres
         run: |
           bin/rails db:setup
-          RAILS_ENV=test bundle exec rake test
+          RAILS_ENV=test bundle exec rspec
       - name: Formatting and Security Checks
         run: |
           gem install bundle-audit
           bundle-audit update
           bundle-audit
-      #   bundle exec rubocop
-      #   bundle exec brakeman -z
+          bundle exec rubocop
+          bundle exec brakeman -z
