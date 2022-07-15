@@ -8,7 +8,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-users_role = %w[admin superadmin]
+users_role = %w[user admin super_admin]
 
 5.times do
   password = Faker::Internet.password(min_length: 8, max_length: 20, mix_case: true, special_characters: true)
