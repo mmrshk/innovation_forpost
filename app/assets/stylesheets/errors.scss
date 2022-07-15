@@ -32,24 +32,23 @@
 
 .error-button .action-link-wrap {
   margin-top: 40px;
-}
 
-.error-button .action-link-wrap a {
-  background: $black-color;
-  padding: 8px 25px;
-  border-radius: 4px;
-  color: #FFF;
-  font-weight: 700;
-  font-size: 14px;
-  
-  cursor: pointer;
-  text-decoration: none;
-  margin-right: 10px;
-}
+  a {
+    background: $black-color;
+    padding: 8px 25px;
+    border-radius: 4px;
+    color: #FFF;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    margin-right: 10px;
 
-.error-button .action-link-wrap a:hover {
-  background: $blue-color;
-  color: $white-color;
+    &:hover {
+      background: $blue-color;
+      color: $white-color;
+    }
+  }
 }
 
 #Polygon-1 , #Polygon-2 , #Polygon-3 , #Polygon-4, #Polygon-5 {
