@@ -1,0 +1,226 @@
+@import 'colors';
+
+.header {
+  width: 100%;
+  position: fixed;
+
+  #logo-main {
+    fill: $base-color;
+  }
+}
+
+.header-container {
+  max-width: 1500px;
+  padding: 0 80px;
+  margin: 0 auto;
+  background-color: $white-color;
+  border-radius: 0 0 20px 20px;
+
+  &.active {
+    background-color: $mobile-red-color;
+    box-shadow: none;
+
+    #logo-main {
+      fill: $white-color;
+    }
+  }
+
+  &.scroll {
+    box-shadow: 0 0 60px 0 $scrool-gray-color;
+  }
+}
+
+#logo-main {
+  margin-top: 10px;
+  width: 114px;
+  height: 41px;
+}
+
+.menu {
+  display: flex;
+  list-style: none;
+
+  #login {
+    border-radius: 50px;
+    margin-right: 20px;
+    background-color: $black-color;
+    color: $white-color;
+
+    &:hover {
+      background-color: $base-color;
+    }
+  }
+
+  .log-out {
+    cursor: pointer;
+    border: none;
+    font-size: 15px;
+    font-weight: 700;
+    margin-right: 20px;
+    background-color: $white-color;
+    color: $black-color;
+
+    &:hover {
+      color: $base-color;
+    }
+  }
+
+  .item a {
+    padding: 20px 40px;
+    font-weight: 700;
+    text-decoration: none;
+    color: $black-color;
+
+    &:hover {
+      color: $base-color;
+    }
+  }
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 0;
+  transition: all 0.5s ease;
+
+  &.active {
+    padding: 25px 0;
+  }
+
+  &.scroll {
+    padding: 10px 0;
+  }
+}
+
+.dropbtn {
+  background-color: $white-color;
+  font-size: 15px;
+  border: none;
+  font-weight: 700;
+
+  &:hover {
+    color: $base-color;
+  }
+}
+
+.dropdown-content {
+  background-color: $white-color;
+  display: none;
+  position: absolute;
+  min-width: 100px;
+  list-style: none;
+  box-shadow: 0px 8px 16px 0px $black-color;
+  z-index: 1;
+
+  a {
+    color: $black-color;
+    font-weight: 800;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  
+    &:hover {
+      background-color: $gray-color;
+    }
+  }
+}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.nav-trigger {
+  display: none;
+  padding-top: 15px;
+
+  .bar {
+    display: block;
+    position: relative;
+    width: 45px;
+    height: 4px;
+    background-color: $black-color;
+    margin: 7px auto;
+    transition: all 0.3s ease-in-out;
+    z-index: 2;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .menu {
+    display: none;
+  }
+
+  .header-container {
+    max-width: 750px;
+    padding: 0 30px;
+  }
+
+  .nav-trigger {
+    display: block;
+
+    &.active .bar {
+      background-color: $white-color;
+    }
+
+    &.active .bar:nth-child(1) {
+      transform: translateY(11px) rotate(45deg);
+    }
+
+    &.active .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    &.active .bar:nth-child(3) {
+      transform: translateY(-11px) rotate(-45deg);
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .header-container {
+    padding: 0 15px;
+    border-radius: 0;
+  }
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: $mobile-red-color;
+
+  &_list {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    .item {
+      list-style: none;
+      padding: 25px 30px;
+
+      .mobile-log {
+        border: none;
+        border-radius: 50px;
+        background-color: $black-color;
+        padding: 20px 80px;
+        color: $white-color;
+      }
+
+      a, input {
+        font-size: 18px;
+        font-weight: 800;
+        color: $black-color;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &.active {
+    display: block;
+  }
+}

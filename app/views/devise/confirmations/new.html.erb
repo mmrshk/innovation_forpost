@@ -9,8 +9,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Resend confirmation instructions" %>
-  </div>
+    <%= f.submit "Resend confirmation instructions", "data-turbo" => false %>
 <% end %>
 
 <%= render "devise/shared/links" %>
