@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 2022_07_15_083937) do
     t.index ["user_id"], name: "index_articles_on_user_id"
   end
 
+  create_table "documents", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_documents_on_ancestry"
+  end
+
   create_table "lit_incomming_localizations", id: :serial, force: :cascade do |t|
     t.text "translated_value"
     t.integer "locale_id"
