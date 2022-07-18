@@ -40,3 +40,6 @@
 yarn-debug.log*
 .yarn-integrity
 /vendor
+
+# Ignore database schema
+/db/schema.rb
