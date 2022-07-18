@@ -19,7 +19,7 @@
 
     <div class="form-group">
       <label class="attachment-field">Attachment:</label>
-      <%= f.label :media_file, class: 'attachment-label' do %>
+      <%= f.label :media_file, class: "form-control #{'is-invalid' if invalid}"  do %>
           <%= f.file_field :media_file %>
           Choose a file
       <% end %>

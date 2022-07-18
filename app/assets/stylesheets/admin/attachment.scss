@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import "font-awesome";
 
+$border-color: #003087;
+$invalid-color: red;
+$background-color: #002855;
+
 .table-attachment {
   width: 80%;
   height: 60px;
@@ -34,7 +38,7 @@
   border-radius: 20px;
   padding-top: 20px;
   padding-left: 20px;
-  border: 4px solid #003087;
+  border: 4px solid $border-color;
   box-sizing: border-box;
 }
 
@@ -52,7 +56,7 @@
   line-height: 29px;
   display: flex;
   align-items: center;
-  color: #003087;
+  color: $border-color;
 }
 
 .submit-button {
@@ -60,7 +64,7 @@
   width: 200px;
   height: 40px;
   float: right;
-  background-color: #002855;
+  background-color: $background-color;
   border: 1px solid black;
   border-radius: 20px;
   color: #fff;
@@ -72,7 +76,7 @@
 .path-new-attachment {
   text-decoration: none;
   color: grey;
-  background-color: #002855;
+  background-color: $background-color;
   border-radius: 5px;
   padding: 10px;
   margin: 10px;
@@ -94,7 +98,7 @@
 }
 
 .table-attachment-title {
-  background-color: #002855;
+  background-color: $background-color;
   font-family: roboto, arial, helvetica;
   color: white;
  
@@ -104,26 +108,22 @@ input[type="file"] {
   display: none;
 }
 
-.attachment-label {
-  border: 1px solid gray;
+.form-control, .attachment-label {
+  height: 40px;
+  width: 300px;
+  border-radius: 20px;
+  border: 4px solid $border-color;
+  box-sizing: border-box;
   display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
   font-size: 16px;
   color: gray;
-}
-
-.form-control, .attachment-label {
-  height: 40px;
-  width: 300px;
-  border-radius: 20px;
-  border: 4px solid #003087;
-  box-sizing: border-box;
   
 }
 
 .invalid-feedback {
-  color: red;
+  color: $invalid-color;
 }
 
 .form-group {
@@ -133,11 +133,11 @@ input[type="file"] {
 }
 
 .is-invalid {
-  border-color: red;
+  border-color: $invalid-color;
 }
 
 .view-attachment {
-  border: 4px solid #003087;
+  border: 4px solid $border-color;
   border-radius: 20px;
   width: 60%;
   margin: 0 auto;
@@ -148,7 +148,6 @@ input[type="file"] {
   width: 600px;
   margin-left: 50px;
 }
-
 
 .view-attachment-media {
   text-align: center;
@@ -163,16 +162,14 @@ input[type="file"] {
   text-align: center;
 }
 
-
 .view-attachment-links-text {
   color: #fff;
   text-decoration: none;
 }
 
 .view-attachment-links {
-  border: 4px solid #003087;
-  background-color: #003087;
-  
+  border: 4px solid $border-color;
+  background-color: $border-color;
   border-radius: 4px;
   text-decoration: none;
   display: inline-block;
