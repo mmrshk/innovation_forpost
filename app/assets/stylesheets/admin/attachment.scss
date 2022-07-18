@@ -1,20 +1,25 @@
 // Place all the styles related to the admin/attachment controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+@import "font-awesome";
+
 .table-attachment {
-  width: 100%;
+  width: 80%;
+  height: 60px;
   border-collapse: collapse;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #F5F5F5;
+  
 }
 
 .title-attachment {
-  border: 1px solid #999;
   padding: 0.5rem;
- 
+  border: 1px solid #999;
 }
 
 .title {
   margin-left: 20px;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   color: grey;
 }
 
@@ -22,23 +27,50 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
 
-  
+.form-attachment {
+  width: 40%;
+  border: 1px solid;
+  border-radius: 5px;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+.form-control {
+  height: 25px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.choose-button {
+  background-color: #fff;
+}
+
+.name-field, .attachment-field {
+  margin-right: 10px;
 }
 
 .submit-button {
-  font-size: 14px;
-  width: 200px;
-  height:30px;
+  font-size: 20px;
+  width: 150px;
+  height: 30px;
+  float: right;
   margin-top: 10px;
-  background-color: #fff;
+  background-color: #002855;
   border: 1px solid black;
-  border-radius: 2px;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
 }
 
 .path-new-attachment {
   text-decoration: none;
   color: grey;
+  background-color: #002855;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
 }
 
 .path-attachment {
@@ -49,8 +81,46 @@
 .attachment-link {
   text-decoration: none;
   color: black;
+  margin-left: 5px;
 
   &:hover {
     color: blue;
   }
+}
+
+.table-attachment-title {
+  background-color: #002855;
+  font-family: roboto, arial, helvetica;
+  color: white;
+ 
+}
+
+input[type="file"] {
+  display: none;
+}
+.attachment-label {
+  border: 1px solid gray;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 200px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.invalid-feedback {
+  color: red;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: inline-block;
+  width: 100%;
+}
+
+.view-attachment {
+  display: flex;
+  justify-content: center;
+  
 }

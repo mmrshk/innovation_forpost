@@ -6,8 +6,11 @@ ua:
           attributes:
             media_file:
               blank: "should be attached"
+              content_type_invalid: "has wrong type"
             name:
               too_short: "is too short"
+              blank: "should be filled"
+
     messages:
       content_type_invalid: "has an invalid content type"
       file_size_out_of_range: "size %{file_size} is not between required range"

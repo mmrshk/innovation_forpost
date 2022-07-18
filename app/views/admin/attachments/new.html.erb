@@ -1,18 +1,3 @@
-<% if @attachment.errors.present? %>
-  <% @attachment.errors.full_messages.each do |message| %>
-    <%= message %>
-  <% end %>
-<% end %>
+<p class="title">Add new attachment:</p>
 
-<p class="title">Add an attachment:</p>
-
-<div class="block-form">
-  <%= form_for @attachment, url: { controller: "admin/attachments", action: "create" } do |f| %>
-    <%= f.label :name, 'Name:' %>
-    <%= f.text_field :name %>
-    <br />
-    <%= f.label :media_file, 'Attachment:' %>
-    <%= f.file_field :media_file, class: 'choose-button'%>
-    <div><%= f.submit 'Add attachment', class: 'submit-button' %></div>
-  <% end %>
-<div>
+<%= render "shared/form", attachment: @attachment %>
