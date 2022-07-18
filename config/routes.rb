@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   # devise said he wants to have a specified root rout, so:
   
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
-    devise_for :users, :controllers => {
-        registrations: 'registrations'
+    devise_for :users, controllers: {
+      registrations: 'registrations'
     }
     
     root to: "home#index"
