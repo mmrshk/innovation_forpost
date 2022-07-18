@@ -18,7 +18,13 @@ Rails.application.routes.draw do
       registrations: 'registrations'
     }
     namespace :admins do
-      resources :users, :articles
+      resources :users
+      resources :articles, except: %i[show] do
+        collection do
+          post :upload
+          # post :classic
+        end
+      end
     end
     root to: "home#index"
     resources :articles
