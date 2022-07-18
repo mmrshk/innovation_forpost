@@ -3,10 +3,6 @@
 Rails.application.routes.draw do
   mount Lit::Engine => '/lit'
 
-  devise_for :users, controllers: {
-    registrations: 'registrations'
-  }
-
   namespace :admins do
     resources :users, :articles
   end
