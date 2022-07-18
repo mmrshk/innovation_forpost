@@ -1,0 +1,43 @@
+<div class= "body-container">
+  <h1>Registered users</h1>
+
+  <% if current_user.role_super_admin? %>
+    <table class="body-table">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Email</th>
+          <th>Tel.</th>
+          <th>Role</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></td>
+            <td><%= user.email %></td>
+            <td><%= user.phone_number %></td>
+            <td><%= user.role %></td>
+            <td><%= link_to 'Show', admins_user_path(user) %></td>
+            <td><%= link_to 'Edit', edit_admins_user_path(user) %></td>
+
+            <% if user.role_super_admin? && last_super_admin? %>
+              <td class="last-super-admin-msg"><%= t('admins.users.last_super_admin') %></td>
+            <% else %>
+              <td><%= button_to 'Destroy', admins_user_path(user), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <div class="add-features">
+      <ul>
+        <li><%= link_to 'Create new user', new_admins_user_path %></li>
+      </ul>
+    </div>
+  <% else%>
+    <h2>Log in as a super_admin first</h2>
+  <% end %>
+</div>
