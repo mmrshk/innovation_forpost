@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'about/index'
   mount Lit::Engine => '/lit'
 
   devise_for :users, :controllers => {
