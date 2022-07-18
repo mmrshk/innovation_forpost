@@ -10,7 +10,6 @@
   margin: 0 auto;
   text-align: center;
   background-color: #F5F5F5;
-  
 }
 
 .title-attachment {
@@ -32,15 +31,11 @@
 .form-attachment {
   width: 40%;
   border: 1px solid;
-  border-radius: 5px;
+  border-radius: 20px;
   padding-top: 20px;
   padding-left: 20px;
-}
-
-.form-control {
-  height: 25px;
-  border-radius: 5px;
-  border: 1px solid gray;
+  border: 4px solid #003087;
+  box-sizing: border-box;
 }
 
 .choose-button {
@@ -49,19 +44,29 @@
 
 .name-field, .attachment-field {
   margin-right: 10px;
+  margin-bottom: 10px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 29px;
+  display: flex;
+  align-items: center;
+  color: #003087;
 }
 
 .submit-button {
   font-size: 20px;
-  width: 150px;
-  height: 30px;
+  width: 200px;
+  height: 40px;
   float: right;
-  margin-top: 10px;
   background-color: #002855;
   border: 1px solid black;
-  border-radius: 5px;
+  border-radius: 20px;
   color: #fff;
   cursor: pointer;
+  margin-right: 10px;
+  margin-bottom: 10px;
 }
 
 .path-new-attachment {
@@ -98,15 +103,23 @@
 input[type="file"] {
   display: none;
 }
+
 .attachment-label {
   border: 1px solid gray;
   display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
-  box-sizing: border-box;
-  width: 200px;
   font-size: 16px;
-  border-radius: 5px;
+  color: gray;
+}
+
+.form-control, .attachment-label {
+  height: 40px;
+  width: 300px;
+  border-radius: 20px;
+  border: 4px solid #003087;
+  box-sizing: border-box;
+  
 }
 
 .invalid-feedback {
@@ -119,8 +132,51 @@ input[type="file"] {
   width: 100%;
 }
 
+.is-invalid {
+  border-color: red;
+}
+
 .view-attachment {
-  display: flex;
-  justify-content: center;
+  border: 4px solid #003087;
+  border-radius: 20px;
+  width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.view-attachment-info {
+  width: 600px;
+  margin-left: 50px;
+}
+
+
+.view-attachment-media {
+  text-align: center;
+}
+
+.view-attachment-img {
+  height: 50%;
+  border-radius: 20px;
+}
+
+.view-attachment-functions {
+  text-align: center;
+}
+
+
+.view-attachment-links-text {
+  color: #fff;
+  text-decoration: none;
+}
+
+.view-attachment-links {
+  border: 4px solid #003087;
+  background-color: #003087;
   
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  width: 200px;
+  height: 30px;
+  margin: 20px;
 }

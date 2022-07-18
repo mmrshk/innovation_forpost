@@ -1,10 +1,14 @@
 <div class="view-attachment">
-  <ul>
-    <li><%= @attachment.id %></li>
-    <li><%= @attachment.name %></li>
-    <li><%= image_tag @attachment.media_file %></li>
-    <li><%= link_to "Edit", edit_admin_attachment_path(@attachment) %></li>
-    <li><%= link_to "Delete", admin_attachment_path(@attachment), method: :delete %></li>
+  <div class="view-attachment-info">
+    <p class="view-attachment-text">ID: <%= @attachment.id %></p>
+    <p class="view-attachment-text">Name: <%= @attachment.name %></p>   
+  </div> 
 
-  </ul>
+  <div class="view-attachment-media">
+    <%= image_tag @attachment.media_file, class: 'view-attachment-img'  %>
+  </div>
+  <div class="view-attachment-functions">
+    <span class="view-attachment-links"><%= link_to "Edit", edit_admin_attachment_path(@attachment), class: "view-attachment-links-text" %></span>
+    <span class="view-attachment-links"><%= link_to "Delete", admin_attachment_path(@attachment), method: :delete, class: "view-attachment-links-text" %></span>
+  </div>
 </div>
