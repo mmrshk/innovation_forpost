@@ -1,4 +1,12 @@
 en:
+  en: "EN"
+  uk: "UA"
+  menu:
+    innovateForpost: "Innovate fortpost"
+    about: "About"
+    contacts: "Contacts"
+    signout: "Sign out"
+    login: "Log in"
   admins:
     users:
       create_success: 'User was successfully created.'
