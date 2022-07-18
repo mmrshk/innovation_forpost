@@ -1,10 +1,27 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  devise_for :users
+  mount Lit::Engine => '/lit'
+
+  # namespace :admins do
+  #   resources :users, :articles
+  # end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # devise said he wants to have a specified root rout, so:
-  root to: 'home#index'
-  resources :articles
-  resources :tags
+
+  # root to: 'home#index'
+  # resources :articles
+  # resources :tags
+  
+  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+    devise_for :users, controllers: {
+      registrations: 'registrations'
+    }
+    namespace :admins do
+      resources :users, :articles
+    end
+    root to: "home#index"
+    resources :articles
+    resources :tags
+  end
 end
