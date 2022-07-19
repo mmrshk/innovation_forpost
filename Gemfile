@@ -9,21 +9,27 @@ gem 'pg'
 gem 'puma', '~> 4.1'
 gem 'rails', '~> 6.0.5'
 
+gem 'materialize-sass', '~> 1.0.0'
+gem 'redis', '~> 4.0'
 gem 'sass-rails', '>= 6'
-gem 'simple_form'
-gem 'turbolinks', '~> 5'
+gem 'simple_form', '~> 5.1'
+gem 'turbo-rails', '~> 1.1', '>= 1.1.1'
 gem 'webpacker', '~> 4.0'
 
+gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'jbuilder', '~> 2.7'
 gem 'rails-i18n', '~> 6.0'
 
-gem 'devise', '~> 4.8', '>= 4.8.1'
-
 gem 'bootsnap', '>= 1.4.2', require: false
 
+gem 'lit', '~> 1.1.6'
+
+gem 'ancestry', '~> 4.2'
+gem 'factory_bot_rails'
+
 group :development, :test do
-  gem 'factory_bot_rails'
-  gem 'faker'
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'faker', '~> 2'
   gem 'pry', '~> 0.14.1'
   gem 'rspec-rails'
 end
