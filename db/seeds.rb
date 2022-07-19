@@ -45,10 +45,8 @@ end
 end
 
 Tag.all.each do |tag|
-  rand(1..3).times do
     ArticleTag.create!(
       tag_id: tag.id,
       article_id: Article.all.sample.id
     )
-  end
 end
