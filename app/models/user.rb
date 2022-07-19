@@ -2,12 +2,12 @@
 
 class User < ApplicationRecord
   USER_ROLES = {
-    user: 'user',
-    admin: 'admin',
-    super_admin: 'super_admin'
+    user: 0,
+    admin: 1,
+    super_admin: 2
   }.freeze
 
-  enum role: { super_admin: 2, admin: 1, user: 0 }, _prefix: :role
+  enum role: USER_ROLES, _prefix: :role
 
   # Include default devise modules. Others available are:
   # :confirmable,  :lockable, :timeoutable, :trackable and :omniauthable
@@ -17,6 +17,4 @@ class User < ApplicationRecord
 
   validates :email, presence: true
   validates :password, presence: true, allow_nil: true
-
-  has_many  :articles, dependent: :nullify
 end

@@ -29,12 +29,7 @@
       <% button_block_protector = false %>
     <% end %>
     <% if current_user.role_super_admin? %>
-      <%= form.radio_button :role, User::USER_ROLES[:user], disabled: button_block_protector %>
-      <%= form.label :user, User::USER_ROLES[:user] %>
-      <%= form.radio_button :role, User::USER_ROLES[:admin], disabled: button_block_protector %>
-      <%= form.label :admin, User::USER_ROLES[:admin] %>
-      <%= form.radio_button :role, User::USER_ROLES[:super_admin], disabled: button_block_protector  %>
-      <%= form.label :super_admin, User::USER_ROLES[:super_admin] %>
+      <%= form.input :role, collection: User.roles.keys, include_blank: false %>
     <% end %>
   </div>
 
