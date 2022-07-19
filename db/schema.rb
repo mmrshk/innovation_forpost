@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_12_044814) do
+ActiveRecord::Schema.define(version: 2022_07_15_083937) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2022_07_12_044814) do
     t.bigint "article_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id", "tag_id"], name: "index_article_tags_on_article_id_and_tag_id", unique: true
     t.index ["article_id"], name: "index_article_tags_on_article_id"
     t.index ["tag_id"], name: "index_article_tags_on_tag_id"
   end
@@ -32,8 +33,16 @@ ActiveRecord::Schema.define(version: 2022_07_12_044814) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "status", default: 0
     t.integer "language", default: 0
-    t.index ["user_id", "created_at"], name: "index_articles_on_user_id_and_created_at"
+    t.index ["title"], name: "index_articles_on_title"
     t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "documents", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_documents_on_ancestry"
   end
 
   create_table "lit_incomming_localizations", id: :serial, force: :cascade do |t|
@@ -108,6 +117,7 @@ ActiveRecord::Schema.define(version: 2022_07_12_044814) do
     t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|

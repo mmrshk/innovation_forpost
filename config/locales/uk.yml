@@ -7,7 +7,6 @@ uk:
     contacts: "Контакти"
     signout: "Вийти"
     login: "Увійти"
-
   admins:
     users:
       create_success: 'Користувач успішно доданий.'

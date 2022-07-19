@@ -8,22 +8,17 @@ class Article < ApplicationRecord
   }.freeze
 
   LANGUAGES = {
-    ukr: 0,
-    eng: 1
+    ua: 0,
+    en: 1
   }.freeze
 
-  enum status:   VALID_STATUSES, _prefix: true
-  enum language: LANGUAGES, _prefix: true
+  enum status:   VALID_STATUSES
+  enum language: LANGUAGES
 
-  has_many    :article_tags
+  belongs_to  :user, foreign_key: 'user_id', inverse_of: :articles
+  has_many    :article_tags, dependent: :destroy
   has_many    :tags, through: :article_tags
-  belongs_to  :user
 
-  default_scope -> { order(created_at: :desc) }
-
-  validates   :title, presence: true, length: { maximum: 50 }
-  validates   :text, presence: true
-  validates   :user, presence: true
-  validates   :status, presence: true
-  validates   :language, presence: true
+  validates   :title, :text, :user, :status, :language, presence: true
+  validates   :title, length: { maximum: 100 }
 end

@@ -24,9 +24,12 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'lit', '~> 1.1.6'
 
+gem 'ancestry', '~> 4.2'
+gem 'factory_bot_rails'
+
 group :development, :test do
-  gem 'factory_bot_rails'
-  gem 'faker'
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem 'faker', '~> 2'
   gem 'pry', '~> 0.14.1'
   gem 'rspec-rails'
 end
