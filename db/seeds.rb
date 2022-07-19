@@ -38,9 +38,9 @@ end
   )
 end
 
-10.times do
+10.times do |x|
   Tag.create!(
-    name: Faker::Lorem.word
+    name: Faker::Lorem.word + x.to_s
   )
 end
 
