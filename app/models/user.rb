@@ -18,5 +18,5 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :password, presence: true, allow_nil: true
 
-  has_many  :articles, dependent: :nullify
+  scope :only_admins, -> { where(role: %w[2 1]) }
 end

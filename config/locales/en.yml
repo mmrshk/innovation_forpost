@@ -1,11 +1,4 @@
 en:
-  controllers:
-    admins:
-      article:
-        create_success: 'Article was successfully created.'
-        create_unsuccess: 'Could not create the article. Please try again'
-        update_success: 'Article was successfully updated.'
-        destroy_success: 'The article was successfully destroyed.'
   en: "EN"
   uk: "UA"
   menu:
@@ -21,4 +14,9 @@ en:
       pohibited_access: 'You have no permitions to do this, please log in as a super_admin'
       super_admin_change_prohibited: 'You cannot change a super_admin status being the last one.'
       last_super_admin: 'You are a last super admin'
+    articles:
+      create_success: 'Article was successfully created.'
+      create_unsuccess: 'Could not create the article. Please try again'
+      update_success: 'Article was successfully updated.'
+      destroy_success: 'The article was successfully destroyed.'
   log_in_first: 'Please log in first'
