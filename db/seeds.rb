@@ -38,17 +38,15 @@ end
   )
 end
 
-10.times do
+10.times do |x|
   Tag.create!(
-    name: Faker::Lorem.word
+    name: Faker::Lorem.word + x.to_s
   )
 end
 
 Tag.all.each do |tag|
-  rand(1..3).times do
     ArticleTag.create!(
       tag_id: tag.id,
       article_id: Article.all.sample.id
     )
-  end
 end
