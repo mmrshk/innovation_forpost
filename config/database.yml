@@ -7,6 +7,7 @@ default: &default
   password: <%= ENV.fetch('PG_PASSWORD', 'postgres') %>
   port: <%= ENV.fetch('PG_PORT', 5432) %>
   timeout: 5000
+
 development:
   <<: *default
   database: "innovation-forpost_development"
@@ -14,6 +15,7 @@ development:
 production:
   <<: *default
   database: "innovation-forpost_production"
+
 test:
   <<: *default
   database: "innovation-forpost_test"
