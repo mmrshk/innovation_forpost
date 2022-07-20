@@ -45,15 +45,15 @@ module Admins
     private
 
     def user
-      @user ||= User.find_by(id: params[:id])
+      @user ||= User.find(params[:id])
     end
 
     def last_super_admin_tries_to_update_its_role?
-      user.role_super_admin? && last_super_admin? && params[:user][:role] == User::USER_ROLES[:super_admin]
+      user.role_super_admin? && last_super_admin? && params[:user][:role] == User.roles[:super_admin]
     end
 
     def last_super_admin?
-      @last_super_admin ||= User.where(role: User::USER_ROLES[:super_admin]).size < 2
+      @last_super_admin ||= User.where(role: User.roles[:super_admin]).size < 2
     end
 
     def user_params

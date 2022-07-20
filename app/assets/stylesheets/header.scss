@@ -104,7 +104,7 @@
   }
 }
 
-.dropdown-content {
+.drop-content {
   background-color: $white-color;
   display: none;
   position: absolute;
@@ -126,7 +126,7 @@
   }
 }
 
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .drop-content {display: block;}
 
 .nav-trigger {
   display: none;
