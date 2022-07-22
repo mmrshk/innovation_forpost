@@ -14,4 +14,5 @@ en:
       pohibited_access: 'You have no permitions to do this, please log in as a super_admin'
       super_admin_change_prohibited: 'You cannot change a super_admin status being the last one.'
       last_super_admin: 'You are a last super admin'
+      user_sucessfully_deleted: "User successfully deleted."
   log_in_first: 'Please log in first'

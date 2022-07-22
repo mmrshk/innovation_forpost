@@ -37,9 +37,12 @@ module Admins
     end
 
     def destroy
-      @user.destroy
-
-      redirect_to admins_users_path
+      if last_super_admin_tries_to_destroy_itself?
+        redirect_to admins_users_path, notice: t('admins.users.super_admin_change_prohibited')
+      else
+        @user.destroy
+        redirect_to admins_users_path, notice: t('admins.users.user_sucessfully_deleted')
+      end
     end
 
     private
@@ -49,7 +52,11 @@ module Admins
     end
 
     def last_super_admin_tries_to_update_its_role?
-      user.role_super_admin? && last_super_admin? && params[:user][:role] == User::USER_ROLES[:super_admin]
+      (user.role_super_admin? && last_super_admin? && (params[:user][:role] != User::USER_ROLES[:super_admin])) == true
+    end
+
+    def last_super_admin_tries_to_destroy_itself?
+      (user.role_super_admin? && last_super_admin?) == true
     end
 
     def last_super_admin?
