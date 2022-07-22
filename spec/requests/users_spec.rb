@@ -78,6 +78,17 @@ RSpec.describe '/admins/users', type: :request do
         is_expected.to render_template(:edit, status: :unprocessable_entity)
       end
     end
+    #####################
+    context 'last super_admin whom change its status' do
+      let(:super_admin) { create(:user, :super_admin) }
+      let(:edited_super_admin) { attributes_for(:user, :valid_params) }
+      it 'should not change the user' do
+        put admins_user_path(super_admin), params: { user: edited_super_admin }
+        is_expected.to redirect_to("#{admins_user_path(super_admin)}?locale=#{I18n.locale}")
+        follow_redirect!
+        # expect(response.body).to include(I18n.t('admins.users.super_admin_change_prohibited'))
+      end
+    end
   end
 
   describe 'delete /destroy' do
