@@ -1,3 +1,48 @@
 // Place all the styles related to the about controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.main-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+@import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500&display=swap");
+
+.info-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  align-items: center !important;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.7) !important;
+  display: flex !important;
+  flex-direction: column;
+  padding: 0 1.5rem !important;
+  height: 30rem;
+  width: 20rem;
+}
+
+.card__name {
+  text: black;
+  margin-top: 15px;
+  font-size: 1.5em;
+}
+
+.card__image {
+  height: 160px;
+  width: 160px;
+  border-radius: 50%;
+  border: 5px solid #272133;
+  margin-top: 20px;
+}
