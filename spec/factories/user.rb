@@ -8,5 +8,17 @@ FactoryBot.define do
     trait :super_admin do
       role { :super_admin }
     end
+
+    trait :valid_params do
+      password { Faker::Internet.password(min_length: 6) }
+      role { :user }
+    end
+
+    trait :invalid_params do
+      email { 'no_at_at_all.com' }
+      password { Faker::Internet.password(max_length: 5) }
+      password_confirmation { '' }
+      role { :user }
+    end
   end
 end
