@@ -11,7 +11,7 @@ gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'jbuilder', '~> 2.7'
 gem 'lit', '~> 1.1.6'
 gem 'materialize-sass', '~> 1.0.0'
-gem 'pg'
+gem 'pg', '~> 1.4.1'
 gem 'puma', '~> 4.1'
 gem 'rails-i18n', '~> 6.0'
 gem 'redis', '~> 4.0'
@@ -26,14 +26,15 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 6.2.0'
   gem 'faker', '~> 2'
   gem 'pry', '~> 0.14.1'
-  gem 'rspec-rails'
+  gem 'rails-controller-testing', '~> 1.0.5'
+  gem 'rspec-rails', '~> 5.1.2'
 end
 
 group :development do
   gem 'listen', '~> 3.2'
   gem 'web-console', '>= 3.3.0'
 
-  gem 'spring'
+  gem 'spring', '~> 2.1.1'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
   gem 'brakeman', '~> 5.2.3', require: false
@@ -44,7 +45,7 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 4.3.0'
   gem 'shoulda-matchers', '~> 5.0'
-  gem 'webdrivers'
+  gem 'webdrivers', '~> 5.0.0'
 end

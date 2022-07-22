@@ -8,7 +8,7 @@ class Article < ApplicationRecord
   }.freeze
 
   LANGUAGES = {
-    ua: 0,
+    uk: 0,
     en: 1
   }.freeze
 
@@ -25,4 +25,7 @@ class Article < ApplicationRecord
   scope :sorted_desc, -> { order(created_at: :desc) }
   scope :published, -> { where(status: VALID_STATUSES[:published]) }
   scope :not_trashed, -> { where.not(status: VALID_STATUSES[:trashed]) }
+  scope :ukrainian, -> { where(language: LANGUAGES[:uk]) }
+  scope :english, -> { where(language: LANGUAGES[:en]) }
+  scope :in_language, ->(language) { where(language: language) }
 end

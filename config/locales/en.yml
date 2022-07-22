@@ -18,5 +18,6 @@ en:
       create_success: 'Article was successfully created.'
       create_unsuccess: 'Could not create the article. Please try again'
       update_success: 'Article was successfully updated.'
+      update_unsuccess: 'Could not update the article. Please try again.'
       destroy_success: 'The article was successfully destroyed.'
   log_in_first: 'Please log in first'

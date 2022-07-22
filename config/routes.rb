@@ -5,10 +5,7 @@ Rails.application.routes.draw do
 
   namespace :admins do
     resources :users
-    resources :articles, except: %i[show] do
-      collection do
-        post :upload
-      end
+    resources :articles, except: :show do
     end
   end
   
@@ -19,9 +16,8 @@ Rails.application.routes.draw do
     devise_for :users, controllers: {
       registrations: 'registrations'
     }
-    
+    resources :articles, only: %i[index show] 
+    resources :tags, only: %i[index show]
     root to: "home#index"
-    resources :articles, only: %i[index show]
-    resources :tags
   end
 end

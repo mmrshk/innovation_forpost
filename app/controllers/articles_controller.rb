@@ -2,7 +2,7 @@
 
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.published.sorted_desc
+    @articles = Article.published.in_language(extract_locale).sorted_desc
   end
 
   def show
