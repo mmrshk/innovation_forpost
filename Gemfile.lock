@@ -58,6 +58,8 @@ GEM
       zeitwerk (~> 2.2, >= 2.2.2)
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    ancestry (4.2.0)
+      activerecord (>= 5.2.6)
     ast (2.4.2)
     autoprefixer-rails (10.4.7.0)
       execjs (~> 2)
@@ -325,12 +327,13 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  ancestry (~> 4.2)
   bootsnap (>= 1.4.2)
   brakeman (~> 5.2.3)
   byebug
   capybara (>= 2.15)
   devise (~> 4.8, >= 4.8.1)
-  factory_bot_rails (~> 6.2.0)
+  factory_bot_rails
   faker (~> 2)
   jbuilder (~> 2.7)
   listen (~> 3.2)
