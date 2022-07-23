@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Articles::CreateUpdateForm do
-  subject(:form) { described_class.new(params: article_params, article: article).save }
+  subject(:form) { described_class.new(params: article_params, article: article) }
 
   let(:tags_list) { create_list(:tag, 2) }
   let!(:article) { create(:article, :draft, :en, tags: tags_list) }
@@ -23,17 +23,17 @@ RSpec.describe Articles::CreateUpdateForm do
         }
       end
       it 'not changes Articles count' do
-        expect { form }.not_to change(Article, :count)
+        expect { form.save }.not_to change(Article, :count)
       end
 
       it 'not changes ArticleTags count' do
-        expect { form }.not_to change(ArticleTag, :count)
-        expect(Article.first.tags.count).to eq(2)
+        expect { form.save }.not_to change(ArticleTag, :count)
+        expect(Article.find(form.article.id).tags.count).to eq(2)
       end
 
       it 'updates the exist instance of Article with correct values' do
-        form
-        updated_article = Article.first
+        form.save
+        updated_article = Article.find(form.article.id)
         expect(updated_article.id).to eq(article.id)
         expect(updated_article.title).to eq(article_new_valid_params[:title])
         expect(updated_article.text).to eq(article_new_valid_params[:text])
@@ -56,17 +56,17 @@ RSpec.describe Articles::CreateUpdateForm do
         }
       end
       it 'not changes Articles count' do
-        expect { form }.not_to change(Article, :count)
+        expect { form.save }.not_to change(Article, :count)
       end
 
       it 'changes ArticleTags count' do
-        expect { form }.to change(ArticleTag, :count).by(2)
-        expect(Article.first.tags.count).to eq(4)
+        expect { form.save }.to change(ArticleTag, :count).by(2)
+        expect(Article.find(form.article.id).tags.count).to eq(4)
       end
 
       it 'updates the exist instance of Article with correct values and new tags' do
-        form
-        updated_article = Article.first
+        form.save
+        updated_article = Article.find(form.article.id)
         expect(updated_article.id).to eq(article.id)
         expect(updated_article.title).to eq(article_params[:title])
         expect(updated_article.text).to eq(article_params[:text])
@@ -91,17 +91,17 @@ RSpec.describe Articles::CreateUpdateForm do
         }
       end
       it 'not changes Articles count' do
-        expect { form }.not_to change(Article, :count)
+        expect { form.save }.not_to change(Article, :count)
       end
 
       it 'not changes ArticleTags count' do
-        expect { form }.not_to change(ArticleTag, :count)
-        expect(Article.first.tags.count).to eq(2)
+        expect { form.save }.not_to change(ArticleTag, :count)
+        expect(Article.find(form.article.id).tags.count).to eq(2)
       end
 
       it 'not updates the exist instance of Article with not correct values' do
-        form
-        updated_article = Article.first
+        form.save
+        updated_article = Article.find(form.article.id)
         expect(updated_article.id).to eq(article.id)
         expect(updated_article.title).to eq(article.title)
         expect(updated_article.text).to eq(article.text)
@@ -112,7 +112,7 @@ RSpec.describe Articles::CreateUpdateForm do
       end
 
       it 'returns false' do
-        expect(form).to be_falsey
+        expect(form.save).to be_falsey
       end
     end
 
@@ -131,15 +131,15 @@ RSpec.describe Articles::CreateUpdateForm do
       end
 
       it 'not changes Articles count' do
-        expect { form }.not_to change(Article, :count)
+        expect { form.save }.not_to change(Article, :count)
       end
 
       it 'not changes ArticleTags count' do
-        expect { form }.not_to change(ArticleTag, :count)
+        expect { form.save }.not_to change(ArticleTag, :count)
       end
 
       it 'returns false' do
-        expect(form).to eq(false)
+        expect(form.save).to eq(false)
       end
     end
   end

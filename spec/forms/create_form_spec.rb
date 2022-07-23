@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe Articles::CreateUpdateForm do
-  subject(:form) { described_class.new(params: article_params).save }
+  subject(:form) { described_class.new(params: article_params) }
 
   let(:tags_list) { create_list(:tag, 2) }
   let(:valid_article) { attributes_for(:article, :published, :uk, tags: tags_list) }
@@ -22,17 +22,17 @@ RSpec.describe Articles::CreateUpdateForm do
         }
       end
       it 'changes Articles count' do
-        expect { form }.to change(Article, :count).by(1)
+        expect { form.save }.to change(Article, :count).by(1)
       end
 
       it 'changes ArticleTags count' do
-        expect { form }.to change(ArticleTag, :count).by(2)
-        expect(Article.first.tags.count).to eq(2)
+        expect { form.save }.to change(ArticleTag, :count).by(2)
+        expect(Article.find(form.article.id).tags.count).to eq(2)
       end
 
       it 'creates a new instance of Article with correct values' do
-        form
-        created_article = Article.first
+        form.save
+        created_article = Article.find(form.article.id)
         expect(created_article.title).to eq(valid_article[:title])
         expect(created_article.text).to eq(valid_article[:text])
         expect(created_article.user_id).to eq(valid_article[:user_id])
@@ -57,15 +57,15 @@ RSpec.describe Articles::CreateUpdateForm do
       end
 
       it 'not changes Articles count' do
-        expect { form }.not_to change(Article, :count)
+        expect { form.save }.not_to change(Article, :count)
       end
 
       it 'not changes ArticleTags count' do
-        expect { form }.not_to change(ArticleTag, :count)
+        expect { form.save }.not_to change(ArticleTag, :count)
       end
 
       it 'returns false' do
-        expect(form).to be_falsey
+        expect(form.save).to be_falsey
       end
     end
 
@@ -84,15 +84,15 @@ RSpec.describe Articles::CreateUpdateForm do
       end
 
       it 'not changes Articles count' do
-        expect { form }.not_to change(Article, :count)
+        expect { form.save }.not_to change(Article, :count)
       end
 
       it 'not changes ArticleTags count' do
-        expect { form }.not_to change(ArticleTag, :count)
+        expect { form.save }.not_to change(ArticleTag, :count)
       end
 
       it 'returns false' do
-        expect(form).to eq(false)
+        expect(form.save).to eq(false)
       end
     end
   end
