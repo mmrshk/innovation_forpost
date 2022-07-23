@@ -6,8 +6,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '3.0.4'
 gem 'rails', '~> 6.0.5'
 
+gem 'ancestry', '~> 4.2'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'factory_bot_rails', '~> 6.2.0'
 gem 'jbuilder', '~> 2.7'
 gem 'lit', '~> 1.1.6'
 gem 'materialize-sass', '~> 1.0.0'
@@ -21,9 +23,7 @@ gem 'turbo-rails', '~> 1.1', '>= 1.1.1'
 gem 'webpacker', '~> 4.0'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'factory_bot_rails', '~> 6.2.0'
   gem 'faker', '~> 2'
   gem 'pry', '~> 0.14.1'
   gem 'rails-controller-testing', '~> 1.0.5'
