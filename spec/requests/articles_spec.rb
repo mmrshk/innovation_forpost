@@ -137,7 +137,7 @@ RSpec.describe 'Articles', type: :request do
 
     it 'redirects to the articles list' do
       delete admins_article_url(valid_article)
-      expect(response).to redirect_to(admins_articles_url) # need to fix locale
+      expect(response).to redirect_to(admins_articles_url(locale: I18n.locale)) # need to fix locale in admins_urls
       expect(response).to have_http_status(:redirect)
       follow_redirect!
       expect(response).to have_http_status(:success)
