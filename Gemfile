@@ -28,7 +28,6 @@ gem 'rails-i18n', '~> 6.0'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise', '~> 4.8', '>= 4.8.1'
-gem 'jbuilder', '~> 2.7'
 gem 'rails-i18n', '~> 6.0'
 
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -42,8 +41,6 @@ group :development, :test do
   gem 'faker', '~> 2'
   gem 'pry', '~> 0.14.1'
   gem 'rspec-rails'
-  gem 'factory_bot_rails'
-  gem 'faker'
 end
 
 group :development do

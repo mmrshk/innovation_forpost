@@ -2,7 +2,7 @@
 <div style="overflow-x:auto;">
   <table class="table-attachment">
     <thead>
-      <tr class="table-attachment-title">
+      <tr class="table-attachment-title test-title">
         <th class="title-attachment">ID</th>
         <th class="title-attachment">Name</th>
         <th class="title-attachment">Image</th>
@@ -17,7 +17,7 @@
           <td class="title-attachment"> 
             <%= image_tag attachment.media_file.variant(resize: "200x200"), skip_pipeline: true if attachment.media_file.attached? %>
           </td>
-          <td class="title-attachment">
+          <td class="title-attachment links">
             <%= link_to fa_icon('eye', text: 'View'), admin_attachment_path(attachment), class: "attachment-link" %> 
             <%= link_to fa_icon('edit', text: 'Edit'), edit_admin_attachment_path(attachment), class: "attachment-link" %> 
             <%= link_to fa_icon('trash', text: 'Delete'), admin_attachment_path(attachment), method: :delete, class: "attachment-link" %> 

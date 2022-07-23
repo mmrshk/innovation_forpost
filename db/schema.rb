@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_15_083937) do
+ActiveRecord::Schema.define(version: 2022_07_23_112520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,10 +36,6 @@ ActiveRecord::Schema.define(version: 2022_07_15_083937) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "attachments", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   create_table "article_tags", force: :cascade do |t|
     t.bigint "tag_id", null: false
     t.bigint "article_id", null: false
@@ -60,6 +56,13 @@ ActiveRecord::Schema.define(version: 2022_07_15_083937) do
     t.integer "language", default: 0
     t.index ["title"], name: "index_articles_on_title"
     t.index ["user_id"], name: "index_articles_on_user_id"
+  end
+
+  create_table "attachments", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_attachments_on_name"
   end
 
   create_table "lit_incomming_localizations", id: :serial, force: :cascade do |t|

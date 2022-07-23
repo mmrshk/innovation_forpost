@@ -17,6 +17,7 @@ module Admin
     def create
       @attachment = Attachment.new(attachment_params)
       if @attachment.save
+        flash[:success] = 'You added a new attachment!'
         redirect_to admin_attachments_path
       else
         render :new
@@ -30,6 +31,7 @@ module Admin
     def update
       @attachment = Attachment.find(params[:id])
       if @attachment.update(attachment_params)
+        flash[:success] = 'You successfully edited an attachment!'
         redirect_to admin_attachment_path(@attachment.id)
       else
         render :edit
@@ -38,8 +40,10 @@ module Admin
 
     def destroy
       attachment = Attachment.find(params[:id])
-      attachment.destroy
-      redirect_to admin_attachments_path
+      if attachment.destroy
+        flash[:success] = 'You deleted an attachment!'
+        redirect_to admin_attachments_path
+      end
     end
 
     private

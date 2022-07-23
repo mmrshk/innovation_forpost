@@ -150,9 +150,13 @@ GEM
     method_source (1.0.0)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
+    mini_portile2 (2.8.0)
     minitest (5.16.2)
     msgpack (1.5.3)
     nio4r (2.5.8)
+    nokogiri (1.13.7)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     nokogiri (1.13.7-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.7-x86_64-linux)
@@ -297,6 +301,9 @@ GEM
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
+    turbolinks (5.2.1)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
     tzinfo (1.2.9)
       thread_safe (~> 0.1)
     unicode-display_width (2.2.0)
@@ -335,14 +342,14 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   devise (~> 4.8, >= 4.8.1)
-  font-awesome-rails
-  mini_magick
   factory_bot_rails (~> 6.2.0)
   faker (~> 2)
+  font-awesome-rails
   jbuilder (~> 2.7)
   listen (~> 3.2)
   lit (~> 1.1.6)
   materialize-sass (~> 1.0.0)
+  mini_magick
   overcommit (~> 0.59.1)
   pg
   pry (~> 0.14.1)
@@ -360,6 +367,8 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   turbo-rails (~> 1.1, >= 1.1.1)
+  turbolinks (~> 5)
+  tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)

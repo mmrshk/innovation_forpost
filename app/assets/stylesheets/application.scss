@@ -1,6 +1,7 @@
-@import "materialize";
+@import 'materialize-css/dist/css/materialize';
 @import 'header';
 @import 'footer';
+@import 'admin/attachment';
 
 * {
   margin: 0;

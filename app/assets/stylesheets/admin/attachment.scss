@@ -3,27 +3,33 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import "font-awesome";
 
-$border-color: #003087;
+
 $invalid-color: red;
-$background-color: #002855;
+
+thead{
+  position: relative;
+}
 
 .table-attachment {
-  width: 80%;
+  width: 60%;
   height: 60px;
-  border-collapse: collapse;
+  // border-collapse: collapse;
   margin: 0 auto;
   text-align: center;
-  background-color: #F5F5F5;
+  // background-color: $color-table-background;
 }
 
 .title-attachment {
   padding: 0.5rem;
-  border: 1px solid #999;
+  // border: 1px solid $gray-color;
+  text-align: center;
 }
 
-.title {
-  margin-left: 20px;
-  color: grey;
+.title-attachment-text {
+  color: $black-color;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 25px;
 }
 
 .block-form {
@@ -33,21 +39,19 @@ $background-color: #002855;
 }
 
 .form-attachment {
-  width: 40%;
-  border: 1px solid;
+  width: 60%;
+  max-width: 400px;
   border-radius: 20px;
-  padding-top: 20px;
-  padding-left: 20px;
+  padding: 20px;
   border: 4px solid $border-color;
   box-sizing: border-box;
 }
 
 .choose-button {
-  background-color: #fff;
+  background-color: $white-color;
 }
 
 .name-field, .attachment-field {
-  margin-right: 10px;
   margin-bottom: 10px;
   font-family: 'Roboto';
   font-style: normal;
@@ -61,46 +65,46 @@ $background-color: #002855;
 
 .submit-button {
   font-size: 20px;
-  width: 200px;
+  width: 30%;
   height: 40px;
   float: right;
-  background-color: $background-color;
-  border: 1px solid black;
+  background-color: $background-color-title;
+  border: 1px solid $black-color;
   border-radius: 20px;
-  color: #fff;
+  color: $white-color;
   cursor: pointer;
-  margin-right: 10px;
-  margin-bottom: 10px;
+  min-width: 80px;
 }
 
 .path-new-attachment {
   text-decoration: none;
-  color: grey;
-  background-color: $background-color;
+  color: $scrool-gray-color;
+  background-color: $background-color-title;
   border-radius: 5px;
   padding: 10px;
-  margin: 10px;
+  margin-left: 20%;
 }
 
 .path-attachment {
   margin: 20px;
-  margin-top: 20px;
 }
 
 .attachment-link {
   text-decoration: none;
-  color: black;
+  color: $black-color;
   margin-left: 5px;
 
   &:hover {
-    color: blue;
+    color: $base-color;
   }
 }
 
 .table-attachment-title {
-  background-color: $background-color;
+  position: relative;
+  // background-color: $background-color-title;
+  background-color: rgba(0,0,0,0);
   font-family: roboto, arial, helvetica;
-  color: white;
+  color: $white-color;
  
 }
 
@@ -110,7 +114,8 @@ input[type="file"] {
 
 .form-control, .attachment-label {
   height: 40px;
-  width: 300px;
+  width: 60%;
+  min-width: 140px;
   border-radius: 20px;
   border: 4px solid $border-color;
   box-sizing: border-box;
@@ -118,7 +123,7 @@ input[type="file"] {
   padding: 6px 12px;
   cursor: pointer;
   font-size: 16px;
-  color: gray;
+  color: $scrool-gray-color;
   
 }
 
@@ -140,13 +145,24 @@ input[type="file"] {
   border: 4px solid $border-color;
   border-radius: 20px;
   width: 60%;
+  max-width: 700px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
+  overflow-x: auto;
 }
 
 .view-attachment-info {
-  width: 600px;
-  margin-left: 50px;
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.view-attachment-text {
+  font-size: initial;
+  font-weight: 400;
+  margin: 5px;
+  text-align: center;
+  letter-spacing: 2px;
 }
 
 .view-attachment-media {
@@ -155,6 +171,7 @@ input[type="file"] {
 
 .view-attachment-img {
   height: 50%;
+  width: 90%;
   border-radius: 20px;
 }
 
@@ -163,7 +180,7 @@ input[type="file"] {
 }
 
 .view-attachment-links-text {
-  color: #fff;
+  color: $white-color;
   text-decoration: none;
 }
 
@@ -173,7 +190,33 @@ input[type="file"] {
   border-radius: 4px;
   text-decoration: none;
   display: inline-block;
-  width: 200px;
-  height: 30px;
-  margin: 20px;
+  width: 20%;
+  min-width: 100px;
+  margin: 10px;
+}
+
+td.links {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+
+.test-title:after{
+  content: "";
+  width: 60%;
+  height: 35px;
+  left: 20%;
+  background-color: rgb(0,40,85);
+  position: absolute;
+  border-radius: 24px;
+  z-index: -1;
+  
+}
+
+.test-title{
+    -moz-border-radius: 26px;
+    -webkit-border-radius: 26px;
+    border-radius: 26px;
 }

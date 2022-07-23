@@ -1,6 +1,6 @@
 <div class="block-form">
 
-  <%= form_with model: [:admin, @attachment], class: 'form-attachment', local: true, url: (@attachment.new_record? ? admin_attachments_path : admin_attachment_path) do |f| %>
+  <%= form_with model: [:admin, @attachment], class: 'form-attachment', local: true, url: (@attachment.new_record? ? admin_attachments_path : admin_attachment_path), data: { turbo: false } do |f| %>
     <% invalid = @attachment.errors.include?(:name) %>
     
     <div class="form-group">
