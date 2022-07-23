@@ -4,6 +4,7 @@ PreCommit:
     on_warn: fail
     problem_on_unmodified_line: ignore
     flags: ['--disable-pending-cops']
+    exclude: ['db/**/*', config/**/*]
   RailsBestPractices:
     enabled: true
     on_warn: fail
