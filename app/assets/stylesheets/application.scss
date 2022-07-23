@@ -1,0 +1,13 @@
+@import "materialize";
+@import 'header';
+@import 'footer';
+@import 'errors';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.start-block {
+  padding-top: 130px;
+}

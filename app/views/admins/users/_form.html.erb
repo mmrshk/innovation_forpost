@@ -1,0 +1,54 @@
+<%= simple_form_for(@user, url: url, method: method) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+        <% user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>  
+
+  <div class="field">
+    <%= form.label     :email %>
+    <%= form.email_field :email %>
+  </div>  
+  
+  <div class="field">
+    <%= form.label     :Telephone %>
+    <%= form.telephone_field :phone_number %>
+  </div>
+  
+  <div>
+    <% if last_super_admin? && current_user == user %>
+      <div class="last-super-admin-msg"><%= "#{t('admins.users.super_admin_change_prohibited')}" %></div>
+      <% button_block_protector = true %>
+    <% else %>
+      <% button_block_protector = false %>
+    <% end %>
+    <% if current_user.role_super_admin? %>
+      <%= form.radio_button :role, User::USER_ROLES[:user], disabled: button_block_protector %>
+      <%= form.label :user, User::USER_ROLES[:user] %>
+      <%= form.radio_button :role, User::USER_ROLES[:admin], disabled: button_block_protector %>
+      <%= form.label :admin, User::USER_ROLES[:admin] %>
+      <%= form.radio_button :role, User::USER_ROLES[:super_admin], disabled: button_block_protector  %>
+      <%= form.label :super_admin, User::USER_ROLES[:super_admin] %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label     :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label     :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
