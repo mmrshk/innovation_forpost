@@ -28,7 +28,7 @@
     <% else %>
       <% button_block_protector = false %>
     <% end %>
-    <% if current_user.role_super_admin? && button_block_protector == false %>
+    <% if current_user.role_super_admin? && !button_block_protector %>
       <%= form.input :role, collection: User.roles.keys, include_blank: false %>
     <% end %>
   </div>

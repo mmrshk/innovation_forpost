@@ -9,10 +9,11 @@ en:
     login: "Log in"
   admins:
     users:
-      create_success: 'User was successfully created.'
-      update_success: 'User was successfully updated.'
-      pohibited_access: 'You have no permitions to do this, please log in as a super_admin'
-      super_admin_change_prohibited: 'You cannot change a super_admin status being the last one.'
-      last_super_admin: 'You are a last super admin'
+      create_success: "User was successfully created."
+      update_success: "User was successfully updated."
+      pohibited_access: "You have no permitions to do this, please log in as a super_admin"
+      super_admin_change_prohibited: "You cannot change a super_admin status being the last one."
+      last_super_admin: "You are a last super admin"
       user_sucessfully_deleted: "User successfully deleted."
-  log_in_first: 'Please log in first'
+      current_user_account_destroy_prohibited: "Current user account destroy prohibited."
+  log_in_first: "Please log in first"
