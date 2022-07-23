@@ -15,6 +15,14 @@ RSpec.describe User, type: :model do
     it { is_expected.to have_db_column(:created_at).of_type(:datetime).with_options(precision: 6, null: false) }
     it { is_expected.to have_db_column(:updated_at).of_type(:datetime).with_options(precision: 6, null: false) }
     it { is_expected.to have_db_index(:email).unique(true) }
+    it 'creates valid user' do
+      expect(create(:user)).to be_valid
+      expect { create(:user) }.to change(User, :count).by(1)
+    end
+    it 'does not creates invalid user' do
+      expect(build(:user, :invalid_params)).not_to be_valid
+      expect { build(:user, :invalid_params).save }.to change(User, :count).by(0)
+    end
   end
 
   describe 'associations' do
