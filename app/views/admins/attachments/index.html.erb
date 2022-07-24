@@ -1,4 +1,4 @@
-<div class="path-attachment"><%= link_to "Add new attachment", new_admin_attachment_path, class: 'path-new-attachment' %></div> 
+<div class="path-attachment"><%= link_to "Add new attachment", new_admins_attachment_path, class: 'path-new-attachment' %></div> 
   <table class="table-attachment">
     <thead>
       <tr class="table-attachment-title test-title">
@@ -14,12 +14,12 @@
           <td class="title-attachment"><%= attachment.id %></td>
           <td class="title-attachment"><%= attachment.name %></td>
           <td class="title-attachment"> 
-            <%= image_tag attachment.media_file.variant(resize: "200x200"), skip_pipeline: true if attachment.media_file.attached? %>
+            <%= image_tag attachment.media_file.variant(resize: "200x200") %>
           </td>
           <td class="title-attachment links">
-            <%= link_to fa_icon('eye', text: 'View'), admin_attachment_path(attachment), class: "attachment-link" %> 
-            <%= link_to fa_icon('edit', text: 'Edit'), edit_admin_attachment_path(attachment), class: "attachment-link" %> 
-            <%= link_to fa_icon('trash', text: 'Delete'), admin_attachment_path(attachment), method: :delete, class: "attachment-link" %> 
+            <%= link_to fa_icon('eye', text: 'View'), admins_attachment_path(attachment), class: "attachment-link" %> 
+            <%= link_to fa_icon('edit', text: 'Edit'), edit_admins_attachment_path(attachment), class: "attachment-link" %> 
+            <%= link_to fa_icon('trash', text: 'Delete'), admins_attachment_path(attachment), method: :delete, class: "attachment-link" %> 
           </td>
         </tr>
       <% end %>  

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Admin
+module Admins
   class AttachmentsController < ApplicationController
     def index
       @attachments = Attachment.all
@@ -18,7 +18,7 @@ module Admin
       @attachment = Attachment.new(attachment_params)
       if @attachment.save
         flash[:success] = 'You added a new attachment!'
-        redirect_to admin_attachments_path
+        redirect_to admins_attachments_path
       else
         render :new
       end
@@ -32,7 +32,7 @@ module Admin
       @attachment = Attachment.find(params[:id])
       if @attachment.update(attachment_params)
         flash[:success] = 'You successfully edited an attachment!'
-        redirect_to admin_attachment_path(@attachment.id)
+        redirect_to admins_attachment_path(@attachment.id)
       else
         render :edit
       end
@@ -42,7 +42,7 @@ module Admin
       attachment = Attachment.find(params[:id])
       attachment.destroy
       flash[:success] = 'You deleted an attachment!'
-      redirect_to admin_attachments_path
+      redirect_to admins_attachments_path
     end
 
     private
