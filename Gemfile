@@ -8,11 +8,13 @@ gem 'rails', '~> 6.0.5'
 
 gem 'ancestry', '~> 4.2'
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'carrierwave', '~> 2.2.2'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'factory_bot_rails', '~> 6.2.0'
 gem 'jbuilder', '~> 2.7'
 gem 'lit', '~> 1.1.6'
 gem 'materialize-sass', '~> 1.0.0'
+gem 'new_ckeditor', '~> 0.1.2'
 gem 'pg', '~> 1.4.1'
 gem 'puma', '~> 4.1'
 gem 'rails-i18n', '~> 6.0'

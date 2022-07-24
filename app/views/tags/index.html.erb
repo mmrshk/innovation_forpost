@@ -1,0 +1,9 @@
+<div class="container">
+  <% @tags.each do |tag| %>
+      <ul>
+        <li><%= link_to tag.name, tag_path(tag) %>
+      </ul>
+  <% end %>
+  <%= link_to 'Back', url_for(:back) %>
+</div>
+

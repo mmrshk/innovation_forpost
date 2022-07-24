@@ -1,13 +1,27 @@
-<h1><%= @article.title %></h1>
-<span><%= @article.user.email %></span> |
-<span><%= @article.created_at %></span>
 
-<div> <%= raw @article.text %></div>
+<%= content_for :js do %>
+  <script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"></script>
+<% end %>
 
-<div>
-  <%= link_to "Edit", edit_article_path(@article) %> |
-  <%= link_to "Delete", article_path(@article), :confirm => "Are you sure?", :method => :delete %> | 
-  <%= link_to 'Back', articles_path %>
+<% content_for :js_snippet do %>
+  <% javascript_pack_tag 'ckeditor_embed_snippet' %>
+<% end %>
+
+<div class="container">
+  <h1><%= @article.title %></h1>
+  <span><%= @article.user.email %></span> |
+  <span><%= date_as_month_and_year(@article.created_at) %></span>
+  <div class="ck-content"><%# sanitize @article.text %> <hr></div>
+  <div class="ck-content"><hr><p> <%= raw @article.text %></div>
+  <div>
+  <hr>
+    Tags:
+    <% @article.tags.each do |tag| %>
+      <%= link_to tag.name, tag_path(tag) %>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to 'All articles', articles_path %>
+  </div>
+  <hr>
 </div>
-<hr>
-

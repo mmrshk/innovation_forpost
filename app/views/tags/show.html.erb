@@ -1,0 +1,21 @@
+
+<div class='container'>
+  <h1>Articles Tagged with "<%= @tag.name %>"</h1>
+  <ul>
+    <% @tag.articles.each do |article| %>
+      <li>
+        <div><small><%= date_as_month_and_year(article.created_at) %></small></div>
+        <div><h2><%= link_to article.title, article_path(article) %></h2></div>
+        <div><%=raw article.text %></div>
+        <div><small>Author: <%= link_to article.user.email, '#' %></small></div>
+        <div>Tags:
+          <% article.tags.each do |tag| %>
+            <%= link_to tag.name, tag_path(tag) %>
+          <% end %>
+        </div>
+      </li>
+      <hr>
+    <% end %>
+  </ul>
+  <%= link_to 'All articles', articles_path %> | <%= link_to 'Back', url_for(:back) %>
+</div>

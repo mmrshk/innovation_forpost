@@ -1,0 +1,5 @@
+<div class="container">
+  <h1 class="center">Edit Article</h1>
+  <div><%= render "form", article: @form.article, url: admins_article_path, method: 'patch' %></div>
+  <div><%= link_to "Back", admins_articles_path %></div>
+</div>

@@ -1,27 +1,17 @@
-<span class='button'><%= link_to 'New Article', new_article_path %></span></p>
-<table>
-<thead>
-  <tr>
-    <td>Title</td>
-    <td>Autor</td>
-    <td>Status</td>
-    <td>Language</td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-</thead>
-  <% @articles.each do |article| %>
-    <tr>
-      <td><%= link_to article.title, article %></td>
-      <td><%= link_to article.user.email, '#' %></td>
-      <td><%= article.status %></td>
-      <td><%= article.language %></td>
-      <td><%= link_to 'Show', article %></td>
-      <td><%= link_to "Edit", edit_article_path(article) %></td>
-      <td><%= link_to "Delete", article_path(article), :confirm => "Are you sure?", :method => :delete %></td>
-    </tr>
-  <% end %>
-</table>
-
-<%= will_paginate @articles %>
+<div class="container">
+  <ul>
+    <% @articles.each do |article| %>
+      <li>
+        <div><small><%= date_as_month_and_year(article.created_at)%></small></div> 
+        <div><h3><strong><%= link_to article.title, article_path(article) %></strong></h3></div>
+        <div><%= sanitize article.text %></div>
+        <div>Tags:
+          <% article.tags.each do |tag| %>
+            <%= link_to tag.name, tag_path(tag) %>
+          <% end %>
+        </div>
+      </li>
+      <hr>
+    <% end %>
+  </ul>
+</div>
