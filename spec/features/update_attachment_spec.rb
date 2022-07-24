@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Updating an attachment', type: :feature do
+  let!(:attachment) { create(:attachment) }
   scenario 'with valid name' do
-    attachment = create(:attachment)
     visit admins_attachments_path
-    click_on 'Edit'
+    click_on I18n.t('admin.attachments.edit_link')
     fill_in I18n.t('admin.attachments.name'), with: 'NewName'
-    click_on 'Save'
+    click_on I18n.t('admin.attachments.save_button')
     expect(page).to have_content('NewName')
   end
 end

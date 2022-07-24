@@ -1,4 +1,4 @@
-<div class="path-attachment"><%= link_to "Add new attachment", new_admins_attachment_path, class: 'path-new-attachment' %></div> 
+<div class="path-attachment"><%= link_to t('admin.attachments.title.new'), new_admins_attachment_path, class: 'path-new-attachment' %></div> 
   <table class="table-attachment">
     <thead>
       <tr class="table-attachment-title test-title">
@@ -17,9 +17,9 @@
             <%= image_tag attachment.media_file.variant(resize: "200x200") %>
           </td>
           <td class="title-attachment links">
-            <%= link_to fa_icon('eye', text: 'View'), admins_attachment_path(attachment), class: "attachment-link" %> 
-            <%= link_to fa_icon('edit', text: 'Edit'), edit_admins_attachment_path(attachment), class: "attachment-link" %> 
-            <%= link_to fa_icon('trash', text: 'Delete'), admins_attachment_path(attachment), method: :delete, class: "attachment-link" %> 
+            <%= link_to fa_icon('eye', text: t('admin.attachments.view_link')), admins_attachment_path(attachment), class: "attachment-link" %> 
+            <%= link_to fa_icon('edit', text: t('admin.attachments.edit_link')), edit_admins_attachment_path(attachment), class: "attachment-link" %> 
+            <%= link_to fa_icon('trash', text: t('admin.attachments.delete_link')), admins_attachment_path(attachment), method: :delete, class: "attachment-link" %> 
           </td>
         </tr>
       <% end %>  
