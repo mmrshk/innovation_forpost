@@ -306,7 +306,7 @@ GEM
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
-    tzinfo (1.2.9)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     unicode-display_width (2.2.0)
     warden (1.2.9)
@@ -371,6 +371,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   turbo-rails (~> 1.1, >= 1.1.1)
   turbolinks (~> 5)
+  tzinfo (>= 1.2.10)
   tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
