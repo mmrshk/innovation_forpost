@@ -65,6 +65,14 @@ ActiveRecord::Schema.define(version: 2022_07_23_112520) do
     t.index ["name"], name: "index_attachments_on_name"
   end
 
+  create_table "documents", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "ancestry"
+    t.index ["ancestry"], name: "index_documents_on_ancestry"
+  end
+
   create_table "lit_incomming_localizations", id: :serial, force: :cascade do |t|
     t.text "translated_value"
     t.integer "locale_id"
@@ -131,12 +139,6 @@ ActiveRecord::Schema.define(version: 2022_07_23_112520) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean "sync_complete"
-  create_table "documents", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.string "ancestry"
-    t.index ["ancestry"], name: "index_documents_on_ancestry"
   end
 
   create_table "tags", force: :cascade do |t|
