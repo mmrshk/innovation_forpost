@@ -11,8 +11,8 @@
   <h1><%= @article.title %></h1>
   <span><%= @article.user.email %></span> |
   <span><%= date_as_month_and_year(@article.created_at) %></span>
-  <div class="ck-content"><%# sanitize @article.text %> <hr></div>
-  <div class="ck-content"><hr><p> <%= raw @article.text %></div>
+  <div class="ck-content"><%= sanitize @article.text %>
+                          <%# raw @article.text %></div>
   <div>
   <hr>
     Tags:
