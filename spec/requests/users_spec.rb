@@ -45,6 +45,7 @@ RSpec.describe '/admins/users', type: :request do
   describe 'post /create' do
     context 'with valid params' do
       let(:user_new_valid) { attributes_for(:user, :valid_params) }
+
       it 'should create a user' do
         expect { post admins_users_path, params: { user: user_new_valid } }.to change(User, :count).by(1)
         expect(response).to redirect_to(locale_suffix(admins_user_url(User.last)))
@@ -55,6 +56,7 @@ RSpec.describe '/admins/users', type: :request do
     end
     context 'with invalidparams' do
       let(:user_new_invalid) { build(:user, :invalid_params) }
+
       it 'should rerendrer the form' do
         expect(user_new_invalid).not_to be_valid
         expect { user_new_invalid.save }.to change(User, :count).by(0)
@@ -66,6 +68,7 @@ RSpec.describe '/admins/users', type: :request do
     context 'with valid params' do
       let(:user_valid) { create(:user, :valid_params) }
       let(:edited_user_valid) { attributes_for(:user, :valid_params) }
+
       it 'should update the user' do
         put admins_user_path(user_valid), params: { user: edited_user_valid }
         is_expected.to redirect_to(locale_suffix(admins_user_url(user_valid)))
@@ -78,6 +81,7 @@ RSpec.describe '/admins/users', type: :request do
     context 'with invalid params' do
       let(:user_valid) { create(:user, :valid_params) }
       let(:edited_user_invalid) { attributes_for(:user, :invalid_params) }
+
       it 'should not change the user' do
         put admins_user_path(user_valid), params: { user: edited_user_invalid }
         is_expected.to render_template(:edit, status: :unprocessable_entity)
@@ -87,6 +91,7 @@ RSpec.describe '/admins/users', type: :request do
     context 'last super_admin who try to change its status' do
       # single super_user is already created in line: 6
       let(:edited_last_super_admin) { attributes_for(:user, :role_user) }
+
       it 'should not change the last super_admin role' do
         put admins_user_path(user), params: { user: edited_last_super_admin }
         is_expected.to redirect_to(locale_suffix(admins_user_path(user)))
@@ -99,6 +104,7 @@ RSpec.describe '/admins/users', type: :request do
       # single super_user is already created in line: 6
       let(:second_super_admin) { create(:user, :role_super_admin) }
       let(:edited_super_admin) { attributes_for(:user, :role_user) }
+
       it 'should change super_admin role' do
         put admins_user_path(second_super_admin), params: { user: edited_super_admin }
         is_expected.to redirect_to(locale_suffix(admins_user_path(second_super_admin)))
@@ -111,6 +117,7 @@ RSpec.describe '/admins/users', type: :request do
   describe 'delete /destroy' do
     context 'existing user' do
       let!(:user_valid) { create(:user, :valid_params) }
+
       it 'should be destroyed' do
         expect { delete admins_user_path(user_valid), params: { user: user_valid } }.to change(User, :count).by(-1)
         is_expected.to redirect_to(locale_suffix(admins_users_path))
@@ -121,6 +128,7 @@ RSpec.describe '/admins/users', type: :request do
 
     context 'last super_admin' do
       # single super_user is already created in line: 6
+
       it 'should not be destroyed' do
         expect { delete admins_user_path(user), params: { user: user } }.to change(User, :count).by(0)
         is_expected.to redirect_to(locale_suffix(admins_users_path))
@@ -131,6 +139,7 @@ RSpec.describe '/admins/users', type: :request do
 
     context 'not last super_admin' do
       let!(:second_super_admin) { create(:user, :role_super_admin) }
+
       it 'should be destroyed' do
         expect do
           delete admins_user_path(second_super_admin), params: { user: second_super_admin }
@@ -143,6 +152,7 @@ RSpec.describe '/admins/users', type: :request do
 
     context 'itself forbidden' do
       let!(:second_super_admin) { create(:user, :role_super_admin) }
+
       it 'user should not be destroyed' do
         expect { delete admins_user_path(user), params: { user: user } }.to change(User, :count).by(0)
         is_expected.to redirect_to(locale_suffix(admins_users_path))

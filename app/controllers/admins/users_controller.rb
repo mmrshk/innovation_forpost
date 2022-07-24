@@ -39,7 +39,7 @@ module Admins
     def destroy
       if last_super_admin_tries_to_destroy_itself?
         redirect_to admins_users_path, notice: t('admins.users.super_admin_change_prohibited')
-      elsif authorized?
+      elsif authorized? && user.role_super_admin?
         redirect_to admins_users_path, notice: t('admins.users.current_user_account_destroy_prohibited')
       else
         @user.destroy
