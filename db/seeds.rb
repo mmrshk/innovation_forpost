@@ -39,6 +39,22 @@ end
   )
 end
 
+25.times do
+  Question.create!(
+    title:  Faker::Lorem.sentence ,
+    user_name:  Faker::Internet.user_name ,
+    user_email:  Faker::Internet.email ,
+    body:  Faker::Lorem.paragraph
+  )
+end
+
+25.times do
+  Answer.create!(
+    question_id: Question.all.sample.id,
+    body:  Faker::Lorem.paragraph
+  )
+end
+
 10.times do |x|
   Tag.create!(
     name: Faker::Lorem.word + x.to_s
