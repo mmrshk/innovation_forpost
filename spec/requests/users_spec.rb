@@ -128,7 +128,6 @@ RSpec.describe '/admins/users', type: :request do
 
     context 'last super_admin' do
       # single super_user is already created in line: 6
-
       it 'should not be destroyed' do
         expect { delete admins_user_path(user), params: { user: user } }.to change(User, :count).by(0)
         is_expected.to redirect_to(locale_suffix(admins_users_path))
@@ -139,7 +138,6 @@ RSpec.describe '/admins/users', type: :request do
 
     context 'not last super_admin' do
       let!(:second_super_admin) { create(:user, :role_super_admin) }
-
       it 'should be destroyed' do
         expect do
           delete admins_user_path(second_super_admin), params: { user: second_super_admin }
@@ -152,7 +150,6 @@ RSpec.describe '/admins/users', type: :request do
 
     context 'itself forbidden' do
       let!(:second_super_admin) { create(:user, :role_super_admin) }
-
       it 'user should not be destroyed' do
         expect { delete admins_user_path(user), params: { user: user } }.to change(User, :count).by(0)
         is_expected.to redirect_to(locale_suffix(admins_users_path))
