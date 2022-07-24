@@ -7,3 +7,12 @@ uk:
     contacts: "Контакти"
     signout: "Вийти"
     login: "Увійти"
+  admin:
+    attachments:
+      media_file: "Вкладення"
+      name: "Ім'я"
+      choose_file: "Оберіть файл"
+      title:
+        edit: "Редагувати вкладення:"
+        new: "Створити нове вкладення:"
+

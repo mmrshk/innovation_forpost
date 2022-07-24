@@ -1,15 +1,4 @@
 ua:
-  activerecord:
-    errors:
-      models:
-        attachment:
-          attributes:
-            media_file:
-              blank: "should be attached"
-              content_type_invalid: "has wrong type"
-            name:
-              too_short: "is too short"
-              blank: "should be filled"
 
     messages:
       content_type_invalid: "has an invalid content type"

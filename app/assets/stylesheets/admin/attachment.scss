@@ -6,22 +6,16 @@
 
 $invalid-color: red;
 
-thead{
-  position: relative;
-}
 
 .table-attachment {
   width: 60%;
   height: 60px;
-  // border-collapse: collapse;
   margin: 0 auto;
   text-align: center;
-  // background-color: $color-table-background;
 }
 
 .title-attachment {
   padding: 0.5rem;
-  // border: 1px solid $gray-color;
   text-align: center;
 }
 
@@ -101,11 +95,9 @@ thead{
 
 .table-attachment-title {
   position: relative;
-  // background-color: $background-color-title;
   background-color: rgba(0,0,0,0);
   font-family: roboto, arial, helvetica;
   color: $white-color;
- 
 }
 
 input[type="file"] {

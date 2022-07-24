@@ -40,10 +40,9 @@ module Admin
 
     def destroy
       attachment = Attachment.find(params[:id])
-      if attachment.destroy
-        flash[:success] = 'You deleted an attachment!'
-        redirect_to admin_attachments_path
-      end
+      attachment.destroy
+      flash[:success] = 'You deleted an attachment!'
+      redirect_to admin_attachments_path
     end
 
     private
