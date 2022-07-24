@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  mount Lit::Engine => '/lit'
+  mount Lit::Engine => '/lit' unless Rails.env.test?
 
   namespace :admins do
     resources :users, :articles
