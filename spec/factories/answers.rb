@@ -3,10 +3,7 @@
 FactoryBot.define do
   factory :answer do
     body { Faker::Lorem.paragraph }
-
-    trait :with_question do
-      question_id { create :question }
-    end
+    association :question
 
     trait :invalid_answer do
       body { Faker::Lorem.characters(number: 1) }
