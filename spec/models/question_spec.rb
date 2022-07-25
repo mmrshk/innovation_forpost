@@ -14,7 +14,7 @@ RSpec.describe Question, type: :model do
 
     let(:question_invalid_email) { Question.new(user_name: 'abc', user_email: '123.com', body: 'abc', title: 'abc') }
 
-    it ' question can not be saved if email invalid' do
+    it 'question can not be saved if email is invalid' do
       expect(question_invalid_email.save).to be_falsey
     end
   end
