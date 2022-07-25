@@ -2,13 +2,13 @@
 
 module Admins
   class AttachmentsController < ApplicationController
+    before_action :find_attachment, only: %i[show edit update destroy]
+
     def index
       @attachments = Attachment.all
     end
 
-    def show
-      @attachment = Attachment.find(params[:id])
-    end
+    def show; end
 
     def new
       @attachment = Attachment.new
@@ -24,12 +24,9 @@ module Admins
       end
     end
 
-    def edit
-      @attachment = Attachment.find(params[:id])
-    end
+    def edit; end
 
     def update
-      @attachment = Attachment.find(params[:id])
       if @attachment.update(attachment_params)
         flash[:success] = 'You successfully edited an attachment!'
         redirect_to admins_attachment_path(@attachment.id)
@@ -39,13 +36,16 @@ module Admins
     end
 
     def destroy
-      attachment = Attachment.find(params[:id])
-      attachment.destroy
+      @attachment.destroy
       flash[:success] = 'You deleted an attachment!'
       redirect_to admins_attachments_path
     end
 
     private
+
+    def find_attachment
+      @attachment = Attachment.find(params[:id])
+    end
 
     def attachment_params
       params.require(:attachment).permit(:name, :media_file)
