@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-require './spec/support/locale_suffix'
-
-RSpec.configure do |c|
-  c.include LocaleSuffix
-end
 
 RSpec.describe '/admins/users', type: :request do
+  invalid_data = { email: 'no_at_at_all.com',
+                   password: Faker::Internet.password(max_length: 5),
+                   password_confirmation: '',
+                   role: :user }
   let(:user) { create(:user, :role_super_admin) }
 
   before(:each) { sign_in(user) }
@@ -48,14 +47,16 @@ RSpec.describe '/admins/users', type: :request do
 
       it 'should create a user' do
         expect { post admins_users_path, params: { user: user_new_valid } }.to change(User, :count).by(1)
-        expect(response).to redirect_to(locale_suffix(admins_user_url(User.last)))
+        expect(response).to redirect_to(admins_user_url(User.last, locale: I18n.locale))
+
         follow_redirect!
+
         is_expected.to render_template(:show, notice: I18n.t('admins.users.create_success'))
         expect(response.body).to include(I18n.t('admins.users.create_success'))
       end
     end
-    context 'with invalidparams' do
-      let(:user_new_invalid) { build(:user, :invalid_params) }
+    context 'with invalid params' do
+      let(:user_new_invalid) { User.new(invalid_data) }
 
       it 'should rerendrer the form' do
         expect(user_new_invalid).not_to be_valid
@@ -71,8 +72,10 @@ RSpec.describe '/admins/users', type: :request do
 
       it 'should update the user' do
         put admins_user_path(user_valid), params: { user: edited_user_valid }
-        is_expected.to redirect_to(locale_suffix(admins_user_url(user_valid)))
+        is_expected.to redirect_to(admins_user_url(user_valid, locale: I18n.locale))
+
         follow_redirect!
+
         is_expected.to render_template(:show, notice: I18n.t('admins.users.update_success'))
         expect(response.body).to include(I18n.t('admins.users.update_success'))
       end
@@ -80,7 +83,7 @@ RSpec.describe '/admins/users', type: :request do
 
     context 'with invalid params' do
       let(:user_valid) { create(:user, :valid_params) }
-      let(:edited_user_invalid) { attributes_for(:user, :invalid_params) }
+      let(:edited_user_invalid) { attributes_for(:user, invalid_data) }
 
       it 'should not change the user' do
         put admins_user_path(user_valid), params: { user: edited_user_invalid }
@@ -89,26 +92,28 @@ RSpec.describe '/admins/users', type: :request do
     end
 
     context 'last super_admin who try to change its status' do
-      # single super_user is already created in line: 6
       let(:edited_last_super_admin) { attributes_for(:user, :role_user) }
 
       it 'should not change the last super_admin role' do
         put admins_user_path(user), params: { user: edited_last_super_admin }
-        is_expected.to redirect_to(locale_suffix(admins_user_path(user)))
+        is_expected.to redirect_to(admins_user_path(user, locale: I18n.locale))
+
         follow_redirect!
+
         expect(response.body).to include(I18n.t('admins.users.super_admin_change_prohibited'))
       end
     end
 
     context 'not last super_admin changes its status' do
-      # single super_user is already created in line: 6
       let(:second_super_admin) { create(:user, :role_super_admin) }
       let(:edited_super_admin) { attributes_for(:user, :role_user) }
 
       it 'should change super_admin role' do
         put admins_user_path(second_super_admin), params: { user: edited_super_admin }
-        is_expected.to redirect_to(locale_suffix(admins_user_path(second_super_admin)))
+        is_expected.to redirect_to(admins_user_path(second_super_admin, locale: I18n.locale))
+
         follow_redirect!
+
         expect(response.body).to include(I18n.t('admins.users.update_success'))
       end
     end
@@ -120,40 +125,49 @@ RSpec.describe '/admins/users', type: :request do
 
       it 'should be destroyed' do
         expect { delete admins_user_path(user_valid), params: { user: user_valid } }.to change(User, :count).by(-1)
-        is_expected.to redirect_to(locale_suffix(admins_users_path))
+        is_expected.to redirect_to(admins_users_path(locale: I18n.locale))
+
         follow_redirect!
+
         expect(response.body).to include(I18n.t('admins.users.user_sucessfully_deleted'))
       end
     end
 
     context 'last super_admin' do
-      # single super_user is already created in line: 6
       it 'should not be destroyed' do
         expect { delete admins_user_path(user), params: { user: user } }.to change(User, :count).by(0)
-        is_expected.to redirect_to(locale_suffix(admins_users_path))
+        is_expected.to redirect_to(admins_users_path(locale: I18n.locale))
+
         follow_redirect!
+
         expect(response.body).to include(I18n.t('admins.users.super_admin_change_prohibited'))
       end
     end
 
     context 'not last super_admin' do
       let!(:second_super_admin) { create(:user, :role_super_admin) }
+
       it 'should be destroyed' do
         expect do
           delete admins_user_path(second_super_admin), params: { user: second_super_admin }
         end.to change(User, :count).by(-1)
-        is_expected.to redirect_to(locale_suffix(admins_users_path))
+        is_expected.to redirect_to(admins_users_path(locale: I18n.locale))
+
         follow_redirect!
+
         expect(response.body).to include(I18n.t('admins.users.user_sucessfully_deleted'))
       end
     end
 
     context 'itself forbidden' do
       let!(:second_super_admin) { create(:user, :role_super_admin) }
+
       it 'user should not be destroyed' do
         expect { delete admins_user_path(user), params: { user: user } }.to change(User, :count).by(0)
-        is_expected.to redirect_to(locale_suffix(admins_users_path))
+        is_expected.to redirect_to(admins_users_path(locale: I18n.locale))
+
         follow_redirect!
+
         expect(response.body).to include(I18n.t('admins.users.current_user_account_destroy_prohibited'))
       end
     end

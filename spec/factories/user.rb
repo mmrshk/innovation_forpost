@@ -17,12 +17,5 @@ FactoryBot.define do
       password { Faker::Internet.password(min_length: 6) }
       role { :user }
     end
-
-    trait :invalid_params do
-      email { 'no_at_at_all.com' }
-      password { Faker::Internet.password(max_length: 5) }
-      password_confirmation { '' }
-      role { :user }
-    end
   end
 end

@@ -21,8 +21,13 @@ RSpec.describe User, type: :model do
     end
 
     it 'does not creates invalid user' do
-      expect(build(:user, :invalid_params)).not_to be_valid
-      expect { build(:user, :invalid_params).save }.to change(User, :count).by(0)
+      invalid_data = { email: 'no_at_at_all.com',
+                       password: Faker::Internet.password(max_length: 5),
+                       password_confirmation: '',
+                       role: :user }
+
+      expect(build(:user, invalid_data)).not_to be_valid
+      expect { build(:user, invalid_data).save }.to change(User, :count).by(0)
     end
   end
 
