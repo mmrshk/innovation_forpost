@@ -8,7 +8,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+require 'factory_bot_rails'
 admin = User.create!(
   email: 'admin@example.com',
   password: '123456',
@@ -38,6 +38,10 @@ end
     status: Article.statuses[Article.statuses.keys.sample]
   )
 end
+
+FactoryBot.create_list(:question, 20)
+
+FactoryBot.create_list(:answer, 20)
 
 10.times do |x|
   Tag.create!(
