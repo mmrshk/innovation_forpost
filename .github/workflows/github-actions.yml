@@ -40,6 +40,9 @@ jobs:
         run: |
           bundle config path vendor/bundle
           bundle install --jobs 4 --retry 3
+      - name: Install yarn
+        run: |
+          yarn install
       - name: Build and run test
         env:
           DATABASE_URL: postgres://postgres:@localhost:5432/test
