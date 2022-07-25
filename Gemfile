@@ -29,13 +29,9 @@ gem 'factory_bot_rails'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'capybara', '~> 3.13'
   gem 'faker', '~> 2'
   gem 'pry', '~> 0.14.1'
-  gem 'rails-controller-testing'
   gem 'rspec-rails'
-  gem 'shoulda-matchers', '~> 5.0'
-  gem 'webdrivers'
 end
 
 group :development do
@@ -52,5 +48,9 @@ group :development do
 end
 
 group :test do
+  gem 'capybara', '~> 3.13'
+  gem 'rails-controller-testing'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers', '~> 5.0'
+  gem 'webdrivers'
 end

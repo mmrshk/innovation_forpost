@@ -3,10 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe '/admins/users', type: :request do
-  invalid_data = { email: 'no_at_at_all.com',
-                   password: Faker::Internet.password(max_length: 5),
-                   password_confirmation: '',
-                   role: :user }
   let(:user) { create(:user, :role_super_admin) }
 
   before(:each) { sign_in(user) }
@@ -55,8 +51,14 @@ RSpec.describe '/admins/users', type: :request do
         expect(response.body).to include(I18n.t('admins.users.create_success'))
       end
     end
+
     context 'with invalid params' do
-      let(:user_new_invalid) { User.new(invalid_data) }
+      let(:user_new_invalid) do
+        build(:user, { email: 'no_at_at_all.com',
+                       password: Faker::Internet.password(max_length: 5),
+                       password_confirmation: '',
+                       role: :user })
+      end
 
       it 'should rerendrer the form' do
         expect(user_new_invalid).not_to be_valid
@@ -83,7 +85,12 @@ RSpec.describe '/admins/users', type: :request do
 
     context 'with invalid params' do
       let(:user_valid) { create(:user, :valid_params) }
-      let(:edited_user_invalid) { attributes_for(:user, invalid_data) }
+      let(:edited_user_invalid) do
+        attributes_for(:user, { email: 'no_at_at_all.com',
+                                password: Faker::Internet.password(max_length: 5),
+                                password_confirmation: '',
+                                role: :user })
+      end
 
       it 'should not change the user' do
         put admins_user_path(user_valid), params: { user: edited_user_invalid }
