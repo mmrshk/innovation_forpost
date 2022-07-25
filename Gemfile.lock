@@ -37,6 +37,11 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    active_storage_validations (0.9.8)
+      activejob (>= 5.2.0)
+      activemodel (>= 5.2.0)
+      activestorage (>= 5.2.0)
+      activesupport (>= 5.2.0)
     activejob (6.0.5.1)
       activesupport (= 6.0.5.1)
       globalid (>= 0.3.6)
@@ -112,6 +117,8 @@ GEM
     faker (2.21.0)
       i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
+    font-awesome-rails (4.7.0.8)
+      railties (>= 3.2, < 8.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -144,6 +151,7 @@ GEM
       autoprefixer-rails (>= 6.0.3)
     matrix (0.4.2)
     method_source (1.0.0)
+    mini_magick (4.11.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
     minitest (5.16.2)
@@ -302,7 +310,10 @@ GEM
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
       railties (>= 6.0.0)
-    tzinfo (1.2.9)
+    turbolinks (5.2.1)
+      turbolinks-source (~> 5.2)
+    turbolinks-source (5.2.0)
+    tzinfo (1.2.10)
       thread_safe (~> 0.1)
     unicode-display_width (2.2.0)
     warden (1.2.9)
@@ -334,6 +345,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  active_storage_validations
   ancestry (~> 4.2)
   bootsnap (>= 1.4.2)
   brakeman (~> 5.2.3)
@@ -342,10 +354,12 @@ DEPENDENCIES
   devise (~> 4.8, >= 4.8.1)
   factory_bot_rails
   faker (~> 2)
+  font-awesome-rails
   jbuilder (~> 2.7)
   listen (~> 3.2)
   lit (~> 1.1.6)
   materialize-sass (~> 1.0.0)
+  mini_magick
   overcommit (~> 0.59.1)
   pg
   pry (~> 0.14.1)
@@ -364,6 +378,9 @@ DEPENDENCIES
   spring
   spring-watcher-listen (~> 2.0.0)
   turbo-rails (~> 1.1, >= 1.1.1)
+  turbolinks (~> 5)
+  tzinfo (>= 1.2.10)
+  tzinfo-data
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)
