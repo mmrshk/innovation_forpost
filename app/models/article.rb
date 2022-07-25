@@ -8,7 +8,7 @@ class Article < ApplicationRecord
   }.freeze
 
   LANGUAGES = {
-    ua: 0,
+    uk: 0,
     en: 1
   }.freeze
 
@@ -21,4 +21,8 @@ class Article < ApplicationRecord
 
   validates   :title, :text, :user, :status, :language, presence: true
   validates   :title, length: { maximum: 100 }
+
+  scope :sorted_desc, -> { order(created_at: :desc) }
+  scope :not_trashed, -> { where.not(status: VALID_STATUSES[:trashed]) }
+  scope :in_language, ->(language) { where(language: language) }
 end

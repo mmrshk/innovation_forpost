@@ -27,6 +27,8 @@ Metrics/BlockLength:
     - draw
     - configure
     - group
+  Exclude:
+    - spec/**/*.rb
 Style/Documentation:
   Enabled: false
 AllCops:
