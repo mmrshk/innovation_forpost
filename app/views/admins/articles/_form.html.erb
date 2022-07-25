@@ -1,18 +1,29 @@
 <%= simple_form_for article, as: :article, url: url, method: method do |f| %>
   <% presenter = ArticlePresenter.new(f.object)%>
-  <% if method == 'patch' %>
+  <%# if method == 'patch' %>
     <%= render partial: 'errors' %>
-  <% end %>
-  <%= f.input :title %>
-  <%= f.input :user_id, as: :select,
-                        collection: User.only_admins,
-                        label_method: :email,
-                        value_method: :id,
-                        selected:article.user_id,
-                        include_blank: false  %>
-  <%= f.input :text, label: false, as: :text, input_html: {style: 'width: 100%', rows: 10, class: 'form-text'} %>
-  <%= f.input :language, collection: Article.languages.keys, include_blank: false %>
-  <%= f.input :status, collection: Article.statuses.keys, include_blank: false %>
-  <%= f.input :tags, input_html: { value: presenter.all_tags } %>
-  <%= f.button :submit %>
+  <%# end %>
+  <%= f.input :title, autofocus: true,
+                      label_html: { class: 'name-field' },
+                      input_html: { class: '' } %>
+  <%= f.input :text, label: false,
+                      as: :text,
+                      input_html: {style: 'width: 100%', rows: 10, class: 'form-text'} %>
+  <%= f.input :user_id, label: 'Author',
+                      label_html: { class: 'name-field' },
+                      as: :select,
+                      collection: User.only_admins,
+                      label_method: :email,
+                      value_method: :id,
+                      selected:article.user_id,
+                      include_blank: false  %>
+  <%= f.input :language, label_html: { class: 'name-field' },
+                      collection: Article.languages.keys,
+                      include_blank: false %>
+  <%= f.input :status, label_html: { class: 'name-field' },
+                      collection: Article.statuses.keys,
+                      include_blank: false %>
+  <%= f.input :tags, label_html: { class: 'name-field' },
+                      input_html: { value: presenter.all_tags } %>
+  <%= f.button :submit, class: 'submit-button' %>
 <% end %>
