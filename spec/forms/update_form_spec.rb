@@ -22,18 +22,19 @@ RSpec.describe Articles::CreateUpdateForm do
           tags: article_new_valid_params[:tags].pluck(:name).join(', ')
         }
       end
+
       it 'not changes Articles count' do
         expect { form.save }.not_to change(Article, :count)
       end
 
       it 'not changes ArticleTags count' do
         expect { form.save }.not_to change(ArticleTag, :count)
-        expect(Article.find(form.article.id).tags.count).to eq(2)
+        expect(Article.last.tags.count).to eq(2)
       end
 
       it 'updates the exist instance of Article with correct values' do
         form.save
-        updated_article = Article.find(form.article.id)
+        updated_article = Article.last
         expect(updated_article.id).to eq(article.id)
         expect(updated_article.title).to eq(article_new_valid_params[:title])
         expect(updated_article.text).to eq(article_new_valid_params[:text])
@@ -61,12 +62,12 @@ RSpec.describe Articles::CreateUpdateForm do
 
       it 'changes ArticleTags count' do
         expect { form.save }.to change(ArticleTag, :count).by(2)
-        expect(Article.find(form.article.id).tags.count).to eq(4)
+        expect(Article.last.tags.count).to eq(4)
       end
 
       it 'updates the exist instance of Article with correct values and new tags' do
         form.save
-        updated_article = Article.find(form.article.id)
+        updated_article = Article.last
         expect(updated_article.id).to eq(article.id)
         expect(updated_article.title).to eq(article_params[:title])
         expect(updated_article.text).to eq(article_params[:text])
@@ -96,12 +97,12 @@ RSpec.describe Articles::CreateUpdateForm do
 
       it 'not changes ArticleTags count' do
         expect { form.save }.not_to change(ArticleTag, :count)
-        expect(Article.find(form.article.id).tags.count).to eq(2)
+        expect(Article.last.tags.count).to eq(2)
       end
 
       it 'not updates the exist instance of Article with not correct values' do
         form.save
-        updated_article = Article.find(form.article.id)
+        updated_article = Article.last
         expect(updated_article.id).to eq(article.id)
         expect(updated_article.title).to eq(article.title)
         expect(updated_article.text).to eq(article.text)
@@ -112,7 +113,7 @@ RSpec.describe Articles::CreateUpdateForm do
       end
 
       it 'returns false' do
-        expect(form.save).to be_falsey
+        expect(form.save).to eq(false)
       end
     end
 

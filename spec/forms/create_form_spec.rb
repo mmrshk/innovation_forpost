@@ -21,18 +21,19 @@ RSpec.describe Articles::CreateUpdateForm do
           tags: valid_article[:tags].pluck(:name).join(', ')
         }
       end
+
       it 'changes Articles count' do
         expect { form.save }.to change(Article, :count).by(1)
       end
 
       it 'changes ArticleTags count' do
         expect { form.save }.to change(ArticleTag, :count).by(2)
-        expect(Article.find(form.article.id).tags.count).to eq(2)
+        expect(Article.last.tags.count).to eq(2)
       end
 
       it 'creates a new instance of Article with correct values' do
         form.save
-        created_article = Article.find(form.article.id)
+        created_article = Article.last
         expect(created_article.title).to eq(valid_article[:title])
         expect(created_article.text).to eq(valid_article[:text])
         expect(created_article.user_id).to eq(valid_article[:user_id])
@@ -65,7 +66,7 @@ RSpec.describe Articles::CreateUpdateForm do
       end
 
       it 'returns false' do
-        expect(form.save).to be_falsey
+        expect(form.save).to eq(false)
       end
     end
 

@@ -16,6 +16,7 @@ module Admins
 
     def create
       @form = Articles::CreateUpdateForm.new(params: article_params)
+
       if @form.save
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.create_success')
       else
@@ -30,9 +31,9 @@ module Admins
 
     def update
       @form = Articles::CreateUpdateForm.new(params: article_params, article: article)
+
       if @form.save
-        locale = @form.article.language.to_sym
-        redirect_to article_path(@form.article, locale: locale), notice: I18n.t('admins.articles.update_success')
+        redirect_to admins_articles_path, notice: I18n.t('admins.articles.update_success')
       else
         flash.now[:alert] = I18n.t('admins.articles.update_unsuccess')
         render :edit, status: :unprocessable_entity
