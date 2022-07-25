@@ -47,8 +47,9 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
         run: |
-          bin/rails db:setup
-          RAILS_ENV=test bundle exec rspec
+          psql -c 'create database test;' -U postgres
+          RAILS_ENV=test bundle exec rake db:migrate
+          bundle exec rspec
       - name: Formatting and Security Checks
         run: |
           gem install bundle-audit
