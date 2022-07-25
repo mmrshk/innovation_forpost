@@ -24,6 +24,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'ancestry', '~> 4.2'
 gem 'factory_bot_rails'
+gem 'tzinfo', '>= 1.2.10'
 
 group :production, :development do
   gem 'lit', '~> 1.1.6'
