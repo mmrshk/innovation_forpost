@@ -1,0 +1,18 @@
+<div class="container">
+  <h1><%= @article.title %></h1>
+  <span><%= @article.user.email %></span> |
+  <span><%= date_as_month_and_year(@article.created_at) %></span>
+  <div class="ck-content"><%= sanitize @article.text %>
+                          <%# raw @article.text %></div>
+  <div>
+  <hr>
+    Tags:
+    <% @article.tags.each do |tag| %>
+      <%= link_to tag.name, tag_path(tag) %>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to 'All articles', articles_path %>
+  </div>
+  <hr>
+</div>
