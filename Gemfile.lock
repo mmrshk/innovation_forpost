@@ -99,6 +99,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.5.0)
+    docile (1.4.0)
     emoji_flag (0.1.1)
     erubi (1.10.0)
     erubis (2.7.0)
@@ -281,6 +282,12 @@ GEM
     simple_form (5.1.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
+    simplecov (0.21.2)
+      docile (~> 1.1)
+      simplecov-html (~> 0.11)
+      simplecov_json_formatter (~> 0.1)
+    simplecov-html (0.12.3)
+    simplecov_json_formatter (0.1.4)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -358,6 +365,7 @@ DEPENDENCIES
   selenium-webdriver (~> 4.3.0)
   shoulda-matchers (~> 5.0)
   simple_form (~> 5.1)
+  simplecov
   spring (~> 2.1.1)
   spring-watcher-listen (~> 2.0.0)
   turbo-rails (~> 1.1, >= 1.1.1)
