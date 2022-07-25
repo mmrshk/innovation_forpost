@@ -1,8 +1,7 @@
-<%= simple_form_for(@user, url: url, method: method) do |form| %>
+<%= simple_form_for(@user, url: url, method: method) do |f| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
         <% user.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -12,13 +11,13 @@
   <% end %>  
 
   <div class="field">
-    <%= form.label     :email %>
-    <%= form.email_field :email %>
+    <%= f.label     :email %>
+    <%= f.email_field :email %>
   </div>  
   
   <div class="field">
-    <%= form.label     :Telephone %>
-    <%= form.telephone_field :phone_number %>
+    <%= f.label     :Telephone %>
+    <%= f.telephone_field :phone_number %>
   </div>
   
   <div>
@@ -29,26 +28,21 @@
       <% button_block_protector = false %>
     <% end %>
     <% if current_user.role_super_admin? %>
-      <%= form.radio_button :role, User::USER_ROLES[:user], disabled: button_block_protector %>
-      <%= form.label :user, User::USER_ROLES[:user] %>
-      <%= form.radio_button :role, User::USER_ROLES[:admin], disabled: button_block_protector %>
-      <%= form.label :admin, User::USER_ROLES[:admin] %>
-      <%= form.radio_button :role, User::USER_ROLES[:super_admin], disabled: button_block_protector  %>
-      <%= form.label :super_admin, User::USER_ROLES[:super_admin] %>
+      <%= f.input :role, collection: User.roles.keys, include_blank: false %>
     <% end %>
   </div>
 
   <div class="field">
-    <%= form.label     :password %>
-    <%= form.password_field :password %>
+    <%= f.label     :password %>
+    <%= f.password_field :password %>
   </div>
 
   <div class="field">
-    <%= form.label     :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
+    <%= f.label     :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>
