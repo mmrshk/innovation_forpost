@@ -1,5 +1,8 @@
-<h1>Create new user</h1>
+<% provide(:button_text, 'Sign up') %>
 
-<%= render 'form', user: @user, url: admins_users_path, method: :post %>
-
-<%= link_to 'Back', admins_users_path %>
+<div class="form-container">
+  <div class="form row">
+    <h3 class="center-align">Sign up new user</h3>
+    <%= render 'form', user: @user, url: admins_users_path, method: :post %>
+  </div>
+</div>
