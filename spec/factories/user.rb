@@ -12,10 +12,5 @@ FactoryBot.define do
     trait :role_user do
       role { :user }
     end
-
-    trait :valid_params do
-      password { Faker::Internet.password(min_length: 6) }
-      role { :user }
-    end
   end
 end

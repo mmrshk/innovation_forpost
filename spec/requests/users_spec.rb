@@ -45,7 +45,7 @@ RSpec.describe '/admins/users', type: :request do
 
   describe 'post /create' do
     context 'with valid params' do
-      let(:user_new_valid) { attributes_for(:user, :valid_params) }
+      let(:user_new_valid) { attributes_for(:user, :role_user) }
 
       it 'should create a user' do
         expect { post admins_users_path, params: { user: user_new_valid } }.to change(User, :count).by(1)
@@ -70,8 +70,8 @@ RSpec.describe '/admins/users', type: :request do
 
   describe 'put /update' do
     context 'with valid params' do
-      let(:user_valid) { create(:user, :valid_params) }
-      let(:edited_user_valid) { attributes_for(:user, :valid_params) }
+      let(:user_valid) { create(:user, :role_user) }
+      let(:edited_user_valid) { attributes_for(:user, :role_user) }
 
       it 'should update the user' do
         put admins_user_path(user_valid), params: { user: edited_user_valid }
@@ -85,7 +85,7 @@ RSpec.describe '/admins/users', type: :request do
     end
 
     context 'with invalid params' do
-      let(:user_valid) { create(:user, :valid_params) }
+      let(:user_valid) { create(:user, :role_user) }
       let(:edited_user_invalid) { attributes_for(:user, invalid_user) }
 
       it 'should not change the user' do
@@ -124,7 +124,7 @@ RSpec.describe '/admins/users', type: :request do
 
   describe 'delete /destroy' do
     context 'existing user' do
-      let!(:user_valid) { create(:user, :valid_params) }
+      let!(:user_valid) { create(:user, :role_user) }
 
       it 'should be destroyed' do
         expect { delete admins_user_path(user_valid), params: { user: user_valid } }.to change(User, :count).by(-1)
