@@ -4,13 +4,6 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   describe 'validations' do
-    let(:invalid_user) do
-      { email: 'no_at_at_all.com',
-        password: Faker::Internet.password(max_length: 5),
-        password_confirmation: '',
-        role: :user }
-    end
-
     it { should validate_presence_of(:email) }
     it { should validate_presence_of(:password) }
     it { is_expected.to have_db_column(:email).of_type(:string).with_options(default: '', null: false) }
@@ -27,9 +20,18 @@ RSpec.describe User, type: :model do
       expect { create(:user) }.to change(User, :count).by(1)
     end
 
-    it 'does not creates invalid user' do
-      expect(build(:user, invalid_user)).not_to be_valid
-      expect { build(:user, invalid_user).save }.to change(User, :count).by(0)
+    context 'does not creates invalid user' do
+      let(:invalid_user) do
+        { email: 'no_at_at_all.com',
+          password: Faker::Internet.password(max_length: 5),
+          password_confirmation: '',
+          role: :user }
+      end
+
+      let(:user) { build(:user, invalid_user) }
+
+      it { expect(user).not_to be_valid }
+      it { expect { user.save }.to change(User, :count).by(0) }
     end
   end
 
