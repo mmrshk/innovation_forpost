@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
+  before_action :set_question, only: %i[show edit update destroy]
   def index
     @questions = Question.all
   end
@@ -20,15 +21,12 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    @question = Question.find_by(id: params[:id])
+    @answer = @question.answers.build
   end
 
-  def edit
-    @question = Question.find_by(id: params[:id])
-  end
+  def edit; end
 
   def update
-    @question = Question.find_by(id: params[:id])
     if @question.update(question_params)
       redirect_to questions_path
     else
@@ -37,12 +35,15 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find_by(id: params[:id])
     @question.destroy
     redirect_to questions_path, notice: 'Question destroyed'
   end
 
   private
+
+  def set_question
+    @question = Question.find_by(id: params[:id])
+  end
 
   def question_params
     params.require(:question).permit(:title, :body, :user_name, :user_email)

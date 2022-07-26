@@ -14,7 +14,9 @@ Rails.application.routes.draw do
       registrations: 'registrations'
     }
     
-    resources :questions
+    resources :questions do
+      resources :answers, only: [:create, :destroy]
+    end
     root to: "home#index"
   end
 
