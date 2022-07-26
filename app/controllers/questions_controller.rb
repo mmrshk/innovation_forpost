@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
+  before_action :authenticate_user!, only: %i[edit update destroy]
   before_action :set_question!, only: %i[show edit update destroy]
+
   def index
     @questions = Question.all
   end
@@ -35,9 +37,23 @@ class QuestionsController < ApplicationController
     end
   end
 
+  #  def destroy
+  #    if current_user.role_super_admin? || current_user.role_admin?
+  #      @question.destroy
+  #      redirect_to questions_path, notice: 'Question destroyed'
+  #    else
+  #      redirect_to questions_path
+  #      flash[:alert] = 'You dont have access'
+  #    end
+  #  end
+
   def destroy
+    if current_user.role_super_admin? || current_user.role_admin?
+      return redirect_to questions_path,
+                         notice: 'Question destroyed'
+    end
+
     @question.destroy
-    redirect_to questions_path, notice: 'Question destroyed'
   end
 
   private
