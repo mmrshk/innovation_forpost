@@ -48,12 +48,11 @@ class QuestionsController < ApplicationController
   #  end
 
   def destroy
-    if current_user.role_super_admin? || current_user.role_admin?
-      return redirect_to questions_path,
-                         notice: 'Question destroyed'
+    unless current_user.role_super_admin? || current_user.role_admin?
+      redirect_to questions_path, notice: 'You dont have access'
+      return
     end
-
-    @question.destroy
+    redirect_to questions_path, notice: 'Question destroyed' if @question.destroy
   end
 
   private
