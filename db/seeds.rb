@@ -1,13 +1,6 @@
 # frozen_string_literal: true
 
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require 'factory_bot_rails'
 
 admin = User.create!(
   email: 'admin@example.com',
@@ -16,15 +9,13 @@ admin = User.create!(
   role: :super_admin
 )
 
-users_role = %w[user admin super_admin]
-
 5.times do
   password = Faker::Internet.password(min_length: 8, max_length: 20, mix_case: true, special_characters: true)
   User.create!(
     email: Faker::Internet.email,
     password: password,
     password_confirmation: password,
-    role: users_role.sample,
+    role: User.roles[User.roles.keys.sample],
     phone_number: Faker::PhoneNumber.cell_phone
   )
 end
@@ -33,11 +24,13 @@ end
   Article.create!(
     title: Faker::Lorem.sentence(word_count: 3),
     user_id: User.all.sample.id,
-    text: Faker::Lorem.paragraphs(number: 3),
+    text: (Faker::Lorem.paragraphs(number: 3)).join,
     language: Article.languages[Article.languages.keys.sample],
     status: Article.statuses[Article.statuses.keys.sample]
   )
 end
+
+FactoryBot.create_list(:answer, 20)
 
 10.times do |x|
   Tag.create!(
