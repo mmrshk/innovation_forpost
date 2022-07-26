@@ -9,7 +9,7 @@ RSpec.describe Article, type: :model do
     it { is_expected.to validate_presence_of(:text) }
     it { is_expected.to validate_presence_of(:user) }
     it { is_expected.to validate_presence_of(:language) }
-    it { is_expected.to define_enum_for(:language).with_values(%w[ua en]) }
+    it { is_expected.to define_enum_for(:language).with_values(%w[uk en]) }
     it { is_expected.to validate_presence_of(:status) }
     it { is_expected.to define_enum_for(:status).with_values(%w[draft published trashed]) }
   end

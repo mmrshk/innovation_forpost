@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :users, :articles
     resources :attachments
+    resources :users
+    resources :articles, except: :show
   end
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # devise said he wants to have a specified root rout, so:
@@ -15,7 +18,8 @@ Rails.application.routes.draw do
     devise_for :users, controllers: {
       registrations: 'registrations'
     }
-    
+    resources :articles, only: %i[index show] 
+    resources :tags, only: %i[index show]
     root to: "home#index"
   end
 
