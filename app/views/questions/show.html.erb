@@ -6,10 +6,13 @@
   <%= @question.user_email %>
 </p>
 
-<%= simple_form_for @question do |form| %>
-  <%= form.input :title, label: 'Title' %>
-  <%= form.input :body, label: 'Body' %>
-  <%= form.input :user_name, label: 'Name' %>
-  <%= form.input :user_email, label: 'Email' %>
-  <%= form.button :submit, class: "btn-primary"%>
+<%= simple_form_for [@question, @answer] do |a| %>
+  <%= a.input :body, label: 'Body' %>
+  <%= a.button :submit, class: "btn-primary"%>
+<% end %>
+
+<h2>Answers</h2>
+<% @answers.each do |answer|%>
+  <p><%= answer.body %></p>
+  <%= link_to 'Delete answer', question_answer_path(@question, answer), method: :delete %>
 <% end %>

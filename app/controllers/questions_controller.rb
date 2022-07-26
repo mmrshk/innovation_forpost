@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :set_question, only: %i[show edit update destroy]
+  before_action :set_question!, only: %i[show edit update destroy]
   def index
     @questions = Question.all
   end
@@ -22,6 +22,7 @@ class QuestionsController < ApplicationController
 
   def show
     @answer = @question.answers.build
+    @answers = @question.answers.order(created_at: :desc)
   end
 
   def edit; end
@@ -41,7 +42,7 @@ class QuestionsController < ApplicationController
 
   private
 
-  def set_question
+  def set_question!
     @question = Question.find_by(id: params[:id])
   end
 
