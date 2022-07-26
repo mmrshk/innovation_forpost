@@ -10,6 +10,7 @@ gem 'ancestry', '~> 4.2'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'factory_bot_rails', '~> 6.2.0'
+gem 'font-awesome-rails', '>= 4.7'
 gem 'jbuilder', '~> 2.7'
 gem 'lit', '~> 1.1.6'
 gem 'materialize-sass', '~> 1.0.0'
@@ -31,21 +32,20 @@ group :development, :test do
 end
 
 group :development do
-  gem 'listen', '~> 3.2'
-  gem 'web-console', '>= 3.3.0'
-
-  gem 'spring', '~> 2.1.1'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-
   gem 'brakeman', '~> 5.2.3', require: false
+  gem 'listen', '~> 3.2'
   gem 'overcommit', '~> 0.59.1'
   gem 'rails_best_practices', '~> 1.23.1'
   gem 'rubocop', '~> 1.31.1', require: false
+  gem 'spring', '~> 2.1.1'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver', '~> 4.3.0'
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'simplecov', require: false
   gem 'webdrivers', '~> 5.0.0'
 end

@@ -1,5 +1,6 @@
 <div class="container">
-  <span class='button'><%= link_to 'New Article', new_admins_article_path %></span>
+  <div class="articles-title">Articles</div>
+  <div><%= link_to 'New Article', new_admins_article_path, class:'btn articles-button' %></div>
   <table>
     <thead>
       <tr>
@@ -7,9 +8,7 @@
         <td>Author</td>
         <td>Status</td>
         <td>Language</td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>Functions</td>
       </tr>
     </thead>
     <tbody>
@@ -19,10 +18,11 @@
           <td><%= link_to article.user.email, '#' %></td>
           <td><%= article.status %></td>
           <td><%= article.language %></td>
-          <td><%= link_to 'Show', article_path(article, locale: :uk) %></td>
-          <td><%= link_to "Edit", edit_admins_article_path(article) %></td>
-          <td><%= link_to "Delete", admins_article_path(article), method: :delete, 
-                                                                data: { confirm: "Are you sure?" } %></td>
+          <td>
+            <%= link_to fa_icon('eye', text: 'View'), article_path(article, locale: article.language.to_sym), class: "article-link" %> 
+            <%= link_to fa_icon('edit', text: 'Edit'), edit_admins_article_path(article), class: "article-link" %> 
+            <%= link_to fa_icon('trash', text: 'Delete'), admins_article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: "article-link" %> 
+          </td>
         </tr>
       <% end %>
     </tbody>

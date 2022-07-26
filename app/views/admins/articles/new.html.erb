@@ -1,5 +1,5 @@
-<div class="container">
-  <h1 class="center">New Article</h1>
-  <div><%= render "form", article: @form, url: admins_articles_path, method: 'post'%></div>
-  <div><%= link_to "Back", admins_articles_path %></div>
+<div class='container'>
+  <h1 class='articles-title'>New Article</h1>
+  <div><%= render 'form', article: @form, url: admins_articles_path, method: 'post'%></div>
+  <div><%= link_to 'Back', admins_articles_path, class:'btn articles-button' %></div>
 </div>
