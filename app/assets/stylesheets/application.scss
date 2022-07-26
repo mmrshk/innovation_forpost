@@ -1,7 +1,9 @@
 @import "materialize";
+@import "colors";
 @import 'header';
 @import 'footer';
 @import 'errors';
+@import 'admins/users';
 
 * {
   margin: 0;
@@ -11,3 +13,4 @@
 .start-block {
   padding-top: 130px;
 }
+

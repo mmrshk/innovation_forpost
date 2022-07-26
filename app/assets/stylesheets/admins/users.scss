@@ -1,0 +1,36 @@
+@import "font-awesome";
+
+table { 
+  border-collapse: separate; 
+  border-spacing: 0 10px; 
+  margin-top: -10px; 
+  font-size: 20px;
+}
+th {
+  border: solid 1px ;
+  border-style: solid none;
+  padding: 10px;
+  background-color: $background-color-title;
+  color: $white-color;
+  border-radius: 0px;
+  height: 60px;
+}
+th:first-child {
+  border-left-style: solid;
+  border-top-left-radius: 30px; 
+  border-bottom-left-radius: 30px;
+}
+th:last-child {
+  border-right-style: solid;
+  border-bottom-right-radius: 30px; 
+  border-top-right-radius: 30px; 
+}
+
+.user-link {
+  text-decoration: none;
+  color: $black-color;
+
+  &:hover {
+    color: $base-color;
+  }
+}
