@@ -32,8 +32,6 @@ end
   )
 end
 
-FactoryBot.create_list(:question, 20)
-
 FactoryBot.create_list(:answer, 20)
 
 10.times do |x|
