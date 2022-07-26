@@ -1,11 +1,10 @@
-
 <div class='container'>
-  <h1>Articles Tagged with "<%= @tag.name %>"</h1>
+  <div class='article-title'>Articles Tagged with "<%= @tag.name %>"</div>
   <ul>
     <% @tag.articles.each do |article| %>
       <li>
-        <div><small><%= date_as_month_and_year(article.created_at) %></small></div>
-        <div><h2><%= link_to article.title, article_path(article) %></h2></div>
+        <div class='article-data'><%= date_as_month_and_year(article.created_at) %></div>
+        <div><%= link_to article.title, article_path(article), class: 'article-title' %></div>
         <div><%= sanitize article.text %></div>
         <div><small>Author: <%= link_to article.user.email, '#' %></small></div>
         <div>Tags:
@@ -14,8 +13,11 @@
           <% end %>
         </div>
       </li>
-      <hr>
+      <hr class='article-hr'>
     <% end %>
   </ul>
-  <%= link_to 'All articles', articles_path %> | <%= link_to 'Back', url_for(:back) %>
+  <div class='group-buttons'>
+    <%= link_to 'All articles', articles_path, class: 'article-button outline' %>
+    <%= link_to fa_icon('arrow-left', text: 'Back'), url_for(:back), class: 'article-button outline' %>
+  </div>
 </div>

@@ -1,5 +1,5 @@
 <div class='container'>
-  <h1 class='articles-title'>Edit Article</h1>
+  <h1 class='admin-article-title'>Edit Article</h1>
   <div class='block-form'><%= render 'form', article: @form.article, url: admins_article_path, method: 'patch' %></div>
-  <div><%= link_to 'Back', admins_articles_path, class:'btn articles-button' %></div>
+  <div><%= link_to fa_icon('arrow-left', text: 'Back'), admins_articles_path, class:'btn admin-article-button' %></div>
 </div>

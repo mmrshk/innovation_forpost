@@ -1,0 +1,51 @@
+.admin-article-title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 59px;
+  display: flex;
+  align-items: center;
+  color: $admin-background-color-title;
+}
+
+.article-link {
+  text-decoration: none;
+  color: $black-color;
+  margin-right: 15px;
+
+  &:hover {
+    color: $admin-background-color-title;
+  }
+}
+
+.admin-article-button {
+  height: 40px;
+  float: left;
+  background: $admin-background-color-button;
+  border-radius: 20px;
+  min-width: 250px;
+  font-family: 'Roboto';
+  font-style: normal;
+  text-transform: capitalize; 
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 33px;
+  align-items: center;
+  padding: 3px;
+  margin: 8px 0 10px 0;
+}
+
+.btn:hover {
+  background-color: $base-color;
+}
+
+@media screen and (max-width: 640px) {
+  .admin-article-button {
+    width: 100%;
+    // font-size: 30px;
+    padding: 3px 30px;
+    max-height: 54px;
+    float:none
+  }
+}

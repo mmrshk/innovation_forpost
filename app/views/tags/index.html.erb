@@ -1,8 +1,8 @@
-<div class="container">
-  <% @tags.each do |tag| %>
-      <ul>
-        <li><%= link_to tag.name, tag_path(tag) %>
-      </ul>
-  <% end %>
-  <%= link_to 'Back', url_for(:back) %>
+<div class='container'>
+  <ul class='tag-links'>
+    <% @tags.each do |tag| %>
+      <li class='tag-links-item'><%= link_to tag.name, tag_path(tag), class: 'a' %>
+    <% end %>
+  </ul>
+  <%= link_to fa_icon('arrow-left', text: 'Back'), url_for(:back), class:'article-button outline' %>
 </div>

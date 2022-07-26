@@ -3,7 +3,9 @@
 @import 'footer';
 @import 'errors';
 @import "font-awesome";
-@import 'admins/articles/*';
+@import 'admins/article/*';
+@import 'article/*';
+@import 'tag/*';
 
 * {
   margin: 0;

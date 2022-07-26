@@ -1,17 +1,25 @@
-<div class="container">
-  <ul>
-    <% @articles.each do |article| %>
-      <li>
-        <div><small><%= date_as_month_and_year(article.created_at)%></small></div> 
-        <div><h3><strong><%= link_to article.title, article_path(article) %></strong></h3></div>
-        <div><%= sanitize article.text %></div>
-        <div>Tags:
-          <% article.tags.each do |tag| %>
-            <%= link_to tag.name, tag_path(tag) %>
-          <% end %>
-        </div>
-      </li>
-      <hr>
-    <% end %>
+<div class='container'>
+  <div class='articles-tags'>
+    <ul class='articles-list'>
+      <% @articles.each do |article| %>
+        <li>
+          <div class='article-data'><%= date_as_month_and_year(article.created_at) %></div> 
+          <div><%= link_to article.title, article_path(article), class: 'article-title' %></div>
+          <div><%= sanitize article.text %></div>
+          <div>Tags:
+            <% article.tags.each do |tag| %>
+              <%= link_to tag.name, tag_path(tag) %>
+            <% end %>
+          </div>
+        </li>
+      <hr class='article-hr'>
+      <% end %>
+    </ul>
+
+    <ul class='tag-links vertical short'>
+      <% @tags.each do |tag| %>
+        <li class='tag-links-item'><%= link_to tag.name, tag_path(tag), class: 'a' %>
+      <% end %>
   </ul>
+  </div>
 </div>

@@ -4,15 +4,15 @@
     <%= render partial: 'errors' %>
   <% end %>
   <%= f.input :title, autofocus: true,
-                      label_html: { class: 'name-field' },
+                      label_html: { class: 'name-field-form' },
                       input_html: { class: 'form-input' },
                       error_html: { class: 'error-form-input' } %>
   <%= f.input :text, label: false,
                       as: :text,
                       input_html: { class: 'form-text' },
                       error_html: { class: 'error-form-input' } %>
-    <%= f.input :user_id, label: 'Author',
-                      label_html: { class: 'name-field' },
+  <%= f.input :user_id, label: 'Author',
+                      label_html: { class: 'name-field-form' },
                       as: :select,
                       input_html: { class: 'inline-select' },
                       collection: User.only_admins,
@@ -20,16 +20,16 @@
                       value_method: :id,
                       selected:article.user_id,
                       include_blank: false %>
-  <%= f.input :language, label_html: { class: 'name-field' },
+  <%= f.input :language, label_html: { class: 'name-field-form' },
                       input_html: { class: 'inline-select' },
                       collection: Article.languages.keys,
                       include_blank: false %>
-  <%= f.input :status, label_html: { class: 'name-field' },
+  <%= f.input :status, label_html: { class: 'name-field-form' },
                       input_html: { class: 'inline-select' },
                       collection: Article.statuses.keys,
                       include_blank: false,
                       class: 'inline-select' %>
-  <%= f.input :tags, label_html: { class: 'name-field' },
+  <%= f.input :tags, label_html: { class: 'name-field-form' },
                       input_html: { value: presenter_article.all_tags } %>
-  <%= f.button :submit, method == 'post' ? 'Create article' : 'Update article', class: 'submit-button' %>
+  <%= f.button :submit, method == 'post' ? 'Create article' : 'Update article', class: 'admin-submit-button' %>
 <% end %>
