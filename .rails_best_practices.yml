@@ -23,7 +23,7 @@ ProtectMassAssignmentCheck: { }
 RemoveEmptyHelpersCheck: { }
 #RemoveTabCheck: { }
 RemoveTrailingWhitespaceCheck: { }
-RemoveUnusedMethodsInControllersCheck: { except_methods: ['UsersController#index', 'UsersController#create', 'QuestionsController#index'] }
+RemoveUnusedMethodsInControllersCheck: { except_methods: ['UsersController#index', 'UsersController#create', 'QuestionsController#index', 'QuestionsController#create','QuestionsController#show', 'QuestionsController#edit'] }
 RemoveUnusedMethodsInHelpersCheck: { except_methods: [] }
 RemoveUnusedMethodsInModelsCheck: { except_methods: [] }
 ReplaceComplexCreationWithFactoryMethodCheck: { attribute_assignment_count: 2 }
