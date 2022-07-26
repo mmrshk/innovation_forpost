@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe '/admins/users', type: :request do
-  let(:user) { create(:user, :role_super_admin) }
+  let(:user) { create(:user, :super_admin) }
   let(:invalid_user) do
     { email: 'no_at_at_all.com',
       password: Faker::Internet.password(max_length: 5),
@@ -45,7 +45,7 @@ RSpec.describe '/admins/users', type: :request do
 
   describe 'post /create' do
     context 'with valid params' do
-      let(:user_new_valid) { attributes_for(:user, :role_user) }
+      let(:user_new_valid) { attributes_for(:user, :user) }
 
       it 'should create a user' do
         expect { post admins_users_path, params: { user: user_new_valid } }.to change(User, :count).by(1)
@@ -70,8 +70,8 @@ RSpec.describe '/admins/users', type: :request do
 
   describe 'put /update' do
     context 'with valid params' do
-      let(:user_valid) { create(:user, :role_user) }
-      let(:edited_user_valid) { attributes_for(:user, :role_user) }
+      let(:user_valid) { create(:user, :user) }
+      let(:edited_user_valid) { attributes_for(:user, :user) }
 
       it 'should update the user' do
         put admins_user_path(user_valid), params: { user: edited_user_valid }
@@ -85,7 +85,7 @@ RSpec.describe '/admins/users', type: :request do
     end
 
     context 'with invalid params' do
-      let(:user_valid) { create(:user, :role_user) }
+      let(:user_valid) { create(:user, :user) }
       let(:edited_user_invalid) { attributes_for(:user, invalid_user) }
 
       it 'should not change the user' do
@@ -95,7 +95,7 @@ RSpec.describe '/admins/users', type: :request do
     end
 
     context 'last super_admin who try to change its status' do
-      let(:edited_last_super_admin) { attributes_for(:user, :role_user) }
+      let(:edited_last_super_admin) { attributes_for(:user, :user) }
 
       it 'should not change the last super_admin role' do
         put admins_user_path(user), params: { user: edited_last_super_admin }
@@ -108,8 +108,8 @@ RSpec.describe '/admins/users', type: :request do
     end
 
     context 'not last super_admin changes its status' do
-      let(:second_super_admin) { create(:user, :role_super_admin) }
-      let(:edited_super_admin) { attributes_for(:user, :role_user) }
+      let(:second_super_admin) { create(:user, :super_admin) }
+      let(:edited_super_admin) { attributes_for(:user, :user) }
 
       it 'should change super_admin role' do
         put admins_user_path(second_super_admin), params: { user: edited_super_admin }
@@ -124,7 +124,7 @@ RSpec.describe '/admins/users', type: :request do
 
   describe 'delete /destroy' do
     context 'existing user' do
-      let!(:user_valid) { create(:user, :role_user) }
+      let!(:user_valid) { create(:user, :user) }
 
       it 'should be destroyed' do
         expect { delete admins_user_path(user_valid), params: { user: user_valid } }.to change(User, :count).by(-1)
@@ -148,7 +148,7 @@ RSpec.describe '/admins/users', type: :request do
     end
 
     context 'not last super_admin' do
-      let!(:second_super_admin) { create(:user, :role_super_admin) }
+      let!(:second_super_admin) { create(:user, :super_admin) }
 
       it 'should be destroyed' do
         expect do
@@ -163,7 +163,7 @@ RSpec.describe '/admins/users', type: :request do
     end
 
     context 'itself forbidden' do
-      let!(:second_super_admin) { create(:user, :role_super_admin) }
+      let!(:second_super_admin) { create(:user, :super_admin) }
 
       it 'user should not be destroyed' do
         expect { delete admins_user_path(user), params: { user: user } }.to change(User, :count).by(0)
