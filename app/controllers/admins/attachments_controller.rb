@@ -16,6 +16,7 @@ module Admins
 
     def create
       @attachment = Attachment.new(attachment_params)
+
       if @attachment.save
         flash[:success] = 'You added a new attachment!'
         redirect_to admins_attachments_path
@@ -44,7 +45,7 @@ module Admins
     private
 
     def find_attachment
-      @attachment = Attachment.find(params[:id])
+      @attachment ||= Attachment.find(params[:id]) 
     end
 
     def attachment_params

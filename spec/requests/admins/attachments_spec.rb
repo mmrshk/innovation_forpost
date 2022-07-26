@@ -31,7 +31,7 @@ RSpec.describe Attachment, type: :request do
 
     it 'create attachment with valid params' do
       post admins_attachments_path, params: { attachment: params }
-      expect(response).to redirect_to admins_attachments_path
+      expect(response).to redirect_to admins_attachments_path(locale: I18n.locale)
     end
   end
 
@@ -41,7 +41,7 @@ RSpec.describe Attachment, type: :request do
     it 'update attachment with valid params' do
       patch admins_attachment_path(attachment), params: { attachment: params }
       expect(Attachment.find(attachment.id).name).to eq params[:name]
-      expect(response).to redirect_to admins_attachment_path(attachment)
+      expect(response).to redirect_to admins_attachment_path(attachment, locale: I18n.locale)
     end
   end
 
@@ -50,7 +50,7 @@ RSpec.describe Attachment, type: :request do
 
     it 'delete attachment' do
       delete admins_attachment_path(attachment), params: { attachment: params }
-      expect(response).to redirect_to admins_attachments_path
+      expect(response).to redirect_to admins_attachments_path(locale: I18n.locale)
     end
   end
 end
