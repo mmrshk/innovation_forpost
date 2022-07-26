@@ -50,6 +50,7 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
         run: |
+          bin/rails db:setup
           RAILS_ENV=test bundle exec rspec
       - name: Formatting and Security Checks
         run: |
