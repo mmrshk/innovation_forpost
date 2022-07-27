@@ -1,14 +1,16 @@
 <%= simple_form_for article, as: :article, local: true, url: url, method: method do |f| %>
   <% presenter_article = ArticlePresenter.new(f.object) %>
   <% if method == 'patch' %>
-    <%= render partial: 'errors' %>
+    <%# render partial: 'errors' %>
   <% end %>
   <%= f.input :title, autofocus: true,
+                      error: f.full_error(:title),
                       label_html: { class: 'name-field-form' },
                       input_html: { class: 'form-input' },
                       error_html: { class: 'error-form-input' } %>
   <%= f.input :text, label: false,
                       as: :text,
+                      error: f.full_error(:text),
                       input_html: { class: 'form-text' },
                       error_html: { class: 'error-form-input' } %>
   <%= f.input :user_id, label: 'Author',

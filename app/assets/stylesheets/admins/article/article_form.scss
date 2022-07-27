@@ -29,11 +29,11 @@
   .form-input {
     font-size: 18px;
     font-weight: bold;
-  }
 
-  input[type=text]:not(.browser-default):focus:not([readonly]) {
-    border-bottom: 1px solid $border-color;
-    box-shadow: 0 1px 0 0 $border-color;
+    &[type=text]:not(.browser-default):focus:not([readonly]) {
+      border-bottom: 1px solid $border-color;
+      box-shadow: 0 1px 0 0 $border-color;
+    }
   }
 
   .form-text {

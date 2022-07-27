@@ -55,6 +55,10 @@
   &:hover {
     background-color: $base-color;
   }
+
+  &:focus {
+    background-color: $admin-background-color-button;
+}
 }
 
 @media screen and (max-width: 640px) {
