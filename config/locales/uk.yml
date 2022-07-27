@@ -12,7 +12,7 @@ uk:
       create_success: 'Користувач успішно доданий.'
       update_success: 'Обліковий запис успішно оновлений.'
       pohibited_access: 'Немає прав доступу. Залогуйтесь як super_admin.'
-      super_admin_change_prohibited: 'Ви не можете змінити статус останнього super_admin.'
+      last_super_admin_change_prohibited: 'Ви не можете змінити статус останнього super_admin.'
       last_super_admin: 'Ви є остінній super admin'
       user_sucessfully_deleted: "Користувач успішно видалений."
       current_user_account_destroy_prohibited: "Поточний користувач не може видаляти власний обліковий запис."

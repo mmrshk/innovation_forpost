@@ -103,7 +103,7 @@ RSpec.describe '/admins/users', type: :request do
 
         follow_redirect!
 
-        expect(response.body).to include(I18n.t('admins.users.super_admin_change_prohibited'))
+        expect(response.body).to include(I18n.t('admins.users.last_super_admin_change_prohibited'))
       end
     end
 
@@ -143,7 +143,7 @@ RSpec.describe '/admins/users', type: :request do
 
         follow_redirect!
 
-        expect(response.body).to include(I18n.t('admins.users.super_admin_change_prohibited'))
+        expect(response.body).to include(I18n.t('admins.users.last_super_admin_change_prohibited'))
       end
     end
 
