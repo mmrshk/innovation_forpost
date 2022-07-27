@@ -9,7 +9,6 @@ module Articles
         create_or_update_attributes!
         @article.tags = tag_list(params[:tags])
         @article.save!
-        # binding.pry
         raise ActiveRecord::Rollback unless errors.empty?
       end
       errors.empty?

@@ -1,19 +1,12 @@
-<%= simple_form_for article, as: :article, local: true, url: url, method: method do |f| %>
-  <% presenter_article = ArticlePresenter.new(f.object) %>
-  <% if method == 'patch' || method == 'put' %>
-    <%= render partial: 'errors' %>
-  <% end %>
-  <% binding.pry %>
+<%= simple_form_for @form, as: :article, local: true, url: url, method: method do |f| %>
+  <% presenter_article = ArticlePresenter.new(f.object.article) %>
   <%= f.input :title, autofocus: true,
-                      value: params[:article] && params[:article][:title] || article&.title,
-                      error: f.full_error(:title),
                       label_html: { class: 'name-field-form' },
-                      input_html: { class: 'form-input' },
+                      input_html: { value: params[:article] && params[:article][:title] || article&.title, class: 'form-input' },
                       error_html: { class: 'error-form-input' } %>
   <%= f.input :text, label: false,
                       as: :text,
-                      error: f.full_error(:text),
-                      input_html: { class: 'form-text' },
+                      input_html: { value: params[:article] && params[:article][:text] || article&.text, class: 'form-text' },
                       error_html: { class: 'error-form-input' } %>
   <%= f.input :user_id, label: 'Author',
                       label_html: { class: 'name-field-form' },
@@ -27,14 +20,17 @@
   <%= f.input :language, label_html: { class: 'name-field-form' },
                       input_html: { class: 'inline-select' },
                       collection: Article.languages.keys,
+                      selected: article.language,
                       include_blank: false %>
   <%= f.input :status, label_html: { class: 'name-field-form' },
                       input_html: { class: 'inline-select' },
                       collection: Article.statuses.keys,
+                      selected: article.status,
                       include_blank: false,
                       class: 'inline-select' %>
   <%= f.input :tags, label_html: { class: 'name-field-form' },
-                      input_html: { value: presenter_article.all_tags } %>
+                      input_html: { value: presenter_article.all_tags, class: 'form-input' } %>
   <%# f.button :submit, method == 'post' ? 'Create article' : 'Update article', class: 'admin-article-button' %>
   <%= f.button :submit, method == 'post' ? 'Create article' : 'Update article', class: 'admin-article-button right' %>
+  <div><%= link_to fa_icon('arrow-left', text: 'Back'), admins_articles_path, class:'btn admin-article-button' %></div>
 <% end %>

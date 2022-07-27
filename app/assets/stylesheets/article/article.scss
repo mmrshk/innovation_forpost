@@ -11,36 +11,34 @@
     width: 90%;
     padding-right: 10px;
   }
+}
 
-  .article-date {
-    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-style: italic;
-    color: $dark-grey-text;
-  }
+.article-date {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-style: italic;
+  color: $dark-grey-text;
+}
 
-  .article-title {
-    margin: 0 0 20px;
-    // font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-family: "metropolisblack",sans-serif;;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 35px;
-    // font-size: 2.25em;
-    line-height: 1.25;
-    // line-height: 59px;
-    // display: flex;
-    // align-items: center;
-    color: $black-color;
-  }
+.article-title {
+  margin: 0 0 20px;
+  // font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "metropolisblack",sans-serif;;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  // font-size: 2.25em;
+  line-height: 1.25;
+  // line-height: 59px;
+  // display: flex;
+  // align-items: center;
+  color: $black-color;
 }
 
 .article-hr {
   display: block;
   height: 1px;
-  border: 0;
   border-top: 1px solid $gray-color;
   margin: 1em 0.5em 1em 0;
-  padding: 0;
 }
 
 .group-buttons {

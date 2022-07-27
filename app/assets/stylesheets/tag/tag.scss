@@ -1,6 +1,6 @@
 .tag-links {
   display: flex;
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
 
   &-item {
     padding: 5px 10px;
@@ -27,8 +27,6 @@
 
 .vertical {
   flex-direction: column;
-  align-content: flex-start;
-  justify-content: flex-start;
   align-items: flex-start;
   margin-left: 5px;
 }

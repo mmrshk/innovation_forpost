@@ -104,10 +104,10 @@ RSpec.describe 'Articles', type: :request do
         expect(response).to render_template(:edit)
         patch admins_article_url(valid_article), params: { article: valid_params }
         expect(response).to have_http_status(:redirect)
-        expect(response).to redirect_to(article_url(valid_article, locale: valid_params[:language].to_sym))
+        expect(response).to redirect_to(admins_articles_url(locale: I18n.locale))
         follow_redirect!
         expect(response).to have_http_status(:success)
-        expect(response).to render_template(:show)
+        expect(response).to render_template(:index)
         expect(response.body).to include(I18n.t('admins.articles.update_success'))
       end
     end
