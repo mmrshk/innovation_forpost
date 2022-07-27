@@ -42,8 +42,8 @@
   list-style: none;
 
   #login {
+    padding: 20px 40px;
     border-radius: 50px;
-    margin-right: 20px;
     background-color: $black-color;
     color: $white-color;
 
@@ -52,28 +52,15 @@
     }
   }
 
-  .log-out {
-    cursor: pointer;
-    border: none;
-    font-size: 15px;
-    font-weight: 700;
-    margin-right: 20px;
-    background-color: $white-color;
-    color: $black-color;
-
-    &:hover {
-      color: $base-color;
-    }
-  }
-
-  .item a {
+  .item {
     padding: 20px 40px;
     font-weight: 700;
-    text-decoration: none;
-    color: $black-color;
-
-    &:hover {
-      color: $base-color;
+    a {
+      text-decoration: none;
+      color: $black-color;
+      &:hover {
+        color: $base-color;
+      }
     }
   }
 }
@@ -81,7 +68,6 @@
 .header-top {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 30px 0;
   transition: all 0.5s ease;
 
@@ -99,6 +85,7 @@
   font-size: 15px;
   border: none;
   font-weight: 700;
+  margin: 20px 0 0 20px;
 
   &:hover {
     color: $base-color;
@@ -107,6 +94,7 @@
 
 .drop-content {
   background-color: $white-color;
+  margin-left: 20px;
   display: none;
   position: absolute;
   min-width: 100px;
@@ -128,6 +116,62 @@
 }
 
 .dropdown:hover .drop-content {display: block;}
+
+#user-menu { 
+  display: block;
+  padding: 10px 16px;
+  width: 240px;
+  margin: 10px auto;
+  position: relative;
+  cursor: pointer;
+  border-left: 4px solid $light-blue-color;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.3);
+  background-color: $white-color;
+  color: #656565;
+  transition: all 0.15s linear;
+
+  &:hover {
+    color: #898989; 
+  }
+
+  &.click {
+    background: $light-blue-color;
+    color: $white-color;
+    border-left-color: #6c6d70;
+  }
+
+  .user-menu_content {
+    position: absolute;
+    top: 100%;
+    left: -4px;
+    width: 240px;
+    padding: 5px 0px;
+    display: none;
+    border-left: 4px solid #8e9196;
+    background: $white-color;
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+
+    li {
+      font-size: 0.8em;
+
+      a{
+        text-decoration: none;
+        display: block;
+        color: $black-color;
+        padding: 7px 15px;
+
+        &:hover {
+          color: $light-blue-color;
+          background: #e7f0f7;
+        }
+      }
+    }
+
+    &.open {
+      display: block;
+    }
+  }
+}
 
 .nav-trigger {
   display: none;
@@ -206,7 +250,6 @@
       padding: 25px 30px;
 
       .mobile-log {
-        border: none;
         border-radius: 50px;
         background-color: $black-color;
         padding: 20px 80px;
