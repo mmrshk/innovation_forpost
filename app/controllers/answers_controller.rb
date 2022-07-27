@@ -8,12 +8,12 @@ class AnswersController < ApplicationController
     @answer = @question.answers.build(answer_params)
     unless current_user.role_super_admin? || current_user.role_admin?
       @answers = @question.answers.order(created_at: :desc)
-      redirect_to question_path(@question), notice: 'You don\'t have access'
+      redirect_to question_path(@question), notice: 'Access denied!'
       return
     end
 
     if @answer.save
-      flash[:success] = 'Answer created!'
+      flash[:alert] = 'Answer created!'
       redirect_to question_path(@question)
     else
       @answers = @question.answers.order(created_at: :desc)
@@ -24,7 +24,7 @@ class AnswersController < ApplicationController
   def destroy
     answer = @question.answers.find(params[:id])
     unless current_user.role_super_admin? || current_user.role_admin?
-      redirect_to question_path(@question), notice: 'You don\'t have access'
+      redirect_to question_path(@question), notice: 'Access denied!'
       return
     end
 

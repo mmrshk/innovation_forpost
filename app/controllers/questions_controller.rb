@@ -30,7 +30,7 @@ class QuestionsController < ApplicationController
 
   def update
     unless current_user.role_super_admin? || current_user.role_admin?
-      redirect_to questions_path, notice: 'You don\'t have access!'
+      redirect_to questions_path, notice: 'Access denied!'
       return
     end
     if @question.update(question_params)
@@ -42,7 +42,8 @@ class QuestionsController < ApplicationController
 
   def destroy
     unless current_user.role_super_admin? || current_user.role_admin?
-      redirect_to questions_path, notice: 'You don\'t have access'
+      flash[:alert] = 'Access denied'
+      redirect_to questions_path, notice: 'Access denied!'
       return
     end
     redirect_to questions_path, notice: 'Question destroyed!' if @question.destroy
