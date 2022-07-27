@@ -42,15 +42,16 @@
 
 .filter {
   &-title {
+    display: flex;
+    align-items: center;
     margin-right: 85px;
   }
 
   &-button {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 210px;
-    height: 30px;
+    height: 40px;
     background-color: $blue-filter-color;
     border-radius: 10px;
     font-size: 18px;
@@ -93,7 +94,7 @@ select {
   }
 
   &.dropdown {
-    margin: -3px 3px;
+    margin: 0 5px;
     font-size: 35px;
   }
 
