@@ -26,6 +26,7 @@ gem 'lit', '~> 1.1.6'
 
 gem 'ancestry', '~> 4.2'
 gem 'factory_bot_rails'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]

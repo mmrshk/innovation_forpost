@@ -4,7 +4,7 @@
     <li class="item"><%= link_to t('menu.about'), '#' %></li>
     <li class="item"><%= link_to t('menu.contacts'), '#' %></li>
     <% if user_signed_in? %>
-      <li class="item"><%= button_to t('menu.signout'), destroy_user_session_path, method: :delete, class: "mobile-log" %></li>
+      <li class="item"><%= link_to t('menu.signout'), destroy_user_session_path, method: :delete, class: "mobile-log" %></li>
     <% else %>
       <li class="item"><%= link_to t('menu.login'), new_user_session_path, class: "mobile-log" %></li>
     <% end %>
@@ -48,8 +48,21 @@
         <li class="item"><%= link_to t('menu.innovateForpost'), '#' %></li>
         <li class="item"><%= link_to t('menu.about'), '#' %></li>
         <li class="item"><%= link_to t('menu.contacts'), '#' %></li>
-        <% if user_signed_in? %>
-          <li><%= button_to t('menu.signout'), destroy_user_session_path, method: :delete, class: "log-out" %></li>
+        <% if user_signed_in? %>        
+          <div id="user-menu">
+            <%= current_user.email %>
+            <ul class="user-menu_content">
+              <li><%= link_to "Profile", admins_user_path(current_user) %></li>
+              <li><%= link_to "Settings", edit_user_registration_path %></li>
+              <li><%= link_to t('menu.signout'), destroy_user_session_path, method: :delete %></li>
+              <% if current_user.role_admin? || current_user.role_super_admin? %>
+                <li><%= link_to "Articles", '#' %></li>
+                <% if current_user.role_super_admin? %>
+                  <li><%= link_to "Users", admins_users_path %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
         <% else %>
           <li class="item"><%= link_to t('menu.login'), new_user_session_path, id: "login" %></li>
         <% end %>
