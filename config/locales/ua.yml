@@ -7,4 +7,3 @@ ua:
       super_admin_change_prohibited: 'Ви не можете змінити статус останнього super_admin.'
       last_super_admin: 'Ви є остінній super admin'
   log_in_first: 'Залогуйтесь будь ласка.'
-  
