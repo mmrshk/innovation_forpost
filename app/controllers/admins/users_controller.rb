@@ -58,7 +58,7 @@ module Admins
     end
 
     def last_super_admin_tries_to_update_its_role?
-      user.role_super_admin? && last_super_admin? && (params[:user][:role] != User::USER_ROLES[:super_admin])
+      user.role_super_admin? && last_super_admin? && (params[:user][:role] != 'super_admin')
     end
 
     def last_super_admin_tries_to_destroy_itself?

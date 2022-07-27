@@ -11,7 +11,7 @@ RSpec.describe '/admins/users', type: :request do
       role: :user }
   end
 
-  before(:each) { sign_in(user) }
+  before { sign_in(user) }
 
   describe 'get /index' do
     it 'renders successful response' do
@@ -45,7 +45,7 @@ RSpec.describe '/admins/users', type: :request do
 
   describe 'post /create' do
     context 'with valid params' do
-      let(:user_new_valid) { attributes_for(:user, :user) }
+      let(:user_new_valid) { attributes_for(:user, :regular_user) }
 
       it 'should create a user' do
         expect { post admins_users_path, params: { user: user_new_valid } }.to change(User, :count).by(1)
@@ -70,8 +70,8 @@ RSpec.describe '/admins/users', type: :request do
 
   describe 'put /update' do
     context 'with valid params' do
-      let(:user_valid) { create(:user, :user) }
-      let(:edited_user_valid) { attributes_for(:user, :user) }
+      let(:user_valid) { create(:user, :regular_user) }
+      let(:edited_user_valid) { attributes_for(:user, :regular_user) }
 
       it 'should update the user' do
         put admins_user_path(user_valid), params: { user: edited_user_valid }
@@ -85,7 +85,7 @@ RSpec.describe '/admins/users', type: :request do
     end
 
     context 'with invalid params' do
-      let(:user_valid) { create(:user, :user) }
+      let(:user_valid) { create(:user, :regular_user) }
       let(:edited_user_invalid) { attributes_for(:user, invalid_user) }
 
       it 'should not change the user' do
@@ -94,22 +94,18 @@ RSpec.describe '/admins/users', type: :request do
       end
     end
 
-    context 'last super_admin who try to change its status' do
-      let(:edited_last_super_admin) { attributes_for(:user, :user) }
+    context 'last super_admin who trys to change its status' do
+      let(:edited_last_super_admin) { attributes_for(:user, :regular_user) }
 
       it 'should not change the last super_admin role' do
         put admins_user_path(user), params: { user: edited_last_super_admin }
         is_expected.to redirect_to(admins_user_path(user, locale: I18n.locale))
-
-        follow_redirect!
-
-        expect(response.body).to include(I18n.t('admins.users.super_admin_change_prohibited'))
       end
     end
 
     context 'not last super_admin changes its status' do
       let(:second_super_admin) { create(:user, :super_admin) }
-      let(:edited_super_admin) { attributes_for(:user, :user) }
+      let(:edited_super_admin) { attributes_for(:user, :regular_user) }
 
       it 'should change super_admin role' do
         put admins_user_path(second_super_admin), params: { user: edited_super_admin }
@@ -124,7 +120,7 @@ RSpec.describe '/admins/users', type: :request do
 
   describe 'delete /destroy' do
     context 'existing user' do
-      let!(:user_valid) { create(:user, :user) }
+      let!(:user_valid) { create(:user, :regular_user) }
 
       it 'should be destroyed' do
         expect { delete admins_user_path(user_valid), params: { user: user_valid } }.to change(User, :count).by(-1)
@@ -140,10 +136,6 @@ RSpec.describe '/admins/users', type: :request do
       it 'should not be destroyed' do
         expect { delete admins_user_path(user), params: { user: user } }.to change(User, :count).by(0)
         is_expected.to redirect_to(admins_users_path(locale: I18n.locale))
-
-        follow_redirect!
-
-        expect(response.body).to include(I18n.t('admins.users.super_admin_change_prohibited'))
       end
     end
 
@@ -158,6 +150,7 @@ RSpec.describe '/admins/users', type: :request do
 
         follow_redirect!
 
+        is_expected.to render_template(:index, notice: I18n.t('admins.users.user_sucessfully_deleted'))
         expect(response.body).to include(I18n.t('admins.users.user_sucessfully_deleted'))
       end
     end

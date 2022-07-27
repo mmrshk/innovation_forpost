@@ -5,10 +5,12 @@ Rails.application.routes.draw do
 
   namespace :admins do
     resources :users
+    resources :attachments
     resources :articles, except: :show
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
   # devise said he wants to have a specified root rout, so:
   
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
