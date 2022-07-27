@@ -1,6 +1,8 @@
 <div class= "body-container">
   <h1>Registered users</h1>
 
+  <%= render 'filter' %>
+
   <% if current_user.role_super_admin? %>
     <table class="body-table">
       <thead>

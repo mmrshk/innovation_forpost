@@ -1,0 +1,102 @@
+#filter-dropdown {
+  width: 1030px;
+  height: 624px;
+  top: -45px;
+  background-color: #003087;
+  border-radius: 20px;
+
+  .dropdown-trigger .btn{
+    background-color: #003087;
+  }
+
+  .dropdown-trigger .btn::before {
+    content: "▼";
+    display: inline;
+    padding-right: 5px;
+  }
+
+  .dropdown-trigger .btn::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #ffffff;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    top: 0;
+    right: 10px;
+  }
+
+  #filter-buttons {
+    width: 475px;
+    height: 60px;
+    background-color: #62B5E5;
+    color: #fff;
+    font-size: 30px;
+    border-radius: 30px;
+    margin: 12px;
+    border: #62B5E5;
+  }
+
+
+
+
+  .filter-option {
+    margin-left: -13px;
+    width: 475px;
+    height: 60px;
+    font-size: 25px;
+    line-height: 29px;
+    color: #003087;
+    background-color: #fff;
+    border-radius: 20px;
+  }
+
+  .filter-text-label {
+    color: #fff;
+    font-size: 25px;
+    margin-top: -50px;
+  }
+
+  .filter-bottom-label {
+    color: #fff;
+    font-size: 25px;
+    margin-top: -20px;
+  }
+
+
+  .input-top {
+    margin: 40px 0;
+  }
+
+  .input-middle {
+    margin: 160px 0;
+  }
+
+  .input-bottom {
+    margin: 355px 0;
+  }
+
+  .input-field {
+    margin: 10px 13px;
+    width: 475px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 20px;
+
+    ::placeholder {
+      font-size: 25px;
+      line-height: 29px;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      color: rgba(0, 40, 85, 0.5);
+    }
+    
+    input[type="text"] {
+      margin: 7px;
+      border-bottom: none;
+    }
+  }
+  
+}
