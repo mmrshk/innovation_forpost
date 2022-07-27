@@ -37,7 +37,7 @@
   }
 
   .form-text {
-    height: 100px;
+    margin: 10px 0;
   }
 
   .error-form-input {
@@ -45,27 +45,6 @@
     color: $admin-invalid-color;
   }
 }
-
-// .admin-submit-button {
-//   height: 40px;
-//   // float: right;
-//   background: $admin-background-color-button;
-//   border-radius: 20px;
-//   min-width: 250px;
-//   font-family: 'Roboto';
-//   font-style: normal;
-//   text-transform: capitalize; 
-//   font-weight: 400;
-//   font-size: 30px;
-//   // line-height: 35px;
-//   // display: flex;
-//   align-items: center;
-//   margin: 8px 0 10px 0;
-
-//   &:hover {
-//     background-color: $base-color;
-//   }
-// }
 
 @media screen and (max-width: 640px) {
   .admin-submit-button {

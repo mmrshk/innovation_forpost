@@ -1,4 +1,3 @@
-
 <%= content_for :js do %>
   <script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"></script>
 <% end %>
@@ -7,21 +6,18 @@
   <% javascript_pack_tag 'ckeditor_embed_snippet' %>
 <% end %>
 
-<div class="container">
-  <h1><%= @article.title %></h1>
-  <span><%= @article.user.email %></span> |
-  <span><%= date_as_month_and_year(@article.created_at) %></span>
-  <div class="ck-content"><%= sanitize @article.text %>
-                          <%# raw @article.text %></div>
+<div class='container'>
+  <div class='article-date'><%= date_as_month_and_year(@article.created_at) %></div>
+  <h1 class='article-title'><%= @article.title %></h1>
+  <div class='ck-content'><%= sanitize @article.text %></div>
   <div>
-  <hr>
+  <hr class='article-hr'>
     Tags:
     <% @article.tags.each do |tag| %>
       <%= link_to tag.name, tag_path(tag) %>
     <% end %>
   </div>
   <div>
-    <%= link_to 'All articles', articles_path %>
+    <%= link_to 'All articles', articles_path, class:'article-button outline' %>
   </div>
-  <hr>
 </div>

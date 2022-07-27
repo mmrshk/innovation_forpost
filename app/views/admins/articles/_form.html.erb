@@ -3,21 +3,37 @@
   <%= javascript_include_tag 'new_ckeditor/classic/ckeditor', 'data-turbolinks-track': 'reload' %>
 <% end %>
 
-<%= simple_form_for article, as: :article, url: url, method: method do |f| %>
-  <% presenter = ArticlePresenter.new(f.object)%>
-  <% if method == 'patch' %>
-    <%= render partial: 'errors' %>
-  <% end %>
-  <%= f.input :title %>
-  <%= f.input :user_id, as: :select,
-                        collection: User.only_admins,
-                        label_method: :email,
-                        value_method: :id,
-                        selected:article.user_id,
-                        include_blank: false  %>
-  <%= f.ckeditor :text %>
-  <%= f.input :language, collection: Article.languages.keys, include_blank: false %>
-  <%= f.input :status, collection: Article.statuses.keys, include_blank: false %>
-  <%= f.input :tags, input_html: { value: presenter.all_tags } %>
-  <%= f.button :submit %>
+<%= simple_form_for article, as: :article, local: true, url: url, method: method do |f| %>
+  <% presenter_article = ArticlePresenter.new(f.object) %>
+  <%= f.input :title, autofocus: true,
+                      error: f.full_error(:title),
+                      label_html: { class: 'name-field-form' },
+                      input_html: { class: 'form-input' },
+                      error_html: { class: 'error-form-input' } %>
+  <%= f.ckeditor :text, label: false,
+                      as: :text,
+                      error: f.full_error(:text),
+                      input_html: { class: 'form-text' },
+                      error_html: { class: 'error-form-input' } %>
+  <%= f.input :user_id, label: 'Author',
+                      label_html: { class: 'name-field-form' },
+                      as: :select,
+                      input_html: { class: 'inline-select' },
+                      collection: User.only_admins,
+                      label_method: :email,
+                      value_method: :id,
+                      selected:article.user_id,
+                      include_blank: false %>
+  <%= f.input :language, label_html: { class: 'name-field-form' },
+                      input_html: { class: 'inline-select' },
+                      collection: Article.languages.keys,
+                      include_blank: false %>
+  <%= f.input :status, label_html: { class: 'name-field-form' },
+                      input_html: { class: 'inline-select' },
+                      collection: Article.statuses.keys,
+                      include_blank: false,
+                      class: 'inline-select' %>
+  <%= f.input :tags, label_html: { class: 'name-field-form' },
+                      input_html: { value: presenter_article.all_tags } %>
+  <%= f.button :submit, method == 'post' ? 'Create article' : 'Update article', class: 'admin-article-button right' %>
 <% end %>

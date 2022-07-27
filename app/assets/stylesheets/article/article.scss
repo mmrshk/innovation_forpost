@@ -8,6 +8,8 @@
   }
 
   .articles-list {
+    display: flex;
+    flex-direction: column;
     width: 90%;
     padding-right: 10px;
   }
@@ -20,16 +22,11 @@
 
   .article-title {
     margin: 0 0 20px;
-    // font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-family: "metropolisblack",sans-serif;;
     font-style: normal;
     font-weight: 700;
     font-size: 35px;
-    // font-size: 2.25em;
     line-height: 1.25;
-    // line-height: 59px;
-    // display: flex;
-    // align-items: center;
     color: $black-color;
   }
 }

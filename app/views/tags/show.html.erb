@@ -1,12 +1,20 @@
+<%= content_for :js do %>
+  <script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"></script>
+<% end %>
+
+<% content_for :js_snippet do %>
+  <% javascript_pack_tag 'ckeditor_embed_snippet' %>
+<% end %>
+
 
 <div class='container'>
-  <h1>Articles Tagged with "<%= @tag.name %>"</h1>
+  <div class='article-title'>Articles Tagged with "<%= @tag.name %>"</div>
   <ul>
     <% @tag.articles.each do |article| %>
       <li>
-        <div><small><%= date_as_month_and_year(article.created_at) %></small></div>
-        <div><h2><%= link_to article.title, article_path(article) %></h2></div>
-        <div><%= sanitize article.text %></div>
+        <div class='article-data'><%= date_as_month_and_year(article.created_at) %></div>
+        <div><%= link_to article.title, article_path(article), class: 'article-title' %></div>
+        <div class='ck-content'><%= sanitize truncate(article.text, escape: false, length: 500,) { link_to 'Continue', article_path(article) } %></div>
         <div><small>Author: <%= link_to article.user.email, '#' %></small></div>
         <div>Tags:
           <% article.tags.each do |tag| %>
@@ -14,8 +22,11 @@
           <% end %>
         </div>
       </li>
-      <hr>
+      <hr class='article-hr'>
     <% end %>
   </ul>
-  <%= link_to 'All articles', articles_path %> | <%= link_to 'Back', url_for(:back) %>
+  <div class='group-buttons'>
+    <%= link_to 'All articles', articles_path, class: 'article-button outline' %>
+    <%= link_to fa_icon('arrow-left', text: 'Back'), url_for(:back), class: 'article-button outline' %>
+  </div>
 </div>

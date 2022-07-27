@@ -11,6 +11,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'carrierwave', '~> 2.2.2'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'factory_bot_rails', '~> 6.2.0'
+gem 'font-awesome-rails', '>= 4.7'
 gem 'jbuilder', '~> 2.7'
 gem 'lit', '~> 1.1.6'
 gem 'materialize-sass', '~> 1.0.0'

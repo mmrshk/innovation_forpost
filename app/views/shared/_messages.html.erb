@@ -1,9 +1,12 @@
-<% flash.each do |key, value| %>
-  <div class="<%= key %>">
-    <ul>
-      <li>
-        <%= value %>
-      </li>
-    </ul>
-  </div>
-<% end %>
+<div class="container">
+  <% flash.each do |key, value| %>
+    <div class="<%= key %>">
+      <ul>
+        <li>
+          <%= value %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
