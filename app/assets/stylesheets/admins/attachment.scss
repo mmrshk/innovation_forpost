@@ -3,9 +3,7 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import "font-awesome";
 
-
 $invalid-color: red;
-
 
 .table-attachment {
   width: 60%;
@@ -116,7 +114,6 @@ input[type="file"] {
   cursor: pointer;
   font-size: 16px;
   color: $scrool-gray-color;
-  
 }
 
 .invalid-feedback {
@@ -204,11 +201,10 @@ td.links {
   position: absolute;
   border-radius: 24px;
   z-index: -1;
-  
 }
 
 .test-title{
-    -moz-border-radius: 26px;
-    -webkit-border-radius: 26px;
-    border-radius: 26px;
+  -moz-border-radius: 26px;
+  -webkit-border-radius: 26px;
+  border-radius: 26px;
 }
