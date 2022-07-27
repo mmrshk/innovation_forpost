@@ -1,26 +1,16 @@
-<%= simple_form_for(@user, url: url, method: method) do |f| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-      <ul>
-        <% user.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>  
-
-  <div class="field">
-    <%= f.label     :email %>
-    <%= f.email_field :email %>
+<%= simple_form_for(@user, url: url, method: method ) do |f| %>
+  <div class="input-field col s12">
+    <%= f.label :email, class: "active", required: false %>
+    <%= f.input_field :email, class: "validate" %>
+    <%= f.full_error :email %>
   </div>  
   
-  <div class="field">
-    <%= f.label     :Telephone %>
-    <%= f.telephone_field :phone_number %>
+  <div class="input-field col s12">
+    <%= f.label :Telephone, class: "active" %>
+    <%= f.input_field :phone_number %>
   </div>
   
-  <div>
+  <div class="input-field col s12">
     <% if last_super_admin? && current_user == user %>
       <div class="last-super-admin-msg"><%= "#{t('admins.users.super_admin_change_prohibited')}" %></div>
       <% button_block_protector = true %>
@@ -28,21 +18,25 @@
       <% button_block_protector = false %>
     <% end %>
     <% if current_user.role_super_admin? %>
-      <%= f.input :role, collection: User.roles.keys, include_blank: false %>
+      <%= f.input :role, collection: User.roles.keys, include_blank: false, input_html: { class: 'browser-default' } %>
     <% end %>
   </div>
 
-  <div class="field">
-    <%= f.label     :password %>
-    <%= f.password_field :password %>
+  <div class="input-field col s12">
+    <%= f.label :password, class: "active", required: false  %>
+    <%= f.input_field :password %>
+    <%= f.full_error :password %>
   </div>
 
-  <div class="field">
-    <%= f.label     :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+  <div class="input-field col s12">
+    <%= f.label :password_confirmation, class: "active", required: false  %>
+    <%= f.input_field :password_confirmation %>
+    <%= f.full_error :password_confirmation %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="waves-effect waves-light btn light-blue darken-2">
+    <%= f.submit yield(:button_text), class: "btn-area" %>
   </div>
+
+  <%= link_to 'Back to users', admins_users_path, class: "btn-flat" %>
 <% end %>

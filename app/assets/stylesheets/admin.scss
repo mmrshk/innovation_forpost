@@ -1,5 +1,28 @@
 @import 'colors';
 
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .form {
+    max-width: 600px;
+
+    .error {
+      color: $mobile-red-color;
+    }
+
+    .btn {
+      padding: 0;
+      z-index: 0;
+
+      .btn-area {
+        padding: 10px 25px;
+      }
+    }
+  }
+}
+
 .container-records-per-page {
   display: flex;
   justify-content: flex-start;
