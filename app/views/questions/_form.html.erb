@@ -1,3 +1,5 @@
+<%= @question.errors.full_messages %>
+    
 <%= simple_form_for @question do |form| %>
   <%= form.input :title, label: 'Title' %>
   <%= form.input :body, label: 'Body' %>

@@ -1,23 +1,34 @@
 # frozen_string_literal: true
 
 class AnswersController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_question!
+
   def create
     @answer = @question.answers.build(answer_params)
+    unless current_user.role_super_admin? || current_user.role_admin?
+      @answers = @question.answers.order(created_at: :desc)
+      redirect_to question_path(@question), notice: 'You don\'t have access'
+      return
+    end
 
     if @answer.save
       flash[:success] = 'Answer created!'
       redirect_to question_path(@question)
     else
       @answers = @question.answers.order(created_at: :desc)
-      render 'questions/show'
+      render 'questions/show', status: :unprocessable_entity
     end
   end
 
   def destroy
     answer = @question.answers.find(params[:id])
-    answer.destroy
-    redirect_to question_path(@question)
+    unless current_user.role_super_admin? || current_user.role_admin?
+      redirect_to question_path(@question), notice: 'You don\'t have access'
+      return
+    end
+
+    redirect_to question_path(@question), notice: 'Answer destroyed' if answer.destroy
   end
 
   private

@@ -4,9 +4,9 @@
   <h3><%= question.title %></h3>
 
 
-  <p><%= question.body %>
-    <%= question.user_name %>
-    <%= question.user_email %></p>
+  <p><%= question.body %></p>
+    <p><%= question.user_name %></p>
+    <p><%= question.user_email %></p>
     <%= link_to 'Edit', edit_question_path(question) %>
     <%= link_to 'Destroy', question_path(question), method: :delete %>
     <%= link_to 'Show', question_path(question) %>

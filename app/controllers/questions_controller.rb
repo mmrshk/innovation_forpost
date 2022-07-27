@@ -15,10 +15,9 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(question_params)
     if @question.save
-      redirect_to questions_path
+      redirect_to questions_path, notice: 'Question created successfully!'
     else
-      # flash.now[:alert] = 'Error Please check your input'
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -30,29 +29,23 @@ class QuestionsController < ApplicationController
   def edit; end
 
   def update
+    unless current_user.role_super_admin? || current_user.role_admin?
+      redirect_to questions_path, notice: 'You don\'t have access!'
+      return
+    end
     if @question.update(question_params)
-      redirect_to questions_path
+      redirect_to questions_path, notice: 'Question updated!'
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
-  #  def destroy
-  #    if current_user.role_super_admin? || current_user.role_admin?
-  #      @question.destroy
-  #      redirect_to questions_path, notice: 'Question destroyed'
-  #    else
-  #      redirect_to questions_path
-  #      flash[:alert] = 'You dont have access'
-  #    end
-  #  end
-
   def destroy
     unless current_user.role_super_admin? || current_user.role_admin?
-      redirect_to questions_path, notice: 'You dont have access'
+      redirect_to questions_path, notice: 'You don\'t have access'
       return
     end
-    redirect_to questions_path, notice: 'Question destroyed' if @question.destroy
+    redirect_to questions_path, notice: 'Question destroyed!' if @question.destroy
   end
 
   private
