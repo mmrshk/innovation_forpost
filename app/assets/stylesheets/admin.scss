@@ -107,6 +107,10 @@ select {
   }
 }
 
+.dropdown-trigger {
+  float: right;
+}
+
 #filter-dropdown {
   width: 780px;
   height: 535px;
@@ -253,6 +257,10 @@ select {
   height: 60px;
   font-weight: 400;
   padding-left: 30px;
+
+  a {
+    color: $white-color;
+  }
 }
 
 .title-table-user:first-child {
@@ -267,7 +275,7 @@ select {
   border-top-right-radius: 30px; 
 }
 
-.user-link {
+.button-functions {
   text-decoration: none;
   color: $black-color;
 
@@ -289,3 +297,8 @@ select {
   margin-right: 30px;
   float: right;
 }
+
+a {
+  color: white;
+}
+
