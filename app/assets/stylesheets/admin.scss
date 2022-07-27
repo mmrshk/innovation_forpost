@@ -136,7 +136,7 @@
   border-top-right-radius: 30px; 
 }
 
-.user-link {
+.button-functions {
   text-decoration: none;
   color: $black-color;
 
@@ -157,4 +157,8 @@
   padding: 10px;
   margin-right: 30px;
   float: right;
+}
+
+.link {
+  text-decoration: none!important;
 }

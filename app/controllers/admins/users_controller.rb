@@ -6,7 +6,7 @@ module Admins
     helper_method :last_super_admin?
 
     def index
-      @users = User.all
+      @users = params[:sort] ? User.order(params[:sort]) : User.all
     end
 
     def show; end
