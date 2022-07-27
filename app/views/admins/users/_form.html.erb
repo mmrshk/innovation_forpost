@@ -23,6 +23,7 @@
   
   <div>
     <% if last_super_admin? && current_user == user %>
+      <div class="last-super-admin-msg"><%= "Ви не можете змінити статус останнього super_admin." %></div>
       <div class="last-super-admin-msg"><%= "#{t('admins.users.super_admin_change_prohibited')}" %></div>
       <% button_block_protector = true %>
     <% else %>
