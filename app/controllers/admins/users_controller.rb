@@ -28,7 +28,7 @@ module Admins
 
     def update
       if last_super_admin_tries_to_update_its_role?
-        redirect_to admins_user_url(@user), notice: t('admins.users.last_super_admin_change_prohibited')
+        redirect_to admins_user_url(@user), notice: t('admins.users.super_admin_change_prohibited')
       elsif @user.update(user_params)
         redirect_to admins_user_url(@user), notice: t('admins.users.update_success')
       else
@@ -38,7 +38,7 @@ module Admins
 
     def destroy
       if last_super_admin_tries_to_destroy_itself?
-        redirect_to admins_users_path, notice: t('admins.users.last_super_admin_change_prohibited')
+        redirect_to admins_users_path, notice: t('admins.users.super_admin_change_prohibited')
       elsif authorized? && user.role_super_admin?
         redirect_to admins_users_path, notice: t('admins.users.current_user_account_destroy_prohibited')
       else
