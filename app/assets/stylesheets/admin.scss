@@ -1,4 +1,5 @@
 @import 'colors';
+@import "font-awesome";
 
 .form-container {
   display: flex;
@@ -191,23 +192,26 @@ select {
       color: $white-color;
       width: 66px;
       height: 40px;
-      background-color: #003087;
+      background-color: $blue-filter-color;
       border-radius: 10px;
       border: none;
     }
 
     .label-records-per-page  {
       margin-left: 5px;
-      color: #003087;
+      color: $blue-filter-color;
       font-size: 20px;
     }
 
-    input[type=number]::-webkit-inner-spin-button {
-      opacity: 0.5;
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
+    input[type=number] {
+      &::-webkit-inner-spin-button,
+      &::-webkit-outer-spin-button {
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+      }
     }
   }
 }
@@ -218,7 +222,7 @@ select {
   align-items: center;
 
   .pagination-arrows {
-    color: #003087;
+    color: $blue-filter-color;
   }
 
   .pagination-number{
@@ -236,14 +240,10 @@ select {
     }
     &.active,
     &:hover:not(.active) {
-      background-color: #003087;
+      background-color: $blue-filter-color;
     }
   }
 }
-
-// table style
-
-@import "font-awesome";
 
 .body-table { 
   border-collapse: separate; 
