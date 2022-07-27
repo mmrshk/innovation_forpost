@@ -6,9 +6,9 @@
   <%= @question.user_email %>
 </p>
 
-<%= simple_form_for [@question, @answer] do |a| %>
-  <%= a.input :body, label: 'Body' %>
-  <%= a.button :submit, class: "btn-primary"%>
+<%= simple_form_for [@question, @answer] do |form| %>
+  <%= form.input :body, label: 'Body' %>
+  <%= fprm.button :submit, class: "btn-primary"%>
 <% end %>
 
 <h2>Answers</h2>
