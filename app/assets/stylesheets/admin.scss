@@ -1,0 +1,61 @@
+@import 'colors';
+
+.container-records-per-page {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 20px;
+
+  .browser-default {
+    padding: 0 15px;
+    color: $white-color;
+    width: 66px;
+    height: 40px;
+    background-color: #003087;
+    border-radius: 10px;
+    border: none;
+  }
+
+  .label-records-per-page  {
+    margin-left: 10px;
+    color: #003087;
+    font-size: 20px;
+  }
+
+  input[type=number]::-webkit-inner-spin-button {
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .pagination-arrows {
+    color: #003087;
+  }
+
+  .pagination-number{
+    color: $white-color;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 48, 135, 0.25);
+    a {
+      color: $white-color;
+      font-size: 20px;
+    }
+    &.active,
+    &:hover:not(.active) {
+      background-color: #003087;
+    }
+  }
+}
