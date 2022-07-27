@@ -1,0 +1,143 @@
+@import 'colors';
+
+.form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .form {
+    max-width: 600px;
+
+    .error {
+      color: $mobile-red-color;
+    }
+
+    .btn {
+      padding: 0;
+      z-index: 0;
+
+      .btn-area {
+        padding: 10px 25px;
+      }
+    }
+  }
+}
+
+.container-records-per-page {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 20px;
+
+  .browser-default {
+    padding: 0 15px;
+    color: $white-color;
+    width: 66px;
+    height: 40px;
+    background-color: #003087;
+    border-radius: 10px;
+    border: none;
+  }
+
+  .label-records-per-page  {
+    margin-left: 10px;
+    color: #003087;
+    font-size: 20px;
+  }
+
+  input[type=number]::-webkit-inner-spin-button {
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .pagination-arrows {
+    color: #003087;
+  }
+
+  .pagination-number{
+    color: $white-color;
+    border-radius: 10px;
+    text-align: center;
+    margin: 20px;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 48, 135, 0.25);
+    a {
+      color: $white-color;
+      font-size: 20px;
+    }
+    &.active,
+    &:hover:not(.active) {
+      background-color: #003087;
+    }
+  }
+}
+
+// table style
+
+@import "font-awesome";
+
+.body-table { 
+  border-collapse: separate; 
+  border-spacing: 0 10px; 
+  margin-top: 10px; 
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.title-table-user {
+  border: solid 1px ;
+  border-style: solid none;
+  padding: 10px;
+  background-color: $background-color-title;
+  color: $white-color;
+  border-radius: 0px;
+  height: 60px;
+  font-weight: 400;
+  padding-left: 30px;
+}
+
+.title-table-user:first-child {
+  border-left-style: solid;
+  border-top-left-radius: 30px; 
+  border-bottom-left-radius: 30px;
+}
+
+.title-table-user:last-child {
+  border-right-style: solid;
+  border-bottom-right-radius: 30px; 
+  border-top-right-radius: 30px; 
+}
+
+.user-link {
+  text-decoration: none;
+  color: $black-color;
+
+  &:hover {
+    color: $base-color;
+  }
+}
+
+.field-table-user {
+  padding-left: 30px;
+}
+
+.new-user {
+  text-decoration: none;
+  color: $white-color;
+  background-color: $background-color-title;
+  border-radius: 20px;
+  padding: 10px;
+  margin-right: 30px;
+  float: right;
+}
