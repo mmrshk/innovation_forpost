@@ -5,6 +5,8 @@
     <label class="label-records-per-page">records per page</label>
   </div>
 
+  <%= render 'filter' %>
+
   <% if current_user.role_super_admin? %>
     <table class="body-table">
       <thead>

@@ -1,0 +1,79 @@
+<div class="dropdown-trigger filter-button right" href='#' data-target="filter-dropdown">
+  <i class="material-icons filter">tune</i>
+  <p class="filter-title">Filter</p>
+  <i class="material-icons dropdown">arrow_drop_down</i>
+  <div id='filter-dropdown' class='dropdown-content'>
+   <div class="row">
+       <form class="col s12"> 
+         <div class="input-top">
+           <div class="input-field col s6">
+              <label class="filter-text-label">Author</label>
+              <i class="material-icons select">arrow_drop_down</i>
+              <select class="browser-default filter-option">
+                 <option value="1">Victor-Marie Hugo</option>
+                 <option value="2">Option 2</option>
+                 <option value="3">Option 3</option>
+              </select> 
+            </div>
+            <div class="input-field col s6">
+              <label class="filter-text-label">Genre</label>
+              <i class="material-icons select">arrow_drop_down</i>
+               <select class="browser-default filter-option">
+                  <option value="1">Novel</option>
+                  <option value="2">Option 2</option>
+                  <option value="3">Option 3</option>
+               </select>
+               </div>
+          </div>
+          <div class="input-middle">
+             <div class="input-field col s6">
+              <label class="filter-text-label">Price</label>
+              <i class="material-icons select">arrow_drop_down</i>
+                <select class="browser-default filter-option">
+                   <option value="1">Contains</option>
+                   <option value="2">Option 2</option>  
+                   <option value="3">Option 3</option>
+                </select>
+              </div>
+             <div class="input-field col s6">
+              <label class="filter-text-label">Name</label>
+              <i class="material-icons select">arrow_drop_down</i>
+                <select class="browser-default filter-option">
+                   <option value="1">Equals</option>
+                   <option value="2">Option 2</option>
+                   <option value="3">Option 3</option>
+                </select>
+              </div>
+             <div class="input-field col s6">
+               <input type="text" placeholder="Value:">
+             </div>
+             <div class="input-field col s6">
+               <input type="text" placeholder="Value:">
+             </div>
+          </div> 
+          <div class="input-bottom">      
+             <div class="input-field col s6">
+               <input type="text" class="datepicker" placeholder="Start at:">  
+               <i class="material-icons calendar">date_range</i>          
+               <label class="filter-bottom-label">Created at:</label>
+             </div>
+             <div class="input-field col s6">
+               <input type="text" class="datepicker" placeholder="Start at:">
+               <i class="material-icons calendar">date_range</i>
+               <label class="filter-bottom-label">Updated at:</label>
+             </div>
+             <div class="input-field col s6">
+               <input type="text" class="datepicker" placeholder="End at:">
+               <i class="material-icons calendar">date_range</i>
+             </div>
+             <div class="input-field col s6">
+               <input type="text" class="datepicker" placeholder="End at:">
+               <i class="material-icons calendar">date_range</i>
+             </div>
+          </div>   
+         <button type="submit" id="filter-buttons">Filter</button>
+          <button type="reset" id="filter-buttons">Clear Filter</button>
+       </form> 
+     </div>  
+   </div>  
+</div>
