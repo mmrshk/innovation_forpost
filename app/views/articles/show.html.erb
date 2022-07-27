@@ -1,5 +1,5 @@
 <div class='container'>
-  <div class='article-data'><%= date_as_month_and_year(@article.created_at) %></div>
+  <div class='article-date'><%= date_as_month_and_year(@article.created_at) %></div>
   <h1 class='article-title'><%= @article.title %></h1>
   <div class='ck-content'><%= sanitize @article.text %>
                           <%# raw @article.text %></div>

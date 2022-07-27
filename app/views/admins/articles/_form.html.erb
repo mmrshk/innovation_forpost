@@ -31,5 +31,6 @@
                       class: 'inline-select' %>
   <%= f.input :tags, label_html: { class: 'name-field-form' },
                       input_html: { value: presenter_article.all_tags } %>
-  <%= f.button :submit, method == 'post' ? 'Create article' : 'Update article', class: 'admin-submit-button' %>
+  <%# f.button :submit, method == 'post' ? 'Create article' : 'Update article', class: 'admin-article-button' %>
+  <%= f.button :submit, method == 'post' ? 'Create article' : 'Update article', class: 'admin-article-button right' %>
 <% end %>

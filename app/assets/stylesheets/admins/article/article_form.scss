@@ -4,68 +4,68 @@
 
 .block-form {
   width: 100%;
-}
 
-abbr {
-  display: none;
-}
+  abbr {
+    display: none;
+  }
 
-.name-field-form {
-  margin-bottom: 10px;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 29px;
-  display: flex;
-  align-items: center;
-  color: $admin-label-color;
-}
+  .name-field-form {
+    margin-bottom: 10px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    display: flex;
+    align-items: center;
+    color: $admin-label-color;
+  }
 
-.simple_form {
-  .input {
-    .inline-select {
-      opacity: 1;
-      margin: 0 0 10px 0;
-    }
+  .inline-select {
+    opacity: 1;
+    margin: 0 0 10px 0;
+  }
 
-    .form-input {
-      font-size: 18px;
-      font-weight: bold;
-    }
+  .form-input {
+    font-size: 18px;
+    font-weight: bold;
+  }
 
-    input[type=text]:not(.browser-default):focus:not([readonly]) {
-      border-bottom: 1px solid $border-color;
-      box-shadow: 0 1px 0 0 $border-color;
-    }
+  input[type=text]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid $border-color;
+    box-shadow: 0 1px 0 0 $border-color;
+  }
 
-    .error-form-input {
-      font-size: 16px;
-      color: $admin-invalid-color;
-    }
+  .form-text {
+    height: 100px;
+  }
+
+  .error-form-input {
+    font-size: 16px;
+    color: $admin-invalid-color;
   }
 }
 
-.form-text {
-  height: 100px;
-}
+// .admin-submit-button {
+//   height: 40px;
+//   // float: right;
+//   background: $admin-background-color-button;
+//   border-radius: 20px;
+//   min-width: 250px;
+//   font-family: 'Roboto';
+//   font-style: normal;
+//   text-transform: capitalize; 
+//   font-weight: 400;
+//   font-size: 30px;
+//   // line-height: 35px;
+//   // display: flex;
+//   align-items: center;
+//   margin: 8px 0 10px 0;
 
-.admin-submit-button {
-  height: 40px;
-  float: right;
-  background: $admin-background-color-button;
-  border-radius: 20px;
-  min-width: 250px;
-  font-family: 'Roboto';
-  font-style: normal;
-  text-transform: capitalize; 
-  font-weight: 400;
-  font-size: 30px;
-  // line-height: 35px;
-  // display: flex;
-  align-items: center;
-  margin: 8px 0 10px 0;
-}
+//   &:hover {
+//     background-color: $base-color;
+//   }
+// }
 
 @media screen and (max-width: 640px) {
   .admin-submit-button {

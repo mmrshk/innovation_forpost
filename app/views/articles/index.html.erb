@@ -3,9 +3,9 @@
     <ul class='articles-list'>
       <% @articles.each do |article| %>
         <li>
-          <div class='article-data'><%= date_as_month_and_year(article.created_at) %></div> 
+          <div class='article-date'><%= date_as_month_and_year(article.created_at) %></div> 
           <div><%= link_to article.title, article_path(article), class: 'article-title' %></div>
-          <div><%= sanitize article.text %></div>
+          <div><%= sanitize truncate(article.text, length: 200, separator:'.') %></div>
           <div>Tags:
             <% article.tags.each do |tag| %>
               <%= link_to tag.name, tag_path(tag) %>
