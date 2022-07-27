@@ -1,17 +1,19 @@
-<p>
-  <strong>Id:</strong>
-  <%= @user.id %>
-</p>
+<div class="form-container">
+  <div class="show row">
+    <div class="input-field col s12">
+      <strong>Email: </strong> <%= @user.email %>
+    </div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+    <div class="input-field col s12">
+      <strong>Telephone: </strong> <%= @user.phone_number %>
+    </div>
 
-<p>
-  <strong>Role:</strong>
-  <%= @user.role %>
-</p>
+    <div class="input-field col s12">
+      <strong>Role: </strong> <%= @user.role %>
+    </div>
 
-<%= link_to 'Edit', edit_admins_user_path %> |
-<%= link_to 'Back', admins_users_path %>
+    <div class="waves-effect waves-light btn light-blue darken-2 show_button">
+      <%= link_to 'Edit', edit_user_registration_path, class: "btn-area" %>
+    </div>
+  </div>
+</div>
