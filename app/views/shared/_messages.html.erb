@@ -1,9 +1,3 @@
-<% flash.each do |key, value| %>
-  <div class="<%= key %>">
-    <ul>
-      <li>
-        <%= value %>
-      </li>
-    </ul>
-  </div>
+<% flash.each do |message_type, message| %>
+    <%= javascript_tag "M.toast({html: '#{message}', displayLength: 4000})" %>
 <% end %>
