@@ -31,6 +31,7 @@ module Admins
     def update
       @form = Articles::CreateUpdateForm.new(params: article_params, article: article)
       if @form.save
+        # binding.pry
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.update_success')
       else
         flash.now[:alert] = I18n.t('admins.articles.update_unsuccess')

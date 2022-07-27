@@ -1,9 +1,11 @@
 <%= simple_form_for article, as: :article, local: true, url: url, method: method do |f| %>
   <% presenter_article = ArticlePresenter.new(f.object) %>
-  <% if method == 'patch' %>
-    <%# render partial: 'errors' %>
+  <% if method == 'patch' || method == 'put' %>
+    <%= render partial: 'errors' %>
   <% end %>
+  <% binding.pry %>
   <%= f.input :title, autofocus: true,
+                      value: params[:article] && params[:article][:title] || article&.title,
                       error: f.full_error(:title),
                       label_html: { class: 'name-field-form' },
                       input_html: { class: 'form-input' },
