@@ -2,7 +2,7 @@
 
 module Admins
   class AttachmentsController < ApplicationController
-    before_action :find_attachment, only: %i[show edit update destroy]
+    before_action :attachment, only: %i[show edit update destroy]
 
     def index
       @attachments = Attachment.all
@@ -44,8 +44,8 @@ module Admins
 
     private
 
-    def find_attachment
-      @attachment ||= Attachment.find(params[:id]) 
+    def attachment
+      @attachment ||= Attachment.find(params[:id])
     end
 
     def attachment_params

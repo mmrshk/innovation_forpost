@@ -13,16 +13,14 @@
         <tr>
           <td class="title-attachment"><%= attachment.id %></td>
           <td class="title-attachment"><%= attachment.name %></td>
-          <td class="title-attachment"> 
-            <%= image_tag attachment.media_file.variant(resize: "200x200") %>
-          </td>
+          <td class="title-attachment"> <%= image_tag attachment.media_file.variant(resize: "200x200") %></td>
           <td class="title-attachment links">
             <%= link_to fa_icon('eye', text: t('admin.attachments.view_link')), admins_attachment_path(attachment), class: "attachment-link" %> 
             <%= link_to fa_icon('edit', text: t('admin.attachments.edit_link')), edit_admins_attachment_path(attachment), class: "attachment-link" %> 
             <%= link_to fa_icon('trash', text: t('admin.attachments.delete_link')), admins_attachment_path(attachment), method: :delete, class: "attachment-link" %> 
           </td>
         </tr>
-      <% end %>  
+      <% end %>
     </tbody>
   </table>
   
