@@ -34,6 +34,8 @@ ActiveRecord::Schema.define(version: 2022_07_24_121834) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
   create_table "answers", force: :cascade do |t|
     t.text "body", null: false
     t.bigint "question_id", null: false
