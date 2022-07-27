@@ -22,3 +22,134 @@
     }
   }
 }
+
+.filter {
+  &-title {
+    margin-right: 85px;
+  }
+
+  &-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 210px;
+    height: 30px;
+    background-color: $blue-filter-color;
+    border-radius: 10px;
+    font-size: 18px;
+    color: $white-color;
+    user-select: none;
+  }
+
+  &-option {
+    margin-left: -13px;
+    width: 340px;
+    height: 52px;
+    font-size: 18px;
+    line-height: 29px;
+    color: $blue-filter-color;
+    background-color: $white-color;
+    border-radius: 18px;
+  }
+}
+
+select {
+  appearance: none;
+}
+
+.material-icons {
+  &.select {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: $blue-filter-color;
+    margin: 3px 0px -48px 283px;
+    font-size: 45px;
+  }
+
+  &.filter {
+    display: flex;
+    align-items: center;
+    font-size: 21px;
+    margin: 10px;
+  }
+
+  &.dropdown {
+    margin: -3px 3px;
+    font-size: 35px;
+  }
+
+  &.calendar {
+    margin: -40px 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $blue-filter-color;
+  }
+}
+
+#filter-dropdown {
+  width: 780px;
+  height: 535px;
+  top: -45px;
+  background-color: $blue-filter-color;
+  border-radius: 18px;
+
+  #filter-buttons {
+    width: 340px;
+    height: 52px;
+    background-color: #62B5E5;
+    color: $white-color;
+    font-size: 18px;
+    border-radius: 30px;
+    margin: 18px 0 0 23px;
+    border: #62B5E5;
+  }
+
+  .filter-text-label {
+    color: $white-color;
+    font-size: 18px;
+    margin-top: -40px;
+  }
+
+  .filter-bottom-label {
+    color: $white-color;
+    font-size: 18px;
+    margin-top: -10px;
+  }
+
+  .input {
+    &-top {
+      margin: 32px 12px;
+    }
+
+    &-middle {
+      margin: 123px 12px;
+    }
+    
+    &-bottom {
+      margin: 285px 12px;
+    }
+  }
+
+  .input-field {
+    margin: 10px 13px;
+    width: 340px;
+    height: 52px;
+    background-color: $white-color;
+    border-radius: 18px;
+    
+    ::placeholder {
+      display: flex;
+      align-items: center;
+      font-size: 18px;
+      color: rgba(0, 40, 85, 0.5);
+    }
+    
+    input[type="text"] {
+      margin: 4px;
+      border-bottom: none;
+    }
+  }
+}
