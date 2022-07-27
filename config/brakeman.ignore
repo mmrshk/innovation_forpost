@@ -7,7 +7,7 @@
       "check_name": "PermitAttributes",
       "message": "Potentially dangerous key allowed for mass assignment",
       "file": "app/controllers/admins/users_controller.rb",
-      "line": 86,
+      "line": 61,
       "link": "https://brakemanscanner.org/docs/warning_types/mass_assignment/",
       "code": "params.require(:user).permit(:email, :phone_number, :role, :password, :password_confirmation)",
       "render_path": null,
@@ -39,8 +39,28 @@
       "user_input": ":role",
       "confidence": "Medium",
       "note": ""
+    },
+    {
+      "warning_type": "SQL Injection",
+      "warning_code": 0,
+      "fingerprint": "ebce9a3676a80e6c9fd654f53ab4d6110ad5ea3091e0239b7092149516df658d",
+      "check_name": "SQL",
+      "message": "Possible SQL injection",
+      "file": "app/controllers/admins/users_controller.rb",
+      "line": 9,
+      "link": "https://brakemanscanner.org/docs/warning_types/sql_injection/",
+      "code": "User.order(params[:sort])",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "Admins::UsersController",
+        "method": "index"
+      },
+      "user_input": "params[:sort]",
+      "confidence": "High",
+      "note": ""
     }
   ],
-  "updated": "2022-07-11 11:43:41 +0300",
+  "updated": "2022-07-28 02:12:19 +0300",
   "brakeman_version": "5.2.3"
 }
