@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :set_question
+  before_action :set_question, only: %i[show]
 
   def index
     @questions = Question.all
