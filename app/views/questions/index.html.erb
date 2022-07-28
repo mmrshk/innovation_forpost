@@ -1,0 +1,13 @@
+<h1>Questions</h1>
+
+<% @questions.each do |question| %>
+  <h2><%= question.title %></h2>
+
+
+  <p>
+    <%= question.body %>
+    <%= question.user_name %>
+    <%= question.user_email %>
+  </p>
+  <%= link_to 'Show', question_path(question) %>
+<% end %>
