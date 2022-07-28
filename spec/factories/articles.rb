@@ -7,7 +7,6 @@ FactoryBot.define do
     title { Faker::Lorem.characters(number: 20) }
     text { Faker::Lorem.characters(number: 100) }
     user_id { (create :user).id }
-    tags { create_list(:tag, 2) }
 
     traits_for_enum(:status, %w[draft published trashed])
     traits_for_enum(:language, %w[uk en])
@@ -18,6 +17,16 @@ FactoryBot.define do
       user_id { nil }
       status { nil }
       language { nil }
+    end
+
+    trait :with_tags do
+      transient do
+        tags_count { 2 }
+      end
+
+      after(:create) do |article, evaluator|
+        evaluator.tags_count.times { create(:article_tag, tag_id: create(:tag).id, article_id: article.id) }
+      end
     end
   end
 end
