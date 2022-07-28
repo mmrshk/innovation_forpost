@@ -2,12 +2,8 @@
 
 <% @questions.each do |question| %>
   <h2><%= question.title %></h2>
-
-
-  <p>
-    <%= question.body %>
-    <%= question.user_name %>
-    <%= question.user_email %>
-  </p>
-  <%= link_to 'Show', question_path(question) %>
+  <p><%= question.body %></p>
+  <p><%= question.user_name %></p>
+  <p><%= question.user_email %></p>
+  </p>  <%= link_to 'Show', question_path(question) %>
 <% end %>

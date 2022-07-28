@@ -8,7 +8,10 @@ Rails.application.routes.draw do
     resources :attachments
     resources :users
     resources :articles, except: :show
-    resources :questions
+    resources :questions do
+      resources :answers
+    end
+ 
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

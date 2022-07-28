@@ -7,7 +7,9 @@ module Admins
       @questions = Question.all
     end
 
-    def show; end
+    def show
+      @answer = @question.answers.build
+    end
 
     def edit
       # @question = Question.find_by(id: params[:id])
