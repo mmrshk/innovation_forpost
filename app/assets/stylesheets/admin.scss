@@ -277,7 +277,8 @@ select {
 .button-functions {
   text-decoration: none;
   color: $black-color;
-
+  text-align: center;
+  
   &:hover {
     color: $base-color;
   }

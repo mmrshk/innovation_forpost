@@ -11,7 +11,7 @@
     <table class="body-table">
       <thead>
         <tr>
-          <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Id'), :sort_by => "Id" %> </th>
+          <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Id'), :sort => "Id" %> </th>
           <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Email'), :sort => "Email"%> </th>
           <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Tel.'), :sort => "phone_number"%> </th>
           <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Role'), :sort => "Role"%> </th>
@@ -26,13 +26,13 @@
             <td class="field-table-user"><%= user.email %></td>
             <td class="field-table-user"><%= user.phone_number %></td>
             <td class="field-table-user"><%= user.role %></td>
-            <td class="field-table-user"><%= link_to fa_icon('eye', text: 'View'), admins_user_path(user), class: "button-functions" %></td>
-            <td class="field-table-user"><%= link_to fa_icon('edit', text: 'Edit'), edit_admins_user_path(user), class: "button-functions" %></td>
+            <td class="field-table-user button-functions"><%= link_to fa_icon('eye', text: 'View'), admins_user_path(user), class: "button-functions" %></td>
+            <td class="field-table-user button-functions"><%= link_to fa_icon('edit', text: 'Edit'), edit_admins_user_path(user), class: "button-functions" %></td>
 
             <% if user.role_super_admin? && last_super_admin? %>
               <td class="last-super-admin-msg field-table-user"><%= t('admins.users.last_super_admin') %></td>
             <% else %>
-              <td class="field-table-user">
+              <td class="field-table-user button-functions">
                 <%= link_to fa_icon('trash', text: 'Delete'),
                   admins_user_path(user), 
                   method: :delete, 
