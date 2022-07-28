@@ -11,18 +11,8 @@ module Admins
       @answer = @question.answers.build
     end
 
-    def edit
-      # @question = Question.find_by(id: params[:id])
-    end
+    def edit; end
 
-    # def update
-    # @question = Question.find_by(id: params[:id])
-    # if @question.update question_params
-    #  redirect_to admins_questions_path
-    # else
-    # render :edit, status: :unprocessable_entity
-    # end
-    # end
     def update
       unless current_user.role_super_admin? || current_user.role_admin?
         redirect_to admins_questions_path, notice: 'Access denied!' # remove this notice in the future
