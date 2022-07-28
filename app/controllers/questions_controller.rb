@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class QuestionsController < ApplicationController
-  before_action :set_question!
+  before_action :set_question
 
   def index
     @questions = Question.all
@@ -25,8 +25,8 @@ class QuestionsController < ApplicationController
 
   private
 
-  def set_question!
-    @question = Question.find_by(id: params[:id])
+  def set_question
+    @question = Question.find(id: params[:id])
   end
 
   def question_params
