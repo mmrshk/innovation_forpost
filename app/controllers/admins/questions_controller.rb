@@ -15,10 +15,6 @@ module Admins
     def edit; end
 
     def update
-      unless current_user.role_super_admin? || current_user.role_admin?
-        redirect_to admins_questions_path, notice: 'Access denied!' # remove this notice in the future
-        return
-      end
       if @question.update(question_params)
         redirect_to admins_questions_path, notice: 'Question updated!'
       else
@@ -27,10 +23,6 @@ module Admins
     end
 
     def destroy
-      unless current_user.role_super_admin? || current_user.role_admin?
-        redirect_to admins_questions_path, notice: 'Access denied!' # remove this notice in the future
-        return
-      end
       redirect_to admins_questions_path, notice: 'Question destroyed!' if @question.destroy
     end
 

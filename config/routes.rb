@@ -4,11 +4,10 @@ Rails.application.routes.draw do
   mount Lit::Engine => '/lit' unless Rails.env.test?
 
   namespace :admins do
-    resources :users, :articles
-    resources :attachments
     resources :users
+    resources :attachments
     resources :articles, except: :show
-    resources :questions do
+    resources :questions, except: %i[create new] do
       resources :answers
     end
  
@@ -25,7 +24,7 @@ Rails.application.routes.draw do
     resources :articles, only: %i[index show] 
     resources :tags, only: %i[index show]
     root to: "home#index"
-    resources :questions
+    resources :questions, only: %i[index new create show] 
   end
 
   get '/404', to: 'errors#not_found'
