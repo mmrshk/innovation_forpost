@@ -7,10 +7,10 @@ module Admins
 
     def index
       @users = if params[:sort] && User.column_names.include?(params[:sort])
-         User.order(params[:sort])  
-      else
-         User.all
-      end
+                 User.order(params[:sort])
+               else
+                 User.all
+               end
     end
 
     def show; end
