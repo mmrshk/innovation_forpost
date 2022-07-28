@@ -119,13 +119,12 @@
 
 #user-menu { 
   display: block;
-  padding: 10px 16px;
-  width: 240px;
-  margin: 10px auto;
+  height: 30px;
+  border-radius: 100%;
+  text-align: center;
+  margin: auto;
   position: relative;
   cursor: pointer;
-  border-left: 4px solid $light-blue-color;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.3);
   background-color: $white-color;
   color: #656565;
   transition: all 0.15s linear;
@@ -135,7 +134,7 @@
   }
 
   &.click {
-    background: $light-blue-color;
+    background: $base-color;
     color: $white-color;
     border-left-color: #6c6d70;
   }
@@ -143,8 +142,9 @@
   .user-menu_content {
     position: absolute;
     top: 100%;
-    left: -4px;
-    width: 240px;
+    left: -10px;
+    width: 80px;
+    border-radius: 5px;
     padding: 5px 0px;
     display: none;
     border-left: 4px solid #8e9196;

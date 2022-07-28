@@ -50,7 +50,7 @@
         <li class="item"><%= link_to t('menu.contacts'), '#' %></li>
         <% if user_signed_in? %>        
           <div id="user-menu">
-            <%= current_user.email %>
+            <i class="small material-icons">account_circle</i>
             <ul class="user-menu_content">
               <li><%= link_to "Profile", admins_user_path(current_user) %></li>
               <li><%= link_to "Settings", edit_user_registration_path %></li>

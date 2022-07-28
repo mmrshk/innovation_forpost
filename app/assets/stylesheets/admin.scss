@@ -13,9 +13,11 @@
 
     &_button {
       margin-left: 10px;
+      background-color: $base-color;
+      z-index: 0;
 
       a {
-        color: #000;
+        color: $white-color;
         text-decoration: none;
       }
     }
@@ -34,6 +36,9 @@
       z-index: 0;
 
       .btn-area {
+        cursor: pointer;
+        background-color: $base-color;
+        color: $white-color;
         padding: 10px 25px;
       }
     }
