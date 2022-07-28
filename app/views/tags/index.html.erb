@@ -4,5 +4,7 @@
       <li class='tag-links-item'><%= link_to tag.name, tag_path(tag), class: 'a' %>
     <% end %>
   </ul>
-  <%= link_to fa_icon('arrow-left', text: 'Back'), url_for(:back), class:'article-button outline' %>
+  <%= link_to url_for(:back), class: 'article-button outline' do %>
+    <span><i class='material-icons'>arrow_back</i>Back</span>
+  <% end %>
 </div>

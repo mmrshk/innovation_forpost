@@ -2,13 +2,14 @@
   <% presenter_article = ArticlePresenter.new(f.object.article) %>
   <%= f.input :title, autofocus: true,
                       label_html: { class: 'name-field-form' },
-                      input_html: { value: params[:article] && params[:article][:title] || article&.title, class: 'form-input' },
+                      input_html: { value: params[:article] && params[:article][:title] || article&.title, class: 'form-input title' },
                       error_html: { class: 'error-form-input' } %>
   <%= f.input :text, label: false,
                       as: :text,
                       input_html: { value: params[:article] && params[:article][:text] || article&.text, class: 'form-text' },
                       error_html: { class: 'error-form-input' } %>
-  <%= f.input :user_id, label: 'Author',
+  <div class='inline-select-group'>
+    <%= f.input :user_id, label: 'Author',
                       label_html: { class: 'name-field-form' },
                       as: :select,
                       input_html: { class: 'inline-select' },
@@ -17,20 +18,25 @@
                       value_method: :id,
                       selected:article.user_id,
                       include_blank: false %>
-  <%= f.input :language, label_html: { class: 'name-field-form' },
+    <%= f.input :language, label_html: { class: 'name-field-form' },
                       input_html: { class: 'inline-select' },
                       collection: Article.languages.keys,
                       selected: article.language,
                       include_blank: false %>
-  <%= f.input :status, label_html: { class: 'name-field-form' },
+    <%= f.input :status, label_html: { class: 'name-field-form' },
                       input_html: { class: 'inline-select' },
                       collection: Article.statuses.keys,
                       selected: article.status,
                       include_blank: false,
                       class: 'inline-select' %>
-  <%= f.input :tags, label_html: { class: 'name-field-form' },
-                      input_html: { value: presenter_article.all_tags, class: 'form-input' } %>
-  <%# f.button :submit, method == 'post' ? 'Create article' : 'Update article', class: 'admin-article-button' %>
-  <%= f.button :submit, method == 'post' ? 'Create article' : 'Update article', class: 'admin-article-button right' %>
-  <div><%= link_to fa_icon('arrow-left', text: 'Back'), admins_articles_path, class:'btn admin-article-button' %></div>
+  </div>
+    <%= f.input :tags, label_html: { class: 'name-field-form' },
+                      hint: 'Enter tags separated by commas.',
+                      input_html: { value: presenter_article.all_tags, class: 'form-input-tags' } %>
+  <div class='admin-button-group'>
+    <%= link_to admins_articles_path, class: 'admin-article-button' do %>
+      <span><i class='material-icons'>arrow_back</i>Back</span>
+    <% end %>
+    <%= f.button :submit, method == 'post' ? 'Create article' : 'Update article', class: 'admin-article-button' %>
+  </div>
 <% end %>

@@ -19,9 +19,15 @@
           <td><%= article.status %></td>
           <td><%= article.language %></td>
           <td>
-            <%= link_to fa_icon('eye', text: 'View'), article_path(article, locale: article.language.to_sym), class: "article-link" %> 
-            <%= link_to fa_icon('edit', text: 'Edit'), edit_admins_article_path(article), class: "article-link" %> 
-            <%= link_to fa_icon('trash', text: 'Delete'), admins_article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: "article-link" %> 
+              <%= link_to article_path(article, locale: article.language.to_sym), class: 'article-link' do %>
+                <span><i class='material-icons tiny'>remove_red_eye</i>View</span>
+              <% end %>
+              <%= link_to edit_admins_article_path(article), class: 'article-link' do %>
+                <span><i class='material-icons tiny'>edit</i>Edit</span>
+              <% end %>
+              <%= link_to admins_article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: 'article-link' do %>
+                <span><i class='material-icons tiny'>delete</i>Delete</span>
+              <% end %>
           </td>
         </tr>
       <% end %>

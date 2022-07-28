@@ -1,6 +1,6 @@
 .tag-links {
   display: flex;
-  // flex-wrap: wrap;
+  flex-wrap: wrap;
 
   &-item {
     padding: 5px 10px;
@@ -8,15 +8,15 @@
     border-radius: 7px;
     cursor: pointer;
     vertical-align: middle;
-    margin: 10px;
+    margin: 7px;
 
     .a {
-      font-size: 18px;
-      letter-spacing: .05em;
-      font-family: "metropolisblack",sans-serif;
-      color: $black-color;
       text-align: center;
+      font-family: "metropolisblack",sans-serif;
       font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 1px;
+      color: $black-color;
 
       &:hover {
         color: $base-color;

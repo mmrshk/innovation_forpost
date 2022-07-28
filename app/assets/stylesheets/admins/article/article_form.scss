@@ -10,15 +10,20 @@
   }
 
   .name-field-form {
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 29px;
-    display: flex;
-    align-items: center;
     color: $admin-label-color;
+  }
+
+  .inline-select-group {
+    display: flex;
+    justify-content: space-between;
   }
 
   .inline-select {
@@ -36,6 +41,15 @@
     }
   }
 
+  .form-input-tags {
+    font-style: italic;
+
+    &[type=text]:not(.browser-default):focus:not([readonly]) {
+      border-bottom: 1px solid $border-color;
+      box-shadow: 0 1px 0 0 $border-color;
+    }
+  }
+
   .form-text {
     height: 100px;
   }
@@ -46,32 +60,15 @@
   }
 }
 
-// .admin-submit-button {
-//   height: 40px;
-//   // float: right;
-//   background: $admin-background-color-button;
-//   border-radius: 20px;
-//   min-width: 250px;
-//   font-family: 'Roboto';
-//   font-style: normal;
-//   text-transform: capitalize; 
-//   font-weight: 400;
-//   font-size: 30px;
-//   // line-height: 35px;
-//   // display: flex;
-//   align-items: center;
-//   margin: 8px 0 10px 0;
-
-//   &:hover {
-//     background-color: $base-color;
-//   }
-// }
-
 @media screen and (max-width: 640px) {
+
   .admin-submit-button {
     width: 100%;
     padding: 3px 30px;
-    max-height: 54px;
-    float:none
+  }
+
+  .inline-select-group {
+    flex-wrap: wrap;
+    flex-direction: column;
   }
 }
