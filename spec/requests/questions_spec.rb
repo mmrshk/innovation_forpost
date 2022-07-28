@@ -51,6 +51,7 @@ RSpec.describe 'Questions', type: :request do
     context 'with invalid parameters' do
       let(:invalid_question) { build(:question, :question_with_invalid_email) }
       let(:invalid_params) { attributes_for(:question, :question_with_invalid_email) }
+
       it 'does not create a new Question' do
         expect { post questions_url, params: { question: invalid_params } }.not_to change(Question, :count)
       end
