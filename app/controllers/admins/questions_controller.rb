@@ -3,6 +3,7 @@
 module Admins
   class QuestionsController < AdminsController
     before_action :question, only: %i[edit update destroy show]
+
     def index
       @questions = Question.all
     end

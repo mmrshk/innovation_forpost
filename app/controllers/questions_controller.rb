@@ -2,6 +2,7 @@
 
 class QuestionsController < ApplicationController
   before_action :set_question!
+
   def index
     @questions = Question.all
   end
@@ -12,6 +13,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
+
     if @question.save
       redirect_to questions_path, notice: 'Question created successfully!'
     else
