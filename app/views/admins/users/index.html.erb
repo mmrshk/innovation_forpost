@@ -1,11 +1,13 @@
 <div class= "body-container">
 
-  <div class="container-records-per-page">
-    <input class="browser-default" type="number" value="10" step="10" min="10" id="number">
-    <label class="label-records-per-page">records per page</label>
+  <div class="container-records-and-filters">
+    <div class="container-records">
+      <input class="browser-default records-per-page" type="number" value="10" step="10" min="10" id="number">
+      <label class="label-records-per-page">records per page</label>
+    </div>
+    <%= render 'filter' %>
   </div>
 
-  <%= render 'filter' %>
 
   <% if current_user.role_super_admin? %>
     <table class="body-table">
@@ -50,5 +52,5 @@
   <% else%>
     <h2>Log in as a super_admin first</h2>
   <% end %>
-  <%= render 'admins/users/pagination' %>
+  <%= render 'pagination' %>
 </div>
