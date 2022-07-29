@@ -2,7 +2,7 @@ require("@rails/ujs").start()
 import "@hotwired/turbo-rails";
 require("@rails/activestorage").start()
 require("channels")
-//= require materialize-sprockets
+import 'materialize-css/dist/js/materialize'
 
 import './scroll'
 

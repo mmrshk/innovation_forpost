@@ -1,9 +1,10 @@
-@import 'materialize';
+// @import 'materialize';
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import 'materialize-css/dist/css/materialize';
 @import 'header';
 @import 'footer';
+@import 'admins/attachment';
 @import 'errors';
-// @import "font-awesome";
 @import 'admins/article/*';
 @import 'article/*';
 @import 'tag/*';
