@@ -3,7 +3,7 @@
   <ul>
     <% @tag.articles.each do |article| %>
       <li>
-        <div class='article-data'><%= date_as_month_and_year(article.created_at) %></div>
+        <div class='article-data'><%= l(article.created_at, format: '%d %b %Y') %></div>
         <div><%= link_to article.title, article_path(article), class: 'article-title' %></div>
         <div><%= sanitize truncate(article.text, length: 200, separator:'.') %></div>
         <div><small>Author: <%= link_to article.user.email, '#' %></small></div>
