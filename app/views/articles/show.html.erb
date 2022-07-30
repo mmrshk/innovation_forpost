@@ -1,11 +1,8 @@
 <div class='container'>
-  <div class='article-date'><%= l(@article.created_at, format: '%d %b %Y') %></div>
   <h1 class='article-title'><%= @article.title %></h1>
   <div class='ck-content'><%= sanitize @article.text %></div>
-  <div>
   <hr class='article-hr'>
   <%= render 'shared/tags', article: @article %>
-  </div>
   <div>
     <%= link_to 'All articles', articles_path, class:'article-button outline' %>
   </div>
