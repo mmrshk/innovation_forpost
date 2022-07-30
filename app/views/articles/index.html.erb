@@ -2,7 +2,10 @@
   <div class='articles-tags'>
     <ul class='articles-list'>
       <% @articles.each do |article| %>
-        <%= render 'shared/article', article: article %>
+        <li>
+          <%= render 'shared/article', article: article %>
+        </li>
+        <hr class='article-hr'>
       <% end %>
     </ul>
 
