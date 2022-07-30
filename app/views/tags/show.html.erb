@@ -5,12 +5,15 @@
   </div>
   <ul>
     <% @tag.articles.each do |article| %>
-      <%= render 'shared/article', article: article %>
+      <li>
+        <%= render 'shared/article', article: article %>
+      </li>
+    <hr class='article-hr'>
     <% end %>
   </ul>
   <div class='group-buttons'>
     <%= link_to 'All articles', articles_path, class: 'article-button outline' %>
-    <%= link_to admins_articles_path, class: 'article-button outline' do %>
+    <%= link_to url_for(:back), class: 'article-button outline' do %>
       <span><i class='material-icons'>arrow_back</i>Back</span>
     <% end %>
   </div>

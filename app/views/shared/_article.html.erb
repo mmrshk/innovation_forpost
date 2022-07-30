@@ -1,3 +1,3 @@
 <div><%= link_to article.title, article_path(article), class: 'article-title' %></div>
-<div><%= sanitize truncate(article.text, length: 200, separator:'.') %></div>
+<div class='ck-content'><%= sanitize truncate(article.text, escape: false, length: 500,) { link_to 'Continue', article_path(article) } %></div>
 <%= render 'shared/tags', article: article %>
