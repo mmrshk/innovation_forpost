@@ -1,19 +1,11 @@
 <div class='container'>
-  <div class='article-title'>Articles Tagged with "<%= @tag.name %>"</div>
+  <div class='group-tag'>
+    <div><i class='material-icons circle'>local_offer</i></div>
+    <div class='article-title'><%= @tag.name.capitalize %></div>
+  </div>
   <ul>
     <% @tag.articles.each do |article| %>
-      <li>
-        <div class='article-data'><%= l(article.created_at, format: '%d %b %Y') %></div>
-        <div><%= link_to article.title, article_path(article), class: 'article-title' %></div>
-        <div><%= sanitize truncate(article.text, length: 200, separator:'.') %></div>
-        <div><small>Author: <%= link_to article.user.email, '#' %></small></div>
-        <div>Tags:
-          <% article.tags.each do |tag| %>
-            <%= link_to tag.name, tag_path(tag) %>
-          <% end %>
-        </div>
-      </li>
-      <hr class='article-hr'>
+      <%= render 'shared/article', article: article %>
     <% end %>
   </ul>
   <div class='group-buttons'>

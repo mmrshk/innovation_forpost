@@ -2,23 +2,13 @@
   <div class='articles-tags'>
     <ul class='articles-list'>
       <% @articles.each do |article| %>
-        <li>
-          <div class='article-date'><%= l(article.created_at, format: '%d %b %Y') %></div> 
-          <div><%= link_to article.title, article_path(article), class: 'article-title' %></div>
-          <div><%= sanitize truncate(article.text, length: 200, separator:'.') %></div>
-          <div>Tags:
-            <% article.tags.each do |tag| %>
-              <%= link_to tag.name, tag_path(tag) %>
-            <% end %>
-          </div>
-        </li>
-      <hr class='article-hr'>
+        <%= render 'shared/article', article: article %>
       <% end %>
     </ul>
 
     <ul class='tag-links vertical short'>
       <% @tags.each do |tag| %>
-        <li class='tag-links-item'><%= link_to tag.name, tag_path(tag), class: 'a' %>
+        <li class='tag-links-item'><%= link_to tag.name, tag_path(tag), class: 'tag-link' %>
       <% end %>
   </ul>
   </div>

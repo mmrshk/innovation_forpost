@@ -2,7 +2,8 @@
   color: $admin-invalid-color;
 }
 
-.block-form {
+.block-form-article {
+  margin-top: 15px;
   width: 100%;
 
   abbr {
@@ -12,7 +13,6 @@
   .name-field-form {
     display: flex;
     align-items: center;
-    margin-bottom: 10px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
@@ -27,6 +27,7 @@
   }
 
   .inline-select {
+    display: block;
     opacity: 1;
     margin: 0 0 10px 0;
   }

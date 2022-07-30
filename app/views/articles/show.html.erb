@@ -4,10 +4,7 @@
   <div class='ck-content'><%= sanitize @article.text %></div>
   <div>
   <hr class='article-hr'>
-    Tags:
-    <% @article.tags.each do |tag| %>
-      <%= link_to tag.name, tag_path(tag) %>
-    <% end %>
+  <%= render 'shared/tags', article: @article %>
   </div>
   <div>
     <%= link_to 'All articles', articles_path, class:'article-button outline' %>

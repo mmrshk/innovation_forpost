@@ -37,6 +37,17 @@
   border-top: 1px solid $gray-color;
 }
 
+.group-bottom {
+  display: flex;
+  align-items: baseline;
+
+  .dot {
+    padding: 0 6px;
+    font-size: 14px;
+    color: $dark-grey-text;
+  }
+}
+
 .group-buttons {
   display: flex;
   justify-content: space-between;
@@ -107,5 +118,9 @@
     padding: 10px 32px;
     max-height: 60px;
     font-size: 16px;
+
+    span {
+      padding-left: 0;
+    }
   }
 }
