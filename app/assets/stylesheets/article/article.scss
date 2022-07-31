@@ -8,6 +8,8 @@
   }
 
   .articles-list {
+    display: flex;
+    flex-direction: column;
     width: 90%;
     padding-right: 10px;
   }
@@ -95,6 +97,10 @@
 @media screen and (max-width: 640px) {
   .articles-tags {
     flex-wrap: wrap;
+
+    .articles-list {
+      width: 100%;
+    }
 
     .short {
       flex-direction: row;

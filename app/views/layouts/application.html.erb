@@ -6,6 +6,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <%= yield :js %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbo-track': 'reload' %>
   </head>
@@ -18,5 +19,6 @@
     </div>
     <%= render 'shared/footer' %>
     <%= javascript_pack_tag 'hamburger' %>
+    <%= yield :js_snippet %>
   </body>
 </html>

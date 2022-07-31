@@ -11,11 +11,16 @@
     <div><i class='material-icons circle'>local_offer</i></div>
     <div class='article-title'><%= @tag.name.capitalize %></div>
   </div>
-  <ul>
-    <% @tag.articles.each do |article| %>
-      <%= render 'shared/article', article: article %>
-    <% end %>
-  </ul>
+  <div class='articles-tags'>
+    <ul class='articles-list'>
+      <% @tag.articles.each do |article| %>
+        <li>
+          <%= render 'shared/article', article: article %>
+        </li>
+        <hr class='article-hr'>
+      <% end %>
+    </ul>
+  </div>
   <div class='group-buttons'>
     <%= link_to 'All articles', articles_path, class: 'article-button outline' %>
     <%= link_to url_for(:back), class: 'article-button outline' do %>

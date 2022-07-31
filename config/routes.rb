@@ -7,7 +7,11 @@ Rails.application.routes.draw do
     resources :users
     resources :attachments
     resources :users
-    resources :articles, except: :show
+    resources :articles, except: :show do
+      collection do
+        post :upload
+      end
+    end
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
