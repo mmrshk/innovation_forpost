@@ -4,6 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Articles', type: :request do
   let(:admin) { create(:user, :super_admin) }
+
   before do
     sign_in admin
   end
@@ -18,7 +19,7 @@ RSpec.describe 'Articles', type: :request do
   end
 
   describe 'GET /en/articles#show' do
-    let(:valid_article) { create(:article) }
+    let(:valid_article) { create(:article, :with_tags) }
 
     it 'renders a successful response' do
       get article_url(valid_article, locale: 'uk')
@@ -37,7 +38,8 @@ RSpec.describe 'Articles', type: :request do
 
   describe 'POST /admins/articles#create' do
     context 'with valid parameters' do
-      let(:valid_article) { attributes_for(:article, :published, :uk, tags: create_list(:tag, 2)) }
+      let(:tags_list) { create_list(:tag, 2).pluck(:name).join(', ') }
+      let(:valid_article) { attributes_for(:article, :published, :uk, tags: tags_list) }
 
       it 'creates a new Article' do
         post admins_articles_url, params: { article: valid_article }
@@ -52,14 +54,23 @@ RSpec.describe 'Articles', type: :request do
       it 'creates a new instance of Article with correct values' do
         expect { post admins_articles_url, params: { article: valid_article } }.to change(Article, :count).by(1)
       end
+
+      it 'creates a new instance of ArtickeTag with correct values' do
+        expect { post admins_articles_url, params: { article: valid_article } }.to change(ArticleTag, :count).by(2)
+      end
     end
 
     context 'with invalid parameters' do
       let(:invalid_article) { build(:article, :invalid_article) }
-      let(:invalid_params) { attributes_for(:article, :invalid_article) }
+      let(:tags_list) { create_list(:tag, 2).pluck(:name).join(', ') }
+      let(:invalid_params) { attributes_for(:article, :invalid_article, tags: tags_list) }
 
       it 'does not create a new Article' do
         expect { post admins_articles_url, params: { article: invalid_params } }.not_to change(Article, :count)
+      end
+
+      it 'does not create a new ArticleTag' do
+        expect { post admins_articles_url, params: { article: invalid_params } }.not_to change(ArticleTag, :count)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
@@ -104,10 +115,10 @@ RSpec.describe 'Articles', type: :request do
         expect(response).to render_template(:edit)
         patch admins_article_url(valid_article), params: { article: valid_params }
         expect(response).to have_http_status(:redirect)
-        expect(response).to redirect_to(article_url(valid_article, locale: valid_params[:language].to_sym))
+        expect(response).to redirect_to(admins_articles_url(locale: I18n.locale))
         follow_redirect!
         expect(response).to have_http_status(:success)
-        expect(response).to render_template(:show)
+        expect(response).to render_template(:index)
         expect(response.body).to include(I18n.t('admins.articles.update_success'))
       end
     end
@@ -137,7 +148,7 @@ RSpec.describe 'Articles', type: :request do
 
     it 'redirects to the articles list' do
       delete admins_article_url(valid_article)
-      expect(response).to redirect_to(admins_articles_url(locale: I18n.locale)) # need to fix locale in admins_urls
+      expect(response).to redirect_to(admins_articles_url(locale: I18n.locale))
       expect(response).to have_http_status(:redirect)
       follow_redirect!
       expect(response).to have_http_status(:success)

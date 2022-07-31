@@ -2,7 +2,8 @@
   color: $admin-invalid-color;
 }
 
-.block-form {
+.block-form-article {
+  margin-top: 15px;
   width: 100%;
 
   abbr {
@@ -10,18 +11,23 @@
   }
 
   .name-field-form {
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-size: 20px;
     line-height: 29px;
-    display: flex;
-    align-items: center;
     color: $admin-label-color;
   }
 
+  .inline-select-group {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .inline-select {
+    display: block;
     opacity: 1;
     margin: 0 0 10px 0;
   }
@@ -36,8 +42,17 @@
     }
   }
 
+  .form-input-tags {
+    font-style: italic;
+
+    &[type=text]:not(.browser-default):focus:not([readonly]) {
+      border-bottom: 1px solid $border-color;
+      box-shadow: 0 1px 0 0 $border-color;
+    }
+  }
+
   .form-text {
-    margin: 10px 0;
+    height: 100px;
   }
 
   .error-form-input {
@@ -47,10 +62,14 @@
 }
 
 @media screen and (max-width: 640px) {
+
   .admin-submit-button {
     width: 100%;
     padding: 3px 30px;
-    max-height: 54px;
-    float:none
+  }
+
+  .inline-select-group {
+    flex-wrap: wrap;
+    flex-direction: column;
   }
 }

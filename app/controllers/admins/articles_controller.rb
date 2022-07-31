@@ -46,21 +46,6 @@ module Admins
       end
     end
 
-    def upload
-      @attachment = CkEditorImage.new(file: params[:upload])
-      if @attachment.save
-        render json: {
-          url: @attachment.file.url
-        }
-      else
-        render json: {
-          error: {
-            message: "The image upload failed. Error: #{@attachment.errors.full_messages.join(', ')}"
-          }
-        }
-      end
-    end
-
     private
 
     def article

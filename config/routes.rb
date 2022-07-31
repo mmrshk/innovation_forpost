@@ -1,18 +1,17 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  mount Lit::Engine => '/lit'
+  mount Lit::Engine => '/lit' unless Rails.env.test?
 
   namespace :admins do
     resources :users
-    resources :articles, except: :show do
-      collection do
-        post :upload
-      end
-    end
+    resources :attachments
+    resources :users
+    resources :articles, except: :show
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
   # devise said he wants to have a specified root rout, so:
   
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do

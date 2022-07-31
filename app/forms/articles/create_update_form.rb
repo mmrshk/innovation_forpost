@@ -11,6 +11,7 @@ module Articles
         @article.save!
         raise ActiveRecord::Rollback unless errors.empty?
       end
+
       errors.empty?
     end
 
@@ -18,7 +19,11 @@ module Articles
 
     def create_or_update_attributes!
       @article = Article.find_or_initialize_by(id: @article.id)
-      @article.update!(params.slice(:title, :text, :user_id, :status, :language))
+
+      @article.tap do |record|
+        record.assign_attributes(params.slice(:title, :text, :user_id, :status, :language))
+        record.save!
+      end
     end
 
     def tag_list(tags_string)

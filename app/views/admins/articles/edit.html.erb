@@ -1,9 +1,4 @@
 <div class='container'>
   <h1 class='admin-article-title'>Edit Article</h1>
-  <div class='block-form'><%= render 'form', article: @form.article, url: admins_article_path, method: 'put' %></div>
-  <div class='admin-group-button'>
-    <%# link_to fa_icon('arrow-left', text: 'Back'), admins_articles_path, class:'admin-article-button left' %>
-    <%# link_to fa_icon('arrow-left', text: 'Back'), admins_articles_path, class:'admin-article-button' %>
-    <%= link_to fa_icon('arrow-left', text: 'Back'), admins_articles_path, class:'admin-article-button' %>
-  </div>
+  <div class='block-form-article'><%= render 'form', article: @form.article, url: admins_article_path, method: 'patch' %></div>
 </div>

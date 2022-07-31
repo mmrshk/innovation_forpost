@@ -11,22 +11,15 @@
     <ul class='articles-list'>
       <% @articles.each do |article| %>
         <li>
-          <div class='article-date'><%= date_as_month_and_year(article.created_at) %></div> 
-          <div><%= link_to article.title, article_path(article), class: 'article-title' %></div>
-          <div class='ck-content'><%= sanitize truncate(article.text, escape: false, length: 500,) { link_to 'Continue', article_path(article) } %></div>
-          <div>Tags:
-            <% article.tags.each do |tag| %>
-              <%= link_to tag.name, tag_path(tag) %>
-            <% end %>
-          </div>
+          <%= render 'shared/article', article: article %>
         </li>
-      <hr class='article-hr'>
+        <hr class='article-hr'>
       <% end %>
     </ul>
 
     <ul class='tag-links vertical short'>
       <% @tags.each do |tag| %>
-        <li class='tag-links-item'><%= link_to tag.name, tag_path(tag), class: 'a' %>
+        <li class='tag-links-item'><%= link_to tag.name, tag_path(tag), class: 'tag-link' %>
       <% end %>
   </ul>
   </div>

@@ -1,8 +1,10 @@
 <div class='container'>
   <ul class='tag-links'>
     <% @tags.each do |tag| %>
-      <li class='tag-links-item'><%= link_to tag.name, tag_path(tag), class: 'a' %>
+      <li class='tag-links-item'><%= link_to tag.name, tag_path(tag), class: 'tag-link' %>
     <% end %>
   </ul>
-  <%= link_to fa_icon('arrow-left', text: 'Back'), url_for(:back), class:'article-button outline' %>
+  <%= link_to url_for(:back), class: 'article-button outline' do %>
+    <span><i class='material-icons'>arrow_back</i>Back</span>
+  <% end %>
 </div>

@@ -6,27 +6,20 @@
   <% javascript_pack_tag 'ckeditor_embed_snippet' %>
 <% end %>
 
-
 <div class='container'>
-  <div class='article-title'>Articles Tagged with "<%= @tag.name %>"</div>
+  <div class='group-tag'>
+    <div><i class='material-icons circle'>local_offer</i></div>
+    <div class='article-title'><%= @tag.name.capitalize %></div>
+  </div>
   <ul>
     <% @tag.articles.each do |article| %>
-      <li>
-        <div class='article-data'><%= date_as_month_and_year(article.created_at) %></div>
-        <div><%= link_to article.title, article_path(article), class: 'article-title' %></div>
-        <div class='ck-content'><%= sanitize truncate(article.text, escape: false, length: 500,) { link_to 'Continue', article_path(article) } %></div>
-        <div><small>Author: <%= link_to article.user.email, '#' %></small></div>
-        <div>Tags:
-          <% article.tags.each do |tag| %>
-            <%= link_to tag.name, tag_path(tag) %>
-          <% end %>
-        </div>
-      </li>
-      <hr class='article-hr'>
+      <%= render 'shared/article', article: article %>
     <% end %>
   </ul>
   <div class='group-buttons'>
     <%= link_to 'All articles', articles_path, class: 'article-button outline' %>
-    <%= link_to fa_icon('arrow-left', text: 'Back'), url_for(:back), class: 'article-button outline' %>
+    <%= link_to url_for(:back), class: 'article-button outline' do %>
+      <span><i class='material-icons'>arrow_back</i>Back</span>
+    <% end %>
   </div>
 </div>
