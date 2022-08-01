@@ -1,0 +1,210 @@
+// Place all the styles related to the admin/attachment controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+@import "font-awesome";
+
+$invalid-color: red;
+
+.table-attachment {
+  width: 60%;
+  height: 60px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title-attachment {
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.title-attachment-text {
+  color: $black-color;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+
+.block-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-attachment {
+  width: 60%;
+  max-width: 400px;
+  border-radius: 20px;
+  padding: 20px;
+  border: 4px solid $border-color;
+  box-sizing: border-box;
+}
+
+.choose-button {
+  background-color: $white-color;
+}
+
+.name-field, .attachment-field {
+  margin-bottom: 10px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 29px;
+  display: flex;
+  align-items: center;
+  color: $border-color;
+}
+
+.submit-button {
+  font-size: 20px;
+  width: 30%;
+  height: 40px;
+  float: right;
+  background-color: $background-color-title;
+  border: 1px solid $black-color;
+  border-radius: 20px;
+  color: $white-color;
+  cursor: pointer;
+  min-width: 80px;
+}
+
+.path-new-attachment {
+  text-decoration: none;
+  color: $scrool-gray-color;
+  background-color: $background-color-title;
+  border-radius: 20px;
+  padding: 10px;
+  margin-left: 20%;
+}
+
+.path-attachment {
+  margin: 20px;
+}
+
+.attachment-link {
+  text-decoration: none;
+  color: $black-color;
+  margin-left: 5px;
+
+  &:hover {
+    color: $base-color;
+  }
+}
+
+.table-attachment-title {
+  position: relative;
+  background-color: rgba(0,0,0,0);
+  font-family: roboto, arial, helvetica;
+  color: $white-color;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.form-control, .attachment-label {
+  height: 40px;
+  width: 60%;
+  min-width: 140px;
+  border-radius: 20px;
+  border: 4px solid $border-color;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 16px;
+  color: $scrool-gray-color;
+}
+
+.invalid-feedback {
+  color: $invalid-color;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: inline-block;
+  width: 100%;
+}
+
+.is-invalid {
+  border-color: $invalid-color;
+}
+
+.view-attachment {
+  border: 4px solid $border-color;
+  border-radius: 20px;
+  width: 60%;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 10px;
+  overflow-x: auto;
+}
+
+.view-attachment-info {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+}
+
+.view-attachment-text {
+  font-size: initial;
+  font-weight: 400;
+  margin: 5px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.view-attachment-media {
+  text-align: center;
+}
+
+.view-attachment-img {
+  height: 50%;
+  width: 90%;
+  border-radius: 20px;
+}
+
+.view-attachment-functions {
+  text-align: center;
+}
+
+.view-attachment-links-text {
+  color: $white-color;
+  text-decoration: none;
+}
+
+.view-attachment-links {
+  border: 4px solid $border-color;
+  background-color: $border-color;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  width: 20%;
+  min-width: 100px;
+  margin: 10px;
+}
+
+td.links {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+}
+
+.test-title:after{
+  content: "";
+  width: 60%;
+  height: 35px;
+  left: 20%;
+  background-color: rgb(0,40,85);
+  position: absolute;
+  border-radius: 24px;
+  z-index: -1;
+}
+
+.test-title{
+  -moz-border-radius: 26px;
+  -webkit-border-radius: 26px;
+  border-radius: 26px;
+}
