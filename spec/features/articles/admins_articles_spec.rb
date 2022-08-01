@@ -16,44 +16,45 @@ RSpec.describe 'Articles', type: :feature do
   context 'when creating an article' do
     it 'creates' do
       click_link 'New Article'
+      expect(page).to have_current_path new_admins_article_path(locale: I18n.locale)
       fill_in 'Title', with: valid_article[:title]
       fill_in 'article_text', with: valid_article[:text]
       select valid_article[:status], from: 'article_status'
       select valid_article[:language], from: 'article_language'
-      click_button 'Create article'
+      expect { click_button 'Create article' }.to change { Article.count }.by(1)
+      expect(page).to have_current_path admins_articles_path(locale: I18n.locale)
       expect(page).to have_content(valid_article[:title])
-      expect(Article.count).to eq(1)
     end
 
     it 'does not create' do
       click_link 'New Article'
+      expect(page).to have_current_path new_admins_article_path(locale: I18n.locale)
       fill_in 'Title', with: invalid_article[:title]
       fill_in 'article_text', with: invalid_article[:text]
-      click_button 'Create article'
+      expect { click_button 'Create article' }.to change { Article.count }.by(0)
       expect(page).to have_content('не може бути пустим')
-      expect(Article.count).to eq(0)
     end
   end
 
   context 'when updating an article' do
     it 'updates' do
       visit edit_admins_article_path(article)
+      expect(page).to have_current_path edit_admins_article_path(article)
       fill_in 'Title', with: valid_article[:title]
       fill_in 'article_text', with: valid_article[:text]
       select valid_article[:status], from: 'article_status'
       select valid_article[:language], from: 'article_language'
-      click_button 'Update article'
+      expect { click_button 'Update article' }.to change { Article.count }.by(0)
       expect(page).to have_content(valid_article[:title])
-      expect(Article.count).to eq(1)
     end
 
-    it 'does not updating' do
-      click_link 'New Article'
+    it 'does not update' do
+      visit edit_admins_article_path(article)
+      expect(page).to have_current_path edit_admins_article_path(article)
       fill_in 'Title', with: invalid_article[:title]
       fill_in 'article_text', with: invalid_article[:text]
-      click_button 'Create article'
+      expect { click_button 'Update article' }.to change { Article.count }.by(0)
       expect(page).to have_content('не може бути пустим')
-      expect(Article.count).to eq(0)
     end
   end
 
@@ -62,11 +63,9 @@ RSpec.describe 'Articles', type: :feature do
 
     it 'destroyes' do
       visit admins_articles_url
-      expect(Article.count).to eq(1)
       expect(page).to have_content(article[:title])
-      click_on 'Delete'
+      expect { find('tr', text: article.title).click_on('Delete') }.to change(Article, :count).by(-1)
       expect(page).not_to have_content(article[:title])
-      expect(Article.count).to eq(0)
     end
   end
 end
