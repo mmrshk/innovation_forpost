@@ -4,12 +4,14 @@ require 'rails_helper'
 
 RSpec.describe 'Articles', type: :feature do
   let!(:article) { create(:article, :published, :uk, :with_tags) }
+  let!(:unpablished_article) { create(:article, :draft, :uk, :with_tags) }
 
   context 'when user visits an articles' do
     it 'index page' do
       visit articles_path(locale: I18n.locale)
       expect(page).to have_current_path articles_path(locale: I18n.locale)
       expect(page).to have_content(article.title)
+      expect(page).not_to have_content(unpablished_article.title)
       expect(page).to have_content(article.tags.pluck(:name).first)
     end
 
