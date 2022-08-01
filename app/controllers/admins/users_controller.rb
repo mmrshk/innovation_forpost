@@ -58,7 +58,7 @@ module Admins
     end
 
     def last_super_admin?
-      @last_super_admin ||= User.where(role: User.roles[:super_admin]).size < 2
+      @last_super_admin ||= User.last_super_admin
     end
 
     def user_params
