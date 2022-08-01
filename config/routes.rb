@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   mount Lit::Engine => '/lit' unless Rails.env.test?
 
   namespace :admins do
-    resources :users, :articles
-    resources :attachments
     resources :users
+    resources :attachments
     resources :articles, except: :show
   end
   
