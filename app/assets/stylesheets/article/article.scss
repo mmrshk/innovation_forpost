@@ -8,6 +8,8 @@
   }
 
   .articles-list {
+    display: flex;
+    flex-direction: column;
     width: 90%;
     padding-right: 10px;
   }

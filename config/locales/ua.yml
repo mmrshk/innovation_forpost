@@ -1,9 +1,0 @@
-ua:
-  admins:
-    users:
-      create_success: 'Користувач успішно доданий.'
-      update_success: 'Обліковий запис успішно оновлений.'
-      pohibited_access: 'Немає прав доступу. Залогуйтесь як super_admin.'
-      super_admin_change_prohibited: 'Ви не можете змінити статус останнього super_admin.'
-      last_super_admin: 'Ви є остінній super admin'
-  log_in_first: 'Залогуйтесь будь ласка.'
