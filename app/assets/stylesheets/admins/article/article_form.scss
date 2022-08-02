@@ -1,0 +1,75 @@
+#error_explanation {
+  color: $admin-invalid-color;
+}
+
+.block-form-article {
+  margin-top: 15px;
+  width: 100%;
+
+  abbr {
+    display: none;
+  }
+
+  .name-field-form {
+    display: flex;
+    align-items: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 29px;
+    color: $admin-label-color;
+  }
+
+  .inline-select-group {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .inline-select {
+    display: block;
+    opacity: 1;
+    margin: 0 0 10px 0;
+  }
+
+  .form-input {
+    font-size: 18px;
+    font-weight: bold;
+
+    &[type=text]:not(.browser-default):focus:not([readonly]) {
+      border-bottom: 1px solid $border-color;
+      box-shadow: 0 1px 0 0 $border-color;
+    }
+  }
+
+  .form-input-tags {
+    font-style: italic;
+
+    &[type=text]:not(.browser-default):focus:not([readonly]) {
+      border-bottom: 1px solid $border-color;
+      box-shadow: 0 1px 0 0 $border-color;
+    }
+  }
+
+  .form-text {
+    height: 100px;
+  }
+
+  .error-form-input {
+    font-size: 16px;
+    color: $admin-invalid-color;
+  }
+}
+
+@media screen and (max-width: 640px) {
+
+  .admin-submit-button {
+    width: 100%;
+    padding: 3px 30px;
+  }
+
+  .inline-select-group {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+}
