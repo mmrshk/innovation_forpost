@@ -16,6 +16,4 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :password, presence: true
   validates :password_confirmation, presence: true
-
-  scope :last_super_admin, -> { where(role: User.roles[:super_admin]).size == 1 }
 end
