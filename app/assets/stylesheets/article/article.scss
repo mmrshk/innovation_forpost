@@ -33,7 +33,7 @@
 
 .article-hr {
   display: block;
-  margin: 10px 5px 10px 0;
+  margin: 20px 5px 20px 0;
   height: 1px;
   border: 0;
   border-top: 1px solid $gray-color;
@@ -97,6 +97,12 @@
 @media screen and (max-width: 640px) {
   .articles-tags {
     flex-wrap: wrap;
+    width: 100%;
+
+    .articles-list {
+      width: 100%;
+      padding-right: 0;
+    }
 
     .articles-list {
       width: 100%;
@@ -114,6 +120,7 @@
 
   .group-buttons {
     flex-wrap: wrap;
+    justify-content: center;
   }
 
   .article-button {
@@ -128,5 +135,9 @@
     span {
       padding-left: 0;
     }
+  }
+
+  .article-hr {
+    width: 100%;
   }
 }

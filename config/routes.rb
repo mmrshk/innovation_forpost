@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :users
     resources :attachments
-    resources :users
     resources :articles, except: :show do
       collection do
         post :upload
