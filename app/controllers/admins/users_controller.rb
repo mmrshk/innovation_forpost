@@ -64,7 +64,7 @@ module Admins
     end
 
     def authorized?
-      @user ||= User.find(params[:id])
+      @user == current_user
     end
 
     def last_super_admin_tries_to_update_its_role?

@@ -127,7 +127,6 @@ RSpec.describe '/admins/users', type: :request do
         is_expected.to redirect_to(admins_users_path(locale: I18n.locale))
 
         follow_redirect!
-
         expect(response.body).to include(I18n.t('admins.users.user_sucessfully_deleted'))
       end
     end
