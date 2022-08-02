@@ -8,9 +8,7 @@ module Admins
       @questions = Question.all
     end
 
-    def show
-      @answer = @question.answers.build
-    end
+    def show; end
 
     def edit; end
 
@@ -23,7 +21,8 @@ module Admins
     end
 
     def destroy
-      redirect_to admins_questions_path, notice: 'Question destroyed!' if @question.destroy
+      @question.destroy
+      redirect_to admins_questions_path, notice: 'Question destroyed!'
     end
 
     private

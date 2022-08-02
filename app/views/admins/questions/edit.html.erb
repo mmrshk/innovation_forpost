@@ -1,11 +1,1 @@
-<h1>Edit question</h1>
 
-<%= @question.errors.full_messages %>
-    
-<%= simple_form_for(@question, url: admins_question_path(@question),  method: :put) do |form| %>
-  <%= form.input :title, label: 'Title' %>
-  <%= form.input :body, label: 'Body' %>
-  <%= form.input :user_name, label: 'Name' %>
-  <%= form.input :user_email, label: 'Email' %>
-  <%= form.button :submit, class: "btn-primary"%>
-<% end %>
