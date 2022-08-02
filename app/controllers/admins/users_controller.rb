@@ -63,16 +63,16 @@ module Admins
       @user ||= User.find(params[:id])
     end
 
-    def authorized?
-      @user == current_user
-    end
-
     def last_super_admin_tries_to_update_its_role?
+<<<<<<< HEAD
       user.role_super_admin? && last_super_admin? && (params[:user][:role] != 'super_admin')
     end
 
     def last_super_admin_tries_to_destroy_itself?
       user.role_super_admin? && last_super_admin?
+=======
+      user.role_super_admin? && last_super_admin? && params[:user][:role] == User.roles[:super_admin]
+>>>>>>> 0a63c90851651f517d2f8952db4642be2419102c
     end
 
     def last_super_admin?

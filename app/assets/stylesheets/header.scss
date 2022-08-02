@@ -92,7 +92,7 @@
   }
 }
 
-.drop-content {
+.dropdown-cont {
   background-color: $white-color;
   margin-left: 20px;
   display: none;
@@ -115,7 +115,7 @@
   }
 }
 
-.dropdown:hover .drop-content {display: block;}
+.dropdown:hover .dropdown-cont {display: block;}
 
 #user-menu { 
   display: block;

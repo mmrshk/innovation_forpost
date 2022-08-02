@@ -1,5 +1,9 @@
 <div class= "body-container">
 
+  <div class="add-features">
+    <%= link_to 'Create new user', new_admins_user_path, class: 'new-user' %>
+  </div>
+
   <div class="container-records-and-filters">
     <div class="container-records">
       <input class="browser-default records-per-page" type="number" value="10" step="10" min="10" id="number">
@@ -45,10 +49,7 @@
         <% end %>
       </tbody>
     </table>
-    <div class="add-features">
-      <%= link_to 'Create new user', new_admins_user_path, class: 'new-user' %>
-    </div>
-  <% else %>
+  <% else%>
     <h2>Log in as a super_admin first</h2>
   <% end %>
   <%= render 'pagination' %>
