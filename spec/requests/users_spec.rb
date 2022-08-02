@@ -53,8 +53,7 @@ RSpec.describe '/admins/users', type: :request do
 
         follow_redirect!
 
-        is_expected.to render_template(:show, notice: I18n.t('admins.users.create_success'))
-        expect(response.body).to include(I18n.t('admins.users.create_success'))
+        expect(flash[:success]).to be_present
       end
     end
 
@@ -79,8 +78,7 @@ RSpec.describe '/admins/users', type: :request do
 
         follow_redirect!
 
-        is_expected.to render_template(:show, notice: I18n.t('admins.users.update_success'))
-        expect(response.body).to include(I18n.t('admins.users.update_success'))
+        expect(flash[:success]).to be_present
       end
     end
 
@@ -113,7 +111,7 @@ RSpec.describe '/admins/users', type: :request do
 
         follow_redirect!
 
-        expect(response.body).to include(I18n.t('admins.users.update_success'))
+        expect(flash[:success]).to be_present
       end
     end
   end
@@ -127,7 +125,7 @@ RSpec.describe '/admins/users', type: :request do
         is_expected.to redirect_to(admins_users_path(locale: I18n.locale))
 
         follow_redirect!
-        expect(response.body).to include(I18n.t('admins.users.user_sucessfully_deleted'))
+        expect(flash[:success]).to be_present
       end
     end
 
@@ -150,7 +148,7 @@ RSpec.describe '/admins/users', type: :request do
         follow_redirect!
 
         is_expected.to render_template(:index, notice: I18n.t('admins.users.user_sucessfully_deleted'))
-        expect(response.body).to include(I18n.t('admins.users.user_sucessfully_deleted'))
+        expect(flash[:success]).to be_present
       end
     end
 
@@ -163,7 +161,7 @@ RSpec.describe '/admins/users', type: :request do
 
         follow_redirect!
 
-        expect(response.body).to include(I18n.t('admins.users.current_user_account_destroy_prohibited'))
+        expect(flash[:success]).to be_present
       end
     end
   end

@@ -56,7 +56,7 @@
               <li><%= link_to "Settings", edit_user_registration_path %></li>
               <li><%= link_to t('menu.signout'), destroy_user_session_path, method: :delete %></li>
               <% if current_user.role_admin? || current_user.role_super_admin? %>
-                <li><%= link_to "Articles", '#' %></li>
+                <li><%= link_to "Articles", admins_articles_path  %></li>
                 <% if current_user.role_super_admin? %>
                   <li><%= link_to "Users", admins_users_path %></li>
                 <% end %>
