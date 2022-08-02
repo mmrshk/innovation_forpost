@@ -1,3 +1,11 @@
+<%= content_for :js do %>
+  <script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"></script>
+<% end %>
+
+<% content_for :js_snippet do %>
+  <% javascript_pack_tag 'ckeditor_embed_snippet' %>
+<% end %>
+
 <div class='container'>
   <div class='articles-tags'>
     <ul class='articles-list'>

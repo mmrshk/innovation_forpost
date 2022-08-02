@@ -3,6 +3,7 @@
 .header {
   width: 100%;
   position: fixed;
+  z-index: 3;
 
   #logo-main {
     fill: $base-color;
@@ -222,5 +223,6 @@
 
   &.active {
     display: block;
+    z-index: 3;
   }
 }
