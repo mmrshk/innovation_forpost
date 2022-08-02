@@ -1,8 +1,14 @@
 @import 'materialize-css/dist/css/materialize';
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import 'header';
 @import 'footer';
 @import 'admins/attachment';
 @import 'errors';
+@import "font-awesome";
+@import 'admins/article/*';
+@import 'article/*';
+@import 'tag/*';
+@import 'new_ckeditor/ckeditor';
 
 * {
   margin: 0;

@@ -24,7 +24,7 @@ end
   Article.create!(
     title: Faker::Lorem.sentence(word_count: 3),
     user_id: User.all.sample.id,
-    text: (Faker::Lorem.paragraphs(number: 3)).join,
+    text: (Faker::Lorem.paragraphs(number: 10)).join,
     language: Article.languages[Article.languages.keys.sample],
     status: Article.statuses[Article.statuses.keys.sample]
   )
