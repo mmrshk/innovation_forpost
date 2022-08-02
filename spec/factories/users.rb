@@ -14,7 +14,7 @@ FactoryBot.define do
       role { :super_admin }
     end
 
-    trait :user do
+    trait :regular_user do
       role { :user }
     end
   end

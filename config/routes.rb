@@ -4,10 +4,13 @@ Rails.application.routes.draw do
   mount Lit::Engine => '/lit' unless Rails.env.test?
 
   namespace :admins do
-    resources :users, :articles
-    resources :attachments
     resources :users
-    resources :articles, except: :show
+    resources :attachments
+    resources :articles, except: :show do
+      collection do
+        post :upload
+      end
+    end
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

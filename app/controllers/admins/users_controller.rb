@@ -22,7 +22,7 @@ module Admins
     def create
       @user = User.new(user_params)
       if @user.save
-        flash[:success] = 'You added a new user!'
+        flash[:success] = I18n.t('admins.users.create_success')
         redirect_to admins_user_url(@user)
       else
         render :new, status: :unprocessable_entity
@@ -33,18 +33,28 @@ module Admins
 
     def update
       if last_super_admin_tries_to_update_its_role?
-        redirect_to admins_user_url(@user), notice: t('admins.users.super_admin_change_prohibited')
+        flash[:success] = I18n.t('admins.users.super_admin_change_prohibited')
+        redirect_to admins_user_url(@user)
       elsif @user.update(user_params)
-        redirect_to admins_user_url(@user), notice: t('admins.users.update_success')
+        flash[:success] = I18n.t('admins.users.users.update_success')
+        redirect_to admins_user_url(@user)
       else
         render :edit, status: :unprocessable_entity
       end
     end
 
     def destroy
-      @user.destroy
-      flash[:success] = 'You deleted user!'
-      redirect_to admins_users_path
+      if last_super_admin_tries_to_destroy_itself?
+        flash[:success] = I18n.t('admins.users.super_admin_change_prohibited')
+        redirect_to admins_users_path
+      elsif authorized? && user.role_super_admin?
+        flash[:success] = I18n.t('admins.users.current_user_account_destroy_prohibited')
+        redirect_to admins_users_path
+      else
+        @user.destroy
+        flash[:success] = I18n.t('admins.users.user_sucessfully_deleted')
+        redirect_to admins_users_path
+      end
     end
 
     private
@@ -53,8 +63,16 @@ module Admins
       @user ||= User.find(params[:id])
     end
 
+    def authorized?
+      @user == current_user
+    end
+
     def last_super_admin_tries_to_update_its_role?
-      user.role_super_admin? && last_super_admin? && params[:user][:role] == User.roles[:super_admin]
+      user.role_super_admin? && last_super_admin? && (params[:user][:role] != 'super_admin')
+    end
+
+    def last_super_admin_tries_to_destroy_itself?
+      user.role_super_admin? && last_super_admin?
     end
 
     def last_super_admin?
