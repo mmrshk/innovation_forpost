@@ -46,15 +46,13 @@ module Admins
     def destroy
       if last_super_admin_tries_to_destroy_itself?
         flash[:success] = I18n.t('admins.users.super_admin_change_prohibited')
-        redirect_to admins_users_path
       elsif authorized? && user.role_super_admin?
         flash[:success] = I18n.t('admins.users.current_user_account_destroy_prohibited')
-        redirect_to admins_users_path
       else
         @user.destroy
         flash[:success] = I18n.t('admins.users.user_sucessfully_deleted')
-        redirect_to admins_users_path
       end
+      redirect_to admins_users_path
     end
 
     private
