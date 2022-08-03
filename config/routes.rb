@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   namespace :admins do
     resources :users
     resources :attachments
+    resources :questions, except: %i[create new] do
+      resources :answers
+    end
+ 
     resources :articles, except: :show do
       collection do
         post :upload
@@ -24,6 +28,7 @@ Rails.application.routes.draw do
     resources :articles, only: %i[index show] 
     resources :tags, only: %i[index show]
     root to: "home#index"
+    resources :questions, only: %i[index new create show] 
   end
 
   get '/404', to: 'errors#not_found'
