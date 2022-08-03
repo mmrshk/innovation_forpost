@@ -10,7 +10,7 @@
   </svg>
   <div class="message-box">
     <h1 class="error-title">422</h1>
-    <p class="error-text">Your browser did something unexpected. Please try again. If the error continues, try disabling all browser extensions.</p>
+    <p class="error-text"><%= t('errors.unprocessable_entity') %></p>
     <div class="error-button">
       <div class="action-link-wrap">
         <%= link_to "Go Back", root_path %>
