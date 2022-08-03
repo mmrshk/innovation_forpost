@@ -1,7 +1,10 @@
+<% provide(:button_text, 'Edit') %>
 
-<h1>Editing User</h1>
-
-<%= render 'form', user: @user, url: admins_user_path(@user),  method: :put %>
-
-<%= link_to 'Show', admins_user_path %> |
-<%= link_to 'Back', admins_users_path %>
+<div class="form-container">
+  <div class="form row">
+    <div class="col s12">
+      <h1 class="center-align">Editing User</h1>
+      <%= render 'form', user: @user, url: admins_user_path(@user),  method: :put %>
+    </div>
+  </div>
+</div>
