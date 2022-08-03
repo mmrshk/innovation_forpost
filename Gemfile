@@ -8,10 +8,13 @@ gem 'rails', '~> 6.0.5'
 
 gem 'active_storage_validations'
 gem 'ancestry', '~> 4.2'
+gem 'aws-sdk-rails'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'carrierwave', '~> 2.2.2'
+gem 'carrierwave-aws'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'factory_bot_rails', '~> 6.2.0'
+gem 'figaro'
 gem 'font-awesome-rails', '>= 4.7'
 gem 'jbuilder', '~> 2.7'
 gem 'materialize-sass', '~> 1.0.0'
