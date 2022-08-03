@@ -45,9 +45,17 @@ class CkEditorImageUploader < CarrierWave::Uploader::Base
     %w[jpg jpeg gif png]
   end
 
+  def content_type_allowlist
+    %r{image/}
+  end
+
+  def content_type_denylist
+    ['application/text', 'application/json']
+  end
+
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
-  #   "something.jpg" if original_filename
+  #   "article_image_#{Time.now.to_i}.jpg" if original_filename
   # end
 end
