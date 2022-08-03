@@ -25,17 +25,16 @@ class ArticlePresenter
 
   def truncate_params
     length_truncate = 500
-    separator_truncate = ''
     article_text = @article.text.to_s
     truncate_text = truncate(article_text, length: length_truncate, escape: false)
-    if truncate_text.match(/<figure[^>]+>/)
-      # separator_truncate = '</figure>'
+    if truncate_text.match(/<figure[^>]/)
       length_truncate_figure = article_text.match(%r{[\s\S]*?</figure>}).to_s.length + 3
       truncate_text_figure = truncate(article_text, length: length_truncate_figure, escape: false)
       if truncate_text_figure.length > truncate_text.length
         length_truncate = length_truncate_figure
       else
-        separator_truncate = ''
+        last_closing_tag = truncate_text.scan(%r{((</)\w+(>))}).last[0]
+        separator_truncate = last_closing_tag
       end
     end
     { length_truncate: length_truncate,
