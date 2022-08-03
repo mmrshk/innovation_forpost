@@ -21,8 +21,11 @@ module Admins
     end
 
     def destroy
-      @question.destroy
-      redirect_to admins_questions_path, notice: 'Question destroyed!'
+      if @question.destroy
+        redirect_to admins_questions_path, notice: 'Question destroyed!'
+      else
+        flash[:notice] = 'Error, something goes wrong'
+      end
     end
 
     private

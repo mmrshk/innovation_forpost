@@ -67,4 +67,26 @@ RSpec.describe 'Questions', type: :request do
       end
     end
   end
+
+  let(:admin) { create(:user, :super_admin) }
+
+  before do
+    sign_in admin
+  end
+
+  describe 'DELETE /admins/questions#destroy' do
+    let!(:valid_question) { create(:question) }
+    it 'destroys the requested question' do
+      expect { delete admins_question_url(valid_question) }.to change(Question, :count).by(-1)
+    end
+
+    it 'redirects to the questions list' do
+      delete admins_question_url(valid_question)
+      expect(response).to redirect_to(admins_questions_url(locale: I18n.locale))
+      expect(response).to have_http_status(:redirect)
+      follow_redirect!
+      expect(response).to have_http_status(:success)
+      expect(response).to render_template(:index)
+    end
+  end
 end
