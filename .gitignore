@@ -43,3 +43,5 @@ yarn-debug.log*
 /vendor
 /coverage/*
 .vscode/*
+
+/config/application.yml
