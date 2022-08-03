@@ -14,6 +14,7 @@ gem 'carrierwave', '~> 2.2.2'
 gem 'carrierwave-aws'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'factory_bot_rails', '~> 6.2.0'
+gem 'faker', '~> 2'
 gem 'figaro'
 gem 'font-awesome-rails', '>= 4.7'
 gem 'jbuilder', '~> 2.7'
@@ -35,7 +36,6 @@ end
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'faker', '~> 2'
   gem 'pry', '~> 0.14.1'
   gem 'rails-controller-testing', '~> 1.0.5'
   gem 'rspec-rails', '~> 5.1.2'
