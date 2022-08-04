@@ -14,30 +14,29 @@ class ArticlePresenter
   end
 
   def truncate_article_text
-    truncate(@article.text.to_s, escape: false,
-                                 length: truncate_params[:length_truncate],
-                                 separator: truncate_params[:separator_truncate]) do
+    truncate(@article.text.to_s, escape: false, length: length_truncate) do
       link_to 'Continue', controller: 'articles', action: 'show', id: @article.id
     end
   end
 
+  REGEX_FIGURE = /<figure[^>]/
+  REGEX_TEXT_WITH_FIGURE = %r{[\s\S]*?</figure>}
+  LENGTH_TRUNCATE_DEFAULT = 500
+  LENGTH_ADJUSTMENT_TRUNCATE = 3
+
   private
 
-  def truncate_params
-    length_truncate = 500
-    article_text = @article.text.to_s
-    truncate_text = truncate(article_text, length: length_truncate, escape: false)
-    if truncate_text.match(/<figure[^>]/)
-      length_truncate_figure = article_text.match(%r{[\s\S]*?</figure>}).to_s.length + 3
-      truncate_text_figure = truncate(article_text, length: length_truncate_figure, escape: false)
-      if truncate_text_figure.length > truncate_text.length
-        length_truncate = length_truncate_figure
-      else
-        last_closing_tag = truncate_text.scan(%r{((</)\w+(>))}).last[0]
-        separator_truncate = last_closing_tag
-      end
-    end
-    { length_truncate: length_truncate,
-      separator_truncate: separator_truncate }
+  def length_truncate
+    truncate_text = truncate(@article.text.to_s, length: LENGTH_TRUNCATE_DEFAULT, escape: false)
+    check_figure_present(truncate_text)
+  end
+
+  def check_figure_present(text)
+    text.match(REGEX_FIGURE) ? check_length(text) : LENGTH_TRUNCATE_DEFAULT
+  end
+
+  def check_length(text)
+    length_figure = text.match(REGEX_TEXT_WITH_FIGURE).to_s.length + LENGTH_ADJUSTMENT_TRUNCATE
+    length_figure > LENGTH_TRUNCATE_DEFAULT ? length_figure : LENGTH_TRUNCATE_DEFAULT
   end
 end
