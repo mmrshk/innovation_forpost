@@ -295,6 +295,22 @@
           null
         ]
       },
+      "/home/stas/it/it_academy/3/innovation_forpost/config/initializers/carriervawe.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null
+        ]
+      },
       "/home/stas/it/it_academy/3/innovation_forpost/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
@@ -2966,6 +2982,6 @@
         ]
       }
     },
-    "timestamp": 1659682444
+    "timestamp": 1659687273
   }
 }

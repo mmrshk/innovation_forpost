@@ -12,6 +12,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'carrierwave', '~> 2.2.2'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'factory_bot_rails', '~> 6.2.0'
+gem 'figaro'
+gem 'fog-aws'
 gem 'font-awesome-rails', '>= 4.7'
 gem 'jbuilder', '~> 2.7'
 gem 'materialize-sass', '~> 1.0.0'
@@ -25,8 +27,6 @@ gem 'sass-rails', '>= 6'
 gem 'simple_form', '~> 5.1'
 gem 'turbo-rails', '~> 1.1', '>= 1.1.1'
 gem 'webpacker', '~> 4.0'
-gem 'figaro'
-gem 'fog-aws'
 
 group :production, :development do
   gem 'lit', '~> 1.1.6'
