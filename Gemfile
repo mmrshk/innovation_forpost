@@ -25,6 +25,8 @@ gem 'sass-rails', '>= 6'
 gem 'simple_form', '~> 5.1'
 gem 'turbo-rails', '~> 1.1', '>= 1.1.1'
 gem 'webpacker', '~> 4.0'
+gem 'figaro'
+gem 'fog-aws'
 
 group :production, :development do
   gem 'lit', '~> 1.1.6'
