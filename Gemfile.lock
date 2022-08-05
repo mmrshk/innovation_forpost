@@ -70,7 +70,7 @@ GEM
       execjs (~> 2)
     bcrypt (3.1.18)
     bindex (0.8.1)
-    bootsnap (1.12.0)
+    bootsnap (1.13.0)
       msgpack (~> 1.2)
     brakeman (5.2.3)
     builder (3.2.4)
@@ -114,7 +114,7 @@ GEM
     diff-lcs (1.5.0)
     docile (1.4.0)
     emoji_flag (0.1.1)
-    erubi (1.10.0)
+    erubi (1.11.0)
     erubis (2.7.0)
     excon (0.92.4)
     execjs (2.8.1)
@@ -123,7 +123,7 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
-    faker (2.21.0)
+    faker (2.22.0)
       i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     figaro (1.2.0)
@@ -186,18 +186,12 @@ GEM
     mime-types-data (3.2022.0105)
     mini_magick (4.11.0)
     mini_mime (1.1.2)
-    mini_portile2 (2.8.0)
     minitest (5.16.2)
-    msgpack (1.5.3)
+    msgpack (1.5.4)
     multi_json (1.15.0)
     new_ckeditor (0.1.2)
       rails
     nio4r (2.5.8)
-    nokogiri (1.13.8)
-      mini_portile2 (~> 2.8.0)
-      racc (~> 1.4)
-    nokogiri (1.13.8-x86_64-darwin)
-      racc (~> 1.4)
     nokogiri (1.13.8-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -208,7 +202,7 @@ GEM
     parallel (1.22.1)
     parser (3.1.2.0)
       ast (~> 2.4.1)
-    pg (1.4.1)
+    pg (1.4.2)
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -345,10 +339,10 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    ssrf_filter (1.0.7)
+    ssrf_filter (1.0.8)
     thor (1.2.1)
     thread_safe (0.3.6)
-    tilt (2.0.10)
+    tilt (2.0.11)
     turbo-rails (1.1.1)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
@@ -380,8 +374,6 @@ GEM
     zeitwerk (2.6.0)
 
 PLATFORMS
-  ruby
-  x86_64-darwin-20
   x86_64-linux
 
 DEPENDENCIES
