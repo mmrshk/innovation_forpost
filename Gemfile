@@ -40,6 +40,7 @@ end
 
 group :development do
   gem 'brakeman', '~> 5.2.3', require: false
+  gem 'bullet', '~> 7.0.2'
   gem 'listen', '~> 3.2'
   gem 'overcommit', '~> 0.59.1'
   gem 'rails_best_practices', '~> 1.23.1'
