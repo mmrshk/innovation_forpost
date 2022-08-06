@@ -1,6 +1,6 @@
 <%= content_for :js do %>
-  <%= javascript_include_tag 'app', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'new_ckeditor/classic/ckeditor', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'app', 'data-turbo-track': 'reload' %>
+  <%= javascript_include_tag 'new_ckeditor/classic/ckeditor', 'data-turbo-track': 'reload' %>
 <% end %>
 
 <%= simple_form_for @form, as: :article, local: true, url: url, method: method do |f| %>
@@ -9,10 +9,10 @@
                       label_html: { class: 'name-field-form' },
                       placeholder: 'Type your title here',
                       input_html: { value: params[:article] && params[:article][:title] || article&.title, class: 'form-input title' },
-                      error_html: { class: 'error-form-input' } %>
+                      error_html: { class: 'error-form-input' } %>                   
   <%= f.input :text, label: false,
                       as: :ckeditor,
-                      input_html: { value: params[:article] && params[:article][:text] || article&.text },
+                      input_html: { value: params[:article] && params[:article][:text] || article&.text, id: 'ckeditor-id' },
                       error_html: { class: 'error-form-input' } %>
   <div class='inline-select-group'>
     <%= f.input :user_id, label: 'Author',

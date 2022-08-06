@@ -7,6 +7,7 @@ en:
     contacts: "Contacts"
     signout: "Sign out"
     login: "Log in"
+    articles: "Articles"
   admins:
     users:
       create_success: 'User was successfully created.'

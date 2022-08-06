@@ -1,67 +1,59 @@
 .admin-article-title {
+  width: 100%;
   margin: 0;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
   font-size: 50px;
   line-height: 59px;
-  color: $admin-background-color-title;
-}
-
-.article-link {
-  margin-right: 15px;
-  text-decoration: none;
-  color: $black-color;
-
-  &:hover {
-    color: $admin-background-color-title;
-  }
+  color: $background-color-title;
 }
 
 .admin-article-group {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+  margin-bottom: 30px;
 
-.admin-article-button {
-  margin: 20px 10px;
-  padding: 0;
-  height: 60px;
-  width: 295px;
-  min-width: 295px;
-  background: $admin-background-color-button;
-  border-radius: 30px;
-  font-family: 'Roboto';
-  text-transform: capitalize; 
-  font-size: 30px;
-  text-decoration: none;
-  letter-spacing: .5px;
-  color: $white-color;
-  transition: background-color .2s ease-out;
-  cursor: pointer;
-
-  &:hover {
-    background-color: $base-color;
-  }
-
-  &:focus {
-    background-color: $admin-background-color-button;
-  }
-
-  &.text {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: 2px;
-  }
-
-  &_icon-text {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 6px;
-    padding-right: 10px;
+  .admin-article-button {
+    margin: 20px 0px;
+    padding: 0;
+    height: 60px;
+    width: 295px;
+    min-width: 295px;
+    background: $admin-background-color-button;
+    border-radius: 30px;
+    font-family: 'Roboto';
+    text-transform: capitalize; 
+    font-size: 30px;
+    text-decoration: none;
+    letter-spacing: .5px;
+    color: $white-color;
+    transition: background-color .2s ease-out;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: $background-color-title;
+    }
+  
+    &:focus {
+      background-color: $admin-background-color-button;
+    }
+  
+    &.text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 2px;
+    }
+  
+    &_icon-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 6px;
+      padding-right: 10px;
+    }
   }
 }
 
@@ -80,6 +72,130 @@
     line-height: 40px;
     margin-right: 8px;
   }
+}
+
+
+.title-table-articles {
+  border: solid 1px ;
+  border-style: solid none;
+  padding: 10px;
+  background-color: $background-color-title;
+  color: $white-color;
+  border-radius: 0px;
+  height: 60px;
+  font-weight: 400;
+  padding-left: 30px;
+
+  .fa-icon-functions {
+    padding-left: 10px;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    color: $white-color;
+
+    .fa-icon {
+      padding-right: 10px;
+    }
+  }
+}
+
+.title-table-articles:first-child {
+  border-left-style: solid;
+  border-top-left-radius: 30px; 
+  border-bottom-left-radius: 30px;
+}
+
+.title-table-articles:last-child {
+  border-right-style: solid;
+  border-bottom-right-radius: 30px; 
+  border-top-right-radius: 30px; 
+}
+
+
+.button-functions-articles {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  align-items: center;
+  flex-direction: row;
+  text-decoration: none;
+  color: $black-color;
+  text-align: center;
+
+  &:hover {
+    color: $base-color;
+  }
+
+  span {
+    display: flex;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+.field-table-articles {
+  padding-left: 30px;
+  // padding: 0 30px;
+
+  &.wide {
+    width: 25%;
+  }
+
+  &.narrow {
+    width: 150px;
+    height: inherit;
+    overflow: hidden;
+    // display: inline-block;
+    display: flex;
+    white-space: nowrap;
+    text-align: center;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    &:hover {
+      overflow: visible;
+      background-color: rgb(248, 2, 2);
+      z-index: 10;
+      
+    }
+
+    a {
+      &:hover {
+        overflow: visible;
+        background-color: $white-color;
+        z-index: 10;
+      }
+    }
+  }
+
+  &.text-inline {
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+
+  .button-functions-articles {
+    display: flex;
+    flex-direction: row;
+    padding: 0 10px;
+  
+    &:hover {
+      color: $base-color;
+    }
+  
+    span {
+      flex-direction: column
+    }
+  }
+
+  .field-table-articles {
+    padding-left: 15px;
+}
 }
 
 @media screen and (max-width: 640px) {
