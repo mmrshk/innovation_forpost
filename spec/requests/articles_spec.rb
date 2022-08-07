@@ -140,7 +140,7 @@ RSpec.describe 'Articles', type: :request do
   end
 
   describe 'DELETE /admins/articles#destroy' do
-    let!(:valid_article) { create(:article) }
+    let!(:valid_article) { create(:article, :with_tags) }
 
     it 'destroys the requested article' do
       expect { delete admins_article_url(valid_article) }.to change(Article, :count).by(-1)
@@ -154,6 +154,14 @@ RSpec.describe 'Articles', type: :request do
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:index)
       expect(response.body).to include(I18n.t('admins.articles.destroy_success'))
+    end
+  end
+
+  describe 'DELETE /admins/articles#destroy' do
+    let!(:valid_article) { create(:article, :with_tags) }
+
+    it 'destroys with tags' do
+      expect { delete admins_article_url(valid_article) }.to change(Tag, :count).by(2)
     end
   end
 end
