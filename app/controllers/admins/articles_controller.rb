@@ -40,7 +40,7 @@ module Admins
 
     def destroy
       @form = Articles::DestroyForm.new(params: {}, article: article)
-      if @form.destroy_article_and_unused_tags
+      if @form.save
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.destroy_success')
       else
         flash[:notice] = article.errors

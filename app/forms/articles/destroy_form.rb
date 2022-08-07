@@ -2,7 +2,7 @@
 
 module Articles
   class DestroyForm < Articles::BaseForm
-    def destroy_article_and_unused_tags
+    def save
       ActiveRecord::Base.transaction do
         save_article_tags!
         @article.destroy!

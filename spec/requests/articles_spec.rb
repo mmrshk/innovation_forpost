@@ -156,12 +156,4 @@ RSpec.describe 'Articles', type: :request do
       expect(response.body).to include(I18n.t('admins.articles.destroy_success'))
     end
   end
-
-  describe 'DELETE /admins/articles#destroy' do
-    let!(:valid_article) { create(:article, :with_tags) }
-
-    it 'destroys with tags' do
-      expect { delete admins_article_url(valid_article) }.to change(Tag, :count).by(2)
-    end
-  end
 end
