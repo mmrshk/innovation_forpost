@@ -6,11 +6,8 @@ module Admins
     helper_method :last_super_admin?
 
     def index
-      @users = if params[:sort] && User.column_names.include?(params[:sort])
-                 User.order(params[:sort])
-               else
-                 User.all
-               end
+      @q = User.ransack(params[:q])
+      @users = @q.result
     end
 
     def show; end
