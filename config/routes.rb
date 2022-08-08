@@ -15,6 +15,18 @@ Rails.application.routes.draw do
         post :upload
       end
     end
+
+    # resources :images do
+    #   collection do
+    #     post :upload
+    #   end
+    # end
+
+    # resources :articles, except: :show do
+    #   resources :images, only: :post do
+    #     post :upload
+    #   end
+    # end
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -2,12 +2,16 @@
 
 module Articles
   class CreateUpdateForm < Articles::BaseForm
+    IMAGE_SRC = /src="(.*?)"/
+
     def save
       return false unless valid?
 
       ActiveRecord::Base.transaction do
         create_or_update_attributes!
         @article.tags = tag_list(params[:tags])
+        image_ids!
+        set_article_to_image!
         @article.save!
         raise ActiveRecord::Rollback unless errors.empty?
       end
@@ -35,6 +39,18 @@ module Articles
                    .uniq
                    .collect { |name| Tag.find_or_create_by(name: name) }
       end
+    end
+
+    def image_ids!
+      @article.text.scan(IMAGE_SRC) do |img_tag|
+        (@image_ids ||= []) << img_tag[0].split('/')[4].to_i
+      end
+    end
+
+    def set_article_to_image!
+      return if @image_ids.blank?
+
+      @image_ids.each { |image| CkEditorImage.find(image).update!(article_id: @article.id) }
     end
   end
 end

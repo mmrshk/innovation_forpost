@@ -40,6 +40,8 @@
         },
         simpleUpload: {
           uploadUrl: '/admins/articles/upload',
+          // uploadUrl: '/admins/images/upload',
+          // uploadUrl: "/admins/articles/#{:article_id}/images/#{:image_id}/upload",
           headers: {
               'X-CSRF-Token': document.querySelectorAll('meta[name="csrf-token"]')[0].content
           }
