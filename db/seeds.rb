@@ -9,7 +9,7 @@ admin = User.create!(
   role: :super_admin
 )
 
-5.times do
+50.times do
   password = Faker::Internet.password(min_length: 8, max_length: 20, mix_case: true, special_characters: true)
   User.create!(
     email: Faker::Internet.email,

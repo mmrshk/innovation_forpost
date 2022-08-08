@@ -52,5 +52,5 @@
   <% else%>
     <h2>Log in as a super_admin first</h2>
   <% end %>
-  <%= render 'pagination' %>
+  <%== render partial: 'shared/pagination', locals: {pagy: @pagy} %>
 </div>

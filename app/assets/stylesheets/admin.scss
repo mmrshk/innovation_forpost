@@ -227,9 +227,23 @@ select {
   justify-content: center;
   align-items: center;
   margin-top: 30px;
+  font-size: 20px;
 
   .pagination-arrows {
-    color: $blue-filter-color;
+    font-weight: bold;
+    margin-right: 4px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    a {
+      font-size: 24px;
+      font-weight: bold;
+      color: $blue-filter-color;
+    }
+    &.disabled {
+      color: rgba(0, 48, 135, 0.25);
+    }
+
   }
 
   .pagination-number{
@@ -237,16 +251,15 @@ select {
     border-radius: 10px;
     text-align: center;
     margin: 20px;
-    padding: 5px;
+    line-height: 40px;
     width: 40px;
     height: 40px;
     background-color: rgba(0, 48, 135, 0.25);
     a {
       color: $white-color;
-      font-size: 20px;
     }
-    &.active,
-    &:hover:not(.active) {
+    &.current,
+    &:hover:not(.current) {
       background-color: $blue-filter-color;
     }
   }

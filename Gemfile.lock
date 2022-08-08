@@ -182,6 +182,8 @@ GEM
       childprocess (>= 0.6.3, < 5)
       iniparse (~> 1.4)
       rexml (~> 3.2)
+    pagy (5.10.1)
+      activesupport
     parallel (1.22.1)
     parser (3.1.2.0)
       ast (~> 2.4.1)
@@ -380,6 +382,7 @@ DEPENDENCIES
   mini_magick
   new_ckeditor (~> 0.1.2)
   overcommit (~> 0.59.1)
+  pagy (~> 5.10)
   pg (~> 1.4.1)
   pry (~> 0.14.1)
   puma (~> 4.1)
