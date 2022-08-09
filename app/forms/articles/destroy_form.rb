@@ -4,9 +4,8 @@ module Articles
   class DestroyForm < Articles::BaseForm
     def save
       ActiveRecord::Base.transaction do
-        save_article_tags!
-        @article.destroy!
         check_and_destroy_tags!
+        @article.destroy!
         raise ActiveRecord::Rollback unless errors.empty?
       end
 
@@ -15,13 +14,9 @@ module Articles
 
     private
 
-    def save_article_tags!
-      @article_tags_list = @article.tags
-    end
-
     def check_and_destroy_tags!
-      @article_tags_list.each do |tag|
-        tag.destroy! if tag.present? && tag.articles.count < 1
+      @article.tags.each do |tag|
+        tag.destroy! if tag.articles.one? && tag.articles.include?(@article)
       end
     end
   end

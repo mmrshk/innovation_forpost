@@ -146,6 +146,10 @@ RSpec.describe 'Articles', type: :request do
       expect { delete admins_article_url(valid_article) }.to change(Article, :count).by(-1)
     end
 
+    it 'destroys the requested article with tags' do
+      expect { delete admins_article_url(valid_article) }.to change(Tag, :count).by(-2)
+    end
+
     it 'redirects to the articles list' do
       delete admins_article_url(valid_article)
       expect(response).to redirect_to(admins_articles_url(locale: I18n.locale))
