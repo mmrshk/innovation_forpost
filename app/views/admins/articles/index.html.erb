@@ -25,7 +25,7 @@
     </thead>
     <tbody>
       <% @articles.each do |article| %>
-        <tr>
+        <tr class='tr-tbody'>
           <td class="field-table-articles wide"><%= link_to article.title, article_path(article, locale: article.language.to_sym) %></td>
           <td class="field-table-articles narrow"><%= link_to article.user.email, admins_user_path(article.user) %></td>
           <td class="field-table-articles"><%= article.status %></td>

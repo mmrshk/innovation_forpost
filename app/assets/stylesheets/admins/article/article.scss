@@ -138,6 +138,7 @@
 }
 
 .field-table-articles {
+  display: flex;
   padding-left: 30px;
   // padding: 0 30px;
 
@@ -156,11 +157,13 @@
     align-items: center;
     flex-wrap: nowrap;
 
+
     &:hover {
       overflow: visible;
       background-color: rgb(248, 2, 2);
       z-index: 10;
-      
+      width: auto;
+      position: absolute;
     }
 
     a {
