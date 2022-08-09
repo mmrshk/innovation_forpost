@@ -14,7 +14,7 @@
 # Instance variables
 # See https://ddnexus.github.io/pagy/api/pagy#instance-variables
 # Pagy::DEFAULT[:page]   = 1                                  # default
-Pagy::DEFAULT[:items]  = 10                                 # default
+# Pagy::DEFAULT[:items]  = 10                                 # default
 # Pagy::DEFAULT[:outset] = 0                                  # default
 
 
@@ -26,7 +26,7 @@ Pagy::DEFAULT[:size]       = [1,1,3,0]                       # default
 # Pagy::DEFAULT[:params]     = {}                              # default
 # Pagy::DEFAULT[:fragment]   = '#fragment'                     # example
 # Pagy::DEFAULT[:link_extra] = 'data-remote="true"'            # example
-# Pagy::DEFAULT[:i18n_key]   = 'pagy.item_name'                # default
+Pagy::DEFAULT[:i18n_key]   = 'pagy.item_name'                # default
 # Pagy::DEFAULT[:cycle]      = true                            # example
 
 
@@ -140,7 +140,7 @@ Pagy::DEFAULT[:size]       = [1,1,3,0]                       # default
 # Notice: the other frontend extras add their own framework-styled versions,
 # so require this extra only if you need the unstyled version
 # See https://ddnexus.github.io/pagy/extras/navs
-# require 'pagy/extras/navs'
+require 'pagy/extras/navs'
 
 # Semantic extra: Add nav, nav_js and combo_nav_js helpers for Semantic UI pagination
 # See https://ddnexus.github.io/pagy/extras/semantic
@@ -168,9 +168,9 @@ Pagy::DEFAULT[:size]       = [1,1,3,0]                       # default
 # See https://ddnexus.github.io/pagy/extras/items
 require 'pagy/extras/items'
 # set to false only if you want to make :items_extra an opt-in variable
-# Pagy::DEFAULT[:items_extra] = false    # default true
-# Pagy::DEFAULT[:items_param] = :items   # default
-# Pagy::DEFAULT[:max_items]   = 100      # default
+Pagy::DEFAULT[:items_extra] = true    # default true
+Pagy::DEFAULT[:items_param] = :items   # default
+Pagy::DEFAULT[:max_items]   = 100      # default
 
 # Overflow extra: Allow for easy handling of overflowing pages
 # See https://ddnexus.github.io/pagy/extras/overflow
@@ -200,7 +200,7 @@ require 'pagy/extras/items'
 
 # With the asset pipeline
 # Sprockets need to look into the pagy javascripts dir, so add it to the assets paths
-# Rails.application.config.assets.paths << Pagy.root.join('javascripts')
+Rails.application.config.assets.paths << Pagy.root.join('javascripts')
 
 # I18n
 

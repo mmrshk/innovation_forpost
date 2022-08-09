@@ -193,23 +193,21 @@ select {
     align-items: center;
     font-size: 20px;
 
-    .records-per-page {
-      padding: 0 15px;
-      color: $white-color;
-      width: 66px;
-      height: 40px;
-      background-color: $blue-filter-color;
-      border-radius: 10px;
-      border: none;
-    }
-
-    .label-records-per-page  {
+    label {
       margin-left: 5px;
       color: $blue-filter-color;
       font-size: 20px;
     }
 
     input[type=number] {
+      padding-right: 6px !important;
+      color: $white-color;
+      width: 50px !important;
+      height: 40px;
+      background-color: $blue-filter-color;
+      border-radius: 10px;
+      border: none !important;
+      box-shadow: none !important;
       &::-webkit-inner-spin-button,
       &::-webkit-outer-spin-button {
         opacity: 0.5;
@@ -243,7 +241,6 @@ select {
     &.disabled {
       color: rgba(0, 48, 135, 0.25);
     }
-
   }
 
   .pagination-number{
