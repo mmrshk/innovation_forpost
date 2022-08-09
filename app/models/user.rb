@@ -18,4 +18,6 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :password, presence: true
   validates :password_confirmation, presence: true
+
+  scope :only_admins, -> { where(role: %i[super_admin admin]) }
 end
