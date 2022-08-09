@@ -1,0 +1,54 @@
+.group-tag {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+}
+
+.tag-links {
+  display: flex;
+  flex-wrap: wrap;
+
+  &-item {
+    padding: 5px 10px;
+    border: 2px solid $base-color;
+    border-radius: 7px;
+    cursor: pointer;
+    vertical-align: middle;
+    margin: 7px;
+    white-space: nowrap;
+
+    .tag-link {
+      text-align: center;
+      font-family: "metropolisblack",sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: 1px;
+      color: $black-color;
+
+      &:hover {
+        color: $base-color;
+      }
+    }
+  }
+}
+
+.vertical {
+  flex-direction: column;
+  align-items: flex-start;
+  margin-left: 5px;
+}
+
+.article-tags {
+  border-radius: 100px;
+  padding: 2px 8px;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  white-space: nowrap;
+  color: $dark-grey-text;
+  font-size: 13px;
+  background-color: $light-grey-text;
+
+  &:hover {
+    background: $base-color;
+    color: $white-color;
+  }
+}

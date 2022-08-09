@@ -28,6 +28,7 @@
 !/storage/.keep
 
 /public/assets
+/public/uploads/*
 .byebug_history
 
 # Ignore master key for decrypting credentials and more.
@@ -40,4 +41,5 @@
 yarn-debug.log*
 .yarn-integrity
 /vendor
-/coverage/*
+coverage/*
+.vscode/*

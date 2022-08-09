@@ -1,0 +1,17 @@
+<%= content_for :js do %>
+  <script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"></script>
+<% end %>
+
+<% content_for :js_snippet do %>
+  <% javascript_pack_tag 'ckeditor_embed_snippet' %>
+<% end %>
+
+<div class='container'>
+  <h1 class='article-title'><%= @article.title %></h1>
+  <div class='ck-content'><%= sanitize @article.text %></div>
+  <hr class='article-hr'>
+  <%= render 'shared/tags', article: @article %>
+  <div>
+    <%= link_to 'All articles', articles_path, class:'article-button outline' %>
+  </div>
+</div>

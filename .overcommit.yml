@@ -14,4 +14,3 @@ PrePush:
     enabled: true
     on_warn: fail
     problem_on_unmodified_line: ignore
-    

@@ -1,0 +1,38 @@
+<div class='container'>
+  <div class='admin-article-group'>
+  <h1 class='admin-article-title'>Articles</h1>
+  <%= link_to 'New Article', new_admins_article_path, class:'admin-article-button text' %>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <td>Title</td>
+        <td>Author</td>
+        <td>Status</td>
+        <td>Language</td>
+        <td>Functions</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% @articles.each do |article| %>
+        <tr>
+          <td><%= link_to article.title, article_path(article, locale: :uk) %></td>
+          <td><%= link_to article.user.email, '#' %></td>
+          <td><%= article.status %></td>
+          <td><%= article.language %></td>
+          <td>
+              <%= link_to article_path(article, locale: article.language.to_sym), class: 'article-link' do %>
+                <span><i class='material-icons tiny'>remove_red_eye</i>View</span>
+              <% end %>
+              <%= link_to edit_admins_article_path(article), class: 'article-link' do %>
+                <span><i class='material-icons tiny'>edit</i>Edit</span>
+              <% end %>
+              <%= link_to admins_article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: 'article-link' do %>
+                <span><i class='material-icons tiny'>delete</i>Delete</span>
+              <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

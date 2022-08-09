@@ -9,6 +9,6 @@ RSpec.describe Answer, type: :model do
   end
 
   describe 'associations' do
-    it { is_expected.to belong_to(:question).class_name('Question') }
+    it { is_expected.to belong_to(:question) }
   end
 end

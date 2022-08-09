@@ -73,6 +73,14 @@ ActiveRecord::Schema.define(version: 2022_07_24_121834) do
     t.index ["name"], name: "index_attachments_on_name"
   end
 
+  create_table "ck_editor_images", force: :cascade do |t|
+    t.string "file"
+    t.bigint "article_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["article_id"], name: "index_ck_editor_images_on_article_id"
+  end
+
   create_table "documents", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -184,4 +192,5 @@ ActiveRecord::Schema.define(version: 2022_07_24_121834) do
   add_foreign_key "article_tags", "articles"
   add_foreign_key "article_tags", "tags"
   add_foreign_key "articles", "users"
+  add_foreign_key "ck_editor_images", "articles"
 end

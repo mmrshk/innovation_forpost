@@ -1,0 +1,30 @@
+<%= content_for :js do %>
+  <script async charset="utf-8" src="//cdn.embedly.com/widgets/platform.js"></script>
+<% end %>
+
+<% content_for :js_snippet do %>
+  <% javascript_pack_tag 'ckeditor_embed_snippet' %>
+<% end %>
+
+<div class='container'>
+  <div class='group-tag'>
+    <div><i class='material-icons circle'>local_offer</i></div>
+    <div class='article-title'><%= @tag.name.capitalize %></div>
+  </div>
+  <div class='articles-tags'>
+    <ul class='articles-list'>
+      <% @tag.articles.includes(:article_tags, :tags).each do |article| %>
+        <li>
+          <%= render 'shared/article', article: article %>
+        </li>
+        <hr class='article-hr'>
+      <% end %>
+    </ul>
+  </div>
+  <div class='group-buttons'>
+    <%= link_to 'All articles', articles_path, class: 'article-button outline' %>
+    <%= link_to url_for(:back), class: 'article-button outline' do %>
+      <span><i class='material-icons'>arrow_back</i>Back</span>
+    <% end %>
+  </div>
+</div>

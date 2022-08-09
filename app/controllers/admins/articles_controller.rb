@@ -5,7 +5,7 @@ module Admins
     before_action :article, only: %i[show edit update destroy]
 
     def index
-      @articles = Article.not_trashed.sorted_desc
+      @articles = Article.includes(:user).not_trashed.sorted_desc
     end
 
     def show; end
@@ -16,7 +16,6 @@ module Admins
 
     def create
       @form = Articles::CreateUpdateForm.new(params: article_params)
-
       if @form.save
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.create_success')
       else
@@ -31,7 +30,6 @@ module Admins
 
     def update
       @form = Articles::CreateUpdateForm.new(params: article_params, article: article)
-
       if @form.save
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.update_success')
       else
@@ -45,6 +43,21 @@ module Admins
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.destroy_success')
       else
         flash[:notice] = article.errors
+      end
+    end
+
+    def upload
+      @attachment = CkEditorImage.new(file: params[:upload])
+      if @attachment.save
+        render json: {
+          url: @attachment.file.url
+        }
+      else
+        render json: {
+          error: {
+            message: "The image upload failed. Error: #{@attachment.errors.full_messages.join(', ')}"
+          }
+        }
       end
     end
 

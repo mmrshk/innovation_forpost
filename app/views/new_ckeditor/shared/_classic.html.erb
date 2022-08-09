@@ -1,0 +1,72 @@
+<script>
+  ClassicEditor
+      .create( document.querySelector( '#<%= id %>' ), {
+        toolbar: {
+          items: [
+						'undo',
+						'redo',
+						'|',
+						'heading',
+						'|',
+						'bold',
+						'italic',
+						'underline',
+						'strikethrough',
+						'|',
+						'fontBackgroundColor',
+						'fontColor',
+						'fontSize',
+						'fontFamily',
+						'highlight',
+						'|',
+						'alignment',
+						'|',
+						'bulletedList',
+						'numberedList',
+						'|',
+						'indent',
+						'outdent',
+						'|',
+						'removeFormat',
+						'|',
+						'link',
+						'imageUpload',
+						'mediaEmbed',
+						'|',
+						'blockQuote',
+						'insertTable',
+						'horizontalLine',
+          ]
+        },
+        simpleUpload: {
+          uploadUrl: '/admins/articles/upload',
+          headers: {
+              'X-CSRF-Token': document.querySelectorAll('meta[name="csrf-token"]')[0].content
+          }
+        },
+        language: 'en',
+        image: {
+          toolbar: [ 'imageTextAlternative', '|', 'imageStyle:alignLeft', 'imageStyle:full', 'imageStyle:alignRight' ],
+
+            styles: [
+                'full',
+                'alignLeft',
+                'alignRight'
+            ]
+        },
+        table: {
+          contentToolbar: [
+						'tableColumn',
+						'tableRow',
+						'mergeTableCells',
+						'tableCellProperties',
+						'tableProperties'
+          ]
+        },
+      } )
+      .then( editor => {
+      } )
+      .catch( error => {
+        console.error( error );
+      } );
+</script>
