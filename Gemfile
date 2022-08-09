@@ -12,7 +12,6 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'carrierwave', '~> 2.2.2'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'factory_bot_rails', '~> 6.2.0'
-gem 'figaro', '~> 1.2.0'
 gem 'fog-aws', '~> 3.14.0'
 gem 'font-awesome-rails', '>= 4.7'
 gem 'jbuilder', '~> 2.7'
