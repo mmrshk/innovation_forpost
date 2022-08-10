@@ -39,7 +39,8 @@ module Admins
     end
 
     def destroy
-      if article.destroy
+      @form = Articles::DestroyForm.new(params: {}, article: article)
+      if @form.save
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.destroy_success')
       else
         flash[:notice] = article.errors
