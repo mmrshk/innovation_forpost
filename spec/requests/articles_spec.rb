@@ -19,12 +19,32 @@ RSpec.describe 'Articles', type: :request do
   end
 
   describe 'GET /en/articles#show' do
-    let(:valid_article) { create(:article, :with_tags) }
+    let(:valid_article) { create(:article, :published, :with_tags) }
 
     it 'renders a successful response' do
       get article_url(valid_article, locale: 'uk')
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:show)
+    end
+  end
+
+  describe 'GET /en/articles#show' do
+    let(:valid_article) { create(:article, :trashed, :with_tags) }
+
+    it 'renders a successful response' do
+      get article_url(valid_article, locale: 'uk')
+      expect(response).to have_http_status(:success)
+      expect(response).to render_template(:not_found)
+    end
+  end
+
+  describe 'GET /en/articles#show' do
+    let(:valid_article) { create(:article, :draft, :with_tags) }
+
+    it 'renders a successful response' do
+      get article_url(valid_article, locale: 'uk')
+      expect(response).to have_http_status(:success)
+      expect(response).to render_template(:not_found)
     end
   end
 
