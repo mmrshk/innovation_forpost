@@ -26,6 +26,19 @@ RSpec.describe 'Articles', type: :feature do
       expect(page).to have_content(valid_article[:title])
     end
 
+    it 'creates with image' do
+      click_link 'New Article'
+      expect(page).to have_current_path new_admins_article_path(locale: I18n.locale)
+      fill_in 'Title', with: valid_article[:title]
+      fill_in 'article_text', with: valid_article[:text]
+      select valid_article[:status], from: 'article_status'
+      select valid_article[:language], from: 'article_language'
+      click_button('Insert Image')
+      expect { click_button 'Create article' }.to change { Article.count }.by(1)
+      expect(page).to have_current_path admins_articles_path(locale: I18n.locale)
+      expect(page).to have_content(valid_article[:title])
+    end
+
     it 'does not create' do
       click_link 'New Article'
       expect(page).to have_current_path new_admins_article_path(locale: I18n.locale)

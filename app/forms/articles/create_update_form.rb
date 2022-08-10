@@ -2,7 +2,7 @@
 
 module Articles
   class CreateUpdateForm < Articles::BaseForm
-    IMAGE_SRC = /src="(.*?)"/
+    IMAGE_SRC_REGEX = /src="(.*?)"/
 
     INDEX_ID = if CkEditorImageUploader.storage == CarrierWave::Storage::Fog
                  6
@@ -15,10 +15,9 @@ module Articles
 
       ActiveRecord::Base.transaction do
         create_or_update_attributes!
-        @article.tags = tag_list(params[:tags])
-        image_ids!
         set_article_to_image!
-        @article.save!
+        set_article_tags!
+
         raise ActiveRecord::Rollback unless errors.empty?
       end
 
@@ -47,16 +46,20 @@ module Articles
       end
     end
 
-    def image_ids!
-      @article.text.scan(IMAGE_SRC) do |tag_img|
-        (@image_ids ||= []) << tag_img[0].split('/')[INDEX_ID].to_i
-      end
+    def set_article_tags!
+      @article.tags = tag_list(params[:tags])
     end
 
     def set_article_to_image!
-      return if @image_ids.blank?
+      return if image_ids.blank?
 
-      @image_ids.each { |image_id| CkEditorImage.find(image_id).update!(article_id: @article.id) }
+      image_ids.each { |image_id| CkEditorImage.find(image_id).update!(article_id: @article.id) }
+    end
+
+    def image_ids
+      @image_ids ||= @article.text.scan(IMAGE_SRC).map do |tag_img|
+        tag_img[0].split('/')[INDEX_ID].to_i
+      end
     end
   end
 end
