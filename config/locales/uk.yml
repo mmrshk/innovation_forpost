@@ -28,6 +28,12 @@ uk:
       last_super_admin: 'Ви є остінній super admin'
       user_sucessfully_deleted: "Користувач успішно видалений."
       current_user_account_destroy_prohibited: "Поточний користувач не може видаляти власний обліковий запис."
+      pagy:
+        item_name:
+          one: "запис"
+          few: "записів"
+          many: "записів"
+          other: "записів"
     articles:
       create_success: 'Стаття успішно створена.'
       create_unsuccess: 'Неможливо створити статтю. Виправте помилки.'

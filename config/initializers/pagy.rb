@@ -21,7 +21,7 @@
 # Other Variables
 # See https://ddnexus.github.io/pagy/api/pagy#other-variables
 Pagy::DEFAULT[:size]       = [1,1,3,0]                       # default
-# Pagy::DEFAULT[:page_param] = :page                           # default
+Pagy::DEFAULT[:page_param] = :page                           # default
 # The :params can be also set as a lambda e.g ->(params){ params.exclude('useless').merge!('custom' => 'useful') }
 # Pagy::DEFAULT[:params]     = {}                              # default
 # Pagy::DEFAULT[:fragment]   = '#fragment'                     # example
@@ -101,7 +101,7 @@ Pagy::DEFAULT[:i18n_key]   = 'pagy.item_name'                # default
 # Metadata extra: Provides the pagination metadata to Javascript frameworks like Vue.js, react.js, etc.
 # See https://ddnexus.github.io/pagy/extras/metadata
 # you must require the frontend helpers internal extra (BEFORE the metadata extra) ONLY if you need also the :sequels
-# require 'pagy/extras/frontend_helpers'
+require 'pagy/extras/frontend_helpers'
 # require 'pagy/extras/metadata'
 # For performance reasons, you should explicitly set ONLY the metadata you use in the frontend
 # Pagy::DEFAULT[:metadata] = %i[scaffold_url page prev next last]   # example
@@ -235,7 +235,7 @@ Rails.application.config.assets.paths << Pagy.root.join('javascripts')
 # I18n extra: uses the standard i18n gem which is ~18x slower using ~10x more memory
 # than the default pagy internal i18n (see above)
 # See https://ddnexus.github.io/pagy/extras/i18n
-# require 'pagy/extras/i18n'
+require 'pagy/extras/i18n'
 
 # Default i18n key
 # Pagy::DEFAULT[:i18n_key] = 'pagy.item_name'   # default

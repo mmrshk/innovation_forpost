@@ -6,7 +6,7 @@
 
   <div class="container-records-and-filters">
     <div class="container-records">
-      <%== pagy_items_selector_js(@pagy) %>
+      <%== pagy_items_selector_js(@pagy, i18n_key: 'admins.users.pagy.item_name', link_extra: admins_users_path(:page, :items)) %>
     </div>
     <%= render 'filter' %>
   </div>
