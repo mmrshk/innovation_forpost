@@ -6,6 +6,7 @@ module Articles
       ActiveRecord::Base.transaction do
         check_and_destroy_tags!
         @article.destroy!
+
         raise ActiveRecord::Rollback unless errors.empty?
       end
 
@@ -16,7 +17,7 @@ module Articles
 
     def check_and_destroy_tags!
       @article.tags.each do |tag|
-        tag.destroy! if tag.articles.one? && tag.articles.include?(@article)
+        tag.destroy! if tag.articles.one?
       end
     end
   end
