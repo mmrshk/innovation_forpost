@@ -48,7 +48,8 @@ module Admins
 
     def upload
       @image = CkEditorImage.new(file: params[:upload])
-      if @image.save
+      if @image.saveee
+        @image.update(url: @image.file.url)
         render json: {
           url: @image.file.url
         }
