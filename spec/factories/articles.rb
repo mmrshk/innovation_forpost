@@ -6,7 +6,7 @@ FactoryBot.define do
   factory :article do
     title { Faker::Lorem.characters(number: 20) }
     text { Faker::Lorem.characters(number: 100) }
-    user_id { (create :user).id }
+    user_id { (create :user, :super_admin).id }
 
     traits_for_enum(:status, %w[draft published trashed])
     traits_for_enum(:language, %w[uk en])
