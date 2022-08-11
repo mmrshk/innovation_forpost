@@ -1,4 +1,5 @@
 Rails.application.configure do
+
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   #config.action_mailer.delivery_method = :letter_opener
   config.action_mailer.perform_deliveries = true
@@ -17,6 +18,7 @@ Rails.application.configure do
 
 
 
+
   config.after_initialize do
     Bullet.enable        = true
     Bullet.alert         = true
@@ -25,8 +27,6 @@ Rails.application.configure do
     Bullet.rails_logger  = true
     Bullet.add_footer    = true
   end
-
-  
 
   # Settings specified here will take precedence over those in config/application.rb.
 
