@@ -7,6 +7,7 @@ module Admins
       @answer = @question.answers.build(answer_params)
 
       if @answer.save
+        AnswerMailer.with(user: current_user, answer: @answer, question: @question).question_answered.deliver_later
         redirect_to admins_question_path(@question), notice: 'Answer created!'
       else
         @answers = @question.answers.all
