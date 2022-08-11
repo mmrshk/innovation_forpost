@@ -50,11 +50,12 @@ module Admins
     def upload
       @image = CkEditorImageService.new(params[:upload])
       if @image.save
-        render json: { url: @image.file.url }
+        render json: { url: @image.uploaded_image.url }
       else
         render json: {
           error: {
-            message: I18n.t('admins.articles.upload_image_unsuccess', errors: @image.errors.join(', '))
+            message:
+              I18n.t('admins.articles.upload_image_unsuccess', errors: @image.uploaded_image.errors.messages.join(', '))
           }
         }
       end

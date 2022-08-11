@@ -1,21 +1,16 @@
 # frozen_string_literal: true
 
 class CkEditorImageService
-  def initialize(params)
-    @file = params
+  attr_reader :uploaded_image
+
+  def initialize(file)
+    @file = file
   end
 
   def save
     @uploaded_image = CkEditorImage.new(file: @file)
+
     update_image_url if @uploaded_image.save
-  end
-
-  def file
-    @uploaded_image.file
-  end
-
-  def errors
-    @uploaded_image.errors.full_messages
   end
 
   private
