@@ -8,7 +8,10 @@ module Admins
       @questions = Question.all
     end
 
-    def show; end
+    def show
+      @answer = @question.answers.build
+      @answers = @question.answers.all
+    end
 
     def edit; end
 

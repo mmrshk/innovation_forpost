@@ -1,0 +1,22 @@
+<h1><%= @question.title %></h1>
+
+<p><%= @question.body %></p>
+<p><%= @question.user_name %></p>
+<p><%= @question.user_email %></p>
+
+<h1>Create Answer</h1>
+<%= simple_form_for ([:admins, @question, @answer]) do |form| %>
+  <%= form.input :body, label: 'Body' %>
+  <%= form.button :submit, class: "btn-primary"%>
+<% end %>
+
+<% @answers.each do |answer| %>
+  <article class="mb-3">
+    <p>
+      <%= answer.body %>
+    </p>
+
+    <%= link_to 'Delete', admins_question_answer_path(@question, answer), class: 'btn btn-danger btn-xs',
+      data: {method: :delete, confirm: "Are you sure?"} %>
+  </article>
+<% end %>
