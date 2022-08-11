@@ -11,12 +11,7 @@
 <% end %>
 
 <% @answers.each do |answer| %>
-  <article class="mb-3">
-    <p>
-      <%= answer.body %>
-    </p>
-
-    <%= link_to 'Delete', admins_question_answer_path(@question, answer), class: 'btn btn-danger btn-xs',
-      data: {method: :delete, confirm: "Are you sure?"} %>
-  </article>
+  <p><%= answer.body %></p>
+  <%= link_to 'Delete', admins_question_answer_path(@question, answer),
+    data: {method: :delete, confirm: "Are you sure?"} %>
 <% end %>
