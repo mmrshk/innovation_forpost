@@ -1,0 +1,4 @@
+test_mailer_job:
+  cron: "* * * * *"
+  class: "TestMailerJob"
+  queue: default

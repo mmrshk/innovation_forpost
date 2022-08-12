@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
+require 'sidekiq/web'
+require 'sidekiq/cron/web'
+
 Rails.application.routes.draw do
   mount Lit::Engine => '/lit' unless Rails.env.test?
+  mount Sidekiq::Web => '/sidekiq'
 
   namespace :admins do
     resources :users
