@@ -5,6 +5,7 @@ module Articles
     def save
       ActiveRecord::Base.transaction do
         check_and_destroy_tags!
+        destroy_images!
         @article.destroy!
 
         raise ActiveRecord::Rollback unless errors.empty?
@@ -19,6 +20,10 @@ module Articles
       @article.tags.each do |tag|
         tag.destroy! if tag.articles.one?
       end
+    end
+
+    def destroy_images!
+      @article.ck_editor_images(&:destroy!)
     end
   end
 end

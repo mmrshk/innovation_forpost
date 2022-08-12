@@ -57,7 +57,7 @@ module Admins
             message:
               I18n.t('admins.articles.upload_image_unsuccess', errors: @image.uploaded_image.errors.messages.join(', '))
           }
-        }
+        }, status: :unprocessable_entity
       end
     end
 

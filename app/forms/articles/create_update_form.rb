@@ -3,6 +3,8 @@
 module Articles
   class CreateUpdateForm < Articles::BaseForm
     IMAGE_SRC_REGEX = /src="(.*?)"/
+    INDEX_ID_FILE = 4
+    INDEX_ID_FOG = 6
 
     def save
       return false unless valid?
@@ -44,13 +46,13 @@ module Articles
       @article.tags = tag_list(params[:tags])
     end
 
-    def check_storage
-      CkEditorImageUploader.storage == CarrierWave::Storage::Fog ? 6 : 4
+    def check_index_id
+      CkEditorImageUploader.storage == CarrierWave::Storage::Fog ? INDEX_ID_FOG : INDEX_ID_FILE
     end
 
     def image_ids
       @image_ids ||= @article.text.scan(IMAGE_SRC_REGEX).map do |tag_img|
-        tag_img[0].split('/')[check_storage].to_i
+        tag_img[0].split('/')[check_index_id].to_i
       end
     end
 

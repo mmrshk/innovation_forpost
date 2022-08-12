@@ -9,8 +9,7 @@ class CkEditorImageService
 
   def save
     @uploaded_image = CkEditorImage.new(file: @file)
-
-    update_image_url if @uploaded_image.save
+    @uploaded_image.save ? update_image_url : false
   end
 
   private
