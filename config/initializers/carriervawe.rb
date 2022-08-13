@@ -12,7 +12,7 @@ else
       region:                Rails.application.credentials.aws[:region]
     }
     config.fog_directory = Rails.application.credentials.aws[:bucket]
-    config.fog_public    = true
+    config.fog_public    = true #before false
     config.cache_dir     = "#{Rails.root}/tmp/uploads"
     config.storage       = :fog
   end
