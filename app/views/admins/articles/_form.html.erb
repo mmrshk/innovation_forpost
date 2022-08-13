@@ -19,7 +19,7 @@
                       label_html: { class: 'name-field-form' },
                       as: :select,
                       input_html: { class: 'inline-select' },
-                      collection: User.role_admin,
+                      collection: User.only_admins,
                       label_method: :email,
                       value_method: :id,
                       selected:article.user_id,

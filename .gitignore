@@ -41,5 +41,5 @@
 yarn-debug.log*
 .yarn-integrity
 /vendor
-/coverage/*
+coverage/*
 .vscode/*

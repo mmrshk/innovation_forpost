@@ -5,7 +5,7 @@ module Admins
     before_action :article, only: %i[show edit update destroy]
 
     def index
-      @articles = Article.not_trashed.sorted_desc
+      @articles = Article.includes(:user).not_trashed.sorted_desc
     end
 
     def show; end
@@ -39,7 +39,8 @@ module Admins
     end
 
     def destroy
-      if article.destroy
+      @form = Articles::DestroyForm.new(params: {}, article: article)
+      if @form.save
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.destroy_success')
       else
         flash[:notice] = article.errors
