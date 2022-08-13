@@ -6,13 +6,13 @@
   <% javascript_pack_tag 'ckeditor_embed_snippet' %>
 <% end %>
 
-<div class='container'>
+<div class='body-container'>
   <div class='group-tag'>
     <div><i class='material-icons circle'>local_offer</i></div>
     <div class='article-title'><%= @tag.name.capitalize %></div>
   </div>
   <div class='articles-tags'>
-    <ul class='articles-list'>
+    <ul class='articles-list wide'>
       <% @tag.articles.includes(:article_tags, :tags).each do |article| %>
         <li>
           <%= render 'shared/article', article: article %>

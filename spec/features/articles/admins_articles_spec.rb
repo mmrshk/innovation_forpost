@@ -18,7 +18,7 @@ RSpec.describe 'Articles', type: :feature do
       click_link 'New Article'
       expect(page).to have_current_path new_admins_article_path(locale: I18n.locale)
       fill_in 'Title', with: valid_article[:title]
-      fill_in 'article_text', with: valid_article[:text]
+      fill_in 'article[text]', with: valid_article[:text]
       select valid_article[:status], from: 'article_status'
       select valid_article[:language], from: 'article_language'
       expect { click_button 'Create article' }.to change { Article.count }.by(1)
@@ -30,7 +30,7 @@ RSpec.describe 'Articles', type: :feature do
       click_link 'New Article'
       expect(page).to have_current_path new_admins_article_path(locale: I18n.locale)
       fill_in 'Title', with: invalid_article[:title]
-      fill_in 'article_text', with: invalid_article[:text]
+      fill_in 'article[text]', with: invalid_article[:text]
       expect { click_button 'Create article' }.to change { Article.count }.by(0)
       expect(page).to have_content('не може бути пустим')
     end
@@ -41,7 +41,7 @@ RSpec.describe 'Articles', type: :feature do
       visit edit_admins_article_path(article)
       expect(page).to have_current_path edit_admins_article_path(article)
       fill_in 'Title', with: valid_article[:title]
-      fill_in 'article_text', with: valid_article[:text]
+      fill_in 'article[text]', with: valid_article[:text]
       select valid_article[:status], from: 'article_status'
       select valid_article[:language], from: 'article_language'
       expect { click_button 'Update article' }.to change { Article.count }.by(0)
@@ -52,7 +52,7 @@ RSpec.describe 'Articles', type: :feature do
       visit edit_admins_article_path(article)
       expect(page).to have_current_path edit_admins_article_path(article)
       fill_in 'Title', with: invalid_article[:title]
-      fill_in 'article_text', with: invalid_article[:text]
+      fill_in 'article[text]', with: invalid_article[:text]
       expect { click_button 'Update article' }.to change { Article.count }.by(0)
       expect(page).to have_content('не може бути пустим')
     end
