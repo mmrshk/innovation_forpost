@@ -8,7 +8,7 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:password) }
     it { is_expected.to have_db_column(:email).of_type(:string).with_options(default: '', null: false) }
     it { is_expected.to have_db_column(:phone_number).of_type(:string) }
-    it { is_expected.to have_db_column(:role).of_type(:integer).with_options(default: :user) }
+    it { is_expected.to have_db_column(:role).of_type(:string) }
     it { is_expected.to have_db_column(:encrypted_password).of_type(:string).with_options(default: '', null: false) }
     it { is_expected.to have_db_column(:reset_password_token).of_type(:string) }
     it { is_expected.to have_db_column(:reset_password_sent_at).of_type(:datetime) }
