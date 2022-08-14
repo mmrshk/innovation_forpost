@@ -2,9 +2,9 @@
 
 class User < ApplicationRecord
   USER_ROLES = {
-    user: 0,
-    admin: 1,
-    super_admin: 2
+    user: 'user',
+    admin: 'admin',
+    super_admin: 'super_admin'
   }.freeze
 
   enum role: USER_ROLES, _prefix: :role
