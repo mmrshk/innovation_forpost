@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'materialize-sass', '~> 1.0.0'
 gem 'mini_magick'
 gem 'new_ckeditor', '~> 0.1.2'
+gem "pundit"
 gem 'pg', '~> 1.4.1'
 gem 'puma', '~> 4.1'
 gem 'rails-i18n', '~> 6.0'

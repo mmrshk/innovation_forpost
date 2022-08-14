@@ -2,6 +2,8 @@
 
 class ApplicationController < ActionController::Base
   before_action :set_locale
+  
+  include Pundit::Authorization
 
   private
 
