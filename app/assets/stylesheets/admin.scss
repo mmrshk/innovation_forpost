@@ -63,6 +63,7 @@
     font-size: 18px;
     color: $white-color;
     user-select: none;
+    cursor: pointer;
   }
 
   &-option {
@@ -75,6 +76,14 @@
     background-color: $white-color;
     border-radius: 18px;
   }
+}
+
+.form-control.filter {
+  margin: 11px;
+  width: 240px;
+  background-color: #fff;
+  border-radius: 18px;
+  border: none;
 }
 
 select {
@@ -124,7 +133,7 @@ select {
   background-color: $blue-filter-color;
   border-radius: 18px;
 
-  #filter-buttons {
+  .filter-buttons {
     width: 340px;
     height: 52px;
     background-color: #62B5E5;
@@ -133,6 +142,24 @@ select {
     border-radius: 30px;
     margin: 18px 0 0 23px;
     border: #62B5E5;
+
+  
+  }
+
+  #id {
+    width: 340px;
+    height: 52px;
+    background-color: #62B5E5;
+    color: $white-color;
+    font-size: 18px;
+    border-radius: 30px;
+    margin: 18px 0 0 23px;
+    border: #62B5E5;
+  }
+
+  #filter-button-clear {
+    width: 340px;
+    height: 52px;
   }
 
   .filter-text-label {
@@ -180,6 +207,10 @@ select {
       border-bottom: none;
     }
   }
+}
+
+.datepicker-modal.open{
+  min-width: 450px;
 }
 
 .container-records-and-filters {

@@ -1,13 +1,23 @@
+document.addEventListener("turbo:load", ()=> {
+  init();
+})
+
 document.addEventListener('DOMContentLoaded', function() {
-  let elems = document.querySelectorAll('.dropdown-trigger');
+  init()
+});
+
+function init() {
+  let elems = document.querySelectorAll('.dropdown-trigger-1');
   options = {
     closeOnClick: false,
     constrainWidth: false,
   };
+  console.log(elems)
   let instances = M.Dropdown.init(elems, options);
-});
 
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('.datepicker');
-  var instances = M.Datepicker.init(elems, options);
-});
+  var datepickers = document.querySelectorAll('.datepicker');
+  var dp = M.Datepicker.init(datepickers, {    
+    closeOnClick: false,
+    constrainWidth: true
+  });
+}
