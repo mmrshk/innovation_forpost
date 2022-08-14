@@ -64,7 +64,7 @@ RSpec.describe 'Articles', type: :feature do
     it 'destroyes' do
       visit admins_articles_url
       expect(page).to have_content(article[:title])
-      expect { find('tr', text: article.title).click_on('Delete') }.to change(Article, :count).by(-1)
+      expect { find('.row-table', text: article.title).click_on('Delete') }.to change(Article, :count).by(-1)
       expect(page).not_to have_content(article[:title])
     end
   end

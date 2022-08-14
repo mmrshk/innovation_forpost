@@ -1,0 +1,55 @@
+.hover-target {
+  position: relative;
+  white-space: nowrap;
+}
+
+.hover-popup {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: auto;
+  margin: min(10px, 5px);
+  background-color: $gray-color;
+  border-radius: 8px;
+  padding: 12px;
+  z-index: 42;
+  transform: scale(0);
+  transition: transform 200ms ease;
+  transform-origin: 8% -10px;
+
+  @media screen and (max-width: $breakpoint) {
+    display: none;
+  }
+}
+
+.hover-target:hover + .hover-popup,
+.hover-target:focus + .hover-popup,
+.hover-popup:hover{
+  transform: scale(1);
+}
+
+.hover-popup :not(:first-child) {
+  margin-top: 10px;
+}
+
+.hover-popup::before {
+  content: '';
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid $gray-color;
+  top: -10px;
+  left: 18px;
+  transform: rotate(0deg);
+}
+
+.hover-popup::after {
+  content: '';
+  position: absolute;
+  top: -16px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
