@@ -1,6 +1,11 @@
 uk:
   en: "EN"
   uk: "UA"
+  activemodel:
+    attributes:
+      attachment:
+        name: "Ім'я"
+        madia_file: "Вкладення"
   menu:
     innovateForpost: "Індустріальні парки"
     about: "Про нас"
@@ -11,6 +16,7 @@ uk:
     attachments:
       media_file: "Вкладення"
       name: "Ім'я"
+      links: "Функції"
       choose_file: "Оберіть файл"
       title:
         edit: "Редагувати вкладення:"

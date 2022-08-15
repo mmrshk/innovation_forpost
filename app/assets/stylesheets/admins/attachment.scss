@@ -21,7 +21,8 @@ $invalid-color: red;
   color: $black-color;
   text-align: center;
   margin-bottom: 20px;
-  font-size: 25px;
+  font-size: 20px;
+  font-family: roboto;
 }
 
 .block-form {
@@ -48,7 +49,8 @@ $invalid-color: red;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  font-size: 25px;
+  font-size: 18px;
+  font-family: roboto;
   line-height: 29px;
   display: flex;
   align-items: center;
@@ -56,7 +58,8 @@ $invalid-color: red;
 }
 
 .submit-button {
-  font-size: 20px;
+  font-size: 18px;
+  font-family: roboto;
   width: 30%;
   height: 40px;
   float: right;
@@ -107,13 +110,14 @@ input[type="file"] {
   width: 60%;
   min-width: 140px;
   border-radius: 20px;
-  border: 4px solid $border-color;
+  border: 3px solid $border-color;
   box-sizing: border-box;
   display: inline-block;
-  padding: 6px 12px;
+  padding: 5px 12px;
   cursor: pointer;
   font-size: 16px;
   color: $scrool-gray-color;
+  font-family: roboto;
 }
 
 .invalid-feedback {
@@ -147,8 +151,9 @@ input[type="file"] {
 }
 
 .view-attachment-text {
-  font-size: initial;
+  font-size: 20px;
   font-weight: 400;
+  font-family: roboto;
   margin: 5px;
   text-align: center;
   letter-spacing: 2px;
