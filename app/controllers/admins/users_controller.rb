@@ -3,7 +3,6 @@
 module Admins
   class UsersController < AdminsController
     before_action :user, only: %i[edit show update destroy]
-    helper_method :last_super_admin?
 
     def index
       @users = if params[:sort] && User.column_names.include?(params[:sort])
@@ -32,7 +31,7 @@ module Admins
     def edit; end
 
     def update
-      if last_super_admin_tries_to_update_its_role?
+      if user.current_user_last_super_admin? && params[:user][:role] != 'super_admin'
         flash[:success] = I18n.t('admins.users.super_admin_change_prohibited')
         redirect_to admins_user_url(@user)
       elsif @user.update(user_params)
@@ -44,9 +43,7 @@ module Admins
     end
 
     def destroy
-      if last_super_admin_tries_to_destroy_itself?
-        flash[:success] = I18n.t('admins.users.super_admin_change_prohibited')
-      elsif authorized? && user.role_super_admin?
+      if @user == current_user
         flash[:success] = I18n.t('admins.users.current_user_account_destroy_prohibited')
       else
         @user.destroy
@@ -59,22 +56,6 @@ module Admins
 
     def user
       @user ||= User.find(params[:id])
-    end
-
-    def authorized?
-      @user == current_user
-    end
-
-    def last_super_admin_tries_to_update_its_role?
-      user.role_super_admin? && last_super_admin? && (params[:user][:role] != 'super_admin')
-    end
-
-    def last_super_admin_tries_to_destroy_itself?
-      user.role_super_admin? && last_super_admin?
-    end
-
-    def last_super_admin?
-      @last_super_admin ||= User.where(role: User.roles[:super_admin]).size < 2
     end
 
     def user_params
