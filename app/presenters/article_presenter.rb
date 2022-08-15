@@ -2,8 +2,8 @@
 
 class ArticlePresenter
   include ActionView::Helpers
-  include Rails.application.routes.url_helpers
   include ActionView::Context
+  include Rails.application.routes.url_helpers
 
   TAG_FIGURE_REGEX = /<figure[^>]/
   TEXT_WITH_FIGURE_REGEX = %r{[\s\S]*?</figure>}
