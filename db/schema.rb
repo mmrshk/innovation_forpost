@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 2022_08_12_152503) do
     t.bigint "article_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "url"
     t.index ["article_id"], name: "index_ck_editor_images_on_article_id"
   end
 

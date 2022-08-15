@@ -28,5 +28,11 @@ FactoryBot.define do
         evaluator.tags_count.times { create(:article_tag, tag_id: create(:tag).id, article_id: article.id) }
       end
     end
+
+    trait :with_image do
+      after(:create) do |article|
+        create(:ck_editor_image, article_id: article.id)
+      end
+    end
   end
 end

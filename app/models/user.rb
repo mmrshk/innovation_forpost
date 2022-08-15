@@ -21,4 +21,12 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true
 
   scope :only_admins, -> { where(role: %i[super_admin admin]) }
+
+  def current_user_last_super_admin?
+    role_super_admin? && last_super_admin?
+  end
+
+  def last_super_admin?
+    User.where(role: User.roles[:super_admin]).size == 1
+  end
 end
