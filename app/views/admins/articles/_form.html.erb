@@ -1,6 +1,6 @@
 <%= content_for :js do %>
-  <%= javascript_include_tag 'app', 'data-turbolinks-track': 'reload' %>
-  <%= javascript_include_tag 'new_ckeditor/classic/ckeditor', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'app', 'data-turbo-track': 'reload' %>
+  <%= javascript_include_tag 'new_ckeditor/classic/ckeditor', 'data-turbo-track': 'reload' %>
 <% end %>
 
 <%= simple_form_for @form, as: :article, local: true, url: url, method: method do |f| %>
@@ -19,7 +19,7 @@
                       label_html: { class: 'name-field-form' },
                       as: :select,
                       input_html: { class: 'inline-select' },
-                      collection: User.role_admin,
+                      collection: User.only_admins,
                       label_method: :email,
                       value_method: :id,
                       selected:article.user_id,

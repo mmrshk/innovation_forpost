@@ -11,7 +11,6 @@ RSpec.describe 'Articles', type: :request do
 
   describe 'GET /admins/articles#index' do
     it 'renders a successful response' do
-      sign_in admin
       get admins_articles_url
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:index)
@@ -19,12 +18,32 @@ RSpec.describe 'Articles', type: :request do
   end
 
   describe 'GET /en/articles#show' do
-    let(:valid_article) { create(:article, :with_tags) }
+    let(:valid_article) { create(:article, :published, :with_tags) }
 
     it 'renders a successful response' do
       get article_url(valid_article, locale: 'uk')
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:show)
+    end
+  end
+
+  describe 'GET /uk/articles#show' do
+    let(:valid_article) { create(:article, :trashed, :with_tags) }
+
+    it 'renders a successful response' do
+      get article_url(valid_article, locale: 'uk')
+      expect(response).to have_http_status(:success)
+      expect(response).to render_template(:not_found)
+    end
+  end
+
+  describe 'GET /uk/articles#show' do
+    let(:valid_article) { create(:article, :draft, :with_tags) }
+
+    it 'renders a successful response' do
+      get article_url(valid_article, locale: 'uk')
+      expect(response).to have_http_status(:success)
+      expect(response).to render_template(:not_found)
     end
   end
 
@@ -140,10 +159,18 @@ RSpec.describe 'Articles', type: :request do
   end
 
   describe 'DELETE /admins/articles#destroy' do
-    let!(:valid_article) { create(:article) }
+    let!(:valid_article) { create(:article, :with_tags, :with_image) }
 
     it 'destroys the requested article' do
       expect { delete admins_article_url(valid_article) }.to change(Article, :count).by(-1)
+    end
+
+    it 'destroys the requested article with tags' do
+      expect { delete admins_article_url(valid_article) }.to change(Tag, :count).by(-2)
+    end
+
+    it 'destroys the requested article with tags' do
+      expect { delete admins_article_url(valid_article) }.to change(CkEditorImage, :count).by(-1)
     end
 
     it 'redirects to the articles list' do
