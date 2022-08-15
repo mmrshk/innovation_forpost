@@ -3,6 +3,7 @@
 module Admins
   class UsersController < AdminsController
     before_action :user, only: %i[edit show update destroy]
+    before_action :authenticate_user!, except: [:update]
 
     def index
       @users = if params[:sort] && User.column_names.include?(params[:sort])
@@ -30,6 +31,7 @@ module Admins
 
     def edit; end
 
+    # rubocop:disable Metrics/AbcSize
     def update
       if user.current_user_last_super_admin? && params[:user][:role] != 'super_admin'
         flash[:success] = I18n.t('admins.users.super_admin_change_prohibited')
@@ -41,6 +43,7 @@ module Admins
         render :edit, status: :unprocessable_entity
       end
     end
+    # rubocop:enable Metrics/AbcSize
 
     def destroy
       if @user == current_user
