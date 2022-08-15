@@ -13,7 +13,7 @@
   </div>
   <div class='articles-tags'>
     <ul class='articles-list'>
-      <% @tag.articles.each do |article| %>
+      <% @tag.articles.includes(:article_tags, :tags).each do |article| %>
         <li>
           <%= render 'shared/article', article: article %>
         </li>
