@@ -8,7 +8,6 @@ class ArticlePresenter
   TAG_FIGURE_REGEX = /<figure[^>]/
   TEXT_WITH_FIGURE_REGEX = %r{[\s\S]*?</figure>}
   LENGTH_TRUNCATE_DEFAULT = 500
-  LENGTH_ADJUSTMENT_TRUNCATE = 0
 
   def initialize(article)
     @article = article
@@ -36,7 +35,7 @@ class ArticlePresenter
   end
 
   def check_length(text)
-    length_figure = text.match(TEXT_WITH_FIGURE_REGEX).to_s.length + LENGTH_ADJUSTMENT_TRUNCATE
+    length_figure = text.match(TEXT_WITH_FIGURE_REGEX).to_s.length
     length_figure > LENGTH_TRUNCATE_DEFAULT ? length_figure : LENGTH_TRUNCATE_DEFAULT
   end
 end
