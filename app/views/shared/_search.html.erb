@@ -1,0 +1,7 @@
+<%= search_form_for @q , :html => { class: 'tag-links vertical short' } do |f| %>
+  <% @tags.each do |tag| %>
+    <%= check_box_tag('q[tag_id_eq_any][]', tag.id, false, class: 'tag-link-item' ) %>
+    <div class='tag-links-item'><%= tag.name %></div>
+  <% end %>
+  <%= f.submit "Search" %>
+<% end %>
