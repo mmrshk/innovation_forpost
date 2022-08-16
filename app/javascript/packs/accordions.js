@@ -2,13 +2,13 @@
   "use strict";
   $.fn.responsiveTable = function() { 
 
-    var toggleColumns = function($table) {
-      var selectedControls = [];
+    let toggleColumns = function($table) {
+      let selectedControls = [];
       $table.find(".accordion").each( function() {
         selectedControls.push( $(this).attr("aria-selected") );
       });
-      var cellCount = 0, colCount = 0;
-      var setNum = $table.find(".cell").length / $table.find(".accordion").length;
+      let cellCount = 0, colCount = 0;
+      let setNum = $table.find(".cell").length / $table.find(".accordion").length;
       $table.find(".cell").each( function() {
         $(this).addClass("hidden-small");
         if( selectedControls[colCount] === "true" ) $(this).removeClass("hidden-small");

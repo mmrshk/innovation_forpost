@@ -6,8 +6,9 @@
 <%= simple_form_for @form, as: :article, local: true, url: url, method: method do |f| %>
   <% presenter_article = ArticlePresenter.new(f.object.article) %>
   <%= f.input :title, autofocus: true,
+                      label: t('admins.articles.views.labels.title'),
                       label_html: { class: 'name-field-form' },
-                      placeholder: 'Type your title here',
+                      placeholder: t('admins.articles.views.placeholders.article_title'),
                       input_html: { value: params[:article] && params[:article][:title] || article&.title, class: 'form-input title' },
                       error_html: { class: 'error-form-input' } %>                   
   <%= f.input :text, label: false,
@@ -15,7 +16,7 @@
                       input_html: { value: params[:article] && params[:article][:text] || article&.text, id: 'ckeditor-id' },
                       error_html: { class: 'error-form-input' } %>
   <div class='inline-select-group'>
-    <%= f.input :user_id, label: 'Author',
+    <%= f.input :user_id, label: t('admins.articles.views.labels.author'),
                       label_html: { class: 'name-field-form' },
                       as: :select,
                       input_html: { class: 'inline-select' },
@@ -24,26 +25,29 @@
                       value_method: :id,
                       selected:article.user_id,
                       include_blank: false %>
-    <%= f.input :language, label_html: { class: 'name-field-form' },
+    <%= f.input :language, label: t('admins.articles.views.labels.language'),
+                      label_html: { class: 'name-field-form' },
                       input_html: { class: 'inline-select' },
                       collection: Article.languages.keys,
                       selected: article.language,
                       include_blank: false %>
-    <%= f.input :status, label_html: { class: 'name-field-form' },
+    <%= f.input :status, label: t('admins.articles.views.labels.status'),
+                      label_html: { class: 'name-field-form' },
                       input_html: { class: 'inline-select' },
                       collection: Article.statuses.keys,
                       selected: article.status,
                       include_blank: false,
                       class: 'inline-select' %>
   </div>
-    <%= f.input :tags, label_html: { class: 'name-field-form' },
-                      placeholder: 'Type your tags here',
-                      hint: 'Enter tags separated by commas.',
+    <%= f.input :tags, label: t('admins.articles.views.labels.tags'),
+                      label_html: { class: 'name-field-form' },
+                      placeholder: t('admins.articles.views.placeholders.article_tag'),
+                      hint: t('admins.articles.views.hints.article_tag'),
                       input_html: { value: presenter_article.all_tags, class: 'form-input-tags' } %>
   <div class='admin-article-group reverse'>
     <%= link_to admins_articles_path, class: 'admin-article-button' do %>
-      <span class='admin-article-button_icon-text'><i class='material-icons arrow-back'>arrow_back</i>Back</span>
+      <span class='admin-article-button_icon-text'><i class='material-icons arrow-back'>arrow_back</i><%= t('admins.articles.views.buttons.back') %></span>
     <% end %>
-    <%= f.button :submit, method == 'post' ? 'Create article' : 'Update article', class: 'admin-article-button' %>
+    <%= f.button :submit, method == 'post' ? t('admins.articles.views.buttons.create_article') : t('admins.articles.views.buttons.update_article'), class: 'admin-article-button' %>
   </div>
 <% end %>

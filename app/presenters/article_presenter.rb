@@ -40,7 +40,7 @@ class ArticlePresenter
 
   def truncate_article_text
     truncate(check_text_figure_present, escape: false, length: LENGTH_TRUNCATE_DEFAULT) do
-      link_to 'Continue', controller: 'articles', action: 'show', id: @article.id
+      link_to t('admins.articles.views.labels.continue'), controller: 'articles', action: 'show', id: @article.id
     end
   end
 

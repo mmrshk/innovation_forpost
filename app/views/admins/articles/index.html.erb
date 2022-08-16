@@ -1,25 +1,25 @@
 <div class='body-container'>
   <div class='admin-article-group'>
-  <h1 class='admin-article-title'>Articles</h1>
-  <%= link_to 'New Article', new_admins_article_path, class:'admin-article-button text' %>
+  <h1 class='admin-article-title'><%= t('admins.articles.views.title') %></h1>
+  <%= link_to t('admins.articles.views.buttons.new_article'), new_admins_article_path, class:'admin-article-button text' %>
   </div>
 
   <div class="container-records-and-filters">
     <div class="container-records">
-      <input class="browser-default records-per-page" type="number" value="10" step="10" min="10" id="number">
-      <label class="label-records-per-page">records per page</label>
+      <input class="browser-default records-per-page" type="number" value="10" step="10" min="10" id="number-articles">
+      <label class="label-records-per-page"><%= t('admins.articles.views.labels.records_per_page') %></label>
     </div>
     <%= render 'filter' %>
   </div>
 
   <div class='wrapper-table'>
     <div class='header-table'>
-      <div class='header-cell'><%= link_to fa_icon('sort', text: 'Title', class:'fa-icon'), sort: "title" %></div>
-      <div class='header-cell'><%= link_to fa_icon('sort', text: 'Author', class:'fa-icon'), sort: "user_id" %></div>
-      <div class='header-cell'><%= link_to fa_icon('sort', text: 'Status', class:'fa-icon'), sort:"status" %></div>
-      <div class='header-cell'><%= link_to fa_icon('sort', text: 'Lang.', class:'fa-icon'), sort:"language" %></div>
-      <div class='header-cell'><%= link_to fa_icon('sort', text: 'Date', class:'fa-icon'), sort:"updated_at" %></div>
-      <div class='header-cell'><span class=''>Functions<%= fa_icon('gear', class:'fa-icon-functions label')%></span></div>
+      <div class='header-cell'><%= link_to fa_icon('sort', text: t('admins.articles.views.labels.title'), class:'fa-icon'), sort: "title" %></div>
+      <div class='header-cell'><%= link_to fa_icon('sort', text: t('admins.articles.views.labels.author'), class:'fa-icon'), sort: "user_id" %></div>
+      <div class='header-cell'><%= link_to fa_icon('sort', text: t('admins.articles.views.labels.status'), class:'fa-icon'), sort:"status" %></div>
+      <div class='header-cell'><%= link_to fa_icon('sort', text: t('admins.articles.views.labels.language'), class:'fa-icon'), sort:"language" %></div>
+      <div class='header-cell'><%= link_to fa_icon('sort', text: t('admins.articles.views.labels.date'), class:'fa-icon'), sort:"updated_at" %></div>
+      <div class='header-cell'><span><%= t('admins.articles.views.labels.functions') %><%= fa_icon('gear', class:'fa-icon-functions label')%></span></div>
     </div>
     <% @articles.each do |article| %>
       <div class='row-table js-table-accordions'>
@@ -35,13 +35,13 @@
         <div class="cell">
           <div class='button-functions-articles'>
             <%= link_to article_path(article, locale: article.language.to_sym), class: 'button-functions-articles' do %>
-              <span><i class='material-icons'>remove_red_eye</i>View</span>
+              <span><i class='material-icons'>remove_red_eye</i><%= t('admins.articles.views.buttons.view') %></span>
             <% end %>
             <%= link_to edit_admins_article_path(article), class: 'button-functions-articles' do %>
-              <span><i class='material-icons'>edit</i>Edit</span>
+              <span><i class='material-icons'>edit</i><%= t('admins.articles.views.buttons.edit') %></span>
             <% end %>
             <%= link_to admins_article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: 'button-functions-articles' do %>
-              <span><i class='material-icons'>delete</i>Delete</span>
+              <span><i class='material-icons'>delete</i><%= t('admins.articles.views.buttons.delete') %></span>
             <% end %>
           </div>
         </div>

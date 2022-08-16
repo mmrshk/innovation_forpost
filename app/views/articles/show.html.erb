@@ -12,9 +12,9 @@
   <hr class='article-hr'>
   <%= render 'shared/tags', article: @article %>
   <div class='group-buttons'>
-    <%= link_to 'All articles', articles_path, class: 'article-button outline' %>
+    <%= link_to t('admins.articles.views.buttons.all_articles'), articles_path, class: 'article-button outline' %>
     <%= link_to url_for(:back), class: 'article-button outline' do %>
-      <span><i class='material-icons'>arrow_back</i>Back</span>
+      <span><i class='material-icons'>arrow_back</i><%= t('admins.articles.views.buttons.back') %></span>
     <% end %>
   </div>
 </div>
