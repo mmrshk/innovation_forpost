@@ -35,13 +35,22 @@
         <div class="cell">
           <div class='button-functions-articles'>
             <%= link_to article_path(article, locale: article.language.to_sym), class: 'button-functions-articles' do %>
-              <span><i class='material-icons'>remove_red_eye</i><%= t('admins.articles.views.buttons.view') %></span>
+              <span>
+              <i class='material-icons'>remove_red_eye</i>
+              <span><%= t('admins.articles.views.buttons.view') %></span>
+            </span>
             <% end %>
             <%= link_to edit_admins_article_path(article), class: 'button-functions-articles' do %>
-              <span><i class='material-icons'>edit</i><%= t('admins.articles.views.buttons.edit') %></span>
+              <span>
+                <i class='material-icons'>edit</i>
+                <span><%= t('admins.articles.views.buttons.edit') %></span>
+              </span>
             <% end %>
             <%= link_to admins_article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: 'button-functions-articles' do %>
-              <span><i class='material-icons'>delete</i><%= t('admins.articles.views.buttons.delete') %></span>
+              <span>
+                <i class='material-icons'>delete</i>
+                <span><%= t('admins.articles.views.buttons.delete') %></span>
+              </span>
             <% end %>
           </div>
         </div>
