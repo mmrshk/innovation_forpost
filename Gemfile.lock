@@ -68,6 +68,8 @@ GEM
     ast (2.4.2)
     autoprefixer-rails (10.4.7.0)
       execjs (~> 2)
+    awesome_back_url (0.1.2)
+      rails
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.13.0)
@@ -387,6 +389,7 @@ PLATFORMS
 DEPENDENCIES
   active_storage_validations
   ancestry (~> 4.2)
+  awesome_back_url
   bootsnap (>= 1.4.2)
   brakeman (~> 5.2.3)
   bullet (~> 7.0.2)

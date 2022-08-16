@@ -18,5 +18,6 @@ RSpec.describe Article, type: :model do
     it { is_expected.to belong_to(:user).class_name('User') }
     it { is_expected.to have_many(:article_tags).dependent(:destroy) }
     it { is_expected.to have_many(:tags).through(:article_tags) }
+    it { is_expected.to have_many(:ck_editor_images).dependent(:destroy) }
   end
 end

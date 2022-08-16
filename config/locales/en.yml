@@ -23,4 +23,5 @@ en:
       update_success: 'Article was successfully updated.'
       update_unsuccess: 'Could not update the article. Please try again.'
       destroy_success: 'The article was successfully destroyed.'
+      upload_image_unsuccess: "The image upload failed. Error: %{errors}"
   log_in_first: 'Please log in first'

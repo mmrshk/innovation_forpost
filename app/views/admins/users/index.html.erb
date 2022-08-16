@@ -34,9 +34,9 @@
             <td class="field-table-user button-functions"><%= link_to fa_icon('eye', text: 'View'), admins_user_path(user), class: "button-functions" %></td>
             <td class="field-table-user button-functions"><%= link_to fa_icon('edit', text: 'Edit'), edit_admins_user_path(user), class: "button-functions" %></td>
 
-            <% if user.role_super_admin? && last_super_admin? %>
+            <% if user.current_user_last_super_admin? %>
               <td class="last-super-admin-msg field-table-user"><%= t('admins.users.last_super_admin') %></td>
-            <% else  user != current_user%>
+            <% else %>
               <td class="field-table-user button-functions">
                 <%= link_to fa_icon('trash', text: 'Delete'),
                   admins_user_path(user), 

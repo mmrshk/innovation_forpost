@@ -8,6 +8,7 @@ gem 'rails', '~> 6.0.5'
 
 gem 'active_storage_validations'
 gem 'ancestry', '~> 4.2'
+gem 'awesome_back_url'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'carrierwave', '~> 2.2.2'
 gem 'devise', '~> 4.8', '>= 4.8.1'
