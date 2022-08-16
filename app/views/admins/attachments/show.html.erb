@@ -12,3 +12,7 @@
     <span class="view-attachment-links"><%= link_to t('admin.attachments.delete_link'), admins_attachment_path(@attachment), method: :delete, class: "view-attachment-links-text" %></span>
   </div>
 </div>
+
+<div class="back-button">
+  <%= link_to fa_icon('arrow-left', text: 'Back'), awesome_back_path(admins_attachments_path, fallback: :back), class: "back-button-text"%>
+</div>
