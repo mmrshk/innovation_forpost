@@ -7,9 +7,7 @@ class ArticlePresenter
 
   IMAGE_SRC_REGEX = /src="(.*?)"/
   FIGURE_REGEX = %r{<figure[^>]+>[\s\S]*?</figure>}
-  TAG_FIGURE_REGEX = /<figure[^>]/
-  TEXT_WITH_FIGURE_REGEX = %r{[\s\S]*?</figure>}
-  LENGTH_TRUNCATE_DEFAULT = 500
+  LENGTH_TRUNCATE_DEFAULT = 300
 
   def initialize(article)
     @article = article
@@ -20,8 +18,7 @@ class ArticlePresenter
   end
 
   def article_preview_text
-    text_for_preview = @article.text.dup
-    @article.text.scan(FIGURE_REGEX).any? ? remove_first_article_image(text_for_preview) : @article.text
+    truncate_article_text
   end
 
   def article_preview_image
@@ -35,34 +32,25 @@ class ArticlePresenter
             id: @article.id
   end
 
-  def truncate_article_text
-    truncate(@article.text.to_s, escape: false, length: length_truncate, omission: '') do
-      link_to '...Continue', controller: 'articles', action: 'show', id: @article.id
-    end
-  end
-
-  private
-
   def first_article_image
     @article.text.match(IMAGE_SRC_REGEX)[1] if @article.text.match(IMAGE_SRC_REGEX)
   end
 
-  def remove_first_article_image(text)
-    text.gsub! @article.text.scan(FIGURE_REGEX).first, ''
-    # TODO: Maybe, better hide all figures from the truncated text
+  private
+
+  def truncate_article_text
+    truncate(check_text_figure_present, escape: false, length: LENGTH_TRUNCATE_DEFAULT) do
+      link_to 'Continue', controller: 'articles', action: 'show', id: @article.id
+    end
   end
 
-  def length_truncate
-    truncate_text = truncate(@article.text.to_s, length: LENGTH_TRUNCATE_DEFAULT, escape: false)
-    check_figure_present(truncate_text)
+  def check_text_figure_present
+    text_for_preview = @article.text.dup
+    @article.text.scan(FIGURE_REGEX).any? ? remove_article_figures(text_for_preview) : @article.text
   end
 
-  def check_figure_present(text)
-    text.match(TAG_FIGURE_REGEX) ? check_length(text) : LENGTH_TRUNCATE_DEFAULT
-  end
-
-  def check_length(text)
-    length_figure = text.match(TEXT_WITH_FIGURE_REGEX).to_s.length
-    length_figure > LENGTH_TRUNCATE_DEFAULT ? length_figure : LENGTH_TRUNCATE_DEFAULT
+  def remove_article_figures(text)
+    @article.text.scan(FIGURE_REGEX).each { |figure| text.gsub! figure, '' }
+    text
   end
 end
