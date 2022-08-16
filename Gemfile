@@ -27,6 +27,8 @@ gem 'sass-rails', '>= 6'
 gem 'simple_form', '~> 5.1'
 gem 'turbo-rails', '~> 1.1', '>= 1.1.1'
 gem 'webpacker', '~> 4.0'
+gem 'sidekiq', '~> 6.5.4'
+gem 'sidekiq-cron', '~> 1.7.0'
 
 group :production, :development do
   gem 'lit', '~> 1.1.6'

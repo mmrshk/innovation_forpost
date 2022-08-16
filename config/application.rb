@@ -18,7 +18,8 @@ module InnovationForpost
     config.generators do |g|
       g.test_framework :rspec
     end
-
+    
+    config.active_job.queue_adapter = :sidekiq
     config.i18n.available_locales = [:en, :uk]
     config.i18n.default_locale = :uk
     config.factory_bot.definition_file_paths = ["spec/factories"]
