@@ -7,6 +7,5 @@ class TestNotifierMailer < ApplicationMailer
   def test_sender
     @user = params[:user]
     mail(to: @user.email, subject: "Dear #{@user.email}. You have got this message on a permanent base as a part of a mail notification.")
-    # binding pry
   end
 end

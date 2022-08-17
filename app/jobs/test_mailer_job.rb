@@ -3,9 +3,9 @@
 class TestMailerJob < ApplicationJob
   queue_as :default
 
-  def perform(*_args)
+  def perform(*args)
     User.find_each do |user|
-      TestNotifierMailer.test_sender(user).deliver_now
+      TestNotifierMailer.with(user: user).test_sender.deliver_now
     end
   end
 end
