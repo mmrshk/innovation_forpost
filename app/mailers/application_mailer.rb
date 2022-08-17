@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationMailer < ActionMailer::Base
-  default from: 'bogdanrymar03@outlook.com'
+  default from: ENV.fetch('OUTLOOK_USERNAME')
   layout 'mailer'
 end
