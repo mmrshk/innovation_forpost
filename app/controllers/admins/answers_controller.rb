@@ -10,8 +10,7 @@ module Admins
         AnswerMailer.with(answer: @answer, question: @question, admin: current_user).question_answered.deliver_later
         redirect_to admins_question_path(@question), notice: 'Answer created!'
       else
-        @answers = @question.answers.all
-        render 'admins/questions/show'
+        redirect_to admins_question_path(@question), notice: 'Error, something goes wrong'
       end
     end
 
