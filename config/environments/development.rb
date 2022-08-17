@@ -9,8 +9,9 @@ Rails.application.configure do
    :address              => "smtp-mail.outlook.com",
    :port                 => 587,
    :enable_starttls_auto => true,
-   :user_name            => ENV["OUTLOOK_USERNAME"],
-   :password  => ENV["OUTLOOK_PASSWORD"],
+   :user_name            => 'bogdanrymar03@outlook.com',
+   :password             => 'xzspmicypzfgmgdm',
+   :domain               => 'localhost',
    :authentication       => :login }
 
   config.after_initialize do
