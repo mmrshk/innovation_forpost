@@ -2,9 +2,9 @@
 
 class User < ApplicationRecord
   USER_ROLES = {
-    user: 0,
-    admin: 1,
-    super_admin: 2
+    user: 'user',
+    admin: 'admin',
+    super_admin: 'super_admin'
   }.freeze
 
   enum role: USER_ROLES, _prefix: :role
@@ -21,4 +21,12 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true
 
   scope :only_admins, -> { where(role: %i[super_admin admin]) }
+
+  def current_user_last_super_admin?
+    role_super_admin? && last_super_admin?
+  end
+
+  def last_super_admin?
+    User.where(role: User.roles[:super_admin]).size == 1
+  end
 end
