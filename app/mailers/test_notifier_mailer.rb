@@ -5,7 +5,8 @@ class TestNotifierMailer < ApplicationMailer
   # return_path: 'inno-forpost@example.com'
 
   def test_sender(recepient)
+    # binding pry
     @user = recepient
-    mail(to: @user.email, subject: "Test message for: #{@user.email}: Test Test Test Test Test Test")
+    mail(to: @user.email, subject: "Dear #{@user.email}. You have got this message on a permanent base as a part of a mail notification.")
   end
 end
