@@ -7,8 +7,14 @@ class AnswerMailer < ApplicationMailer
   #   en.answer_mailer.question_answered.subject
   #
   def question_answered
+    @question = params[:question]
+    @answer = params[:answer]
+    @admin = params[:admin]
     @greeting = 'Hi'
 
-    mail to: 'to@example.org'
+    mail(
+      from: 'bogdanrymar03@outlook.com',
+      to: @question.user_email
+    )
   end
 end
