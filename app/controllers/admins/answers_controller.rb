@@ -2,7 +2,7 @@
 
 module Admins
   class AnswersController < AdminsController
-    before_action :set_question
+    before_action :question
     def create
       @answer = @question.answers.build(answer_params)
 
@@ -30,8 +30,8 @@ module Admins
       params.require(:answer).permit(:body)
     end
 
-    def set_question
-      @question = Question.find(params[:question_id])
+    def question
+      @question ||= Question.find(params[:question_id])
     end
   end
 end
