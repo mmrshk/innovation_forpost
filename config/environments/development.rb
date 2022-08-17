@@ -10,8 +10,7 @@ Rails.application.configure do
    :port                 => 587,
    :enable_starttls_auto => true,
    :user_name            => 'bogdanrymar03@outlook.com',
-   :password             => 'xzspmicypzfgmgdm',
-   :domain               => 'localhost',
+   :password  => 'xzspmicypzfgmgdm',
    :authentication       => :login }
 
   config.after_initialize do
