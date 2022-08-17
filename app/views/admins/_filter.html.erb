@@ -19,36 +19,35 @@
                     {class: "form-control filter" })
                   %>
             </div>
-            
           </div>
 
-          <div class="input-middle">
-
-            <div class="input-field col s6">
+           <div class="input-middle">
+             <div class="input-field col s6">
               <label class="filter-text-label">Email</label>
               <i class="material-icons select">arrow_drop_down</i>
-              
-            </div>              
-
-            <div class="input-field col s6">
-              <div class=" filter-text-label">
+                <select class="browser-default filter-option">
+                   <option value="1">Contains</option>
+                   <option value="2">Option 2</option>  
+                   <option value="3">Option 3</option>
+                </select>
+              </div>
+             <div class="input-field col s6">
               <label class="filter-text-label">Tel.</label>
               <i class="material-icons select">arrow_drop_down</i>
-             
-            </div>
-            
-          </div>
-
-          <div class="input-field col s6"><%= f.label :email %>
-              <input type="text" placeholder="Value:">
-              <%= f.text_field :email_start, class: 'form-control' %>
-          </div>
-          <div class="input-field col s6"><%= f.label :phone_number %>
-            <input type="text" placeholder="Value:">
-             <%= f.text_field :phone_number_start, class: 'form-control'  %>
-          </div> 
-          
-
+                <select class="browser-default filter-option">
+                   <option value="1">Equals</option>
+                   <option value="2">Option 2</option>
+                   <option value="3">Option 3</option>
+                </select>
+              </div>
+             <div class="input-field col s6">
+              <%= f.label :email %>
+              <%= f.text_field :email_cont, class: 'form-control' %>
+             </div>
+             <div class="input-field col s6">
+              <%= f.label :phone_number %>
+              <%= f.text_field :phone_number_start, class: 'form-control' %>
+             </div>
           </div> 
 
           <div class="input-bottom">      
@@ -56,7 +55,7 @@
                <input type="text" class="datepicker" placeholder="Start at:">  
                <i class="material-icons calendar">date_range</i>          
                <label class="filter-bottom-label">Created at:</label>
-                <%= f.label :created_at_gteq %>
+         
              </div>
              <div class="input-field col s6">
                <input type="text" class="datepicker" placeholder="Start at:">
