@@ -140,7 +140,7 @@ select {
   #filter-buttons {
     width: 340px;
     height: 52px;
-    background-color: $admin-background-color-button;
+    background-color: #62B5E5;
     color: $white-color;
     font-size: 18px;
     border-radius: 30px;
@@ -185,7 +185,7 @@ select {
       display: flex;
       align-items: center;
       font-size: 18px;
-      color: $background-color-title;
+      color: rgba(0, 40, 85, 0.5);
     }
     
     input[type="text"] {
@@ -253,7 +253,7 @@ select {
     padding: 5px;
     width: 40px;
     height: 40px;
-    background-color: $blue-filter-color;
+    background-color: rgba(0, 48, 135, 0.25);
     a {
       color: $white-color;
       font-size: 20px;
@@ -324,24 +324,7 @@ select {
     width: 210px;
     height: 50px;
     color: $white-color;
-    background-color: $admin-background-color-button;
-    font-size: 18px;
-    border-radius: 30px;
-    padding: 10px;
-    text-align: center;
-  }
-}
-
-.add-features {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 50px;
-
-  .new-user {
-    width: 210px;
-    height: 50px;
-    color: $white-color;
-    background-color: $admin-background-color-button;
+    background-color: #62B5E5;
     font-size: 18px;
     border-radius: 30px;
     padding: 10px;
