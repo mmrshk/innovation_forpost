@@ -25,6 +25,8 @@ uk:
       edit_link: "Редагувати"
       delete_link: "Видалити"
       save_button: "Зберегти"
+      message: 
+        invalid_dimension: "не задано відповідні розміри"
   admins:
     users:
       create_success: 'Користувач успішно доданий.'
