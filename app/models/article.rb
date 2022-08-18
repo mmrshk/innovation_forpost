@@ -33,21 +33,13 @@ class Article < ApplicationRecord
                   },
                   associated_against: {
                     tags: { 
-                      name: 'A'
+                      name: 'B'
                     }   
                   },
                   using: {
                     tsearch: {
                       prefix: true,
                       dictionary: "english",
-                      highlight: {
-                        MaxWords: 123,
-                        MinWords: 456,
-                        ShortWord: 4,
-                        HighlightAll: true,
-                        MaxFragments: 3,
-                        FragmentDelimiter: '&hellip;'
-                      }
                     }
                   }
 end                                

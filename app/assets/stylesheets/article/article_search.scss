@@ -14,7 +14,8 @@
 .article-search-btn {
   color: black;
   border: none;
-  background-color: transparent;
+  background-color: transparent;  
+  outline: black;
 }
 
 #cover {
@@ -55,21 +56,24 @@
   display: block;
   width: 60px;
   height: 50px;
-  
+
+  &:focus {
+    background-color: transparent;
+  }
 }
 
 #s-circle {
   top: 5px;
   left: 0;
-  width: 42px;
-  height: 42px;
+  width: 35px;
+  height: 35px;
   margin-top: 0;
   border-width: 15px;
-  border: 8px solid black;
+  border: 7px solid black;
   background-color: transparent;
   border-radius: 50%;
   transition: 0.5s ease all;
-}
+} 
 
 .td span {
   position: absolute;
@@ -80,21 +84,21 @@
   background-color: transparent;
   border-radius: 8px;
   transform: rotateZ(52deg);
-  transition: 0.5s ease all;
+  transition: 0.2s linear;
 }
 
 .td span:before,
 .td span:after {
   content: "";
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 39px;
-  height: 9px;
+  bottom: -5px;
+  right: 12px;
+  width: 23px;
+  height: 8px;
   background-color: black;
-  border-radius: 8px;
+  border-radius: 7px;
   transform: rotateZ(0);
-  transition: 0.5s ease all;
+  transition: 0.5s linear;
 }
 
 #s-cover:hover #s-circle {
@@ -103,13 +107,13 @@
   height: 9px;
   border-width: 0;
   background-color: black;
-  border-radius: 20px;
+  border-radius: 10px;
 }
 
 #s-cover:hover span {
   top: 50%;
-  left: 42px;
-  width: 13px;
+  left: 35px;
+  width: 10px;
   margin-top: -11px;
   transform: rotateZ(0);
 }
@@ -126,6 +130,6 @@
 #s-cover:hover button span:before,
 #s-cover:hover button span:after {
   right: -6px;
-  width: 40px;
+  width: 33px;
   background-color: black;
 }
