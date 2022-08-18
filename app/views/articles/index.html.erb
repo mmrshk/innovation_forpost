@@ -10,9 +10,7 @@
   <div class='articles-tags'>
     <ul class='articles-list'>
       <% @articles.each do |article| %>
-        <li>
-          <%= render 'shared/article', article: article %>
-        </li>
+        <li><%= render 'shared/article', article: article %></li>
         <hr class='article-hr'>
       <% end %>
     </ul>
@@ -21,6 +19,6 @@
       <% @tags.each do |tag| %>
         <li class='tag-links-item'><%= link_to tag.name, tag_path(tag), class: 'tag-link' %>
       <% end %>
-  </ul>
+    </ul>
   </div>
 </div>

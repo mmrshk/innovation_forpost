@@ -37,7 +37,7 @@ en:
           date: 'Date'
           functions: 'Functions'
           tags: 'Tags'
-          continue: 'Continue'
+          continue: 'Read more'
         buttons:
           new_article: 'New article'
           view: 'View'

@@ -3,8 +3,6 @@ import "@hotwired/turbo-rails";
 require("@rails/activestorage").start()
 require("channels")
 
-
-require('jquery')
 import 'materialize-css/dist/js/materialize'
 import './scripts/scroll'
 import './ckeditor_embed_snippet'

@@ -11,6 +11,7 @@
   }
 
   .article-image-preview {
+    min-width: 112px;
 
     .image-preview {
       width: 112px;
@@ -45,6 +46,7 @@
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: italic;
   color: $dark-grey-text;
+  white-space: nowrap;
 }
 
 .article-title {
@@ -55,6 +57,10 @@
   font-size: 35px;
   line-height: 1.25;
   color: $black-color;
+
+  &:hover {
+    color: $base-color;
+  }
 }
 
 .article-hr {
@@ -67,12 +73,34 @@
 
 .group-bottom {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   align-items: baseline;
 
   .point {
     padding: 0 6px;
     font-size: 14px;
     color: $dark-grey-text;
+  }
+
+  div.button-continue {
+    margin-left: auto;
+  }
+
+  .continue {
+    padding: 3px 20px;
+    border-radius: 100px;
+    border: 2px solid $base-color;
+    background-color: $white-color;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    white-space: nowrap;
+    color: $black-color;
+    font-size: 13px;
+
+    &:hover {
+      background: $base-color;
+      color: $white-color;
+    }
   }
 }
 

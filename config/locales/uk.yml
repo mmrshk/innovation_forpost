@@ -48,7 +48,7 @@ uk:
           date: 'Дата'
           functions: 'Функції'
           tags: 'Теги'
-          continue: 'Далі'
+          continue: 'Читати далі'
         buttons:
           new_article: 'Додати статтю'
           view: 'Переглянути'

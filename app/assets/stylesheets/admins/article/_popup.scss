@@ -53,3 +53,62 @@
   left: 0;
   z-index: -1;
 }
+
+// hover for functional batton
+
+.hover-popup-button {
+  display: none;
+}
+
+@media screen and (max-width: 1700px) {
+
+  .hover-popup-button {
+    position: absolute;
+    display: block;
+    width: auto;
+    background-color: $gray-color;
+    border-radius: 8px;
+    padding: 12px;
+    z-index: 42;
+    transform: scale(0);
+    transition: transform 200ms ease;
+    transform-origin: 8% -10px;
+    margin-top: 90px;
+    margin-left: -16px;
+
+    @media screen and (max-width: $breakpoint) {
+      display: none;
+    }
+
+    @media screen and (max-width: 430px) {
+      display: flex;
+    }
+  }
+
+  .hover-target:hover + .hover-popup-button,
+  .hover-target:focus + .hover-popup-button,
+  .hhover-popup-button:hover{
+    transform: scale(1);
+  }
+
+  .hover-popup-button::before {
+    content: '';
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid $gray-color;
+    top: -10px;
+    left: 18px;
+    transform: rotate(0deg);
+  }
+
+  .hover-popup-button::after {
+    content: '';
+    position: absolute;
+    top: -16px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+}

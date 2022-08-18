@@ -2,12 +2,12 @@
 
 class ArticlePresenter
   include ActionView::Helpers
-  include ActionView::Context
   include Rails.application.routes.url_helpers
 
   IMAGE_SRC_REGEX = /src="(.*?)"/
   FIGURE_REGEX = %r{<figure[^>]+>[\s\S]*?</figure>}
   LENGTH_TRUNCATE_DEFAULT = 300
+  SEPARATOR = %r{</p>}
 
   def initialize(article)
     @article = article
@@ -39,9 +39,7 @@ class ArticlePresenter
   private
 
   def truncate_article_text
-    truncate(check_text_figure_present, escape: false, length: LENGTH_TRUNCATE_DEFAULT) do
-      link_to t('admins.articles.views.labels.continue'), controller: 'articles', action: 'show', id: @article.id
-    end
+    truncate(check_text_figure_present, escape: false, length: LENGTH_TRUNCATE_DEFAULT, separator: SEPARATOR)
   end
 
   def check_text_figure_present
@@ -50,7 +48,7 @@ class ArticlePresenter
   end
 
   def remove_article_figures(text)
-    @article.text.scan(FIGURE_REGEX).each { |figure| text.gsub! figure, '' }
+    text.scan(FIGURE_REGEX).each { |figure| text.gsub! figure, '' }
     text
   end
 end

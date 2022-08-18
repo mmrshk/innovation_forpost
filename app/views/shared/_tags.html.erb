@@ -1,5 +1,6 @@
 <div class='group-bottom'>
   <div class='article-date'><%= l(article.updated_at, format: '%d %b %Y')  %></div>
+
   <% if article.tags.present? %>
     <div class='point'>·</div>
     <div>
@@ -8,4 +9,11 @@
       <% end %>
     </div>
   <% end %>
+
+  <% unless current_page?(article_path(article)) %>
+    <div class='button-continue'>
+      <%= link_to t('admins.articles.views.labels.continue'), article_path(article), class: 'continue' %>
+    </div>
+  <% end %>
+
 </div>
