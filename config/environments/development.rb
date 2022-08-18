@@ -9,8 +9,8 @@ Rails.application.configure do
    :address              => "smtp.gmail.com",
    :port                 => 587,
    :enable_starttls_auto => true,
-   :user_name            => Rails.application.credentials.google_account[:SMTP_user_name],
-   :password             => Rails.application.credentials.google_account[:SMTP_password],
+   :user_name            => Rails.application.credentials.google_account[:SMTP_USER_NAME],
+   :password             => Rails.application.credentials.google_account[:SMTP_PASSWORD],
    :authentication       => :plain }
 
   config.after_initialize do
