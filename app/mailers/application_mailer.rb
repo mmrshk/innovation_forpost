@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
 class ApplicationMailer < ActionMailer::Base
-  default from: 'inno-forpost@example.com'
+  default from: ENV.fetch('OUTLOOK_USERNAME')
   layout 'mailer'
 end
