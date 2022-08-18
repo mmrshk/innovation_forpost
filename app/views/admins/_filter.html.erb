@@ -27,8 +27,6 @@
               <i class="material-icons select">arrow_drop_down</i>
                 <select class="browser-default filter-option">
                    <option value="1">Contains</option>
-                   <option value="2">Option 2</option>  
-                   <option value="3">Option 3</option>
                 </select>
               </div>
              <div class="input-field col s6">
@@ -36,39 +34,33 @@
               <i class="material-icons select">arrow_drop_down</i>
                 <select class="browser-default filter-option">
                    <option value="1">Equals</option>
-                   <option value="2">Option 2</option>
-                   <option value="3">Option 3</option>
                 </select>
               </div>
-             <div class="input-field col s6">
-              <%= f.label :email %>
+             <div class="input-field col s6">            
               <%= f.text_field :email_cont, class: 'form-control' %>
              </div>
              <div class="input-field col s6">
-              <%= f.label :phone_number %>
               <%= f.text_field :phone_number_start, class: 'form-control' %>
              </div>
           </div> 
 
           <div class="input-bottom">      
              <div class="input-field col s6">
-               <input type="text" class="datepicker" placeholder="Start at:">  
+                <%= f.text_field :created_at_gteq,  placeholder: "Start at:", class: 'datepicker' %>   
                <i class="material-icons calendar">date_range</i>          
-               <label class="filter-bottom-label">Created at:</label>
-         
+               <%= f.label :created_at, "Created at:", class: 'filter-field-name' %>    
              </div>
              <div class="input-field col s6">
-               <input type="text" class="datepicker" placeholder="Start at:">
+                <%= f.text_field :updated_at_gteq,  placeholder: "Start at:", class: 'datepicker' %>   
+               <i class="material-icons calendar">date_range</i>          
+               <%= f.label :updated_at, "Updated at:", class: 'filter-field-name' %>  
+             </div>
+             <div class="input-field col s6">
+                <%= f.text_field :created_at_lteq,  placeholder: "End at:", class: 'datepicker' %>   
                <i class="material-icons calendar">date_range</i>
-               <label class="filter-bottom-label">Updated at:</label>
              </div>
              <div class="input-field col s6">
-               <input type="text" class="datepicker" placeholder="End at:">
-               <i class="material-icons calendar">date_range</i>
-               <%= f.label :created_at_lteq %>
-             </div>
-             <div class="input-field col s6">
-               <input type="text" class="datepicker" placeholder="End at:">
+                <%= f.text_field :updated_at_lteq,  placeholder: "End at:", class: 'datepicker' %>   
                <i class="material-icons calendar">date_range</i>
              </div>
           </div>   
