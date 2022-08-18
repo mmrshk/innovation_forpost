@@ -44,8 +44,7 @@ $invalid-color: red;
   background-color: $white-color;
 }
 
-.name-field, .attachment-field {
-  margin-bottom: 10px;
+.attachment-field {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -56,6 +55,11 @@ $invalid-color: red;
   align-items: center;
   color: $border-color;
 }
+
+.attachment-field.media {
+   margin-bottom: 10px;
+}
+
 
 .submit-button {
   font-size: 18px;
@@ -105,7 +109,7 @@ input[type="file"] {
   display: none;
 }
 
-.form-control, .attachment-label {
+.form-control {
   height: 40px;
   width: 60%;
   min-width: 140px;
@@ -212,4 +216,13 @@ td.links {
   -moz-border-radius: 26px;
   -webkit-border-radius: 26px;
   border-radius: 26px;
+}
+
+.input_error {
+  color: $invalid-color;
+}
+
+.error-media {
+  position: relative;
+  top: 65px;
 }

@@ -20,7 +20,7 @@ uk:
       choose_file: "Оберіть файл"
       title:
         edit: "Редагувати вкладення:"
-        new: "Створити нове вкладення:"
+        create_new_attachment: "Створити нове вкладення:"
       view_link: "Переглянути"
       edit_link: "Редагувати"
       delete_link: "Видалити"
