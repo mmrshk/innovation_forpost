@@ -9,8 +9,8 @@ Rails.application.configure do
    :address              => "smtp-mail.outlook.com",
    :port                 => 587,
    :enable_starttls_auto => true,
-   :user_name            => ENV["OUTLOOK_USERNAME"],
-   :password             => ENV["OUTLOOK_PASSWORD"],
+   :user_name            => Rails.application.credentials.google_account[:SMTP_user_name],
+   :password             => Rails.application.credentials.google_account[:SMTP_password],
    :authentication       => :login }
 
   config.after_initialize do

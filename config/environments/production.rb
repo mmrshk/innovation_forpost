@@ -5,12 +5,15 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-   :address              => "smtp-mail.outlook.com",
-   :port                 => 587,
-   :enable_starttls_auto => true,
-   :user_name            => ENV["OUTLOOK_USERNAME"],
-   :password             => ENV["OUTLOOK_PASSWORD"],
-   :authentication       => :login }
+
+   address:              'smtp.gmail.com',
+   port:                 587,
+   enable_starttls_auto: true,
+   user_name:            Rails.application.credentials.google_account[:SMTP_user_name],
+   password:             Rails.application.credentials.google_account[:SMTP_password],
+   authentication:       :plain
+  }
+
 
   # Settings specified here will take precedence over those in config/application.rb.
   # Code is not reloaded between requests.
@@ -45,6 +48,9 @@ Rails.application.configure do
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
+
+  # Domain for mailer urls
+  config.action_mailer.default_url_options = { host: 'innovation-forpost.herokuapp.com' }
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
