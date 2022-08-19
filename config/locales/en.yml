@@ -2,13 +2,6 @@ en:
   en: "EN"
   uk: "UA"
   activemodel:
-   errors:
-      models:
-        attachment:
-          attributes:
-            name: 
-              too_short: 'занадто коротке'
-              too_long: 'занадко довге'
   menu:
     innovateForpost: "Innovate fortpost"
     about: "About"
