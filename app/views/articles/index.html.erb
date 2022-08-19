@@ -14,11 +14,6 @@
         <hr class='article-hr'>
       <% end %>
     </ul>
-
-    <ul class='tag-links vertical short'>
-      <% @tags.each do |tag| %>
-        <li class='tag-links-item'><%= link_to tag.name, tag_path(tag), class: 'tag-link' %>
-      <% end %>
-    </ul>
+    <%= render 'shared/search' %>
   </div>
 </div>

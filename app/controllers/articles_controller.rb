@@ -2,7 +2,9 @@
 
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.includes(:article_tags, :tags).published.in_language(extract_locale).sorted_desc
+    @q = Article.ransack(params[:q])
+    @articles = @q.result(distinct: true)
+    @articles = @articles.includes(:article_tags, :tags).published.in_language(extract_locale).sorted_desc
     @tags = Tag.all
   end
 
