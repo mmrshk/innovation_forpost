@@ -1,3 +1,7 @@
 <p class="title-attachment-text"><%= t 'admin.attachments.title.edit' %></p>
 
 <%= render "form", attachment: @attachment %>
+
+<div class="back-button">
+  <%= link_to fa_icon('arrow-left', text: 'Back'), awesome_back_path(admins_attachments_path, fallback: :back), class: "back-button-text"%>
+</div>

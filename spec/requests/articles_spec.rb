@@ -11,7 +11,6 @@ RSpec.describe 'Articles', type: :request do
 
   describe 'GET /admins/articles#index' do
     it 'renders a successful response' do
-      sign_in admin
       get admins_articles_url
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:index)
@@ -28,7 +27,7 @@ RSpec.describe 'Articles', type: :request do
     end
   end
 
-  describe 'GET /en/articles#show' do
+  describe 'GET /uk/articles#show' do
     let(:valid_article) { create(:article, :trashed, :with_tags) }
 
     it 'renders a successful response' do
@@ -38,7 +37,7 @@ RSpec.describe 'Articles', type: :request do
     end
   end
 
-  describe 'GET /en/articles#show' do
+  describe 'GET /uk/articles#show' do
     let(:valid_article) { create(:article, :draft, :with_tags) }
 
     it 'renders a successful response' do
@@ -160,7 +159,7 @@ RSpec.describe 'Articles', type: :request do
   end
 
   describe 'DELETE /admins/articles#destroy' do
-    let!(:valid_article) { create(:article, :with_tags) }
+    let!(:valid_article) { create(:article, :with_tags, :with_image) }
 
     it 'destroys the requested article' do
       expect { delete admins_article_url(valid_article) }.to change(Article, :count).by(-1)
@@ -168,6 +167,10 @@ RSpec.describe 'Articles', type: :request do
 
     it 'destroys the requested article with tags' do
       expect { delete admins_article_url(valid_article) }.to change(Tag, :count).by(-2)
+    end
+
+    it 'destroys the requested article with tags' do
+      expect { delete admins_article_url(valid_article) }.to change(CkEditorImage, :count).by(-1)
     end
 
     it 'redirects to the articles list' do
