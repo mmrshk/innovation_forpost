@@ -22,7 +22,7 @@
     </div>   
   <div class='articles-tags'>
     <ul class='articles-list'>
-     <% ( !params[:query] || params[:query].empty? ? @articles : @search ).each do |article| %>
+     <% @articles.each do |article| %>
         <li>
           <%= render 'shared/article', article: article %>
         </li>

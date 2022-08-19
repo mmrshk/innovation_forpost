@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-class Article < ApplicationRecord
+class Article < ApplicationRecord  
   include PgSearch::Model
+
   VALID_STATUSES = {
     draft: 0,
     published: 1,
@@ -42,4 +43,4 @@ class Article < ApplicationRecord
                       dictionary: "english",
                     }
                   }
-end                                
+end                
