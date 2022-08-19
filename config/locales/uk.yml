@@ -6,6 +6,14 @@ uk:
       attachment:
         name: "Ім'я"
         madia_file: "Вкладення"
+    errors:
+      models:
+        attachment:
+          attributes:
+            name: 
+              too_short: 'занадто коротке'
+              too_long: 'занадко довге'
+
   menu:
     innovateForpost: "Індустріальні парки"
     about: "Про нас"
@@ -25,8 +33,6 @@ uk:
       edit_link: "Редагувати"
       delete_link: "Видалити"
       save_button: "Зберегти"
-      message: 
-        invalid_dimension: "не задано відповідні розміри"
   admins:
     users:
       create_success: 'Користувач успішно доданий.'
