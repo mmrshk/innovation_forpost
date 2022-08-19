@@ -46,7 +46,7 @@
   .header-cell {
     display: table-cell;
     vertical-align: middle;
-    padding: 6px 12px 6px 12px;
+    padding: 6px 12px;
     word-spacing: 3px;
     white-space: nowrap;
 
@@ -76,7 +76,7 @@
       display: flex;
       flex-flow: column nowrap;
       width: 100%;
-      padding: 6px 30px 6px 30px;
+      padding: 6px 30px;
     }
   }
 }
@@ -111,7 +111,7 @@
 }
 
 .cell {
-  padding: 6px 12px 6px 12px;
+  padding: 6px 12px;
   display: table-cell;
   vertical-align: middle;
 
