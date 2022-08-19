@@ -1,0 +1,66 @@
+$accordionColour: $admin-background-color-button;
+$iconSize: 32px;
+$breakpoint: 800px;
+
+.js-table-accordions {
+  .cell {
+    @media screen and (max-width: $breakpoint) {
+      display: none;
+    }
+  }
+
+  .accordion {
+    position: relative;
+    width: 100%;
+    margin: 0 0 10px 0;
+    padding: 10px 10px 10px 38px;
+    border-radius: 10px;
+    border: solid 3px $accordionColour;
+    background-color: $white-color;
+    text-align: left;
+    font-weight: bold;
+    color: $black-color;
+    text-decoration: none;
+    transition: background-color 0.1s;
+    cursor: pointer;
+
+    @media all and (min-width: $breakpoint) { display: none; }
+
+    &:hover {
+      outline: none;
+      background-color: $accordionColour;
+      color: $white-color;
+    }
+
+    &:before {
+      content: "+";
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      margin-top: -($iconSize/1.75);
+      font-weight: normal;
+      font-size: $iconSize;
+      line-height: $iconSize;
+      background-size: $iconSize $iconSize;
+    }
+  }
+}
+
+.js-table-accordions.active {
+  .cell {
+    display: table-cell;
+  }
+
+  .accordion {
+    margin-bottom: 0;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-width: 0;
+    background: mix($white-color, $accordionColour,70%);
+    color: $black-color;
+
+    &:before {
+      content: "–";
+    }
+  }
+}
