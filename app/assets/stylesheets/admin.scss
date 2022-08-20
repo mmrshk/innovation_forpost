@@ -177,15 +177,21 @@ select {
 
   .input {
     &-top {
-      margin: 32px 12px;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      margin-left: 10px;
+      display: inline-block;
     }
 
     &-middle {
-      margin: 123px 12px;
+      display: inline-block;
+      margin-bottom: 15px;
+      margin-left: 10px;
     }
     
     &-bottom {
-      margin: 285px 12px;
+      display: inline-block;
+      margin-left: 10px;
     }
   }
 
@@ -212,6 +218,7 @@ select {
 
 .datepicker-modal.open{
   min-width: 450px;
+  width: 100%;
 }
 
 .container-records-and-filters {
