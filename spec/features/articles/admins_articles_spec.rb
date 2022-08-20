@@ -15,23 +15,23 @@ RSpec.describe 'Articles', type: :feature do
 
   context 'when creating an article' do
     it 'creates' do
-      click_link 'New Article'
+      click_link I18n.t('admins.articles.views.buttons.new_article')
       expect(page).to have_current_path new_admins_article_path(locale: I18n.locale)
-      fill_in 'Title', with: valid_article[:title]
-      fill_in 'article_text', with: valid_article[:text]
+      fill_in I18n.t('admins.articles.views.labels.title'), with: valid_article[:title]
+      fill_in 'article[text]', with: valid_article[:text]
       select valid_article[:status], from: 'article_status'
       select valid_article[:language], from: 'article_language'
-      expect { click_button 'Create article' }.to change { Article.count }.by(1)
+      expect { click_button I18n.t('admins.articles.views.buttons.create_article') }.to change { Article.count }.by(1)
       expect(page).to have_current_path admins_articles_path(locale: I18n.locale)
       expect(page).to have_content(valid_article[:title])
     end
 
     it 'does not create' do
-      click_link 'New Article'
+      click_link I18n.t('admins.articles.views.buttons.new_article')
       expect(page).to have_current_path new_admins_article_path(locale: I18n.locale)
-      fill_in 'Title', with: invalid_article[:title]
-      fill_in 'article_text', with: invalid_article[:text]
-      expect { click_button 'Create article' }.to change { Article.count }.by(0)
+      fill_in I18n.t('admins.articles.views.labels.title'), with: invalid_article[:title]
+      fill_in 'article[text]', with: invalid_article[:text]
+      expect { click_button I18n.t('admins.articles.views.buttons.create_article') }.to change { Article.count }.by(0)
       expect(page).to have_content('не може бути пустим')
     end
   end
@@ -40,20 +40,20 @@ RSpec.describe 'Articles', type: :feature do
     it 'updates' do
       visit edit_admins_article_path(article)
       expect(page).to have_current_path edit_admins_article_path(article)
-      fill_in 'Title', with: valid_article[:title]
-      fill_in 'article_text', with: valid_article[:text]
+      fill_in I18n.t('admins.articles.views.labels.title'), with: valid_article[:title]
+      fill_in 'article[text]', with: valid_article[:text]
       select valid_article[:status], from: 'article_status'
       select valid_article[:language], from: 'article_language'
-      expect { click_button 'Update article' }.to change { Article.count }.by(0)
+      expect { click_button I18n.t('admins.articles.views.buttons.update_article') }.to change { Article.count }.by(0)
       expect(page).to have_content(valid_article[:title])
     end
 
     it 'does not update' do
       visit edit_admins_article_path(article)
       expect(page).to have_current_path edit_admins_article_path(article)
-      fill_in 'Title', with: invalid_article[:title]
-      fill_in 'article_text', with: invalid_article[:text]
-      expect { click_button 'Update article' }.to change { Article.count }.by(0)
+      fill_in I18n.t('admins.articles.views.labels.title'), with: invalid_article[:title]
+      fill_in 'article[text]', with: invalid_article[:text]
+      expect { click_button I18n.t('admins.articles.views.buttons.update_article') }.to change { Article.count }.by(0)
       expect(page).to have_content('не може бути пустим')
     end
   end
@@ -64,7 +64,9 @@ RSpec.describe 'Articles', type: :feature do
     it 'destroyes' do
       visit admins_articles_url
       expect(page).to have_content(article[:title])
-      expect { find('tr', text: article.title).click_on('Delete') }.to change(Article, :count).by(-1)
+      # rubocop:disable Layout/LineLength
+      expect { find('.row-table', text: article.title).click_on(I18n.t('admins.articles.views.buttons.delete')) }.to change(Article, :count).by(-1)
+      # rubocop:enable Layout/LineLength
       expect(page).not_to have_content(article[:title])
     end
   end

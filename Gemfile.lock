@@ -68,6 +68,8 @@ GEM
     ast (2.4.2)
     autoprefixer-rails (10.4.7.0)
       execjs (~> 2)
+    awesome_back_url (0.1.2)
+      rails
     bcrypt (3.1.18)
     bindex (0.8.1)
     bootsnap (1.13.0)
@@ -169,6 +171,10 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (2.6.2)
+    launchy (2.5.0)
+      addressable (~> 2.7)
+    letter_opener (1.8.1)
+      launchy (>= 2.2, < 3)
     listen (3.7.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -387,6 +393,7 @@ PLATFORMS
 DEPENDENCIES
   active_storage_validations
   ancestry (~> 4.2)
+  awesome_back_url
   bootsnap (>= 1.4.2)
   brakeman (~> 5.2.3)
   bullet (~> 7.0.2)
@@ -400,6 +407,7 @@ DEPENDENCIES
   fog-aws (~> 3.14.0)
   font-awesome-rails (>= 4.7)
   jbuilder (~> 2.7)
+  letter_opener
   listen (~> 3.2)
   lit (~> 1.1.6)
   materialize-sass (~> 1.0.0)
