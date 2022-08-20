@@ -1,20 +1,19 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = {host: 'innovation-forpost.herokuapp.com', protocol: "https"}
+  config.action_mailer.default_url_options = {host: Rails.application.credentials.google_account[:SMTP_HOST]}
 
   config.action_mailer.perform_deliveries = true
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
+
    address:              'smtp.gmail.com',
    port:                 587,
    enable_starttls_auto: true,
-   user_name:            Rails.application.credentials.google_account[:SMTP_user_name],
-   password:             Rails.application.credentials.google_account[:SMTP_password],
+   user_name:            Rails.application.credentials.google_account[:SMTP_USERNAME],
+   password:             Rails.application.credentials.google_account[:SMTP_PASSWORD],
    authentication:       :plain
-  #  :user_name            => ENV["OUTLOOK_USERNAME"],
-  #  :password             => ENV["OUTLOOK_PASSWORD"],
-  #  authentication:       :login
   }
+
 
   # Settings specified here will take precedence over those in config/application.rb.
   # Code is not reloaded between requests.

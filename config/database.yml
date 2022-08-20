@@ -1,21 +1,21 @@
 default: &default
-  adapter:  postgresql
+  adapter: postgresql
   encoding: unicode
-  pool:     <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
-  host:     <%= ENV.fetch('PG_HOST',  'localhost') %>
+  pool: <%= ENV.fetch('RAILS_MAX_THREADS') { 5 } %>
+  host: <%= ENV.fetch('PG_HOST',  'localhost') %>
   username: <%= ENV.fetch('PG_USER', 'postgres') %>
   password: <%= ENV.fetch('PG_PASSWORD', 'postgres') %>
-  port:     <%= ENV.fetch('PG_PORT', 5432) %>
-  timeout:  5000
-  
+  port: <%= ENV.fetch('PG_PORT', 5432) %>
+  timeout: 5000
+
 development:
   <<: *default
-  database: 'innovation-forpost_development'
+  database: "innovation-forpost_development"
 
 production:
   <<: *default
-  database: 'innovation-forpost_production'
-  
+  database: "innovation-forpost_production"
+
 test:
   <<: *default
-  database: 'innovation-forpost_test'
+  database: "innovation-forpost_test"

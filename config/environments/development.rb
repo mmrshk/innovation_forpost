@@ -6,13 +6,12 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    enable_starttls_auto: true,
-    user_name:            Rails.application.credentials.google_account[:SMTP_user_name],
-    password:             Rails.application.credentials.google_account[:SMTP_password],
-    authentication:       :plain
-  }
+   :address              => "smtp.gmail.com",
+   :port                 => 587,
+   :enable_starttls_auto => true,
+   :user_name            => Rails.application.credentials.google_account[:SMTP_USERNAME],
+   :password             => Rails.application.credentials.google_account[:SMTP_PASSWORD],
+   :authentication       => :plain }
 
   config.after_initialize do
     Bullet.enable        = true
