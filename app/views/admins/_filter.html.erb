@@ -1,7 +1,7 @@
 
 <div class="dropdown-trigger-1 filter-button right" href='#' data-target="filter-dropdown">
   <i class="material-icons filter">tune</i>
-  <p class="filter-title">Filter</p>
+  <p class="filter-title"><%= t('admins.users.filter') %></p>
   <i class="material-icons dropdown">arrow_drop_down</i>
   <div id='filter-dropdown' class='dropdown-content'>
 
@@ -11,7 +11,7 @@
         <%= search_form_for @q, url: admins_users_path do |f| %>
          <div class="input-top">
            <div class="input-field col s6">
-              <label class="filter-text-label">Role</label>
+              <label class="filter-text-label"><%= t('admins.users.role') %></label>
               <i class="material-icons select">arrow_drop_down</i>
                <%= f.select(:role_eq, 
                     options_for_select(User.roles.map {|k, v| [k.humanize.capitalize, v]}, f.object.role_eq), 
@@ -23,14 +23,14 @@
 
            <div class="input-middle">
              <div class="input-field col s6">
-              <label class="filter-text-label">Email</label>
+              <label class="filter-text-label"><%= t('admins.users.email') %></label>
               <i class="material-icons select">arrow_drop_down</i>
                 <select class="browser-default filter-option">
                    <option value="1">Contains</option>
                 </select>
               </div>
              <div class="input-field col s6">
-              <label class="filter-text-label">Tel.</label>
+              <label class="filter-text-label"><%= t('admins.users.phone') %></label>
               <i class="material-icons select">arrow_drop_down</i>
                 <select class="browser-default filter-option">
                    <option value="1">Equals</option>
@@ -48,12 +48,12 @@
              <div class="input-field col s6">
                 <%= f.text_field :created_at_gteq,  placeholder: "Start at:", class: 'datepicker' %>   
                <i class="material-icons calendar">date_range</i>          
-               <%= f.label :created_at, "Created at:", class: 'filter-field-name' %>    
+               <%= f.label :created_at, t('admins.users.created_at'), class: 'filter-field-name' %>    
              </div>
              <div class="input-field col s6">
                 <%= f.text_field :updated_at_gteq,  placeholder: "Start at:", class: 'datepicker' %>   
                <i class="material-icons calendar">date_range</i>          
-               <%= f.label :updated_at, "Updated at:", class: 'filter-field-name' %>  
+               <%= f.label :updated_at, t('admins.users.updated_at'), class: 'filter-field-name' %>  
              </div>
              <div class="input-field col s6">
                 <%= f.text_field :created_at_lteq,  placeholder: "End at:", class: 'datepicker' %>   
@@ -65,9 +65,9 @@
              </div>
           </div>   
 
-          <div class="buttons-">
-            <%= f.submit class: "filter-buttons", data: { turbolinks: false } %>
-            <%= button_tag "Clear", :type => 'button', class: "filter-buttons", :onclick => "location.href = '#{request.path}'" %>
+          <div class="buttons">
+            <div><%= f.submit t('admins.users.search'), class: 'filter-buttons' %></div>
+            <%= button_tag t('admins.users.clear'), :type => 'button', class: "filter-buttons", :onclick => "location.href = '#{request.path}'" %>
           </div>
 
         <% end %>

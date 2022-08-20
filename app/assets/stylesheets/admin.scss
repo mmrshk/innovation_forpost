@@ -25,8 +25,6 @@
   }
 
   .form {
-    max-width: 600px;
-
     .error {
       color: $mobile-red-color;
     }
@@ -110,8 +108,8 @@ select {
   }
 
   &.dropdown {
-    margin: 0 5px;
     font-size: 35px;
+    margin-left: -20px;
   }
 
   &.calendar {
@@ -145,6 +143,10 @@ select {
     border: #62B5E5;
 
   
+  }
+
+  .buttons {
+    display: flex;
   }
 
   #id {
@@ -353,7 +355,7 @@ select {
   margin-bottom: 50px;
 
   .new-user {
-    width: 210px;
+    min-width: 210px;
     height: 50px;
     color: $white-color;
     background-color: #62B5E5;
