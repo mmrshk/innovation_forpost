@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/sinner/projects/innovation_forpost/spec/features/articles/admins_articles_spec.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/features/articles/admins_articles_spec.rb": {
         "lines": [
           null,
           null,
@@ -27,8 +27,8 @@
           1,
           1,
           4,
-          1,
-          1,
+          0,
+          0,
           null,
           null,
           1,
@@ -76,7 +76,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/rails_helper.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/rails_helper.rb": {
         "lines": [
           null,
           null,
@@ -152,7 +152,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/config/environment.rb": {
+      "/home/vikusya/ruby/innovation_forpost/config/environment.rb": {
         "lines": [
           null,
           1,
@@ -161,7 +161,7 @@
           1
         ]
       },
-      "/home/sinner/projects/innovation_forpost/config/application.rb": {
+      "/home/vikusya/ruby/innovation_forpost/config/application.rb": {
         "lines": [
           1,
           null,
@@ -193,7 +193,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/config/boot.rb": {
+      "/home/vikusya/ruby/innovation_forpost/config/boot.rb": {
         "lines": [
           1,
           null,
@@ -201,7 +201,7 @@
           1
         ]
       },
-      "/home/sinner/projects/innovation_forpost/config/environments/test.rb": {
+      "/home/vikusya/ruby/innovation_forpost/config/environments/test.rb": {
         "lines": [
           null,
           null,
@@ -254,7 +254,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/config/initializers/application_controller_renderer.rb": {
+      "/home/vikusya/ruby/innovation_forpost/config/initializers/application_controller_renderer.rb": {
         "lines": [
           null,
           null,
@@ -266,7 +266,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/config/initializers/assets.rb": {
+      "/home/vikusya/ruby/innovation_forpost/config/initializers/assets.rb": {
         "lines": [
           null,
           null,
@@ -284,7 +284,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/config/initializers/backtrace_silencers.rb": {
+      "/home/vikusya/ruby/innovation_forpost/config/initializers/backtrace_silencers.rb": {
         "lines": [
           null,
           null,
@@ -295,7 +295,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/config/initializers/content_security_policy.rb": {
+      "/home/vikusya/ruby/innovation_forpost/config/initializers/content_security_policy.rb": {
         "lines": [
           null,
           null,
@@ -329,7 +329,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/config/initializers/cookies_serializer.rb": {
+      "/home/vikusya/ruby/innovation_forpost/config/initializers/cookies_serializer.rb": {
         "lines": [
           null,
           null,
@@ -338,7 +338,7 @@
           1
         ]
       },
-      "/home/sinner/projects/innovation_forpost/config/initializers/devise.rb": {
+      "/home/vikusya/ruby/innovation_forpost/config/initializers/devise.rb": {
         "lines": [
           null,
           null,
@@ -654,7 +654,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/config/initializers/filter_parameter_logging.rb": {
+      "/home/vikusya/ruby/innovation_forpost/config/initializers/filter_parameter_logging.rb": {
         "lines": [
           null,
           null,
@@ -662,7 +662,7 @@
           1
         ]
       },
-      "/home/sinner/projects/innovation_forpost/config/initializers/inflections.rb": {
+      "/home/vikusya/ruby/innovation_forpost/config/initializers/inflections.rb": {
         "lines": [
           null,
           null,
@@ -682,7 +682,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/config/initializers/lit.rb": {
+      "/home/vikusya/ruby/innovation_forpost/config/initializers/lit.rb": {
         "lines": [
           1,
           null,
@@ -749,7 +749,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/config/initializers/mime_types.rb": {
+      "/home/vikusya/ruby/innovation_forpost/config/initializers/mime_types.rb": {
         "lines": [
           null,
           null,
@@ -757,7 +757,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/config/initializers/simple_form.rb": {
+      "/home/vikusya/ruby/innovation_forpost/config/initializers/simple_form.rb": {
         "lines": [
           null,
           null,
@@ -938,14 +938,14 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/config/initializers/storage_setup.rb": {
+      "/home/vikusya/ruby/innovation_forpost/config/initializers/storage_setup.rb": {
         "lines": [
           1,
           1,
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/config/initializers/wrap_parameters.rb": {
+      "/home/vikusya/ruby/innovation_forpost/config/initializers/wrap_parameters.rb": {
         "lines": [
           null,
           null,
@@ -963,7 +963,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/factories/answers.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/factories/answers.rb": {
         "lines": [
           null,
           null,
@@ -979,7 +979,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/factories/article_tags.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/factories/article_tags.rb": {
         "lines": [
           null,
           null,
@@ -991,7 +991,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/factories/articles.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/factories/articles.rb": {
         "lines": [
           null,
           null,
@@ -1027,7 +1027,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/factories/attachment.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/factories/attachment.rb": {
         "lines": [
           null,
           null,
@@ -1039,7 +1039,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/factories/documents.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/factories/documents.rb": {
         "lines": [
           null,
           null,
@@ -1056,7 +1056,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/factories/questions.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/factories/questions.rb": {
         "lines": [
           null,
           null,
@@ -1077,7 +1077,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/factories/tags.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/factories/tags.rb": {
         "lines": [
           null,
           null,
@@ -1088,22 +1088,23 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/factories/users.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/factories/users.rb": {
         "lines": [
           null,
           null,
           1,
           1,
-          92,
-          92,
-          92,
+          95,
+          95,
+          95,
+          99,
           null,
           1,
           2,
           null,
           null,
           1,
-          37,
+          40,
           null,
           null,
           1,
@@ -1113,7 +1114,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/config/routes.rb": {
+      "/home/vikusya/ruby/innovation_forpost/config/routes.rb": {
         "lines": [
           null,
           null,
@@ -1149,7 +1150,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/models/user.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/models/user.rb": {
         "lines": [
           null,
           null,
@@ -1174,7 +1175,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/models/application_record.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/models/application_record.rb": {
         "lines": [
           null,
           null,
@@ -1183,7 +1184,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/helpers/admins_helper.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/helpers/admins_helper.rb": {
         "lines": [
           null,
           null,
@@ -1191,7 +1192,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/helpers/application_helper.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/helpers/application_helper.rb": {
         "lines": [
           null,
           null,
@@ -1199,7 +1200,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/helpers/articles_helper.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/helpers/articles_helper.rb": {
         "lines": [
           null,
           null,
@@ -1207,7 +1208,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/support/controller_macros.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/support/controller_macros.rb": {
         "lines": [
           null,
           null,
@@ -1232,7 +1233,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/support/factory_bot.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/support/factory_bot.rb": {
         "lines": [
           null,
           null,
@@ -1241,7 +1242,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/support/shoulda_matchers.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/support/shoulda_matchers.rb": {
         "lines": [
           null,
           null,
@@ -1253,7 +1254,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/features/articles/articles_spec.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/features/articles/articles_spec.rb": {
         "lines": [
           null,
           null,
@@ -1305,7 +1306,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/features/create_attachment_spec.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/features/attachments/create_attachment_spec.rb": {
         "lines": [
           null,
           null,
@@ -1344,24 +1345,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/features/delete_attachment_spec.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          2,
-          null,
-          1,
-          1,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/sinner/projects/innovation_forpost/spec/features/update_attachment_spec.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/features/attachments/delete_attachment_spec.rb": {
         "lines": [
           null,
           null,
@@ -1374,13 +1358,68 @@
           1,
           1,
           1,
+          null,
+          null
+        ]
+      },
+      "/home/vikusya/ruby/innovation_forpost/spec/features/attachments/update_attachment_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          2,
+          null,
+          1,
+          1,
+          1,
+          1,
           1,
           1,
           null,
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/forms/create_form_spec.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/features/users/show_users_spec.rb": {
+        "lines": [
+          null,
+          1,
+          null,
+          1,
+          4,
+          null,
+          1,
+          3,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/home/vikusya/ruby/innovation_forpost/spec/forms/create_form_spec.rb": {
         "lines": [
           null,
           null,
@@ -1484,7 +1523,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/forms/articles/create_update_form.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/forms/articles/create_update_form.rb": {
         "lines": [
           null,
           null,
@@ -1493,32 +1532,32 @@
           1,
           34,
           null,
-          15,
-          15,
-          15,
-          15,
-          15,
+          13,
+          13,
+          13,
+          13,
+          13,
           null,
           null,
-          15,
-          null,
-          null,
-          1,
-          null,
-          1,
-          15,
-          null,
-          15,
-          15,
-          15,
-          null,
+          13,
           null,
           null,
           1,
-          15,
+          null,
+          1,
+          13,
+          null,
+          13,
+          13,
+          13,
+          null,
+          null,
+          null,
+          1,
+          13,
           1,
           null,
-          14,
+          12,
           30,
           null,
           30,
@@ -1528,7 +1567,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/forms/articles/base_form.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/forms/articles/base_form.rb": {
         "lines": [
           null,
           null,
@@ -1558,7 +1597,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/forms/update_form_spec.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/forms/update_form_spec.rb": {
         "lines": [
           null,
           null,
@@ -1709,7 +1748,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/models/answer_spec.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/models/answer_spec.rb": {
         "lines": [
           null,
           null,
@@ -1727,7 +1766,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/models/answer.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/models/answer.rb": {
         "lines": [
           null,
           null,
@@ -1738,7 +1777,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/models/article_spec.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/models/article_spec.rb": {
         "lines": [
           null,
           null,
@@ -1764,7 +1803,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/models/article.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/models/article.rb": {
         "lines": [
           null,
           null,
@@ -1790,13 +1829,13 @@
           1,
           1,
           null,
-          19,
-          15,
+          17,
+          13,
           5,
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/models/article_tag_spec.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/models/article_tag_spec.rb": {
         "lines": [
           null,
           null,
@@ -1810,7 +1849,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/models/article_tag.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/models/article_tag.rb": {
         "lines": [
           null,
           null,
@@ -1820,37 +1859,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/models/attachment_spec.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          null,
-          1,
-          1,
-          2,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null
-        ]
-      },
-      "/home/sinner/projects/innovation_forpost/app/models/attachment.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          null,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/sinner/projects/innovation_forpost/spec/models/document_spec.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/models/attachment_spec.rb": {
         "lines": [
           null,
           null,
@@ -1864,6 +1873,36 @@
           1,
           2,
           null,
+          null
+        ]
+      },
+      "/home/vikusya/ruby/innovation_forpost/app/models/attachment.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/home/vikusya/ruby/innovation_forpost/spec/models/document_spec.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          null,
+          1,
+          1,
+          2,
+          null,
+          null,
+          1,
+          2,
+          null,
           1,
           1,
           null,
@@ -1871,7 +1910,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/models/document.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/models/document.rb": {
         "lines": [
           null,
           null,
@@ -1882,7 +1921,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/models/question_spec.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/models/question_spec.rb": {
         "lines": [
           null,
           null,
@@ -1910,7 +1949,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/models/question.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/models/question.rb": {
         "lines": [
           null,
           null,
@@ -1924,7 +1963,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/models/tag_spec.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/models/tag_spec.rb": {
         "lines": [
           null,
           null,
@@ -1948,7 +1987,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/models/tag.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/models/tag.rb": {
         "lines": [
           null,
           null,
@@ -1964,7 +2003,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/models/user_spec.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/models/user_spec.rb": {
         "lines": [
           null,
           null,
@@ -2009,7 +2048,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/requests/admins/attachments_spec.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/requests/admins/attachments_spec.rb": {
         "lines": [
           null,
           null,
@@ -2069,7 +2108,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/requests/articles_spec.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/requests/articles_spec.rb": {
         "lines": [
           null,
           null,
@@ -2232,7 +2271,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/requests/errors_spec.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/requests/errors_spec.rb": {
         "lines": [
           null,
           null,
@@ -2262,7 +2301,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/requests/sessions_spec.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/requests/sessions_spec.rb": {
         "lines": [
           null,
           null,
@@ -2282,7 +2321,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/spec/requests/users_spec.rb": {
+      "/home/vikusya/ruby/innovation_forpost/spec/requests/users_spec.rb": {
         "lines": [
           null,
           null,
@@ -2454,7 +2493,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/controllers/admins/articles_controller.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/controllers/admins/articles_controller.rb": {
         "lines": [
           null,
           null,
@@ -2463,7 +2502,7 @@
           1,
           null,
           1,
-          14,
+          12,
           null,
           null,
           1,
@@ -2475,10 +2514,10 @@
           1,
           8,
           8,
-          4,
+          3,
           null,
-          4,
-          4,
+          5,
+          5,
           null,
           null,
           null,
@@ -2489,10 +2528,10 @@
           1,
           4,
           4,
-          2,
+          1,
           null,
-          2,
-          2,
+          3,
+          3,
           null,
           null,
           null,
@@ -2532,7 +2571,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/controllers/admins_controller.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/controllers/admins_controller.rb": {
         "lines": [
           null,
           null,
@@ -2541,7 +2580,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/controllers/application_controller.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/controllers/application_controller.rb": {
         "lines": [
           null,
           null,
@@ -2551,36 +2590,36 @@
           1,
           null,
           1,
-          808,
+          398,
           null,
           null,
           1,
-          93,
+          99,
           null,
           null,
           1,
-          97,
-          97,
+          103,
+          103,
           null,
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/presenters/article_presenter.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/presenters/article_presenter.rb": {
         "lines": [
           null,
           null,
           1,
           1,
-          15,
+          17,
           null,
           null,
           1,
-          15,
+          17,
           null,
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/controllers/articles_controller.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/controllers/articles_controller.rb": {
         "lines": [
           null,
           null,
@@ -2596,7 +2635,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/controllers/tags_controller.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/controllers/tags_controller.rb": {
         "lines": [
           null,
           null,
@@ -2611,7 +2650,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/controllers/admins/attachments_controller.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/controllers/admins/attachments_controller.rb": {
         "lines": [
           null,
           null,
@@ -2670,26 +2709,7 @@
           null
         ]
       },
-      "/home/sinner/projects/innovation_forpost/app/controllers/errors_controller.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null
-        ]
-      },
-      "/home/sinner/projects/innovation_forpost/app/controllers/admins/users_controller.rb": {
+      "/home/vikusya/ruby/innovation_forpost/app/controllers/admins/users_controller.rb": {
         "lines": [
           null,
           null,
@@ -2699,11 +2719,8 @@
           1,
           null,
           1,
-          4,
-          0,
-          null,
-          4,
-          null,
+          11,
+          11,
           null,
           null,
           1,
@@ -2726,28 +2743,26 @@
           null,
           1,
           4,
-          0,
-          0,
-          4,
+          1,
+          1,
           3,
+          2,
+          2,
+          null,
+          1,
+          null,
+          null,
+          null,
+          1,
+          4,
+          1,
           3,
-          null,
           1,
           null,
+          2,
+          2,
           null,
-          null,
-          1,
           4,
-          0,
-          0,
-          4,
-          2,
-          2,
-          null,
-          2,
-          2,
-          2,
-          null,
           null,
           null,
           1,
@@ -2757,7 +2772,7 @@
           null,
           null,
           1,
-          4,
+          3,
           null,
           null,
           1,
@@ -2769,17 +2784,36 @@
           null,
           null,
           1,
-          17,
+          20,
           null,
           null,
           1,
-          5,
+          4,
           null,
+          null,
+          null
+        ]
+      },
+      "/home/vikusya/ruby/innovation_forpost/app/controllers/errors_controller.rb": {
+        "lines": [
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
           null,
           null
         ]
       }
     },
-    "timestamp": 1659465740
+    "timestamp": 1661090052
   }
 }

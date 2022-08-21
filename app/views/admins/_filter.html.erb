@@ -1,7 +1,7 @@
 
 <div class="dropdown-trigger-1 filter-button right" href='#' data-target="filter-dropdown">
   <i class="material-icons filter">tune</i>
-  <p class="filter-title"><%= t('admins.users.filter') %></p>
+  <%= link_to t('admins.users.filter'), request.path, class: "filter-title" %>
   <i class="material-icons dropdown">arrow_drop_down</i>
   <div id='filter-dropdown' class='dropdown-content'>
 
@@ -37,10 +37,10 @@
                 </select>
               </div>
              <div class="input-field col s6">            
-              <%= f.text_field :email_cont, placeholder: "Value:", class: 'form-control' %>
+              <%= f.text_field :email_cont, placeholder: t('admins.users.email'), class: 'form-control' %>
              </div>
              <div class="input-field col s6">
-              <%= f.text_field :phone_number_start, placeholder: "Value:", class: 'form-control' %>
+              <%= f.text_field :phone_number_start, placeholder: t('admins.users.phone'), class: 'form-control' %>
              </div>
           </div> 
 
@@ -66,8 +66,8 @@
           </div>   
 
           <div class="buttons">
-            <div><%= f.submit t('admins.users.search'), class: 'filter-buttons' %></div>
-            <%= button_tag t('admins.users.clear'), :type => 'button', class: "filter-buttons", :onclick => "location.href = '#{request.path}'" %>
+            <div><%= f.submit t('admins.users.search'), class: "filter-buttons" %></div>
+            <%= link_to t('admins.users.clear'), request.path, class: "filter-buttons" %>
           </div>
 
         <% end %>

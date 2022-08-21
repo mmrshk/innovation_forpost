@@ -34,7 +34,6 @@ uk:
       functions: "Функції"
       create_new_user: "Створити нового користуача"
       filter: "Фільтр"
-      value: "Значення"
       created_at: "Створено:"
       updated_at: "Оновлено:"
       search: "Пошук"

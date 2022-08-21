@@ -5,6 +5,7 @@ FactoryBot.define do
     email { Faker::Internet.email }
     password { Faker::Internet.password(min_length: 6) }
     password_confirmation { password }
+    phone_number { '(099) 52 32 444' }
 
     trait :admin do
       role { :admin }
