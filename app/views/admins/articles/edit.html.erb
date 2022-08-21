@@ -1,4 +1,4 @@
-<div class='container'>
-  <h1 class='admin-article-title'>Edit Article</h1>
+<div class='body-container'>
+  <h1 class='admin-article-title'><%= t('admins.articles.views.edit_article') %></h1>
   <div class='block-form-article'><%= render 'form', article: @form.article, url: admins_article_path, method: 'patch' %></div>
 </div>

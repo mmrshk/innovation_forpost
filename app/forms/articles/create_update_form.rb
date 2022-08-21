@@ -2,13 +2,18 @@
 
 module Articles
   class CreateUpdateForm < Articles::BaseForm
+    IMAGE_SRC_REGEX = /src="(.*?)"/
+    INDEX_ID_FILE = 4
+    INDEX_ID_FOG = 6
+
     def save
       return false unless valid?
 
       ActiveRecord::Base.transaction do
         create_or_update_attributes!
-        @article.tags = tag_list(params[:tags])
-        @article.save!
+        set_article_to_image!
+        set_article_tags!
+
         raise ActiveRecord::Rollback unless errors.empty?
       end
 
@@ -35,6 +40,26 @@ module Articles
                    .uniq
                    .collect { |name| Tag.find_or_create_by(name: name) }
       end
+    end
+
+    def set_article_tags!
+      @article.tags = tag_list(params[:tags])
+    end
+
+    def check_index_id
+      CkEditorImageUploader.storage == CarrierWave::Storage::Fog ? INDEX_ID_FOG : INDEX_ID_FILE
+    end
+
+    def image_ids
+      @image_ids ||= @article.text.scan(IMAGE_SRC_REGEX).map do |tag_img|
+        tag_img[0].split('/')[check_index_id].to_i
+      end
+    end
+
+    def set_article_to_image!
+      return if image_ids.blank?
+
+      image_ids.each { |image_id| CkEditorImage.find(image_id).update!(article_id: @article.id) }
     end
   end
 end

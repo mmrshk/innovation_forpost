@@ -1,4 +1,4 @@
-<div class='container'>
-  <h1 class='admin-article-title'>New Article</h1>
+<div class='body-container'>
+  <h1 class='admin-article-title'><%= t('admins.articles.views.new_article') %></h1>
   <div class='block-form-article'><%= render 'form', article: @form, url: admins_articles_path, method: 'post'%></div>
 </div>

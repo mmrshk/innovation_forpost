@@ -7,6 +7,7 @@ en:
     contacts: "Contacts"
     signout: "Sign out"
     login: "Log in"
+    articles: "Articles"
   admins:
     users:
       create_success: 'User was successfully created.'
@@ -23,4 +24,33 @@ en:
       update_success: 'Article was successfully updated.'
       update_unsuccess: 'Could not update the article. Please try again.'
       destroy_success: 'The article was successfully destroyed.'
+      upload_image_unsuccess: "The image upload failed. Error: %{errors}"
+      views:
+        title: 'Articles'
+        new_article: 'New Article'
+        edit_article: 'Edit Article'
+        labels:
+          records_per_page: 'records per page'
+          title: 'Title'
+          author: 'Author'
+          status: 'Status'
+          language: 'Lang.'
+          date: 'Date'
+          functions: 'Functions'
+          tags: 'Tags'
+          continue: 'Read more'
+        buttons:
+          new_article: 'New article'
+          view: 'View'
+          edit: 'Edit'
+          delete: 'Delete'
+          back: 'Back'
+          create_article: 'Create article'
+          update_article: 'Update article'
+          all_articles: 'All articles'
+        placeholders:
+          article_title: 'Type your title here...'
+          article_tag: 'Type your tags here...'
+        hints:
+          article_tag: 'Enter tags separated by commas.'
   log_in_first: 'Please log in first'

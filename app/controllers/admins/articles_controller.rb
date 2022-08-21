@@ -5,7 +5,7 @@ module Admins
     before_action :article, only: %i[show edit update destroy]
 
     def index
-      @articles = Article.not_trashed.sorted_desc
+      @articles = Article.includes(:user).not_trashed.sorted_desc
     end
 
     def show; end
@@ -39,7 +39,8 @@ module Admins
     end
 
     def destroy
-      if article.destroy
+      @form = Articles::DestroyForm.new(params: {}, article: article)
+      if @form.save
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.destroy_success')
       else
         flash[:notice] = article.errors
@@ -47,17 +48,16 @@ module Admins
     end
 
     def upload
-      @attachment = CkEditorImage.new(file: params[:upload])
-      if @attachment.save
-        render json: {
-          url: @attachment.file.url
-        }
+      @image = CkEditorImageService.new(params[:upload])
+      if @image.save
+        render json: { url: @image.uploaded_image.url }
       else
         render json: {
           error: {
-            message: "The image upload failed. Error: #{@attachment.errors.full_messages.join(', ')}"
+            message:
+              I18n.t('admins.articles.upload_image_unsuccess', errors: @image.uploaded_image.errors.messages.join(', '))
           }
-        }
+        }, status: :unprocessable_entity
       end
     end
 
