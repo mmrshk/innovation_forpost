@@ -4,7 +4,7 @@
   align-items: baseline;
 }
 
-.tag-links {
+.tag-search {
   display: flex;
   flex-wrap: wrap;
 
@@ -13,21 +13,35 @@
     border: 2px solid $base-color;
     border-radius: 7px;
     cursor: pointer;
-    vertical-align: middle;
     margin: 7px;
     white-space: nowrap;
+    text-align: center;
+    font-family: "metropolisblack",sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: $black-color;
 
-    .tag-link {
-      text-align: center;
-      font-family: "metropolisblack",sans-serif;
-      font-weight: 700;
-      font-size: 18px;
-      letter-spacing: 1px;
-      color: $black-color;
+    &:hover {
+      background: $base-color;
+      color: $white-color;
+    }
+  }
 
-      &:hover {
-        color: $base-color;
-      }
+  .button-search {
+    margin: 40px 0 0;
+    padding: 16px 20px;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    font-size: 18px;
+    font-family: "metropolisblack",sans-serif;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+    &:hover {
+      background: $base-color;
+      color: $white-color;
     }
   }
 }

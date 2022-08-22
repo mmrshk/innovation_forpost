@@ -1,7 +1,9 @@
-<%= search_form_for @q , :html => { class: 'tag-links vertical short' } do |f| %>
+<%= search_form_for @q , url: articles_url, :html => { class: 'tag-search vertical short' } do |f| %>
   <% @tags.each do |tag| %>
-    <%= check_box_tag('q[tag_id_eq_any][]', tag.id, false, class: 'tag-link-item' ) %>
-    <div class='tag-links-item'><%= tag.name %></div>
+    <%= label_tag '', class: 'tag-search-item' do %>
+      <%= check_box_tag "q[tags_name_cont_any][]", tag.name, false %>
+      <%= tag.name %>
+    <% end %>
   <% end %>
-  <%= f.submit "Search" %>
+  <%= f.submit "Search", class: 'button-search' %>
 <% end %>
