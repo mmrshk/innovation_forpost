@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :users
     resources :attachments
     resources :questions, except: %i[create new] do
-      resources :answers
+      resources :answers, only: %i[create destroy]
     end
  
     resources :articles, except: :show do

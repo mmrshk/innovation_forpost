@@ -8,7 +8,6 @@ module Admins
 
       if @answer.save
         AnswerMailer.with(answer: @answer, question: @question, admin: current_user).question_answered.deliver_later
-        # AnswerMailer.question_answered(answer: @answer, question: @question, admin: current_user).deliver_later
         redirect_to admins_question_path(@question), notice: 'Answer created!'
       else
         redirect_to admins_question_path(@question), notice: 'Error, something goes wrong'

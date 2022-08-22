@@ -7,7 +7,7 @@
 <h1>Create Answer</h1>
 <%= simple_form_for ([:admins, @question, @answer]) do |form| %>
   <%= form.input :body, label: 'Body' %>
-  <%= form.button :submit, class: "btn-primary"%>
+  <%= form.button :submit%>
 <% end %>
 <% @answers.each do |answer| %>
   <p><%= answer.body %></p>
