@@ -22,7 +22,7 @@ RSpec.describe 'Articles', type: :feature do
       expect(page).to have_content(article.title)
       expect(page).to have_content(article.tags.pluck(:name).first)
       expect(page).to have_current_path article_path(article, locale: I18n.locale)
-      click_link 'All articles'
+      click_link I18n.t('admins.articles.views.buttons.all_articles')
       expect(page).to have_current_path articles_path(locale: I18n.locale)
     end
   end
@@ -41,7 +41,7 @@ RSpec.describe 'Articles', type: :feature do
       expect(page).to have_content(article.tags.pluck(:name).first)
       expect(page).to have_current_path tag_path(article.tags.first, locale: I18n.locale)
       expect(page).to have_content(article.title)
-      click_link 'All articles'
+      click_link I18n.t('admins.articles.views.buttons.all_articles')
       expect(page).to have_current_path articles_path(locale: I18n.locale)
     end
   end
