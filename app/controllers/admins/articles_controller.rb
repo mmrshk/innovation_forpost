@@ -18,6 +18,7 @@ module Admins
 
     def create
       @form = Articles::CreateUpdateForm.new(params: article_params)
+      @presenter = ArticlePresenter.new(@form.article)
       if @form.save
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.create_success')
       else
@@ -33,6 +34,7 @@ module Admins
 
     def update
       @form = Articles::CreateUpdateForm.new(params: article_params, article: article)
+      @presenter = ArticlePresenter.new(@form.article)
       if @form.save
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.update_success')
       else

@@ -7,5 +7,6 @@ class TagsController < ApplicationController
 
   def show
     @tag = Tag.find(params[:id])
+    @presenters = @tag.articles.map { |article| ArticlePresenter.new(article) }
   end
 end
