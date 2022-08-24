@@ -4,6 +4,8 @@ class ArticlePresenter
   include ActionView::Helpers
   include Rails.application.routes.url_helpers
 
+  attr_reader :article
+
   IMAGE_SRC_REGEX = /src="(.*?)"/
   FIGURE_REGEX = %r{<figure[^>]+>[\s\S]*?</figure>}
   LENGTH_TRUNCATE_DEFAULT = 300
@@ -34,6 +36,10 @@ class ArticlePresenter
 
   def first_article_image
     @article.text.match(IMAGE_SRC_REGEX)[1] if @article.text.match(IMAGE_SRC_REGEX)
+  end
+
+  def color
+    @article.draft? ? 'red' : 'green'
   end
 
   private

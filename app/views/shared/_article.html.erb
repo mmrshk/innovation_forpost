@@ -2,10 +2,9 @@
   <div class="article-title-text-block">
     <div class='article-title-block'><%= link_to article.title, article_path(article), class: 'article-title' %></div>
     <div class='ck-content article-text-preview'>
-      <% presenter = ArticlePresenter.new(article) %>
-      <%= sanitize presenter.article_preview_text %>
+      <%= sanitize @presenters.find { |presenter| presenter.article == article }.article_preview_text %>
     </div>
     <%= render 'shared/tags', article: article %>
   </div>
-  <div class="article-image-preview"><%= presenter.article_preview_image %></div>
+  <div class="article-image-preview"><%= @presenters.find { |presenter| presenter.article == article }.article_preview_image %></div>
 </div>

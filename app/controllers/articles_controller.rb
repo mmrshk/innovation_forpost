@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.includes(:article_tags, :tags).published.in_language(extract_locale).sorted_desc
     @tags = Tag.all
+    @presenters = @articles.map { |article| ArticlePresenter.new(article) }
   end
 
   def show

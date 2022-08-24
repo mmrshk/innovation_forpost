@@ -6,12 +6,14 @@ module Admins
 
     def index
       @articles = Article.includes(:user).not_trashed.sorted_desc
+      @presenters = @articles.map { |article| ArticlePresenter.new(article) }
     end
 
     def show; end
 
     def new
       @form = Articles::BaseForm.new(params: {})
+      @presenter = ArticlePresenter.new(@form.article)
     end
 
     def create
@@ -26,6 +28,7 @@ module Admins
 
     def edit
       @form = Articles::BaseForm.new(params: {}, article: article)
+      @presenter = ArticlePresenter.new(@form.article)
     end
 
     def update
