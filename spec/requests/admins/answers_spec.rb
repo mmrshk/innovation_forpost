@@ -15,7 +15,7 @@ RSpec.describe 'Answers', type: :request do
   describe 'DELETE /destroy' do
     let(:params) { attributes_for(:answer) }
 
-    it 'delete attachment' do
+    it 'delete answer' do
       delete admins_question_answer_path(question, answer)
       expect(response).to redirect_to admins_question_path(locale: I18n.locale)
     end
@@ -33,19 +33,13 @@ RSpec.describe 'Answers', type: :request do
 
       let(:valid_answer) { attributes_for(:answer) }
 
-      # it 'creates a new instance of Question with correct values' do
-      #   expect do
-      #     post admins_question_answers_url(question), params: { answer: valid_answer }
-      #   end.to change(Answer, :count).by(1)
-      # end
-
-      it 'creates a new instance of Question with correct values' do
+      it 'creates a new instance of Answer with correct values' do
         expect do
           post admins_question_answers_url(question), params: { answer: valid_answer }
         end.to change(Answer, :count).by(1)
       end
 
-      it 'create attachment with valid params' do
+      it 'create answer with valid params' do
         post admins_question_answers_path(question), params: { answer: params }
         expect(response).to have_http_status(:redirect)
         expect(response).to redirect_to admins_question_path(question, locale: I18n.locale)
@@ -63,14 +57,6 @@ RSpec.describe 'Answers', type: :request do
           post admins_question_answers_url(question), params: { answer: invalid_answer }
         end.not_to change(Answer, :count)
       end
-
-      # it "renders a successful response (i.e. to display the 'new' template)" do
-      #   get admins_question_url(question)
-      #   expect(response).to have_http_status(:success)
-      #   expect(response).to render_template(:show, :admins)
-      #   post admins_question_answers_url(question), params: { answer: invalid_params } # must be 'post'
-      #   expect(response).to render_template(:show)
-      # end
     end
   end
 end
