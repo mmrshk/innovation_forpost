@@ -32,7 +32,6 @@ RSpec.describe 'Companies', type: :request do
       it 'creates a new company' do
         post admins_companies_url, params: { company: valid_company }
         expect(response).to have_http_status(:redirect)
-        # expect(response).to redirect_to(assigns(:company))
         follow_redirect!
         expect(response).to have_http_status(:success)
         expect(response).to render_template(:index)
@@ -136,6 +135,21 @@ RSpec.describe 'Companies', type: :request do
       expect(response).to have_http_status(:success)
       expect(response).to render_template(:index)
       expect(response.body).to include(I18n.t('admins.companies.destroy_success'))
+    end
+
+    context 'failing the destroy function' do
+      let(:valid_company) { build_stubbed(:company) }
+
+      before do
+        allow(valid_company).to receive(:destroy).and_return(false)
+        allow(Company).to receive(:find).and_return(valid_company)
+      end
+
+      it 'renders delete' do
+        delete admins_company_url(valid_company)
+        expect(response).to have_http_status(:no_content)
+        expect(response).to render_template(:index)
+      end
     end
   end
 end
