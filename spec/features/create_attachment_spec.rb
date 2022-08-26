@@ -8,7 +8,7 @@ RSpec.describe 'Creating an attachment', type: :feature do
   before do
     sign_in user
   end
-  
+
   scenario 'with valid inputs' do
     visit new_admins_attachment_path
     fill_in I18n.t('admin.attachments.name'), with: 'IndustrialPark'
@@ -39,4 +39,3 @@ RSpec.describe 'Creating an attachment', type: :feature do
     expect(page).to have_content(attachment.id)
   end
 end
-
