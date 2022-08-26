@@ -58,4 +58,29 @@ en:
       update_success: 'Company was successfully updated.'
       update_unsuccess: 'Could not update the Company. Please try again.'
       destroy_success: 'The Company was successfully destroyed.'
+      views:
+        title: 'Companies'
+        new_company: 'New company'
+        edit_company: 'Edit company'
+        labels:
+          name: 'Name'
+          start_year: 'Year'
+          projects_count: 'Projects'
+          clients_count: 'Clients'
+          grants_count: 'Grants'
+          text_about: 'About company'
+          logo: 'Logo'
+        buttons:
+          new_company: 'Add company'
+          view: 'View'
+          edit: 'Edit'
+          delete: 'Delete'
+          back: 'Back'
+          create_company: 'Create company'
+          update_company: 'Update company'
+          all_companies: 'All companies'
+        placeholders:
+        hints:
+          logo_present: 'Logo present'
+          logo_absent: 'Logo absent'
   log_in_first: 'Please log in first'

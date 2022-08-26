@@ -1,0 +1,104 @@
+<div class='body-container'>
+  <div class='admin-article-group'>
+  <h1 class='admin-article-title'><%= t('admins.companies.views.title') %></h1>
+  <%= link_to t('admins.companies.views.buttons.new_company'), new_admins_company_path, class:'admin-article-button text' %>
+  </div>
+
+  <div class="container-records-and-filters">
+    <div class="container-records">
+      <input class="browser-default records-per-page" type="number" value="10" step="10" min="10" id="number-articles">
+      <label class="label-records-per-page"><%= t('admins.articles.views.labels.records_per_page') %></label>
+    </div>
+    <%= render 'filter' %>
+  </div>
+
+  <div class='wrapper-table-company'>
+    <div class='header-table-company'>
+      <div class='header-cell-company'>
+        <%= t('admins.companies.views.labels.name') %>
+      </div>
+      <div class='header-cell-company'>
+        <%= t('admins.companies.views.labels.start_year') %>
+      </div>
+      <div class='header-cell-company'>
+        <%= t('admins.companies.views.labels.projects_count') %>
+      </div>
+      <div class='header-cell-company'>
+        <%= t('admins.companies.views.labels.clients_count') %>
+      </div>
+      <div class='header-cell-company'>
+        <%= t('admins.companies.views.labels.grants_count') %>
+      </div>
+      <div class='header-cell-company'>
+        <%= t('admins.companies.views.labels.text_about') %>
+      </div>
+      <div class='header-cell-company'>
+        <%= t('admins.companies.views.labels.logo') %>
+      </div>
+      <div class='header-cell-company'>
+        <span><%= t('admins.companies.views.labels.functions') %><%= fa_icon('gear', class:'fa-icon-functions label')%></span>
+      </div>
+    </div>
+
+    <% @companies.each do |company| %>
+      <div class='row-table js-table-accordions'>
+        <button class="accordion wide"><%= company.name %></button>
+        <div class="cell"><%= company.name %></div>
+        <div class="cell"><%= company.start_year %></div>
+        <div class="cell"><%= company.projects_count %></div>
+        <div class="cell"><%= company.clients_count %></div>
+        <div class="cell"><%= company.grants_count %></div>
+        <div class="cell">
+          <span class='hover-target word-transfer', tabindex='0'><%= truncate(company.text_about, length:50) %></span>
+          <aside class='hover-popup'><%= company.text_about %></aside>
+        </div>
+        <div class="cell">
+          <% if company.logo %>
+            <span>
+              <i class='material-icons hover-target', tabindex='0'>check_circle</i>
+              <aside class='hover-popup-button'><%= t('admins.companies.views.hints.logo_present') %></aside>
+            </span>
+          <% else %>
+            <span>
+              <i class='material-icons hover-target', tabindex='0'>remove_circle</i>
+              <aside class='hover-popup-button'><%= t('admins.companies.views.hints.logo_absent') %></aside>
+            </span>
+          <% end %>
+        </div>
+        <div class="cell">
+          <div class='button-functions-articles'>
+
+            <%= link_to companies_path(company), class: 'button-functions-articles' do %>
+              <span>
+                <i class='material-icons hover-target', tabindex='0'>remove_red_eye</i>
+                <aside class='hover-popup-button'><%= t('admins.companies.views.buttons.view') %></aside>
+                <span><%= t('admins.companies.views.buttons.view') %></span>
+              </span>
+            <% end %>
+
+            <%= link_to edit_admins_company_path(company), class: 'button-functions-articles' do %>
+              <span>
+                <i class='material-icons hover-target'>edit</i>
+                <aside class='hover-popup-button'><%= t('admins.companies.views.buttons.edit') %></aside>
+                <span><%= t('admins.companies.views.buttons.edit') %></span>
+              </span>
+            <% end %>
+
+            <%= link_to admins_company_path(company), method: :delete, data: { confirm: "Are you sure?" }, class: 'button-functions-articles' do %>
+              <span>
+                <i class='material-icons hover-target'>delete</i>
+                <aside class='hover-popup-button'><%= t('admins.companies.views.buttons.delete') %></aside>
+                <span><%= t('admins.companies.views.buttons.delete') %></span>
+              </span>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
+  <%= render 'admins/users/pagination' %>
+</div>
+
+<%= javascript_pack_tag 'accordions' %>
