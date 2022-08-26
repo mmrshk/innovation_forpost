@@ -44,3 +44,5 @@ Tag.all.each do |tag|
       article_id: Article.all.sample.id
     )
 end
+
+FactoryBot.create_list(:company, 2)
