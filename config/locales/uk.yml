@@ -69,6 +69,10 @@ uk:
           article_tag: 'Введіть теги тут...'
         hints:
           article_tag: 'Введіть теги розділені комами'
+    attachments:
+      create_attachment: 'Вкладення успішно створено!'
+      edit_attachment: 'Вкладення успішно відредаговано'
+      delete_attachment: 'Вкладення видалено'
   log_in_first: 'Залогуйтесь будь ласка.'
 
 

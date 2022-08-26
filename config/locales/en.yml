@@ -53,4 +53,8 @@ en:
           article_tag: 'Type your tags here...'
         hints:
           article_tag: 'Enter tags separated by commas.'
+    attachments:
+      create_attachmennt: 'You added a new attachment!'
+      edit_attachment: 'You successfully edited an attachment!'
+      delete_attachment: 'You deleted an attachment!'
   log_in_first: 'Please log in first'
