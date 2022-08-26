@@ -3,9 +3,11 @@
 module Admins
   class AttachmentsController < ApplicationController
     before_action :attachment, only: %i[show edit update destroy]
+    before_action :authenticate_user!
 
     def index
-      @attachments = Attachment.all
+      @q = Attachment.ransack(params[:q])
+      @attachments = @q.result.includes(media_file_attachment: :blob).all
     end
 
     def show; end
@@ -18,7 +20,7 @@ module Admins
       @attachment = Attachment.new(attachment_params)
 
       if @attachment.save
-        flash[:success] = 'You added a new attachment!'
+        flash[:success] = I18n.t('admins.attachments.create_attachment')
         redirect_to admins_attachments_path
       else
         render :new
@@ -29,7 +31,7 @@ module Admins
 
     def update
       if @attachment.update(attachment_params)
-        flash[:success] = 'You successfully edited an attachment!'
+        flash[:success] = I18n.t('admins.attachments.edit_attachment')
         redirect_to admins_attachment_path(@attachment.id)
       else
         render :edit
@@ -38,7 +40,7 @@ module Admins
 
     def destroy
       @attachment.destroy
-      flash[:success] = 'You deleted an attachment!'
+      flash[:success] = I18n.t('admins.attachments.delete_attachment')
       redirect_to admins_attachments_path
     end
 

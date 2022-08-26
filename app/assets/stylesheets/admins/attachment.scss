@@ -13,7 +13,41 @@ $invalid-color: red;
 }
 
 .title-attachment {
-  padding: 0.5rem;
+  text-align: center;
+  padding-left: 30px;
+
+  .image-attachment {
+    border-radius: 10px;
+  }
+}
+
+.title-table-attachment {
+  border: solid 1px ;
+  border-style: solid none;
+  padding: 10px;
+  background-color: $background-color-title;
+  color: $white-color;
+  border-radius: 0px;
+  height: 60px;
+  font-weight: 400;
+  padding-left: 30px;
+  text-align: center;
+
+  a {
+    color: $white-color;
+  }
+}
+
+.title-table-attachment:first-child {
+  border-left-style: solid;
+  border-top-left-radius: 30px; 
+  border-bottom-left-radius: 30px;
+}
+
+.title-table-attachment:last-child {
+  border-right-style: solid;
+  border-bottom-right-radius: 30px; 
+  border-top-right-radius: 30px; 
   text-align: center;
 }
 
@@ -58,8 +92,8 @@ $invalid-color: red;
 
 .attachment-field.media {
    margin-bottom: 10px;
+   color: $scrool-gray-color;
 }
-
 
 .submit-button {
   font-size: 18px;
@@ -76,16 +110,17 @@ $invalid-color: red;
 }
 
 .path-new-attachment {
-  text-decoration: none;
-  color: $scrool-gray-color;
-  background-color: $background-color-title;
-  border-radius: 20px;
+  min-width: 210px;
+  height: 50px;
+  color: #fff;
+  background-color: #62B5E5;
+  font-size: 18px;
+  border-radius: 30px;
   padding: 10px;
-  margin-left: 20%;
-}
-
-.path-attachment {
-  margin: 20px;
+  text-align: center;
+  text-decoration: none;  
+  float: right;
+  margin-bottom: 20px;
 }
 
 .attachment-link {
@@ -197,28 +232,28 @@ td.links {
   height: 100%;
 }
 
-.test-title:after{
-  content: "";
-  width: 60%;
-  height: 35px;
-  left: 20%;
-  background-color: rgb(0,40,85);
-  position: absolute;
-  border-radius: 24px;
-  z-index: -1;
-}
-
-.test-title{
-  -moz-border-radius: 26px;
-  -webkit-border-radius: 26px;
-  border-radius: 26px;
-}
-
 .input_error {
   color: $invalid-color;
 }
 
 .error-media {
   position: relative;
-  top: 65px;
+  margin-left: -15px;
+}
+
+.back-button {
+  padding: 10px;
+  width: 80px;
+  height: 40px;
+  margin-top: 20px;
+  background-color: #003087;
+  border-radius: 10px;
+  float: right;
+  margin-right: 100px;
+}
+
+.back-button-text {
+  color: #fff;
+  font-weight: 300;
+  letter-spacing: 1px;
 }
