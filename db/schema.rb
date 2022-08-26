@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_12_152503) do
+ActiveRecord::Schema.define(version: 2022_08_26_044027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -163,6 +163,22 @@ ActiveRecord::Schema.define(version: 2022_08_12_152503) do
     t.string "user_name", null: false
     t.string "user_email"
     t.text "body", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "resident_forms", force: :cascade do |t|
+    t.string "customer_full_name"
+    t.string "in_person"
+    t.string "project_name"
+    t.string "address"
+    t.string "phone_email"
+    t.string "purpose"
+    t.string "activity"
+    t.integer "area"
+    t.integer "danger_class"
+    t.boolean "electicity_supply"
+    t.text "reqirements"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

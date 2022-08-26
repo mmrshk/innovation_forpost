@@ -1,0 +1,19 @@
+<%= turbo_frame_tag "modal" do %>
+  <h1>Resident form</h1>
+
+  <%= simple_form_for(@resident) do |f| %>
+      <%= f.input :customer_full_name %>
+      <%= f.input :in_person %>
+      <%= f.input :project_name %>
+      <%= f.input :address %>
+      <%= f.input :phone_email %>
+      <%= f.input :purpose %>
+      <%= f.input :activity %>
+      <%= f.input :area %>
+      <%= f.input :danger_class %>
+      <%= f.input :electicity_supply %>
+      <%= f.input :reqirements %>
+
+      <%= f.button :submit %>
+  <% end %>
+<% end %>
