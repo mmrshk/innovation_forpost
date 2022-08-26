@@ -7,7 +7,7 @@ module Admins
 
     def index
       @q = Attachment.ransack(params[:q])
-      @attachments = @q.result.includes(media_file_attachment: :blob).all
+      @attachments = Attachment.includes(media_file_attachment: :blob).all
     end
 
     def show; end
