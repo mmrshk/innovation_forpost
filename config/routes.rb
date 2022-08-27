@@ -15,6 +15,8 @@ Rails.application.routes.draw do
         post :upload
       end
     end
+
+    resources :companies, except: :show
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -28,7 +30,8 @@ Rails.application.routes.draw do
     resources :articles, only: %i[index show] 
     resources :tags, only: %i[index show]
     root to: "home#index"
-    resources :questions, only: %i[index new create show] 
+    resources :questions, only: %i[index new create show]
+    get '/companies', to: 'companies#index'
   end
 
   get '/404', to: 'errors#not_found'
