@@ -6,5 +6,7 @@
     </div>
     <%= render 'shared/tags', article: article %>
   </div>
-  <div class="article-image-preview"><%= ArticlePresenter.new(article).article_preview_image %></div>
+  <div class="article-preview-image">
+    <%= ArticlePresenter.new(article).article_preview_image %>
+  </div>
 </div>

@@ -31,7 +31,8 @@ class ArticlePresenter
                       class: 'image-preview'),
             controller: 'articles',
             action: 'show',
-            id: @article.id
+            id: @article.id,
+            locale: I18n.locale
   end
 
   def first_article_image
