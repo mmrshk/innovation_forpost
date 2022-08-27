@@ -1,7 +1,7 @@
 .admin-article-title {
   width: 100%;
   margin: 0;
-  font-family: 'Roboto';
+  font-family: roboto, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 50px;
@@ -23,9 +23,12 @@
     min-width: 295px;
     background: $admin-background-color-button;
     border-radius: 30px;
-    font-family: 'Roboto';
-    text-transform: capitalize; 
+    font-family: roboto, sans-serif;
+    font-style: normal;
+    font-weight: 400;
     font-size: 30px;
+    line-height: 35px;
+    text-transform: capitalize;
     text-decoration: none;
     letter-spacing: .5px;
     color: $white-color;
@@ -51,7 +54,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-top: 6px;
+      padding-top: 12px;
       padding-right: 10px;
     }
   }

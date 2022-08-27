@@ -89,7 +89,6 @@ ActiveRecord::Schema.define(version: 2022_08_25_093845) do
     t.integer "clients_count", default: 0
     t.integer "grants_count", default: 0
     t.string "text_about", null: false
-    t.string "logo"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
