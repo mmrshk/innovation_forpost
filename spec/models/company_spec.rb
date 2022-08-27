@@ -34,7 +34,6 @@ RSpec.describe Company, type: :model do
     it { should validate_presence_of(:text_about) }
     it { should validate_length_of(:text_about).is_at_least(20) }
     it { should validate_length_of(:text_about).is_at_most(1000) }
-    it { should validate_presence_of(:logo) }
     it { should validate_presence_of(:media_file) }
   end
 

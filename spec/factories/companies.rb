@@ -3,12 +3,11 @@
 FactoryBot.define do
   factory :company do
     name { Faker::Company.name }
-    start_year { 2010 }
+    start_year { rand(2000..Date.today.year) }
     projects_count { rand(1..100) }
     clients_count { rand(1..100) }
     grants_count { rand(1..100) }
-    text_about { Faker::Lorem.characters(number: 100) }
-    logo { 'f.jpg' }
+    text_about { Faker::Lorem.sentences(number: 5).join }
     media_file { Rack::Test::UploadedFile.new('spec/files/f.jpg', 'image/jpg') }
   end
 
@@ -19,7 +18,6 @@ FactoryBot.define do
     clients_count { nil }
     grants_count { -1 }
     text_about { Faker::Lorem.characters(number: 10) }
-    logo { 'image' }
     media_file { Rack::Test::UploadedFile.new('spec/files/image') }
   end
 end
