@@ -61,3 +61,5 @@ group :test do
   gem 'simplecov', require: false
   gem 'webdrivers', '~> 5.0.0'
 end
+
+gem 'scenic', '~> 1.6'
