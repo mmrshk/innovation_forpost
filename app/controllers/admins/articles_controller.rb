@@ -6,7 +6,6 @@ module Admins
 
     def index
       @articles = Article.includes(:user).not_trashed.sorted_desc
-      @presenters = @articles.map { |article| ArticlePresenter.new(article) }
     end
 
     def show; end
