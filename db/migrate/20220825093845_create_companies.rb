@@ -7,7 +7,6 @@ class CreateCompanies < ActiveRecord::Migration[6.0]
       t.integer :clients_count, default: 0
       t.integer :grants_count, default: 0
       t.string :text_about, null: false
-      t.string :logo
 
       t.timestamps
     end
