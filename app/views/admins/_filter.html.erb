@@ -1,79 +1,74 @@
-
 <div class="dropdown-trigger-1 filter-button right" href='#' data-target="filter-dropdown">
   <i class="material-icons filter">tune</i>
   <%= link_to t('admins.users.filter'), request.path, class: "filter-title" %>
   <i class="material-icons dropdown">arrow_drop_down</i>
   <div id='filter-dropdown' class='dropdown-content'>
 
-   <div class="row">
-
-       <form class="col s12"> 
+    <div class="row">
+      <form class="col s12"> 
         <%= search_form_for @q, url: admins_users_path do |f| %>
-         <div class="input-top">
-           <div class="input-field col s6">
+          <div class="input-top">
+            <div class="input-field col s6">
               <label class="filter-text-label"><%= t('admins.users.role') %></label>
               <i class="material-icons select">arrow_drop_down</i>
-               <%= f.select(:role_eq, 
+                <%= f.select(:role_eq, 
                     options_for_select(User.roles.map {|k, v| [k.humanize.capitalize, v]}, f.object.role_eq), 
                     { include_blank: true }, 
                     {class: "form-control filter" })
-                  %>
+                %>
             </div>
           </div>
 
-           <div class="input-middle">
-             <div class="input-field col s6">
+          <div class="input-middle">
+            <div class="input-field col s6">
               <label class="filter-text-label"><%= t('admins.users.email') %></label>
               <i class="material-icons select">arrow_drop_down</i>
                 <select class="browser-default filter-option">
-                   <option value="1">Contains</option>
+                    <option value="1">Contains</option>
                 </select>
-              </div>
-             <div class="input-field col s6">
+            </div>
+            <div class="input-field col s6">
               <label class="filter-text-label"><%= t('admins.users.phone') %></label>
               <i class="material-icons select">arrow_drop_down</i>
                 <select class="browser-default filter-option">
-                   <option value="1">Equals</option>
+                    <option value="1">Equals</option>
                 </select>
-              </div>
-             <div class="input-field col s6">            
+            </div>
+            <div class="input-field col s6">            
               <%= f.text_field :email_cont, placeholder: t('admins.users.email'), class: 'form-control' %>
-             </div>
-             <div class="input-field col s6">
+            </div>
+            <div class="input-field col s6">
               <%= f.text_field :phone_number_start, placeholder: t('admins.users.phone'), class: 'form-control' %>
-             </div>
+            </div>
           </div> 
 
           <div class="input-bottom">      
-             <div class="input-field col s6">
-                <%= f.text_field :created_at_gteq,  placeholder: "Start at:", class: 'datepicker' %>   
-               <i class="material-icons calendar">date_range</i>          
-               <%= f.label :created_at, t('admins.users.created_at'), class: 'filter-field-name' %>    
-             </div>
-             <div class="input-field col s6">
-                <%= f.text_field :updated_at_gteq,  placeholder: "Start at:", class: 'datepicker' %>   
-               <i class="material-icons calendar">date_range</i>          
-               <%= f.label :updated_at, t('admins.users.updated_at'), class: 'filter-field-name' %>  
-             </div>
-             <div class="input-field col s6">
-                <%= f.text_field :created_at_lteq,  placeholder: "End at:", class: 'datepicker' %>   
-               <i class="material-icons calendar">date_range</i>
-             </div>
-             <div class="input-field col s6">
-                <%= f.text_field :updated_at_lteq,  placeholder: "End at:", class: 'datepicker' %>   
-               <i class="material-icons calendar">date_range</i>
-             </div>
+            <div class="input-field col s6">
+              <%= f.text_field :created_at_gteq,  placeholder: "Start at:", class: 'datepicker' %>   
+              <i class="material-icons calendar">date_range</i>          
+              <%= f.label :created_at, t('admins.users.created_at'), class: 'filter-field-name' %>    
+            </div>
+            <div class="input-field col s6">
+              <%= f.text_field :updated_at_gteq,  placeholder: "Start at:", class: 'datepicker' %>   
+              <i class="material-icons calendar">date_range</i>          
+              <%= f.label :updated_at, t('admins.users.updated_at'), class: 'filter-field-name' %>  
+            </div>
+            <div class="input-field col s6">
+              <%= f.text_field :created_at_lteq,  placeholder: "End at:", class: 'datepicker' %>   
+              <i class="material-icons calendar">date_range</i>
+            </div>
+            <div class="input-field col s6">
+              <%= f.text_field :updated_at_lteq,  placeholder: "End at:", class: 'datepicker' %>   
+              <i class="material-icons calendar">date_range</i>
+            </div>
           </div>   
 
           <div class="buttons">
             <div><%= f.submit t('admins.users.search'), class: "filter-buttons" %></div>
             <%= link_to t('admins.users.clear'), request.path, class: "filter-buttons" %>
           </div>
-
         <% end %>
-       </form> 
-     </div>  
-   </div>  
-  
+      </form> 
+    </div>  
+  </div>  
 </div>
-

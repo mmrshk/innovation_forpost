@@ -12,7 +12,6 @@ function init() {
     closeOnClick: false,
     constrainWidth: false,
   };
-  console.log(elems)
   let instances = M.Dropdown.init(elems, options);
 
   var datepickers = document.querySelectorAll('.datepicker');
