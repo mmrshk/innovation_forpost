@@ -16,6 +16,7 @@ module Admins
 
     def create
       @company = Company.new(company_params)
+
       if @company.save
         redirect_to admins_companies_path, notice: I18n.t('admins.companies.create_success')
       else
@@ -57,7 +58,6 @@ module Admins
                                       :clients_count,
                                       :grants_count,
                                       :text_about,
-                                      :logo,
                                       :media_file)
     end
   end
