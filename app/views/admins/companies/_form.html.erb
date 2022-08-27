@@ -1,0 +1,17 @@
+<%= simple_form_for company, local: true, url: url, method: method do |f| %>
+  <%= f.input :name, autofocus: true %>
+  <%= f.input :start_year %>
+  <%= f.input :projects_count %>
+  <%= f.input :clients_count %>
+  <%= f.input :grants_count %>
+  <%= f.input :text_about %>
+  <%= f.input :logo %>
+  <%= f.input :media_file, as: :file, label: "Company's logo" %>
+
+  <div class='admin-article-group reverse'>
+    <%= link_to admins_companies_path, class: 'admin-article-button' do %>
+      <span class='admin-article-button_icon-text'><i class='material-icons arrow-back'>arrow_back</i><%= t('admins.articles.views.buttons.back') %></span>
+    <% end %>
+    <%= f.button :submit, class: 'admin-article-button' %>
+  </div>
+<% end %>

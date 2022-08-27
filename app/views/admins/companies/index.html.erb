@@ -44,6 +44,7 @@
       <div class='row-table js-table-accordions'>
         <button class="accordion wide"><%= company.name %></button>
         <div class="cell"><%= company.name %></div>
+        <div class="cell"><%= image_tag company.media_file %></div>
         <div class="cell"><%= company.start_year %></div>
         <div class="cell"><%= company.projects_count %></div>
         <div class="cell"><%= company.clients_count %></div>
@@ -68,7 +69,7 @@
         <div class="cell">
           <div class='button-functions-articles'>
 
-            <%= link_to companies_path(company), class: 'button-functions-articles' do %>
+            <%= link_to companies_path, class: 'button-functions-articles' do %>
               <span>
                 <i class='material-icons hover-target', tabindex='0'>remove_red_eye</i>
                 <aside class='hover-popup-button'><%= t('admins.companies.views.buttons.view') %></aside>
