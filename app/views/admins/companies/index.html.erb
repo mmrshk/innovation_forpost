@@ -44,7 +44,6 @@
       <div class='row-table js-table-accordions'>
         <button class="accordion wide"><%= company.name %></button>
         <div class="cell"><%= company.name %></div>
-        <div class="cell"><%= image_tag company.media_file %></div>
         <div class="cell"><%= company.start_year %></div>
         <div class="cell"><%= company.projects_count %></div>
         <div class="cell"><%= company.clients_count %></div>
@@ -54,7 +53,7 @@
           <aside class='hover-popup'><%= company.text_about %></aside>
         </div>
         <div class="cell">
-          <% if company.logo %>
+          <% if company.media_file %>
             <span>
               <i class='material-icons hover-target', tabindex='0'>check_circle</i>
               <aside class='hover-popup-button'><%= t('admins.companies.views.hints.logo_present') %></aside>

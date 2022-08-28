@@ -40,7 +40,6 @@ module Admins
       if @company.destroy
         redirect_to admins_companies_path, notice: I18n.t('admins.companies.destroy_success')
       else
-        render :index, status: :no_content
         flash[:notice] = @company.errors
       end
     end
