@@ -19,6 +19,10 @@ FactoryBot.define do
       language { nil }
     end
 
+    trait :user_example_id do
+      user_id { (create :user, :super_admin, :example_email).id }
+    end
+
     trait :with_tags do
       transient do
         tags_count { 2 }

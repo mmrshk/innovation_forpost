@@ -17,5 +17,9 @@ FactoryBot.define do
     trait :regular_user do
       role { :user }
     end
+
+    trait :example_email do
+      email {'admin@example.com'}
+    end
   end
 end
