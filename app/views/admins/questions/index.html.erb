@@ -1,60 +1,29 @@
 <div class='body-container'>
   <div class='admin-question-group'>
-  <h1 class='admin-question-title'><%= "Питання" %></h1>
-  <%= link_to "Створити питання", new_question_path, class:'admin-article-button text' %>
+    <h1 class='admin-question-title'><%= "Questions" %></h1>
+    <%= link_to "Create question", new_question_path, class:'admin-question-button text' %>
   </div>
-<table class="table-question">
-  <div class='header-table'>
-      <div class='header-cell'>
-        <%= link_to fa_icon('sort', text: 'Title', class:'fa-icon'), sort:"language" %>
-      </div>
-      <div class='header-cell'>
-        <%= link_to fa_icon('sort', text: "Автор", class:'fa-icon'), sort:"updated_at" %>
-      </div>
-      <div class='header-cell'>
-        <span><%= 'Функції' %><%= fa_icon('gear', class:'fa-icon-functions label')%></span>
-      </div>
-    </div>
-  <tbody>
-    <% @questions.each do |question| %>
-       <div class='row-table js-table-accordions'>
-        <button class="accordion"><%= question.title %></button>
-        <div class="cell"><%= link_to question.title, admins_question_path(question) %></div>
-        <div class="cell">
-          <span class='hover-target', tabindex='0'><%= question.user_email %></span>
-          <aside class='hover-popup'><%= question.user_email %></aside>
-        </div>
-       
-        <div class="cell">
-          <div class='button-functions-questions'>
 
-            <%= link_to question_path(question), class: 'button-functions-questions' do %>
-              <span>
-              <i class='material-icons hover-target', tabindex='0'>remove_red_eye</i>
-              <aside class='hover-popup-button'><%= t('admins.questions.views.buttons.view') %></aside>
-              <span><%= t('admins.questions.views.buttons.view') %></span>
-            </span>
-            <% end %>
+  <table class="body-table">
+      <thead>
+        <tr>
+          <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Title', class:'fa-icon'), :sort => "id" %> </th>
+          <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Email', class:'fa-icon'), :sort => "email"%> </th>
+          <th colspan="3", class="title-table-user">Functions <%= fa_icon('gear', class:'fa-icon')%> </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @questions.each do |question| %>
+          <tr>
+            <td class="field-table-user"><%= question.title %></td>
+            <td class="field-table-user"><%= question.user_email %></td>
+            <td class="field-table-user button-functions"><%= link_to fa_icon('eye', text: 'View'), admins_questions_path(question), class: "button-functions" %></td>
+            <td class="field-table-user button-functions"><%= link_to fa_icon('edit', text: 'Edit'), admins_questions_path(question), class: "button-functions" %></td>
+            <td class="field-table-user button-functions"><%= link_to fa_icon('trash', text: 'Delete'),admins_questions_path(question), method: :delete, data: { confirm: 'Are you sure?' }, class: "button-functions" %></td>
+            
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-            <%= link_to edit_admins_question_path(question), class: 'button-functions-questions' do %>
-              <span>
-                <i class='material-icons hover-target'>edit</i>
-                <aside class='hover-popup-button'><%= t('admins.questions.views.buttons.edit') %></aside>
-                <span><%= t('admins.questions.views.buttons.edit') %></span>
-              </span>
-            <% end %>
-
-            <%= link_to admins_question_path(question), method: :delete, data: { confirm: "Are you sure?" }, class: 'button-functions-questions' do %>
-              <span>
-                <i class='material-icons hover-target'>delete</i>
-                <aside class='hover-popup-button'><%= t('admins.questions.views.buttons.delete') %></aside>
-                <span><%= t('admins.questions.views.buttons.delete') %></span>
-              </span>
-            <% end %>
-
-          </div>
-        </div>
-      </div>
-    <% end %>
-  </tbody>
-</table>
+</div>

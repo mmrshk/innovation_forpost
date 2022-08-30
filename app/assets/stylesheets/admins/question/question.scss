@@ -1,15 +1,4 @@
-@import "font-awesome";
-
-$invalid-color: red;
-
-.table-question {
-  width: 60%;
-  height: 60px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.admin-question-title {
+.admin-article-title {
   width: 100%;
   margin: 0;
   font-family: 'Roboto';
@@ -20,13 +9,15 @@ $invalid-color: red;
   color: $background-color-title;
 }
 
-.admin-article-group {
+
+
+.admin-question-group {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
 
-  .admin-article-button {
+  .admin-question-button {
     margin: 20px 0px;
     padding: 0;
     height: 60px;
@@ -68,146 +59,91 @@ $invalid-color: red;
   }
 }
 
-
-.title-attachment {
-  padding: 0.5rem;
-  text-align: center;
-  
+.body-table { 
+  border-collapse: separate; 
+  border-spacing: 0 10px; 
+  margin-top: 10px; 
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 
-.title-question-text {
-  color: $black-color;
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 25px;
+.title-table-user {
+  border: solid 1px ;
+  border-style: solid none;
+  padding: 10px;
+  background-color: $background-color-title;
+  color: $white-color;
+  border-radius: 0px;
+  height: 60px;
+  font-weight: 400;
+  padding-left: 30px;
+
+  a {
+    color: $white-color;
+  }
 }
 
-.block-form {
+.field-table-user {
+  padding-left: 30px;
+}
+
+
+.form-container {
   display: flex;
   align-items: center;
   justify-content: center;
-}
 
-.form-question {
-  width: 60%;
-  max-width: 400px;
-  border-radius: 20px;
-  padding: 20px;
-  border: 4px solid $border-color;
-  box-sizing: border-box;
-}
+  .show {
+    max-width: 300px;
+    padding: 20px;
+    border: 2px solid $black-color;
+    box-shadow: 0px 8px 16px 0px $scrool-gray-color;
 
-.choose-button {
-  background-color: $white-color;
-}
+    &_button {
+      margin-left: 10px;
+      background-color: $base-color;
+      z-index: 0;
 
-.name-field, .question-field {
-  margin-bottom: 10px;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 25px;
-  line-height: 29px;
-  display: flex;
-  align-items: center;
-  color: $border-color;
-}
-
-.submit-button {
-  font-size: 20px;
-  width: 30%;
-  height: 40px;
-  float: right;
-  background-color: $background-color-title;
-  border: 1px solid $black-color;
-  border-radius: 20px;
-  color: $white-color;
-  cursor: pointer;
-  min-width: 80px;
-}
-
-.path-new-question {
-  text-decoration: none;
-  color: $scrool-gray-color;
-  background-color: $background-color-title;
-  border-radius: 20px;
-  padding: 10px;
-  margin-left: 20%;
-}
-
-.path-question {
-  margin: 20px;
-}
-
-.question-link {
-  text-decoration: none;
-  color: $black-color;
-  margin-left: 5px;
-
-  &:hover {
-    color: $base-color;
-  }
-}
-
-.header-table {
-  display: table-row-group;
-  height: 60px;
-  background: $background-color-title;
-  font-weight: 400;
-  color: $white-color;
- 
-
-  .header-cell:first-child {
-    width: 29%;
-    padding: 6px 12px 6px 30px;
-    border-top-left-radius: 30px; 
-    border-bottom-left-radius: 30px;
-  }
-
-  .header-cell:nth-child(2) {
-    width: 18%;
-  }
-
-  .header-cell:nth-child(3) {
-    width: 10%;
-  }
-
-  .header-cell:nth-child(4) {
-    width: 8%;
-  }
-
-  .header-cell:nth-child(5) {
-    width: 10%;
-  }
-
-  .header-cell:last-child {
-    width: 24%;
-    padding: 6px 30px 6px 12px;
-    border-bottom-right-radius: 30px; 
-    border-top-right-radius: 30px; 
-  }
-
-  .header-cell {
-    display: table-cell;
-    vertical-align: middle;
-    padding: 6px 12px;
-    word-spacing: 3px;
-    white-space: nowrap;
-
-    a, .fa-icon{
-      font-weight: 400;
-      color: $white-color;
-    }
-
-    span .label {
-      padding-left: 3px;
-      color: $white-color;
+      a {
+        color: $white-color;
+        text-decoration: none;
+      }
     }
   }
 
-  @media screen and (max-width: $breakpoint) {
-      display: none;
-      height: 0;
+  .form {
+    max-width: 600px;
+
+    .error {
+      color: $mobile-red-color;
+    }
+
+    .btn {
+      margin-left: 10px;
+      padding: 0;
+      z-index: 0;
+
+      .btn-area {
+        cursor: pointer;
+        background-color: $base-color;
+        color: $white-color;
+        padding: 10px 25px;
+
+        &.cancel {
+          background-color: #ef5350;
+        }
+      }
+    }
+
+    .button-functions {
+      display: flex;
+      justify-content: space-between;
+
+      .btn {
+        margin: 0;
+      }
+    }
   }
 }
+
 
