@@ -10,7 +10,7 @@ admin = User.create!(
   role: :super_admin
 )
 
-FactoryBot.create_list(:user, 5, :with_random_role)
+FactoryBot.create_list(:user, 50, :with_random_role)
 
 FactoryBot.create_list(:article, 25, :with_random_user, :with_random_status, :with_random_language, :with_random_count_tags)
 
