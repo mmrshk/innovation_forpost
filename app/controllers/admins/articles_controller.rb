@@ -48,17 +48,16 @@ module Admins
     end
 
     def upload
-      @attachment = CkEditorImage.new(file: params[:upload])
-      if @attachment.save
-        render json: {
-          url: @attachment.file.url
-        }
+      @image = CkEditorImageService.new(params[:upload])
+      if @image.save
+        render json: { url: @image.uploaded_image.url }
       else
         render json: {
           error: {
-            message: "The image upload failed. Error: #{@attachment.errors.full_messages.join(', ')}"
+            message:
+              I18n.t('admins.articles.upload_image_unsuccess', errors: @image.uploaded_image.errors.messages.join(', '))
           }
-        }
+        }, status: :unprocessable_entity
       end
     end
 

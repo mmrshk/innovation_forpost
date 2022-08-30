@@ -5,7 +5,7 @@ module Admins
     before_action :attachment, only: %i[show edit update destroy]
 
     def index
-      @pagy, @attachments = pagy(Attachment.all)
+      @pagy, @attachments = pagy(Attachment.includes(media_file_attachment: :blob).all)
     end
 
     def show; end

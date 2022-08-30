@@ -1,4 +1,4 @@
-if Rails.env.test?
+if !Rails.env.production?
   CarrierWave.configure do |config|
     config.storage = :file
     config.enable_processing = false
@@ -12,7 +12,7 @@ else
       region:                Rails.application.credentials.aws[:region]
     }
     config.fog_directory = Rails.application.credentials.aws[:bucket]
-    config.fog_public    = false
+    config.fog_public    = true
     config.cache_dir     = "#{Rails.root}/tmp/uploads"
     config.storage       = :fog
   end

@@ -1,6 +1,7 @@
 <div class="mobile-menu">
   <ul class="mobile-menu_list">
     <li class="item"><%= link_to t('menu.innovateForpost'), '#' %></li>
+    <li class="item"><%= link_to t('menu.articles'), articles_path %></li>
     <li class="item"><%= link_to t('menu.about'), '#' %></li>
     <li class="item"><%= link_to t('menu.contacts'), '#' %></li>
     <% if user_signed_in? %>
@@ -46,6 +47,7 @@
       <% end %>
       <ul class="menu">
         <li class="item"><%= link_to t('menu.innovateForpost'), '#' %></li>
+        <li class="item"><%= link_to t('menu.articles'), articles_path %></li>
         <li class="item"><%= link_to t('menu.about'), '#' %></li>
         <li class="item"><%= link_to t('menu.contacts'), '#' %></li>
         <% if user_signed_in? %>        

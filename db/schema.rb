@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_07_24_121834) do
+ActiveRecord::Schema.define(version: 2022_08_25_093845) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,7 +78,19 @@ ActiveRecord::Schema.define(version: 2022_07_24_121834) do
     t.bigint "article_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "url"
     t.index ["article_id"], name: "index_ck_editor_images_on_article_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "start_year", default: 2010
+    t.integer "projects_count", default: 0
+    t.integer "clients_count", default: 0
+    t.integer "grants_count", default: 0
+    t.string "text_about", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "documents", force: :cascade do |t|
@@ -182,7 +194,7 @@ ActiveRecord::Schema.define(version: 2022_07_24_121834) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "phone_number"
-    t.integer "role", default: 0
+    t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

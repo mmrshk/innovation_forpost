@@ -7,6 +7,7 @@ uk:
     contacts: "Контакти"
     signout: "Вийти"
     login: "Увійти"
+    articles: "Статті"
   admin:
     attachments:
       media_file: "Вкладення"
@@ -34,4 +35,40 @@ uk:
       update_success: 'Стаття була успішно оновлена.'
       update_unsuccess: 'Неможливо оновити статтю. Виправте помилки.'
       destroy_success: 'Стаття була успішно видалена.'
+      views:
+        title: 'Статті'
+        new_article: 'Нова стаття'
+        edit_article: 'Редагувати статтю'
+        labels:
+          records_per_page: 'записів на сторінці'
+          title: 'Заголовок'
+          author: 'Автор'
+          status: 'Статус'
+          language: 'Мова'
+          date: 'Дата'
+          functions: 'Функції'
+          tags: 'Теги'
+          continue: 'Читати далі'
+        buttons:
+          new_article: 'Додати статтю'
+          view: 'Переглянути'
+          edit: 'Редагувати'
+          delete: 'Видалити'
+          back: 'Назад'
+          create_article: 'Створити статтю'
+          update_article: 'Оновити статтю'
+          all_articles: 'Всі статті'
+        placeholders:
+          article_title: 'Введіть заголовок тут...'
+          article_tag: 'Введіть теги тут...'
+        hints:
+          article_tag: 'Введіть теги розділені комами'
+    companies:
+      create_success: 'Компанія успішно створена.'
+      create_unsuccess: 'Неможливо створити Компанію. Виправте помилки.'
+      update_success: 'Компанія була успішно оновлена.'
+      update_unsuccess: 'Неможливо оновити Компанію. Виправте помилки.'
+      destroy_success: 'Компанія була успішно видалена.'
   log_in_first: 'Залогуйтесь будь ласка.'
+
+

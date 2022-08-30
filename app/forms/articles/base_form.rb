@@ -12,7 +12,8 @@ module Articles
                   :text,
                   :status,
                   :language,
-                  :tags
+                  :tags,
+                  :ck_editor_images
 
     validates_presence_of :title, :text, :user_id, :language, :status
 

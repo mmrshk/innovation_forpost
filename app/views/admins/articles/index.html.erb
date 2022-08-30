@@ -1,7 +1,7 @@
-<div class='container'>
+<div class='body-container'>
   <div class='admin-article-group'>
-  <h1 class='admin-article-title'>Articles</h1>
-  <%= link_to 'New Article', new_admins_article_path, class:'admin-article-button text' %>
+  <h1 class='admin-article-title'><%= t('admins.articles.views.title') %></h1>
+  <%= link_to t('admins.articles.views.buttons.new_article'), new_admins_article_path, class:'admin-article-button text' %>
   </div>
 
   <div class="container-records-and-filters">
@@ -10,38 +10,74 @@
     </div>
     <%= render 'shared/filter' %>
   </div>
-  
-  <table>
-    <thead>
-      <tr>
-        <td>Title</td>
-        <td>Author</td>
-        <td>Status</td>
-        <td>Language</td>
-        <td>Functions</td>
-      </tr>
-    </thead>
-    <tbody>
-      <% @articles.each do |article| %>
-        <tr>
-          <td><%= link_to article.title, article_path(article, locale: :uk) %></td>
-          <td><%= link_to article.user.email, '#' %></td>
-          <td><%= article.status %></td>
-          <td><%= article.language %></td>
-          <td>
-              <%= link_to article_path(article, locale: article.language.to_sym), class: 'article-link' do %>
-                <span><i class='material-icons tiny'>remove_red_eye</i>View</span>
-              <% end %>
-              <%= link_to edit_admins_article_path(article), class: 'article-link' do %>
-                <span><i class='material-icons tiny'>edit</i>Edit</span>
-              <% end %>
-              <%= link_to admins_article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: 'article-link' do %>
-                <span><i class='material-icons tiny'>delete</i>Delete</span>
-              <% end %>
-          </td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+
+  <div class='wrapper-table'>
+    <div class='header-table'>
+      <div class='header-cell'>
+        <%= link_to fa_icon('sort', text: t('admins.articles.views.labels.title'), class:'fa-icon'), sort: "title" %>
+      </div>
+      <div class='header-cell'>
+        <%= link_to fa_icon('sort', text: t('admins.articles.views.labels.author'), class:'fa-icon'), sort: "user_id" %>
+      </div>
+      <div class='header-cell'>
+        <%= link_to fa_icon('sort', text: t('admins.articles.views.labels.status'), class:'fa-icon'), sort:"status" %>
+      </div>
+      <div class='header-cell'>
+        <%= link_to fa_icon('sort', text: t('admins.articles.views.labels.language'), class:'fa-icon'), sort:"language" %>
+      </div>
+      <div class='header-cell'>
+        <%= link_to fa_icon('sort', text: t('admins.articles.views.labels.date'), class:'fa-icon'), sort:"updated_at" %>
+      </div>
+      <div class='header-cell'>
+        <span><%= t('admins.articles.views.labels.functions') %><%= fa_icon('gear', class:'fa-icon-functions label')%></span>
+      </div>
+    </div>
+
+    <% @articles.each do |article| %>
+      <div class='row-table js-table-accordions'>
+        <button class="accordion"><%= article.title %></button>
+        <div class="cell"><%= link_to article.title, article_path(article, locale: article.language.to_sym) %></div>
+        <div class="cell">
+          <span class='hover-target', tabindex='0'><%= article.user.email %></span>
+          <aside class='hover-popup'><%= article.user.email %></aside>
+        </div>
+        <div class="cell"><%= article.status %></div>
+        <div class="cell"><%= article.language %></div>
+        <div class="cell"><%= l(article.updated_at, format: '%d %b %Y') %></div>
+        <div class="cell">
+          <div class='button-functions-articles'>
+
+            <%= link_to article_path(article, locale: article.language.to_sym), class: 'button-functions-articles' do %>
+              <span>
+              <i class='material-icons hover-target', tabindex='0'>remove_red_eye</i>
+              <aside class='hover-popup-button'><%= t('admins.articles.views.buttons.view') %></aside>
+              <span><%= t('admins.articles.views.buttons.view') %></span>
+            </span>
+            <% end %>
+
+            <%= link_to edit_admins_article_path(article), class: 'button-functions-articles' do %>
+              <span>
+                <i class='material-icons hover-target'>edit</i>
+                <aside class='hover-popup-button'><%= t('admins.articles.views.buttons.edit') %></aside>
+                <span><%= t('admins.articles.views.buttons.edit') %></span>
+              </span>
+            <% end %>
+
+            <%= link_to admins_article_path(article), method: :delete, data: { confirm: "Are you sure?" }, class: 'button-functions-articles' do %>
+              <span>
+                <i class='material-icons hover-target'>delete</i>
+                <aside class='hover-popup-button'><%= t('admins.articles.views.buttons.delete') %></aside>
+                <span><%= t('admins.articles.views.buttons.delete') %></span>
+              </span>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+  </div>
   <%== render partial: 'shared/pagination', locals: {pagy: @pagy} %>
 </div>
+
+<%= javascript_pack_tag 'accordions' %>
