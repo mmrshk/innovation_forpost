@@ -7,7 +7,7 @@ FactoryBot.define do
     projects_count { rand(1..100) }
     clients_count { rand(1..100) }
     grants_count { rand(1..100) }
-    text_about { Faker::Lorem.sentences(number: 5).join }
+    text_about { Faker::Lorem.sentences(number: 10).join }
     media_file { Rack::Test::UploadedFile.new('spec/files/f.jpg', 'image/jpg') }
   end
 

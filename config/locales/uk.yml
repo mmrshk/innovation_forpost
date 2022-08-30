@@ -92,6 +92,8 @@ uk:
           update_company: 'Оновити компанію'
           all_companies: 'Всі компанії'
         placeholders:
+          name: 'Введіть назву тут...'
+          start_year: 'Введіть назву тут...'
         hints:
           logo_present: 'Логотип наявний'
           logo_absent: 'Логотип відсутній'

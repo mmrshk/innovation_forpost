@@ -1,7 +1,6 @@
 $accordionColour: $admin-background-color-button;
 $iconSize: 32px;
 $breakpoint: 800px;
-$breakpoint-wide: 1250px;
 
 .js-table-accordions {
   .cell {
@@ -29,10 +28,6 @@ $breakpoint-wide: 1250px;
 
     @media all and (min-width: $breakpoint) { display: none; }
 
-    &.wide {
-      @media all and (min-width: $breakpoint-wide) { display: none; }
-    }
-
     &:hover {
       outline: none;
       background-color: $accordionColour;
@@ -51,11 +46,6 @@ $breakpoint-wide: 1250px;
       background-size: $iconSize $iconSize;
     }
   }
-
-  .wide {
-    @media all and (min-width: $breakpoint-wide) { display: none; }
-  }
-
 }
 
 .js-table-accordions.active {

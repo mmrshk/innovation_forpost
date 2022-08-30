@@ -1,6 +1,14 @@
 <%= simple_form_for company, local: true, url: url, method: method do |f| %>
-  <%= f.input :name, autofocus: true %>
-  <%= f.input :start_year %>
+  <%= f.input :name, autofocus: true,
+                     label: t('admins.companies.views.labels.name'),
+                     label_html: { class: 'name-field-form' },
+                     placeholder: t('admins.companies.views.placeholders.start_year'),
+                     error_html: { class: 'error-form-input' } %>
+  <%= f.input :start_year,
+                     label: t('admins.companies.views.labels.name'),
+                     label_html: { class: 'name-field-form' },
+                     placeholder: t('admins.companies.views.placeholders.companies_name'),
+                     error_html: { class: 'error-form-input' } %>
   <%= f.input :projects_count %>
   <%= f.input :clients_count %>
   <%= f.input :grants_count %>

@@ -1,0 +1,72 @@
+.hover-target-company {
+  position: relative;
+  white-space: nowrap;
+  cursor: default;
+}
+
+.hover-target-company:hover,
+.hover-target-company:focus {
+  transform: scale(1);
+}
+
+.hover-popup-company-button {
+  display: none;
+}
+
+@media screen and (max-width: 1700px) and (min-width: 1111px) {
+
+  .hover-popup-company-button {
+    position: absolute;
+    display: block;
+    width: auto;
+    background-color: #ddd;
+    border-radius: 8px;
+    padding: 12px;
+    z-index: 42;
+    transform: scale(0);
+    transition: transform 200ms ease;
+    transform-origin: 8% -10px;
+    margin-top: 32px;
+    margin-left: 56px;
+  }
+
+  .first {
+    margin-left: 66px;
+  }
+
+  .last {
+    margin-left: 44px;
+  }
+
+  .logo {
+    margin-top: 5px;
+    margin-left: -17px;
+  }
+
+  .hover-target-company:hover + .hover-popup-company-button,
+  .hover-target-company:focus + .hover-popup-company-button,
+  .hover-popup-company-button:hover{
+    transform: scale(1);
+  }
+
+  .hover-popup-company-button::before {
+    content: '';
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid $gray-color;
+    top: -10px;
+    left: 18px;
+    transform: rotate(0deg);
+  }
+
+  .hover-popup-company-button::after {
+    content: '';
+    position: absolute;
+    top: -16px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+}
