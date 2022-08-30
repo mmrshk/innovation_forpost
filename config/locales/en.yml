@@ -16,10 +16,6 @@ en:
       last_super_admin: 'You are a last super admin'
       user_sucessfully_deleted: "User successfully deleted."
       current_user_account_destroy_prohibited: "Current user account destroy prohibited."
-      pagy: 
-        item_name:
-          one: "item"
-          other: "items"
     articles:
       create_success: 'Article was successfully created.'
       create_unsuccess: 'Could not create the article. Please try again'
