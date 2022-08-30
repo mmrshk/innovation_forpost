@@ -3,6 +3,14 @@
   <h1 class='admin-article-title'>Articles</h1>
   <%= link_to 'New Article', new_admins_article_path, class:'admin-article-button text' %>
   </div>
+
+  <div class="container-records-and-filters">
+    <div class="container-records">
+      <%== pagy_items_selector_js(@pagy) %>
+    </div>
+    <%= render 'shared/filter' %>
+  </div>
+  
   <table>
     <thead>
       <tr>
@@ -35,4 +43,5 @@
       <% end %>
     </tbody>
   </table>
+  <%== render partial: 'shared/pagination', locals: {pagy: @pagy} %>
 </div>

@@ -5,7 +5,7 @@ module Admins
     before_action :article, only: %i[show edit update destroy]
 
     def index
-      @articles = Article.includes(:user).not_trashed.sorted_desc
+      @pagy, @articles = pagy(Article.includes(:user).not_trashed.sorted_desc)
     end
 
     def show; end
