@@ -1,4 +1,13 @@
-<div class="path-attachment"><%= link_to t('admin.attachments.title.new'), new_admins_attachment_path, class: 'path-new-attachment' %></div> 
+<div class="path-attachment">
+  <%= link_to t('admin.attachments.title.new'), new_admins_attachment_path, class: 'path-new-attachment' %>
+</div> 
+
+<div class="container-records-and-filters">
+  <div class="container-records">
+    <%== pagy_items_selector_js(@pagy) %>
+  </div>
+</div>
+
 <table class="table-attachment">
   <thead>
     <tr class="table-attachment-title test-title">
@@ -23,3 +32,4 @@
     <% end %>
   </tbody>
 </table>
+<%== render partial: 'shared/pagination', locals: {pagy: @pagy} %>

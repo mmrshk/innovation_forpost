@@ -5,7 +5,7 @@ module Admins
     before_action :attachment, only: %i[show edit update destroy]
 
     def index
-      @attachments = Attachment.all
+      @pagy, @attachments = pagy(Attachment.all)
     end
 
     def show; end
