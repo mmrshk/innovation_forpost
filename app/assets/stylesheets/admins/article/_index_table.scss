@@ -125,10 +125,6 @@
   padding-right: 20px;
 }
 
-.cell:nth-child(4) {
-  color: var(--cell);
-}
-
 .cell:nth-child(5) {
   white-space: nowrap;
 
@@ -139,6 +135,14 @@
 
 .cell:last-child {
   padding: 6px 30px 6px 12px;
+}
+
+.text-red {
+  color: $red-color;
+}
+
+.text-green {
+  color: $green-color;
 }
 
 .cell {

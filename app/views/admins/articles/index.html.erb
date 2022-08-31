@@ -41,7 +41,7 @@
           <span class='hover-target', tabindex='0'><%= article.user.email %></span>
           <aside class='hover-popup'><%= article.user.email %></aside>
         </div>
-        <div class="cell"><%= article.status %></div>
+        <div class="cell text-<%= ArticlePresenter.new(article).color %>"><%= article.status %></div>
         <div class="cell"><%= article.language %></div>
         <div class="cell"><%= l(article.updated_at, format: '%d %b %Y') %></div>
         <div class="cell">
