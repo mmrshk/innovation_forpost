@@ -19,7 +19,7 @@ FactoryBot.define do
     end
 
     trait :example_email do
-      email {'admin@example.com'}
+      email { 'admin@example.com' }
     end
   end
 end

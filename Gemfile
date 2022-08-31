@@ -24,6 +24,7 @@ gem 'puma', '~> 4.1'
 gem 'rails-i18n', '~> 6.0'
 gem 'redis', '~> 4.0'
 gem 'sass-rails', '>= 6'
+gem 'scenic', '~> 1.6'
 gem 'simple_form', '~> 5.1'
 gem 'turbo-rails', '~> 1.1', '>= 1.1.1'
 gem 'webpacker', '~> 4.0'
@@ -61,5 +62,3 @@ group :test do
   gem 'simplecov', require: false
   gem 'webdrivers', '~> 5.0.0'
 end
-
-gem 'scenic', '~> 1.6'

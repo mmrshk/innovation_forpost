@@ -5,7 +5,7 @@ FactoryBot.define do
     name { "#{Faker::Lorem.unique.word}_tag" }
 
     trait :work_tag do
-      name {'work'}
+      name { 'work' }
     end
   end
 end
