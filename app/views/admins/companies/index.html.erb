@@ -49,7 +49,7 @@
         <div class="cell-company" data-label="<%= t('admins.companies.views.labels.grants_count') %>:"><%= company.grants_count %></div>
         <div class="cell-company" data-label="<%= t('admins.companies.views.labels.text_about') %>:">
           <span class='hover-target word-transfer'><%= truncate(company.text_about, length: 50) %></span>
-          <aside class='hover-popup'><%= company.text_about %></aside>
+          <aside class='hover-popup about-popup'><%= company.text_about %></aside>
         </div>
         <div class="cell-company" data-label="<%= t('admins.companies.views.labels.logo') %>:">
           <% if company.media_file %>

@@ -70,6 +70,7 @@ en:
           grants_count: 'Grants'
           text_about: 'About company'
           logo: 'Logo'
+          functions: 'Functions'
         buttons:
           new_company: 'Add company'
           view: 'View'
@@ -79,7 +80,14 @@ en:
           create_company: 'Create company'
           update_company: 'Update company'
           all_companies: 'All companies'
+          upload_logo: 'Upload logo'
         placeholders:
+          companies_name: 'Type the name here...'
+          start_year: 'Type the founding year here...'
+          projects_count: 'Type the number of projects here...'
+          clients_count: 'Type the number of customers here...'
+          grants_count: 'Type the number of grants here...'
+          text_about: 'Type company information here...'
         hints:
           logo_present: 'Logo present'
           logo_absent: 'Logo absent'

@@ -1,7 +1,10 @@
 .hover-target-company {
   position: relative;
   white-space: nowrap;
-  cursor: default;
+}
+
+.about-popup {
+  display: block;
 }
 
 .hover-target-company:hover,
@@ -41,6 +44,7 @@
   .logo {
     margin-top: 5px;
     margin-left: -17px;
+    cursor: default;
   }
 
   .hover-target-company:hover + .hover-popup-company-button,

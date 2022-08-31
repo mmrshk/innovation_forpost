@@ -1,0 +1,169 @@
+.short-fields {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 20px 0px;
+
+  @media screen and (max-width: 640px) {
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+.block-form-article {
+  .form-input {
+    margin: 10px;
+    font-family: roboto, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 29px;
+
+    &[type=number]:not(.browser-default):focus:not([readonly]) {
+      border-bottom: 1px solid $border-color;
+      box-shadow: 0 1px 0 0 $border-color;
+    }
+  }
+
+  .name {
+    font-weight: 600;
+  }
+
+  .text_about {
+    padding: 10px;
+    height: 250px;
+    border-radius: 10px;
+    // height: calc(20px + (50 - 20) * ((100vw - 320px) / (1200 - 320)));
+
+    font-family: roboto, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 29px;
+    // font-weight: bold;
+
+    &[type=text]:not(.browser-default):focus:not([readonly]) {
+      border-bottom: 1px solid $border-color;
+      box-shadow: 0 1px 0 0 $border-color;
+    }
+  }
+
+  .button-logo {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    // border: 1px solid $border-color;
+    // border-radius: 10px;
+
+
+    .company_media_file {
+      margin: 20px 10px 20px 0;
+      padding: 0;
+      height: 60px;
+      width: 295px;
+      min-width: 295px;
+      // background: $admin-background-color-button;
+      background: white;
+      border: 4px solid $background-color-title;
+      border-radius: 30px;
+      
+      transition: background-color .2s ease-out;
+      cursor: pointer;
+    
+      &:hover {
+        background-color: $background-color-title;
+
+        label {
+          color: $white-color;
+        }
+
+      }
+    
+      &:focus {
+        background-color: $admin-background-color-button;
+      }
+
+      .for-button {
+        position: absolute;
+        padding-top: 15px;
+      }
+    
+      label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 8px;
+
+        font-family: roboto, sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 30px;
+        line-height: 35px;
+        // text-transform: capitalize;
+        text-decoration: none;
+        letter-spacing: .5px;
+        // color: $white-color;
+        color: $background-color-title;
+      }
+
+      // &:hover {
+      //   color: $white-color;
+      // }
+    
+      // &:focus {
+      //   color: $white-color;
+      // }
+    
+      // &_icon-text {
+      //   display: flex;
+      //   align-items: center;
+      //   justify-content: center;
+      //   padding-top: 12px;
+      //   padding-right: 10px;
+      // }
+    }
+
+    .logo-preview-block {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 10px 0px 10px 10px;
+      width: 120px;
+      height: 120px;
+      border: 1px solid rgb(118, 118, 118);
+      border-radius: 10px;
+      background-color: $light-grey-text;
+
+
+      .logo-preview {
+        width: 112px;
+        height: 112px;
+        object-fit: cover;
+        padding: 15px;
+      }
+    }
+
+
+  
+    @media screen and (max-width: 640px) {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+      .company_media_file {
+        margin: 20px 0;
+      }
+  
+      .logo-preview-block {
+        margin: 20px 0;
+      }
+    }
+
+
+  }
+
+  
+}
