@@ -4,6 +4,11 @@ require 'rails_helper'
 
 RSpec.describe 'Updating an attachment', type: :feature do
   let!(:attachment) { create(:attachment) }
+  let!(:user) { create(:user) }
+
+  before do
+    sign_in user
+  end
 
   scenario 'with valid name' do
     visit admins_attachments_path

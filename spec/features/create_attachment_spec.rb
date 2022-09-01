@@ -3,6 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe 'Creating an attachment', type: :feature do
+  let!(:user) { create(:user) }
+
+  before do
+    sign_in user
+  end
+
   scenario 'with valid inputs' do
     visit new_admins_attachment_path
     fill_in I18n.t('admin.attachments.name'), with: 'IndustrialPark'
