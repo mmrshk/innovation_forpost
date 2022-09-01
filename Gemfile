@@ -25,6 +25,7 @@ gem 'rails-i18n', '~> 6.0'
 gem 'redis', '~> 4.0'
 gem 'sass-rails', '>= 6'
 gem 'simple_form', '~> 5.1'
+gem 'scenic'
 gem 'turbo-rails', '~> 1.1', '>= 1.1.1'
 gem 'webpacker', '~> 4.0'
 

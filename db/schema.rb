@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_25_093845) do
+ActiveRecord::Schema.define(version: 2022_08_28_215532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -205,4 +205,17 @@ ActiveRecord::Schema.define(version: 2022_08_25_093845) do
   add_foreign_key "article_tags", "tags"
   add_foreign_key "articles", "users"
   add_foreign_key "ck_editor_images", "articles"
+
+  create_view "return_articles", sql_definition: <<-SQL
+      SELECT articles.id,
+      articles.title,
+      articles.text,
+      articles.user_id,
+      articles.created_at,
+      articles.updated_at,
+      articles.status,
+      articles.language
+     FROM articles
+    WHERE (articles.status = 1);
+  SQL
 end
