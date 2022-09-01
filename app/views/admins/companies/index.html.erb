@@ -6,8 +6,7 @@
 
   <div class="container-records-and-filters">
     <div class="container-records">
-      <input class="browser-default records-per-page" type="number" value="10" step="10" min="10" id="number-articles">
-      <label class="label-records-per-page"><%= t('admins.articles.views.labels.records_per_page') %></label>
+      <%== pagy_items_selector_js(@pagy) %>
     </div>
     <%= render 'shared/filter' %>
   </div>
@@ -98,5 +97,5 @@
 
     </div>
   </div>
-  <%= render 'admins/users/pagination' %>
+  <%== render partial: 'shared/pagination', locals: {pagy: @pagy} %>
 </div>

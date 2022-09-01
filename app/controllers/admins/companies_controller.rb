@@ -5,7 +5,7 @@ module Admins
     before_action :company, only: %i[show edit update destroy]
 
     def index
-      @companies = Company.all
+      @pagy, @companies = pagy(Company.all)
     end
 
     def show; end
