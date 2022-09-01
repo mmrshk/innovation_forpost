@@ -16,10 +16,10 @@ RSpec.describe ArticlesDbView, type: :model do
     subject { described_class.all }
     let!(:user_valid)   { create(:user, :admin, user_data_valid) }
     let!(:article)      { create(:article, :published, article_work_valid) }
+    let!(:article_tag)  { create(:article_tag, article_tag_work) }
     
-    tag_set.map do |tag_item|
+    tag_set.each do |tag_item|
       let!(:tag)          { create(:tag, name: tag_item) }
-      let!(:article_tag)  { create(:article_tag, article_tag_work) }
 
       it 'Should show articles with a certain tag' do
         expect(subject.count).to eq(1)
