@@ -8,6 +8,7 @@ module Admins
     def index
       @q = Attachment.ransack(params[:q])
       @attachments = Attachment.includes(media_file_attachment: :blob).all
+      @pagy, @attachments = pagy(Attachment.includes(media_file_attachment: :blob).all)
     end
 
     def show; end
