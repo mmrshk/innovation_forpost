@@ -4,6 +4,11 @@ require 'rails_helper'
 
 RSpec.describe 'Deleting an attachment', type: :feature do
   let!(:attachment) { create(:attachment) }
+  let!(:user) { create(:user) }
+
+  before do
+    sign_in user
+  end
 
   scenario 'delete an attachment' do
     visit admins_attachments_path

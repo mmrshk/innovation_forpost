@@ -1,6 +1,7 @@
 en:
   en: "EN"
   uk: "UA"
+  activemodel:
   menu:
     innovateForpost: "Innovate fortpost"
     about: "About"
@@ -52,6 +53,10 @@ en:
           article_tag: 'Type your tags here...'
         hints:
           article_tag: 'Enter tags separated by commas.'
+    attachments:
+      create_attachmennt: 'You added a new attachment!'
+      edit_attachment: 'You successfully edited an attachment!'
+      delete_attachment: 'You deleted an attachment!'
     companies:
       create_success: 'Company was successfully created.'
       create_unsuccess: 'Could not create the Company. Please try again'

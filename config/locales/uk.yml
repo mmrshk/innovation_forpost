@@ -1,6 +1,11 @@
 uk:
   en: "EN"
   uk: "UA"
+  activemodel:
+    attributes:
+      attachment:
+        name: "Ім'я"
+        madia_file: "Вкладення"
   menu:
     innovateForpost: "Індустріальні парки"
     about: "Про нас"
@@ -12,10 +17,11 @@ uk:
     attachments:
       media_file: "Вкладення"
       name: "Ім'я"
+      links: "Функції"
       choose_file: "Оберіть файл"
       title:
         edit: "Редагувати вкладення:"
-        new: "Створити нове вкладення:"
+        create_new_attachment: "Створити нове вкладення:"
       view_link: "Переглянути"
       edit_link: "Редагувати"
       delete_link: "Видалити"
@@ -63,6 +69,10 @@ uk:
           article_tag: 'Введіть теги тут...'
         hints:
           article_tag: 'Введіть теги розділені комами'
+    attachments:
+      create_attachment: 'Вкладення успішно створено!'
+      edit_attachment: 'Вкладення успішно відредаговано'
+      delete_attachment: 'Вкладення видалено'
     companies:
       create_success: 'Компанія успішно створена.'
       create_unsuccess: 'Неможливо створити компанію. Виправте помилки.'
