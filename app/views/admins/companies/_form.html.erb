@@ -43,7 +43,7 @@
                      label: t('admins.companies.views.buttons.upload_logo'),
                      error_html: { class: 'error-form-input for-button' } %>
     <div class='logo-preview-block'>
-      <% if f.object.media_file.present? %>
+      <% if f.object.media_file.present? && f.object.media_file.variable? %>
         <%= image_tag f.object.media_file.variant(resize_to_limit: [100, 100]) %>
       <% else %>
         <i class='material-icons arrow-back'>image</i>
