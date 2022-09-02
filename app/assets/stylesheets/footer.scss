@@ -47,9 +47,10 @@
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 720px) {
   .footer-top {
     flex-wrap: wrap;
+    flex-direction: column;
 
     #logo-main {
       margin-bottom: 50px;
@@ -71,6 +72,17 @@
 
     &_item {
       padding: 10px 40px 20px 0;
+    }
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .footer-links {
+    flex-direction: column;
+
+    &_item {
+      text-align: center;
+      padding: 20px;
     }
   }
 }

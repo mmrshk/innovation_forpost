@@ -1,17 +1,18 @@
 <div class="mobile-menu">
   <ul class="mobile-menu_list">
     <li class="item"><%= link_to t('menu.innovateForpost'), '#' %></li>
+    <li class="item"><%= link_to t('menu.articles'), articles_path %></li>
     <li class="item"><%= link_to t('menu.about'), '#' %></li>
     <li class="item"><%= link_to t('menu.contacts'), '#' %></li>
     <% if user_signed_in? %>
-      <li class="item"><%= button_to t('menu.signout'), destroy_user_session_path, method: :delete, class: "mobile-log" %></li>
+      <li class="item"><%= link_to t('menu.signout'), destroy_user_session_path, method: :delete, class: "mobile-log" %></li>
     <% else %>
       <li class="item"><%= link_to t('menu.login'), new_user_session_path, class: "mobile-log" %></li>
     <% end %>
     <% if params[:locale] == "uk" %>
-      <li class="item"><%= link_to t('en'), root_path(locale: :en) %></li>
+      <li class="item"><%= link_to t('en'), url_for(locale: :en) %></li>
     <% else %>
-      <li class="item"><%= link_to t('uk'), root_path(locale: :uk) %></li>
+      <li class="item"><%= link_to t('uk'), url_for(locale: :uk) %></li>
     <% end %>
   </ul>
 </div>
@@ -46,18 +47,32 @@
       <% end %>
       <ul class="menu">
         <li class="item"><%= link_to t('menu.innovateForpost'), '#' %></li>
+        <li class="item"><%= link_to t('menu.articles'), articles_path %></li>
         <li class="item"><%= link_to t('menu.about'), '#' %></li>
         <li class="item"><%= link_to t('menu.contacts'), '#' %></li>
-        <% if user_signed_in? %>
-          <li><%= button_to t('menu.signout'), destroy_user_session_path, method: :delete, class: "log-out" %></li>
+        <% if user_signed_in? %>        
+          <div id="user-menu">
+            <i class="small material-icons">account_circle</i>
+            <ul class="user-menu_content">
+              <li><%= link_to "Profile", admins_user_path(current_user) %></li>
+              <li><%= link_to "Settings", edit_user_registration_path %></li>
+              <li><%= link_to t('menu.signout'), destroy_user_session_path, method: :delete %></li>
+              <% if current_user.role_admin? || current_user.role_super_admin? %>
+                <li><%= link_to "Articles", admins_articles_path  %></li>
+                <% if current_user.role_super_admin? %>
+                  <li><%= link_to "Users", admins_users_path %></li>
+                <% end %>
+              <% end %>
+            </ul>
+          </div>
         <% else %>
           <li class="item"><%= link_to t('menu.login'), new_user_session_path, id: "login" %></li>
         <% end %>
         <div class="dropdown">
           <button class="dropbtn"><%= t( I18n.locale ) %></button>
-          <ul class="dropdown-content">
-            <li><%= link_to t('en'), root_path(locale: :en) %></li>
-            <li><%= link_to t('uk'), root_path(locale: :uk) %></li>
+          <ul class="dropdown-cont">
+            <li><%= link_to t('en'), url_for(locale: :en) %></li>
+            <li><%= link_to t('uk'), url_for(locale: :uk) %></li>
           </ul>
         </div>
       </ul>

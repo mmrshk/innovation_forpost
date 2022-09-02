@@ -1,24 +1,31 @@
 uk:
   en: "EN"
   uk: "UA"
+  activemodel:
+    attributes:
+      attachment:
+        name: "Ім'я"
+        madia_file: "Вкладення"
   menu:
-    innovateForpost: "Індиструальні парки"
+    innovateForpost: "Індустріальні парки"
     about: "Про нас"
     contacts: "Контакти"
     signout: "Вийти"
     login: "Увійти"
+    articles: "Статті"
   errors:
     internal_server_error: "Вибачте, з нашого боку щось пішло не так. Зараз ми намагаємося вирішити проблему."
     unprocessable_entity: "Ваш браузер зробив щось несподіване. Будь ласка спробуйте ще раз. Якщо помилка не зникне, спробуйте вимкнути всі розширення браузера."
-    not_found: "Вміст який ви шукаєте переміщено або не існує."  
+    not_found: "Вміст який ви шукаєте переміщено або не існує."
   admin:
     attachments:
       media_file: "Вкладення"
       name: "Ім'я"
+      links: "Функції"
       choose_file: "Оберіть файл"
       title:
         edit: "Редагувати вкладення:"
-        new: "Створити нове вкладення:"
+        create_new_attachment: "Створити нове вкладення:"
       view_link: "Переглянути"
       edit_link: "Редагувати"
       delete_link: "Видалити"
@@ -38,4 +45,42 @@ uk:
       update_success: 'Стаття була успішно оновлена.'
       update_unsuccess: 'Неможливо оновити статтю. Виправте помилки.'
       destroy_success: 'Стаття була успішно видалена.'
+      views:
+        title: 'Статті'
+        new_article: 'Нова стаття'
+        edit_article: 'Редагувати статтю'
+        labels:
+          records_per_page: 'записів на сторінці'
+          title: 'Заголовок'
+          author: 'Автор'
+          status: 'Статус'
+          language: 'Мова'
+          date: 'Дата'
+          functions: 'Функції'
+          tags: 'Теги'
+          continue: 'Читати далі'
+        buttons:
+          new_article: 'Додати статтю'
+          view: 'Переглянути'
+          edit: 'Редагувати'
+          delete: 'Видалити'
+          back: 'Назад'
+          create_article: 'Створити статтю'
+          update_article: 'Оновити статтю'
+          all_articles: 'Всі статті'
+        placeholders:
+          article_title: 'Введіть заголовок тут...'
+          article_tag: 'Введіть теги тут...'
+        hints:
+          article_tag: 'Введіть теги розділені комами'
+    attachments:
+      create_attachment: 'Вкладення успішно створено!'
+      edit_attachment: 'Вкладення успішно відредаговано'
+      delete_attachment: 'Вкладення видалено'
+    companies:
+      create_success: 'Компанія успішно створена.'
+      create_unsuccess: 'Неможливо створити Компанію. Виправте помилки.'
+      update_success: 'Компанія була успішно оновлена.'
+      update_unsuccess: 'Неможливо оновити Компанію. Виправте помилки.'
+      destroy_success: 'Компанія була успішно видалена.'
   log_in_first: 'Залогуйтесь будь ласка.'
