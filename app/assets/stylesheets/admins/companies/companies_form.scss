@@ -8,6 +8,20 @@
     justify-content: center;
     flex-direction: column;
   }
+
+  select {
+    background-color: $white-color;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #9e9e9e;
+    border-radius: 10px;
+    font-family: roboto, sans-serif;
+
+    &:focus {
+      outline: 1px solid $border-color;
+      box-shadow: 0 1px 0 0 $border-color;
+  }
+  }
 }
 
 .block-form-article {

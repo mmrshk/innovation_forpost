@@ -75,6 +75,7 @@ en:
           grants_count: 'Grants'
           text_about: 'About company'
           logo: 'Logo'
+          language: 'Lang.'
           functions: 'Functions'
         buttons:
           new_company: 'Add company'

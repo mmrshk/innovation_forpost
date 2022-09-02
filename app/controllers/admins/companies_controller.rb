@@ -57,7 +57,8 @@ module Admins
                                       :clients_count,
                                       :grants_count,
                                       :text_about,
-                                      :media_file)
+                                      :media_file,
+                                      :language)
     end
   end
 end
