@@ -1,3 +1,40 @@
+.article-preview-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .article-title-text-block {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding-right: 30px;
+  }
+
+  .article-preview-image {
+    min-width: 112px;
+
+    .image-preview {
+      width: 112px;
+      height: 112px;
+      object-fit: cover;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    flex-direction: column;
+    align-items: center;
+
+    .article-title-text-block {
+      width: 100%;
+      padding-right: 0;
+    }
+
+    .article-preview-image {
+      padding-top: 20px;
+    }
+  }
+}
+
 .articles-tags {
   display: flex;
 
@@ -12,6 +49,10 @@
     flex-direction: column;
     width: 90%;
     padding-right: 10px;
+
+    &.wide {
+      width: 100%;
+    }
   }
 }
 
@@ -19,6 +60,7 @@
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-style: italic;
   color: $dark-grey-text;
+  white-space: nowrap;
 }
 
 .article-title {
@@ -29,6 +71,10 @@
   font-size: 35px;
   line-height: 1.25;
   color: $black-color;
+
+  &:hover {
+    color: $base-color;
+  }
 }
 
 .article-hr {
@@ -41,12 +87,45 @@
 
 .group-bottom {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   align-items: baseline;
 
-  .dot {
+  .point {
     padding: 0 6px;
     font-size: 14px;
     color: $dark-grey-text;
+  }
+
+  div.button-continue {
+    margin-left: auto;
+    margin-top: 7px;
+    margin-bottom: 7px;
+  }
+
+  .continue {
+    padding: 3px 20px;
+    border-radius: 100px;
+    border: 2px solid $base-color;
+    background-color: $white-color;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    white-space: nowrap;
+    color: $black-color;
+    font-size: 13px;
+
+    &:hover {
+      background: $base-color;
+      color: $white-color;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    flex-direction: column-reverse;
+    align-items: center;
+
+    .point {
+      display: none;
+    }
   }
 }
 
@@ -94,7 +173,7 @@
   }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 1024px) {
   .articles-tags {
     flex-wrap: wrap;
     width: 100%;
@@ -118,6 +197,12 @@
     }
   }
 
+  .article-hr {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 640px) {
   .group-buttons {
     flex-wrap: wrap;
     justify-content: center;
@@ -135,9 +220,5 @@
     span {
       padding-left: 0;
     }
-  }
-
-  .article-hr {
-    width: 100%;
   }
 }

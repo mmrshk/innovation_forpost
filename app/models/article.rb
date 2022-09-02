@@ -20,6 +20,7 @@ class Article < ApplicationRecord
   belongs_to  :user, foreign_key: 'user_id', inverse_of: :articles
   has_many    :article_tags, dependent: :destroy
   has_many    :tags, through: :article_tags
+  has_many    :ck_editor_images, dependent: :destroy
 
   validates   :title, :text, :user, :status, :language, presence: true
   validates   :title, length: { maximum: 100 }

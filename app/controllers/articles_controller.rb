@@ -11,6 +11,12 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    return not_found unless Article.find(params[:id]).published?
+
     @article = Article.find(params[:id])
+  end
+
+  def not_found
+    render 'errors/not_found'
   end
 end

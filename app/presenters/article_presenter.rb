@@ -1,11 +1,61 @@
 # frozen_string_literal: true
 
 class ArticlePresenter
+  include ActionView::Helpers
+  include Rails.application.routes.url_helpers
+
+  attr_reader :article
+
+  IMAGE_SRC_REGEX = /src="(.*?)"/
+  FIGURE_REGEX = %r{<figure[^>]+>[\s\S]*?</figure>}
+  LENGTH_TRUNCATE_DEFAULT = 300
+  SEPARATOR = %r{</p>}
+
   def initialize(article)
     @article = article
   end
 
   def all_tags
     @article.tags.present? ? @article.tags.pluck(:name).join(', ') : ''
+  end
+
+  def article_preview_text
+    truncate_article_text
+  end
+
+  def article_preview_image
+    return unless first_article_image
+
+    link_to image_tag(first_article_image,
+                      alt: @article.title,
+                      class: 'image-preview'),
+            controller: 'articles',
+            action: 'show',
+            id: @article.id,
+            locale: I18n.locale
+  end
+
+  def first_article_image
+    @article.text.match(IMAGE_SRC_REGEX)[1] if @article.text.match(IMAGE_SRC_REGEX)
+  end
+
+  def color
+    @article.draft? ? 'red' : 'green'
+  end
+
+  private
+
+  def truncate_article_text
+    truncate(check_text_figure_present, escape: false, length: LENGTH_TRUNCATE_DEFAULT, separator: SEPARATOR)
+  end
+
+  def check_text_figure_present
+    text_for_preview = @article.text.dup
+    @article.text.scan(FIGURE_REGEX).any? ? remove_article_figures(text_for_preview) : @article.text
+  end
+
+  def remove_article_figures(text)
+    text.scan(FIGURE_REGEX).each { |figure| text.gsub! figure, '' }
+    text
   end
 end
