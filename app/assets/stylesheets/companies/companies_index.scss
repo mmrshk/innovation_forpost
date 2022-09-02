@@ -1,0 +1,77 @@
+.company-title {
+  margin: 20px 0;
+  text-align:center;
+  font-family: "metropolisblack",sans-serif;;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 1.25;
+  color: $black-color;
+
+  &:hover {
+    color: $base-color;
+  }
+}
+
+.wrapper-companies {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+
+  .wrapper-company {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    width: 800px;
+
+    &:first-child {
+      flex-direction: row-reverse;
+      margin-bottom: 20px;
+
+      .container-info {
+        border-radius: 0 24px 24px 0;
+      }
+    }
+
+    &:last-child {
+      flex-direction: row;
+
+      .container-info {
+        border-radius: 24px 0 0 24px;
+      }
+    }
+
+    .container-info {
+      background-color: #d9d9d9;
+      height: 230px;
+      width: 370px;
+
+      .company-info {
+        display: flex;
+      }
+    }
+    .container-about{
+      background-color: #d9d9d9;
+      border: 0px solid black;
+      border-radius: 24px;
+      height: 300px;
+      width: 250px;
+      position: relative;
+    }
+    .container-logo{
+      position: absolute;
+      top: -50px;
+      left: 50px;
+      border-radius: 50%;
+      background-color: #aeaeae;
+      width: 150px;
+      height: 150px;
+    }
+  }
+  
+  
+}
+
