@@ -24,6 +24,7 @@ en:
       update_success: 'Article was successfully updated.'
       update_unsuccess: 'Could not update the article. Please try again.'
       destroy_success: 'The article was successfully destroyed.'
+      search_articles: "Search articles"
       upload_image_unsuccess: "The image upload failed. Error: %{errors}"
       views:
         title: 'Articles'
