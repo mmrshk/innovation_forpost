@@ -8,19 +8,23 @@ gem 'rails', '~> 6.0.5'
 
 gem 'active_storage_validations'
 gem 'ancestry', '~> 4.2'
+gem 'awesome_back_url'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'carrierwave', '~> 2.2.2'
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'factory_bot_rails', '~> 6.2.0'
+gem 'fog-aws', '~> 3.14.0'
 gem 'font-awesome-rails', '>= 4.7'
 gem 'jbuilder', '~> 2.7'
 gem 'materialize-sass', '~> 1.0.0'
 gem 'mini_magick'
 gem 'new_ckeditor', '~> 0.1.2'
+gem 'pagy', '~> 5.10'
 gem 'pg', '~> 1.4.1'
 gem 'pg_search'
 gem 'puma', '~> 4.1'
 gem 'rails-i18n', '~> 6.0'
+gem 'ransack'
 gem 'redis', '~> 4.0'
 gem 'sass-rails', '>= 6'
 gem 'simple_form', '~> 5.1'
@@ -41,6 +45,8 @@ end
 
 group :development do
   gem 'brakeman', '~> 5.2.3', require: false
+  gem 'bullet', '~> 7.0.2'
+  gem 'letter_opener'
   gem 'listen', '~> 3.2'
   gem 'overcommit', '~> 0.59.1'
   gem 'rails_best_practices', '~> 1.23.1'
@@ -52,6 +58,7 @@ end
 
 group :test do
   gem 'capybara', '>= 2.15'
+  gem 'database_cleaner', '~> 2.0.1'
   gem 'selenium-webdriver', '~> 4.3.0'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', require: false
