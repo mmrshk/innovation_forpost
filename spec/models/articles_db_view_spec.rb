@@ -4,6 +4,7 @@ require 'rails_helper'
 
 RSpec.describe ArticlesDbView, type: :model do
   
+  subject { described_class.all }
   let(:user_data_valid)       { { email: 'admin@example.com' } }
   let(:article_work_valid)    { { user_id: user_valid.id } }
   let(:article_invalid_date)  { { user_id: user_valid.id, created_at: (Time.now - 15.days) } }
@@ -12,7 +13,6 @@ RSpec.describe ArticlesDbView, type: :model do
   let(:article_tag_work)      { { article_id: article.id, tag_id: tag.id } }
   
   describe 'ArticleDbView right behaviour with correct tags. ' do
-    subject { described_class.all }
     let!(:user_valid)   { create(:user, :admin, user_data_valid) }
     let!(:article)      { create(:article, :published, article_work_valid) }
     let!(:article_tag)  { create(:article_tag, article_tag_work) }
