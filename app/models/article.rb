@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Article < ApplicationRecord  
+class Article < ApplicationRecord
   include PgSearch::Model
 
   VALID_STATUSES = {
@@ -28,19 +28,19 @@ class Article < ApplicationRecord
   scope :not_trashed, -> { where.not(status: VALID_STATUSES[:trashed]) }
   scope :in_language, ->(language) { where(language: language) }
   pg_search_scope :articles_search,
-                  against:  {
+                  against: {
                     title: 'A',
                     text: 'B'
                   },
                   associated_against: {
-                    tags: { 
+                    tags: {
                       name: 'B'
-                    }   
+                    }
                   },
                   using: {
                     tsearch: {
                       prefix: true,
-                      dictionary: "english",
+                      dictionary: 'english'
                     }
                   }
-end                
+end
