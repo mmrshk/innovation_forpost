@@ -3,9 +3,9 @@
 
   <% if article.tags.present? %>
     <div class='point'>·</div>
-    <div>
+    <div class='article-tags'>
       <% article.tags.each do |tag| %>
-        <%= link_to tag.name, tag_path(tag), class: 'article-tags' %>
+        <%= link_to tag.name, tag_path(tag), class: 'article-tag' %>
       <% end %>
     </div>
   <% end %>

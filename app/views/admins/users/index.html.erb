@@ -5,10 +5,9 @@
 
   <div class="container-records-and-filters">
     <div class="container-records">
-      <input class="browser-default records-per-page" type="number" value="10" step="10" min="10" id="number">
-      <label class="label-records-per-page">records per page</label>
+      <%== pagy_items_selector_js(@pagy) %>
     </div>
-    <%= render 'filter' %>
+    <%= render 'shared/filter' %>
   </div>
 
   <% if current_user.role_super_admin? %>
@@ -51,5 +50,5 @@
   <% else%>
     <h2>Log in as a super_admin first</h2>
   <% end %>
-  <%= render 'pagination' %>
+  <%== render partial: 'shared/pagination', locals: {pagy: @pagy} %>
 </div>

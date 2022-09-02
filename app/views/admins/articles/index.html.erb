@@ -6,10 +6,8 @@
 
   <div class="container-records-and-filters">
     <div class="container-records">
-      <input class="browser-default records-per-page" type="number" value="10" step="10" min="10" id="number-articles">
-      <label class="label-records-per-page"><%= t('admins.articles.views.labels.records_per_page') %></label>
+      <%== pagy_items_selector_js(@pagy) %>
     </div>
-    <%= render 'filter' %>
   </div>
 
   <div class='wrapper-table'>
@@ -42,7 +40,7 @@
           <span class='hover-target', tabindex='0'><%= article.user.email %></span>
           <aside class='hover-popup'><%= article.user.email %></aside>
         </div>
-        <div class="cell"><%= article.status %></div>
+        <div class="cell text-<%= ArticlePresenter.new(article).color %>"><%= article.status %></div>
         <div class="cell"><%= article.language %></div>
         <div class="cell"><%= l(article.updated_at, format: '%d %b %Y') %></div>
         <div class="cell">
@@ -78,7 +76,7 @@
     <% end %>
 
   </div>
-  <%= render 'admins/users/pagination' %>
+  <%== render partial: 'shared/pagination', locals: {pagy: @pagy} %>
 </div>
 
 <%= javascript_pack_tag 'accordions' %>

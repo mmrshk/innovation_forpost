@@ -248,23 +248,21 @@ select {
     align-items: center;
     font-size: 20px;
 
-    .records-per-page {
-      padding: 0 15px;
-      color: $white-color;
-      width: 66px;
-      height: 40px;
-      background-color: $blue-filter-color;
-      border-radius: 10px;
-      border: none;
-    }
-
-    .label-records-per-page  {
+    label {
       margin-left: 5px;
       color: $blue-filter-color;
       font-size: 20px;
     }
 
     input[type=number] {
+      padding-right: 6px !important;
+      color: $white-color;
+      width: 50px !important;
+      height: 40px;
+      background-color: $blue-filter-color;
+      border-radius: 10px;
+      border: none !important;
+      box-shadow: none !important;
       &::-webkit-inner-spin-button,
       &::-webkit-outer-spin-button {
         opacity: 0.5;
@@ -283,14 +281,36 @@ select {
   margin-top: -15px;
 }
 
+@media screen and (max-width: 755px) {
+  .container-records-and-filters {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+}
+
 .pagination {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 30px;
+  font-size: 20px;
 
   .pagination-arrows {
-    color: $blue-filter-color;
+    font-weight: bold;
+    margin-right: 4px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    a {
+      font-size: 24px;
+      font-weight: bold;
+      color: $blue-filter-color;
+    }
+    &.disabled {
+      color: rgba(0, 48, 135, 0.25);
+    }
   }
 
   .pagination-number{
@@ -298,19 +318,23 @@ select {
     border-radius: 10px;
     text-align: center;
     margin: 20px;
-    padding: 5px;
+    line-height: 40px;
     width: 40px;
     height: 40px;
     background-color: rgba(0, 48, 135, 0.25);
     a {
       color: $white-color;
-      font-size: 20px;
     }
-    &.active,
-    &:hover:not(.active) {
+    &.current,
+    &:hover:not(.current) {
       background-color: $blue-filter-color;
     }
   }
+    @media screen and (max-width: 420px) {
+    .pagination-number {
+      margin: 5px;
+    }
+  }  
 }
 
 .body-table { 

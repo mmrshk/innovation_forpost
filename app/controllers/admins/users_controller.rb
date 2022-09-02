@@ -7,7 +7,7 @@ module Admins
 
     def index
       @q = User.ransack(params[:q])
-      @users = @q.result
+      @pagy, @users = pagy(@q.result)
     end
 
     def show; end
@@ -28,7 +28,6 @@ module Admins
 
     def edit; end
 
-    # rubocop:disable Metrics/AbcSize
     def update
       if user.current_user_last_super_admin? && params[:user][:role] != 'super_admin'
         flash[:success] = I18n.t('admins.users.super_admin_change_prohibited')
@@ -40,7 +39,6 @@ module Admins
         render :edit, status: :unprocessable_entity
       end
     end
-    # rubocop:enable Metrics/AbcSize
 
     def destroy
       if @user == current_user
