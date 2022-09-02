@@ -4,13 +4,12 @@ require 'rails_helper'
 
 RSpec.describe ArticlesDbView, type: :model do
   
-  tag_set = %w(work робота Work Робота)
-  let(:user_data_valid)       do { email: 'admin@example.com' } end
-  let(:article_work_valid)    do { user_id: user_valid.id } end
-  let(:article_invalid_date)  do { user_id: user_valid.id, created_at: (Time.now - 15.days) } end
-  let(:tag_work)              do { name: tag_set.sample } end
-  let(:tag_invalid)           do { name: 'not_a_work' } end
-  let(:article_tag_work)      do { article_id: article.id, tag_id: tag.id } end
+  let(:user_data_valid)       { { email: 'admin@example.com' } }
+  let(:article_work_valid)    { { user_id: user_valid.id } }
+  let(:article_invalid_date)  { { user_id: user_valid.id, created_at: (Time.now - 15.days) } }
+  let(:tag_work)              { { name: %w(work робота Work Робота).sample } }
+  let(:tag_invalid)           { { name: 'not_a_work' } }
+  let(:article_tag_work)      { { article_id: article.id, tag_id: tag.id } }
   
   describe 'ArticleDbView right behaviour with correct tags. ' do
     subject { described_class.all }
@@ -18,9 +17,9 @@ RSpec.describe ArticlesDbView, type: :model do
     let!(:article)      { create(:article, :published, article_work_valid) }
     let!(:article_tag)  { create(:article_tag, article_tag_work) }
     
-    tag_set.each do |tag_item|
+    %w(work робота Work Робота).each do |tag_item|
       let!(:tag)          { create(:tag, name: tag_item) }
-
+      
       it 'Should show articles with a certain tag' do
         expect(subject.count).to eq(1)
       end
