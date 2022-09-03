@@ -5,11 +5,8 @@ class ArticlesController < ApplicationController
     @articles = if !params[:query] || params[:query].empty?
                   Article.includes(:article_tags, :tags).published.in_language(extract_locale).sorted_desc
                 else
-                  Article.includes(:article_tags, :tags).articles_search(params[:query])
-                  Article.published.in_language(extract_locale).sorted_desc
-                else
-                  Article.articles_search(params[:query])
-                end
+                  Article.includes(:article_tags, :tags).published.in_language(extract_locale).articles_search(params[:query]).sorted_desc
+                end       
     @tags = Tag.all
   end
 
