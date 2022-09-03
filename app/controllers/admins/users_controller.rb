@@ -6,11 +6,7 @@ module Admins
     before_action :authenticate_user!, except: [:update]
 
     def index
-      @users = if params[:sort] && User.column_names.include?(params[:sort])
-                 User.order(params[:sort])
-               else
-                 User.all
-               end
+      @pagy, @users = pagy(User.all)
     end
 
     def show; end

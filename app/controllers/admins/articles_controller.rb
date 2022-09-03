@@ -5,17 +5,19 @@ module Admins
     before_action :article, only: %i[show edit update destroy]
 
     def index
-      @articles = Article.includes(:user).not_trashed.sorted_desc
+      @pagy, @articles = pagy(Article.includes(:user).not_trashed.sorted_desc)
     end
 
     def show; end
 
     def new
       @form = Articles::BaseForm.new(params: {})
+      @presenter = ArticlePresenter.new(@form.article)
     end
 
     def create
       @form = Articles::CreateUpdateForm.new(params: article_params)
+      @presenter = ArticlePresenter.new(@form.article)
       if @form.save
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.create_success')
       else
@@ -26,10 +28,12 @@ module Admins
 
     def edit
       @form = Articles::BaseForm.new(params: {}, article: article)
+      @presenter = ArticlePresenter.new(@form.article)
     end
 
     def update
       @form = Articles::CreateUpdateForm.new(params: article_params, article: article)
+      @presenter = ArticlePresenter.new(@form.article)
       if @form.save
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.update_success')
       else

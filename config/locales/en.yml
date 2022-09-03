@@ -1,6 +1,7 @@
 en:
   en: "EN"
   uk: "UA"
+  activemodel:
   menu:
     innovateForpost: "Innovate fortpost"
     about: "About"
@@ -23,6 +24,7 @@ en:
       update_success: 'Article was successfully updated.'
       update_unsuccess: 'Could not update the article. Please try again.'
       destroy_success: 'The article was successfully destroyed.'
+      search_articles: "Search articles"
       upload_image_unsuccess: "The image upload failed. Error: %{errors}"
       views:
         title: 'Articles'
@@ -52,4 +54,14 @@ en:
           article_tag: 'Type your tags here...'
         hints:
           article_tag: 'Enter tags separated by commas.'
+    attachments:
+      create_attachmennt: 'You added a new attachment!'
+      edit_attachment: 'You successfully edited an attachment!'
+      delete_attachment: 'You deleted an attachment!'
+    companies:
+      create_success: 'Company was successfully created.'
+      create_unsuccess: 'Could not create the Company. Please try again'
+      update_success: 'Company was successfully updated.'
+      update_unsuccess: 'Could not update the Company. Please try again.'
+      destroy_success: 'The Company was successfully destroyed.'
   log_in_first: 'Please log in first'
