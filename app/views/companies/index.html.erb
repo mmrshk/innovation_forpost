@@ -7,29 +7,34 @@
 
       <div class="container-info">
 
-        <div class="company-info">
-          <div class="info-number"><%= Date.today.year - company.start_year %></div>
-          <div class="info-text">років на ринку</div>
+        <div class="container-logo"><%= image_tag(company.media_file, class: "company-logo")%></div>
+
+        <div class="company-name"><%= company.name %></div>
+        <div class="company-info-row">
+          <div class="company-info">
+            <div class="info-number"><%= Date.today.year - company.start_year %></div>
+            <div class="info-text">років на ринку</div>
+          </div>
+          <div class="company-info">
+            <div class="info-number"><%= company.projects_count %></div>
+            <div class="info-text">створених проєктів</div>
+          </div>
         </div>
 
-        <div class="company-info">
-          <div class="info-number"><%= company.projects_count %></div>
-          <div class="info-text">створених проєктів</div>
+        <div class="company-info-row">
+          <div class="company-info">
+            <div class="info-number"><%= company.clients_count %></div>
+            <div class="info-text">задоволених клієнтів</div>
+          </div>
+          <div class="company-info">
+            <div class="info-number"><%= company.grants_count %></div>
+            <div class="info-text">виграних грантів</div>
+          </div>
         </div>
-
-        <div class="company-info">
-          <div class="info-number"><%= company.clients_count %></div>
-          <div class="info-text">задоволених клієнтів</div>
-        </div>
-
-        <div class="company-info">
-          <div class="info-number"><%= company.grants_count %></div>
-          <div class="info-text">виграних грантів</div>
-        </div>
-
       </div>
       <div class="container-about">
-        <div class="container-logo"></div>
+        <div class="text-bout"><%= company.text_about %></div>
+        
       </div>
 
     </div>
