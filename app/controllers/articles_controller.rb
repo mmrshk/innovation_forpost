@@ -6,6 +6,9 @@ class ArticlesController < ApplicationController
                   Article.includes(:article_tags, :tags).published.in_language(extract_locale).sorted_desc
                 else
                   Article.includes(:article_tags, :tags).articles_search(params[:query])
+                  Article.published.in_language(extract_locale).sorted_desc
+                else
+                  Article.articles_search(params[:query])
                 end
     @tags = Tag.all
   end
