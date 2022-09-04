@@ -1,11 +1,11 @@
 <div class="error-container">
-  <%= render 'errors_svg' %>
+  <%= render 'errors/errors_svg' %>
   <div class="message-box">
     <h1 class="error-title">500</h1>
     <p class="error-text"><%= t('errors.internal_server_error') %></p>
     <div class="error-button">
       <div class="action-link-wrap">
-        <%= link_to "Go Back", root_path %>
+        <%= link_to t('errors.back_button'), root_path %>
       </div>
     </div>
   </div>
