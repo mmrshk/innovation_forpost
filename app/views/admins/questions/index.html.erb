@@ -1,0 +1,33 @@
+<div class='body-container'>
+  <div class='admin-question-group'>
+  <h1 class='admin-question-title'><%= 'Questions' %></h1>
+  <%= link_to "Add question", new_question_path, class:'admin-question-button text' %>
+  </div>
+  
+  <table class="body-table">
+      <thead>
+        <tr>
+          <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Id', class:'fa-icon'), :sort => "id" %> </th>
+          <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Title', class:'fa-icon'), :sort => "role"%> </th>
+          <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Email', class:'fa-icon'), :sort => "email"%> </th>
+          <th colspan="3", class="title-table-user">Functions <%= fa_icon('gear', class:'fa-icon')%> </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @questions.each do |question| %>
+          <tr>
+            <td class="field-table-user"><%= question.id %></td>
+            <td class="field-table-user"><%= question.title %></td>
+            <td class="field-table-user"><%= question.user_email %></td>
+            <td class="field-table-user button-functions"><%= link_to fa_icon('eye', text: 'View'), admins_question_path(question), class: "button-functions" %></td>
+            <td class="field-table-user button-functions"><%= link_to fa_icon('edit', text: 'Edit'), edit_admins_question_path(question), class: "button-functions" %></td>
+            <td class="field-table-user button-functions"><%= link_to fa_icon('trash', text: 'Delete'),admins_user_path(question), method: :delete, data: { confirm: 'Are you sure?' }, class: "button-functions" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+  </table>
+
+
+
+</div>
