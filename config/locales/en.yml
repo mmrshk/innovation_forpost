@@ -9,6 +9,10 @@ en:
     signout: "Sign out"
     login: "Log in"
     articles: "Articles"
+    profile: "Profile"
+    users: "Users"
+    settings: "Settings"
+    attachments: "Attachments"
   admins:
     users:
       create_success: 'User was successfully created.'

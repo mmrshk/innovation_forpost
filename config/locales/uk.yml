@@ -13,6 +13,10 @@ uk:
     signout: "Вийти"
     login: "Увійти"
     articles: "Статті"
+    profile: "Профіль"
+    users: "Користувачі"
+    settings: "Налаштування"
+    attachments: "Вкладення"
   admin:
     attachments:
       media_file: "Вкладення"
