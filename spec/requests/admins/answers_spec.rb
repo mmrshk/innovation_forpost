@@ -51,7 +51,6 @@ RSpec.describe 'Answers', type: :request do
     end
     context 'with invalid parameters' do
       let(:invalid_answer) { attributes_for(:answer, :invalid_answer) }
-      let(:invalid_params) { attributes_for(:answer, :invalid_answer) }
       it 'creates a new instance of Question with incorrect values' do
         expect do
           post admins_question_answers_url(question), params: { answer: invalid_answer }
