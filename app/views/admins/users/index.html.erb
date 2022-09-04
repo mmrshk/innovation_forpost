@@ -7,7 +7,7 @@
     <div class="container-records">
       <%== pagy_items_selector_js(@pagy) %>
     </div>
-    <%= render 'shared/filter' %>
+    <%= render 'shared/filter_users' %>
   </div>
 
   <% if current_user.role_super_admin? %>

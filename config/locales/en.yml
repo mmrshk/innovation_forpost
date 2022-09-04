@@ -49,6 +49,12 @@ en:
           create_article: 'Create article'
           update_article: 'Update article'
           all_articles: 'All articles'
+          search: 'Search'
+          clear: 'Clear'
+        filter:
+          filter: "Filter"
+          created_at: "Created at:"
+          updated_at: "Updated at:"
         placeholders:
           article_title: 'Type your title here...'
           article_tag: 'Type your tags here...'

@@ -74,6 +74,12 @@ uk:
           create_article: 'Створити статтю'
           update_article: 'Оновити статтю'
           all_articles: 'Всі статті'
+          search: 'Пошук'
+          clear: 'Очистити'
+        filter:
+          filter: "Фільтр"
+          created_at: "Створено:"
+          updated_at: "Оновлено:"
         placeholders:
           article_title: 'Введіть заголовок тут...'
           article_tag: 'Введіть теги тут...'

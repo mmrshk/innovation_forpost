@@ -5,7 +5,9 @@ module Admins
     before_action :article, only: %i[show edit update destroy]
 
     def index
-      @pagy, @articles = pagy(Article.includes(:user).not_trashed.sorted_desc)
+      @q = Article.ransack(params[:q])
+      @articles = Article.includes(:user).not_trashed.sorted_desc
+      @pagy, @articles = pagy(@q.result.includes(:user).not_trashed.sorted_desc)
     end
 
     def show; end
