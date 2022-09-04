@@ -60,6 +60,7 @@ module Admins
 
     def require_one_superadmin!
       return unless last_super_admin?
+
       flash[:success] = I18n.t('admins.users.super_admin_change_prohibited')
       redirect_to admins_user_url(@user)
     end
