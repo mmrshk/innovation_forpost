@@ -89,8 +89,7 @@ $breakpoint-wide: 1110px;
 
   @media screen and (max-width: $breakpoint-wide) {
     position: absolute;
-    top: -9999px;
-    left: -9999px;
+    opacity: 0;
   }
 }
 
