@@ -1,7 +1,10 @@
-.company-title {
+$font-company: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+$font-company-2: "metropolisblack",sans-serif;
+
+.company-headline {
   margin: 20px 0;
   text-align:center;
-  font-family: "metropolisblack",sans-serif;;
+  font-family: $font-company;
   font-style: normal;
   font-weight: 700;
   font-size: 35px;
@@ -19,7 +22,10 @@
   align-items: center;
   justify-content: center;
   width: 100%;
+  font-family: $font-company;
   cursor: default;
+
+
 
   .wrapper-company {
     display: flex;
@@ -29,7 +35,7 @@
     height: auto;
     min-width: 800px;
 
-    &:first-child {
+    &:nth-child(odd) {
       flex-direction: row;
       margin-top: 70px;
       margin-bottom: 70px;
@@ -39,7 +45,7 @@
       }
     }
 
-    &:last-child {
+    &:nth-child(even) {
       flex-direction: row-reverse;
 
       .container-about {
@@ -81,7 +87,6 @@
       .company-name {
         margin-bottom: 10px;
         text-align:center;
-        font-family: "metropolisblack",sans-serif;;
         font-style: normal;
         font-weight: 600;
         font-size: 15px;
@@ -97,7 +102,6 @@
         display: flex;
         flex-direction: row;
         flex-wrap: nowrap;
-        // padding-top: 20px;
       }
 
       .company-info {
@@ -111,7 +115,6 @@
         }
 
         .info-number {
-          font-family: "metropolisblack",sans-serif;;
           font-style: normal;
           font-weight: 600;
           font-size: 30px;
@@ -125,7 +128,6 @@
         .info-text {
           margin-top: -5px;
           margin-bottom: 10px;
-          font-family: "metropolisblack",sans-serif;;
           font-style: normal;
           font-weight: 400;
           font-size: 10px;
@@ -151,13 +153,50 @@
       min-width: 370px;
       cursor: auto;
 
-      .text-bout {
+      .text-about {
         padding: 20px;
-        font-family: "metropolisblack",sans-serif;;
         font-style: normal;
         font-weight: 400;
         font-size: 14px;
         text-align: justify
+      }
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+
+    .wrapper-company {
+
+      &:nth-child(odd) {
+        flex-direction: column;
+
+        .container-about {
+          border-radius: 24px;
+          height: auto;
+          width: auto;
+        }
+      }
+
+      &:nth-child(even) {
+        flex-direction: column;
+
+        .container-about {
+          border-radius: 24px;
+          height: auto;
+          width: auto;
+        }
+      }
+
+      .container-info {
+        border-radius: 24px 24px 0 0;
+        height: auto;
+        // width: auto;
+      }
+
+      .container-about {
+        border-radius: 24px;
+        height: auto;
+        width: auto;
       }
     }
   }

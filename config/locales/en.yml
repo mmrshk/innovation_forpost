@@ -98,3 +98,11 @@ en:
           logo_present: 'Logo present'
           logo_absent: 'Logo absent'
   log_in_first: 'Please log in first'
+  companies:
+    labels:
+      years_text: 'years on the market'
+      projects_text: 'created projects'
+      clients_text: 'satisfied customers'
+      grants_text: 'grants won'
+  news:
+    headline: 'News'

@@ -1,7 +1,6 @@
 <div class="body-container">
-  <h1 class="company-title"><%= t('admins.companies.views.title') %></h1>
+  <h1 class="company-headline"><%= t('admins.companies.views.title') %></h1>
   <div class="wrapper-companies">
-  <%#binding.pry%>
   <% @companies.each do |company| %>
     <div class="wrapper-company">
 
@@ -10,34 +9,50 @@
         <div class="container-logo"><%= image_tag(company.media_file, class: "company-logo")%></div>
 
         <div class="company-name"><%= company.name %></div>
-        <div class="company-info-row">
-          <div class="company-info">
-            <div class="info-number"><%= Date.today.year - company.start_year %></div>
-            <div class="info-text">років на ринку</div>
-          </div>
-          <div class="company-info">
-            <div class="info-number"><%= company.projects_count %></div>
-            <div class="info-text">створених проєктів</div>
-          </div>
-        </div>
 
-        <div class="company-info-row">
-          <div class="company-info">
-            <div class="info-number"><%= company.clients_count %></div>
-            <div class="info-text">задоволених клієнтів</div>
+        <% for i in [0, 2] do %>
+          <div class="company-info-row">
+            <% for j in [0, 1] do %>
+              <div class="company-info">
+                <div class="info-number">
+                  <%= CompanyPresenter.new(company).company_info[i + j] %>
+                </div>
+                <div class="info-text">
+                  <%= CompanyPresenter.new(company).company_label_texts[i + j] %>
+                </div>
+              </div>
+            <% end %>
           </div>
-          <div class="company-info">
-            <div class="info-number"><%= company.grants_count %></div>
-            <div class="info-text">виграних грантів</div>
-          </div>
-        </div>
+        <% end %>
+
       </div>
+
       <div class="container-about">
-        <div class="text-bout"><%= company.text_about %></div>
-        
+        <div class="text-about"><%= company.text_about %></div>
       </div>
 
     </div>
   <% end %>
+  </div>
+
+  <div class="wrapper-news">
+    <div class="news-headline company-headline"><%= t('news.headline') %></div>
+    <div class="news-container">
+      <% @articles.each do |article|%>
+        <div class="news-block">
+          <div class="news-image-preview">
+            <%= ArticlePresenter.new(article).article_preview_image %>
+          </div>
+          <div class="news-date">
+            <span><i class="material-icons tiny">access_time</i></span>
+            <%= l(article.updated_at, format: '%d %b %Y')  %>
+          </div>
+          <div class="news-title-block">
+            <%= link_to article.title, article_path(article), class: "news-title" %>
+          </div>
+          <div class="button-more-load"></div>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

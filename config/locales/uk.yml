@@ -114,3 +114,11 @@ uk:
           logo_present: 'Логотип наявний'
           logo_absent: 'Логотип відсутній'
   log_in_first: 'Залогуйтесь будь ласка.'
+  companies:
+    labels:
+      years_text: 'років на ринку'
+      projects_text: 'створених проєктів'
+      clients_text: 'задоволених клієнтів'
+      grants_text: 'виграних грантів'
+  news:
+    headline: 'Новини'
