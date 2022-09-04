@@ -7,6 +7,7 @@
     <div class="row">
       <form class="col s12"> 
         <%= search_form_for @q, url: admins_articles_path do |f| %>
+          <%= hidden_field_tag :locale, params[:locale] %>
           <div class="input-top">
             <div class="input-field col s6">
               <label class="filter-text-label"><%= t('admins.articles.views.labels.status') %></label>

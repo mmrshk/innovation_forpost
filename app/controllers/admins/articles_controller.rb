@@ -6,7 +6,6 @@ module Admins
 
     def index
       @q = Article.ransack(params[:q])
-      @articles = Article.includes(:user).not_trashed.sorted_desc
       @pagy, @articles = pagy(@q.result.includes(:user).not_trashed.sorted_desc)
     end
 
