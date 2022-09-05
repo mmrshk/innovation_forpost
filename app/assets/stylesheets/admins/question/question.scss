@@ -89,3 +89,34 @@
     }
   }
 }
+
+.question-title {
+  margin: 0 0 20px;
+  font-family: "metropolisblack",sans-serif;;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 1.25;
+  color: $black-color;
+  margin-top: 20px;
+  &:hover {
+    color: $base-color;
+  }
+}
+
+.question-body{
+  margin: 0 0 20px;
+  font-family: "metropolisblack",sans-serif;;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1.25;
+  color: $black-color;
+}
+.question-contacts{
+  margin: 0 0 20px;
+  font-family: "metropolisblack",sans-serif;;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 1.25;
+  color: $black-color;
+}

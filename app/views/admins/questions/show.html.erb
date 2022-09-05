@@ -1,10 +1,11 @@
-<h1><%= @question.title %></h1>
+<h1 class='question-title'><%= @question.title %></h1>
 
-<p><%= @question.body %></p>
-<p><%= @question.user_name %></p>
-<p><%= @question.user_email %></p>
+<p class='question-body'><%= sanitize @question.body %></p>
 
-<h1>Create Answer</h1>
+<p class='question-contacts'><%= @question.user_name %></p>
+<p class='question-contacts'><%= @question.user_email %></p>
+<hr class='article-hr'>
+<h2 class='question-title'>Create Answer</h1>
 <%= simple_form_for ([:admins, @question, @answer]) do |form| %>
   <%= form.input :body, label: 'Body' %>
   <%= form.button :submit, class: "btn-primary"%>
@@ -14,3 +15,13 @@
   <%= link_to 'Delete', admins_question_answer_path(@question, answer),
     data: {method: :delete, confirm: "Are you sure?"} %>
 <% end %>
+<div class='group-buttons'>
+    <%= link_to"All questions", admins_questions_path, class: 'article-button outline' %>
+    <%= link_to url_for(:back), class: 'article-button outline' do %>
+      <span><i class='material-icons'>arrow_back</i><%= t('admins.articles.views.buttons.back') %></span>
+    <% end %>
+</div>
+
+
+
+
