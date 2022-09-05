@@ -30,6 +30,11 @@
                      input_html: { class: 'form-input' },
                      placeholder: t('admins.companies.views.placeholders.grants_count'),
                      error_html: { class: 'error-form-input' } %>
+  <%= f.input :language, label: t('admins.companies.views.labels.language'),
+                     label_html: { class: 'name-field-form' },
+                     input_html: { class: 'select-dropdown' },
+                     collection: Article.languages.keys,
+                     include_blank: false %>
   </div>
   <%= f.input :text_about,
                      as: :text,

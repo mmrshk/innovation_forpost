@@ -4,8 +4,8 @@ require 'rails_helper'
 
 RSpec.describe 'Company', type: :feature do
   let(:admin) { create(:user, :super_admin) }
-  let(:company) { create(:company) }
-  let(:valid_company) { attributes_for(:company) }
+  let(:company) { create(:company, :uk) }
+  let(:valid_company) { attributes_for(:company, :en) }
   let(:invalid_company) { attributes_for(:company, :with_invalid_data) }
 
   before do
@@ -22,11 +22,19 @@ RSpec.describe 'Company', type: :feature do
       fill_in I18n.t('admins.companies.views.labels.projects_count'), with: valid_company[:projects_count]
       fill_in I18n.t('admins.companies.views.labels.clients_count'), with: valid_company[:clients_count]
       fill_in I18n.t('admins.companies.views.labels.grants_count'), with: valid_company[:grants_count]
+      select valid_company[:language], from: 'company_language'
       fill_in I18n.t('admins.companies.views.labels.text_about'), with: valid_company[:text_about]
       attach_file(I18n.t('admins.companies.views.buttons.upload_logo'), "#{Rails.root}/spec/files/f.jpg")
       expect { click_button I18n.t('admins.companies.views.buttons.create_company') }.to change { Company.count }.by(1)
       expect(page).to have_current_path admins_companies_path(locale: I18n.locale)
       expect(page).to have_content(valid_company[:name])
+      expect(page).to have_content(valid_company[:start_year])
+      expect(page).to have_content(valid_company[:projects_count])
+      expect(page).to have_content(valid_company[:clients_count])
+      expect(page).to have_content(valid_company[:grants_count])
+      expect(page).to have_content(valid_company[:language])
+      expect(page).to have_content(valid_company[:text_about])
+      expect(page).to have_content(I18n.t('admins.companies.views.hints.logo_present'))
     end
 
     it 'does not create with invalid data' do
@@ -64,6 +72,7 @@ RSpec.describe 'Company', type: :feature do
       fill_in I18n.t('admins.companies.views.labels.projects_count'), with: valid_company[:projects_count]
       fill_in I18n.t('admins.companies.views.labels.clients_count'), with: valid_company[:clients_count]
       fill_in I18n.t('admins.companies.views.labels.grants_count'), with: valid_company[:grants_count]
+      select valid_company[:language], from: 'company_language'
       fill_in I18n.t('admins.companies.views.labels.text_about'), with: valid_company[:text_about]
       attach_file(I18n.t('admins.companies.views.buttons.upload_logo'), "#{Rails.root}/spec/files/pr.jpg")
       expect { click_button I18n.t('admins.companies.views.buttons.update_company') }.not_to(change { Company.count })
@@ -73,7 +82,9 @@ RSpec.describe 'Company', type: :feature do
       expect(page).to have_content(valid_company[:projects_count])
       expect(page).to have_content(valid_company[:clients_count])
       expect(page).to have_content(valid_company[:grants_count])
+      expect(page).to have_content(valid_company[:language])
       expect(page).to have_content(valid_company[:text_about])
+      expect(page).to have_content(I18n.t('admins.companies.views.hints.logo_present'))
     end
 
     it 'does not update with invalid data' do
@@ -84,6 +95,7 @@ RSpec.describe 'Company', type: :feature do
       fill_in I18n.t('admins.companies.views.labels.projects_count'), with: invalid_company[:projects_count]
       fill_in I18n.t('admins.companies.views.labels.clients_count'), with: invalid_company[:clients_count]
       fill_in I18n.t('admins.companies.views.labels.grants_count'), with: invalid_company[:grants_count]
+      select invalid_company[:language], from: 'company_language'
       fill_in I18n.t('admins.companies.views.labels.text_about'), with: invalid_company[:text_about]
       attach_file(I18n.t('admins.companies.views.buttons.upload_logo'), "#{Rails.root}/spec/files/image")
       expect { click_button I18n.t('admins.companies.views.buttons.update_company') }.not_to(change { Company.count })

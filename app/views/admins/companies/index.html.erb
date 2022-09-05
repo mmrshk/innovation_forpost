@@ -35,6 +35,9 @@
         <%= t('admins.companies.views.labels.logo') %>
       </div>
       <div class='header-cell-company'>
+        <%= t('admins.companies.views.labels.language') %>
+      </div>
+      <div class='header-cell-company'>
         <span><%= t('admins.companies.views.labels.functions') %><%= fa_icon('gear', class:'fa-icon-functions label')%></span>
       </div>
     </div>
@@ -63,6 +66,7 @@
             </span>
           <% end %>
         </div>
+        <div class="cell-company" data-label="<%= t('admins.companies.views.labels.language') %>:"><%= company.language %></div>
         <div class="cell-company" data-label="<%= t('admins.companies.views.labels.functions') %>:">
           <div class='button-functions-articles'>
 

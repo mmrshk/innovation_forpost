@@ -91,6 +91,7 @@ uk:
           grants_count: 'Грантів'
           text_about: 'Про компанію'
           logo: 'Логотип'
+          language: 'Мова'
           functions: 'Функції'
         buttons:
           new_company: 'Додати компанію'
