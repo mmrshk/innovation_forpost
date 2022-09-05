@@ -4,6 +4,14 @@
   <%= link_to "Add question", new_question_path, class:'admin-question-button text' %>
   </div>
   
+
+  <div class="container-records-and-filters">
+      <div class="container-records">
+        <%== pagy_items_selector_js(@pagy) %>
+      </div>
+      <%= render 'shared/filter' %>
+  </div>
+
   <table class="body-table">
       <thead>
         <tr>
@@ -22,7 +30,7 @@
             <td class="field-table-user"><%= question.user_email %></td>
             <td class="field-table-user button-functions"><%= link_to fa_icon('eye', text: 'View'), admins_question_path(question), class: "button-functions" %></td>
             <td class="field-table-user button-functions"><%= link_to fa_icon('edit', text: 'Edit'), edit_admins_question_path(question), class: "button-functions" %></td>
-            <td class="field-table-user button-functions"><%= link_to fa_icon('trash', text: 'Delete'),admins_user_path(question), method: :delete, data: { confirm: 'Are you sure?' }, class: "button-functions" %></td>
+            <td class="field-table-user button-functions"><%= link_to fa_icon('trash', text: 'Delete'),admins_question_path(question), method: :delete, data: { confirm: 'Are you sure?' }, class: "button-functions" %></td>
           </tr>
         <% end %>
       </tbody>
