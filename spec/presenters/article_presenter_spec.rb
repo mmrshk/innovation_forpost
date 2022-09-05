@@ -3,31 +3,24 @@
 require 'rails_helper'
 
 RSpec.describe ArticlePresenter do
-  let(:tags_list)      { create_list(:tag, 2) }
-  let(:valid_article)  { attributes_for(:article, :published, :uk, tags: tags_list) }
+  include ActionView::TestCase::Behavior
 
-  let(:article_params) do
-    {
-      title: valid_article[:title],
-      text: valid_article[:text],
-      user_id: valid_article[:user_id],
-      status: valid_article[:status],
-      language: valid_article[:language],
-      tags: valid_article[:tags]
-    }
-  end
+  let(:tags_list)     { create_list(:tag, 2) }
+  let(:valid_article) { create(:article, :published, :uk, :with_image_url_inside_text, tags: tags_list) }
 
-  subject(:article_presenter) { described_class.new(article_params) }
+  subject!(:article_presenter) { described_class.new(valid_article) }
 
   describe '#article' do
+    
     it 'returns correct values' do
-      expect(subject.article[:title]).to    be valid_article[:title]
-      expect(subject.article[:text]).to     be valid_article[:text]
-      expect(subject.article[:user_id]).to  be valid_article[:user_id]
-      expect(subject.article[:status]).to   be valid_article[:status]
-      expect(subject.article[:language]).to be valid_article[:language]
-      expect(subject.article).to            eq(valid_article)
-      expect(article_presenter).to          be_a(ArticlePresenter)
+      expect(subject.article).to be valid_article
+      expect(article_presenter).to be_an ArticlePresenter
+      expect(article_presenter.all_tags).to eq(valid_article.tags.pluck(:name).join(', '))
+      expect(article_presenter.article_preview_text.size).to be <= ArticlePresenter::LENGTH_TRUNCATE_DEFAULT
+      expect(article_presenter.first_article_image).to eq '/uploads/ck_editor_image/file/1/clk1.jpeg'
+      expect(article_presenter.article_preview_image).to match '<a href='
+      expect(article_presenter.article_preview_image).to match '/uploads/ck_editor_image/file/1/clk1.jpeg'
+      expect(article_presenter.color).to be 'green'
     end
   end
 end
