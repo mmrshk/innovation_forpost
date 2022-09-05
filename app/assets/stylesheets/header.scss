@@ -90,6 +90,10 @@
   &:hover {
     color: $base-color;
   }
+
+  &:focus {
+    background-color: transparent;
+  }
 }
 
 .dropdown-cont {
@@ -143,7 +147,6 @@
     position: absolute;
     top: 100%;
     left: -10px;
-    width: 80px;
     border-radius: 5px;
     padding: 5px 0px;
     display: none;
