@@ -1,11 +1,19 @@
 <div class='group-bottom'>
-  <div class='article-date'><%= l(article.created_at, format: '%d %b %Y')  %></div>
+  <div class='article-date'><%= l(article.updated_at, format: '%d %b %Y')  %></div>
+
   <% if article.tags.present? %>
-    <div class='dot'>·</div>
-    <div>
+    <div class='point'>·</div>
+    <div class='article-tags'>
       <% article.tags.each do |tag| %>
-        <%= link_to tag.name, tag_path(tag), class: 'article-tags' %>
+        <%= link_to tag.name, tag_path(tag), class: 'article-tag' %>
       <% end %>
     </div>
   <% end %>
+
+  <% unless current_page?(article_path(article)) %>
+    <div class='button-continue'>
+      <%= link_to t('admins.articles.views.labels.continue'), article_path(article), class: 'continue' %>
+    </div>
+  <% end %>
+
 </div>

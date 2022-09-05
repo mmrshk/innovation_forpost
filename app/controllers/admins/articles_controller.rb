@@ -5,17 +5,19 @@ module Admins
     before_action :article, only: %i[show edit update destroy]
 
     def index
-      @articles = Article.includes(:user).not_trashed.sorted_desc
+      @pagy, @articles = pagy(Article.includes(:user).not_trashed.sorted_desc)
     end
 
     def show; end
 
     def new
       @form = Articles::BaseForm.new(params: {})
+      @presenter = ArticlePresenter.new(@form.article)
     end
 
     def create
       @form = Articles::CreateUpdateForm.new(params: article_params)
+      @presenter = ArticlePresenter.new(@form.article)
       if @form.save
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.create_success')
       else
@@ -26,10 +28,12 @@ module Admins
 
     def edit
       @form = Articles::BaseForm.new(params: {}, article: article)
+      @presenter = ArticlePresenter.new(@form.article)
     end
 
     def update
       @form = Articles::CreateUpdateForm.new(params: article_params, article: article)
+      @presenter = ArticlePresenter.new(@form.article)
       if @form.save
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.update_success')
       else
@@ -48,17 +52,16 @@ module Admins
     end
 
     def upload
-      @attachment = CkEditorImage.new(file: params[:upload])
-      if @attachment.save
-        render json: {
-          url: @attachment.file.url
-        }
+      @image = CkEditorImageService.new(params[:upload])
+      if @image.save
+        render json: { url: @image.uploaded_image.url }
       else
         render json: {
           error: {
-            message: "The image upload failed. Error: #{@attachment.errors.full_messages.join(', ')}"
+            message:
+              I18n.t('admins.articles.upload_image_unsuccess', errors: @image.uploaded_image.errors.messages.join(', '))
           }
-        }
+        }, status: :unprocessable_entity
       end
     end
 

@@ -1,12 +1,23 @@
 en:
   en: "EN"
   uk: "UA"
+  activemodel:
   menu:
     innovateForpost: "Innovate fortpost"
     about: "About"
     contacts: "Contacts"
     signout: "Sign out"
     login: "Log in"
+    articles: "Articles"
+    profile: "Profile"
+    users: "Users"
+    settings: "Settings"
+    attachments: "Attachments"
+  errors:
+    internal_server_error: "Sorry, something went wrong on our end. We are currently trying to fix the problem."  
+    unprocessable_entity: "Your browser did something unexpected. Please try again. If the error continues, try disabling all browser extensions."
+    not_found: "The content you are looking for is either moved or doesn't exist."
+    back_button: "Go back"
   admins:
     users:
       create_success: 'User was successfully created.'
@@ -22,4 +33,44 @@ en:
       update_success: 'Article was successfully updated.'
       update_unsuccess: 'Could not update the article. Please try again.'
       destroy_success: 'The article was successfully destroyed.'
+      search_articles: "Search articles"
+      upload_image_unsuccess: "The image upload failed. Error: %{errors}"
+      views:
+        title: 'Articles'
+        new_article: 'New Article'
+        edit_article: 'Edit Article'
+        labels:
+          records_per_page: 'records per page'
+          title: 'Title'
+          author: 'Author'
+          status: 'Status'
+          language: 'Lang.'
+          date: 'Date'
+          functions: 'Functions'
+          tags: 'Tags'
+          continue: 'Read more'
+        buttons:
+          new_article: 'New article'
+          view: 'View'
+          edit: 'Edit'
+          delete: 'Delete'
+          back: 'Back'
+          create_article: 'Create article'
+          update_article: 'Update article'
+          all_articles: 'All articles'
+        placeholders:
+          article_title: 'Type your title here...'
+          article_tag: 'Type your tags here...'
+        hints:
+          article_tag: 'Enter tags separated by commas.'
+    attachments:
+      create_attachmennt: 'You added a new attachment!'
+      edit_attachment: 'You successfully edited an attachment!'
+      delete_attachment: 'You deleted an attachment!'
+    companies:
+      create_success: 'Company was successfully created.'
+      create_unsuccess: 'Could not create the Company. Please try again'
+      update_success: 'Company was successfully updated.'
+      update_unsuccess: 'Could not update the Company. Please try again.'
+      destroy_success: 'The Company was successfully destroyed.'
   log_in_first: 'Please log in first'
