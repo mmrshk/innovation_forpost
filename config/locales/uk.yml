@@ -122,3 +122,7 @@ uk:
       grants_text: 'виграних грантів'
   news:
     headline: 'Новини'
+    button_more: 'Більше новин'
+  docs:
+    headline: 'Документи'
+    button_more: 'Більше документів'
