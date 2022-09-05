@@ -20,8 +20,10 @@ RSpec.describe AnswerMailer, type: :mailer do
       expect(subject.from).to eq([sender_email])
     end
 
-    it 'renders the body' do
-      expect(subject.body.encoded).to match('Hi')
+    it 'contains necessary info' do
+      expect(subject.body.encoded).to match question.title
+      expect(subject.body.encoded).to match question.user_email
+      expect(subject.body.encoded).to match answer.body
     end
   end
 end

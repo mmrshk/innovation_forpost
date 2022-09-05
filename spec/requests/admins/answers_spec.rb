@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Answers', type: :request do
-  let!(:question) { create(:question, answers: [answer]) }
-  let!(:answer) { create(:answer) }
+  let!(:question) { create(:question, :question_with_answer) }
+  let!(:answer) { question.answers.first }
 
   let(:admin) { create(:user, :super_admin) }
 
@@ -24,14 +24,13 @@ RSpec.describe 'Answers', type: :request do
   describe 'POST /create' do
     context 'with valid parameters' do
       let(:params) { attributes_for(:answer) }
+      let(:valid_answer) { attributes_for(:answer) }
 
       it 'enqueue actionmailer' do
         expect { post admins_question_answers_path(question), params: { answer: params } }.to have_enqueued_job {
                                                                                                 ActionMailer::DeliveryJob
                                                                                               }
       end
-
-      let(:valid_answer) { attributes_for(:answer) }
 
       it 'creates a new instance of Answer with correct values' do
         expect do
@@ -51,6 +50,7 @@ RSpec.describe 'Answers', type: :request do
     end
     context 'with invalid parameters' do
       let(:invalid_answer) { attributes_for(:answer, :invalid_answer) }
+
       it 'creates a new instance of Question with incorrect values' do
         expect do
           post admins_question_answers_url(question), params: { answer: invalid_answer }
