@@ -1,0 +1,22 @@
+<div class="wrapper-news">
+  <div class="news-headline company-headline"><%= t('news.headline') %></div>
+  <div class="news-container">
+    <% articles.each do |article|%>
+      <div class="news-block box">
+        <div class="news-image-preview">
+          <%= ArticlePresenter.new(article).article_preview_image %>
+        </div>
+        <div class="news-date">
+          <span><i class="material-icons tiny">access_time</i></span>
+          <%= l(article.updated_at, format: '%d %b %Y')  %>
+        </div>
+        <div class="news-title-block">
+          <%= link_to article.title, article_path(article), class: "news-title" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="button-load-more btn-news"><%= t('news.button_more') %></div>
+</div>
+
+

@@ -60,7 +60,8 @@ $font-company-2: "metropolisblack",sans-serif;
       position: relative;
       background-color: #d9d9d9;
       height: 300px;
-      width: 250px;
+      // width: 250px;
+      min-width: 280px;
       border-radius: 24px;
       padding: 120px 30px 30px 30px;
 
@@ -72,7 +73,7 @@ $font-company-2: "metropolisblack",sans-serif;
         align-content: center;
         position: absolute;
         top: -50px;
-        left: 50px;
+        left: 65px;
         border-radius: 50%;
         background-color: #aeaeae;
         width: 150px;
