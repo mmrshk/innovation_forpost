@@ -9,6 +9,15 @@ en:
     signout: "Sign out"
     login: "Log in"
     articles: "Articles"
+    profile: "Profile"
+    users: "Users"
+    settings: "Settings"
+    attachments: "Attachments"
+  errors:
+    internal_server_error: "Sorry, something went wrong on our end. We are currently trying to fix the problem."  
+    unprocessable_entity: "Your browser did something unexpected. Please try again. If the error continues, try disabling all browser extensions."
+    not_found: "The content you are looking for is either moved or doesn't exist."
+    back_button: "Go back"
   admin:
     attachments:
       view_docs_button: "View document"
@@ -27,6 +36,7 @@ en:
       update_success: 'Article was successfully updated.'
       update_unsuccess: 'Could not update the article. Please try again.'
       destroy_success: 'The article was successfully destroyed.'
+      search_articles: "Search articles"
       upload_image_unsuccess: "The image upload failed. Error: %{errors}"
       views:
         title: 'Articles'
