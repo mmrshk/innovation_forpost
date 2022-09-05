@@ -9,6 +9,9 @@ en:
     signout: "Sign out"
     login: "Log in"
     articles: "Articles"
+  admin:
+    attachments:
+      view_docs_button: "View document"
   admins:
     users:
       create_success: 'User was successfully created.'

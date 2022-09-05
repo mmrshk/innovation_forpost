@@ -20,7 +20,7 @@ $invalid-color: red;
     border-radius: 10px;
   }
 
-  i {
+  .material-icons {
     color: $black-color;
   }
 }
@@ -167,6 +167,21 @@ input[type="file"] {
   margin-bottom: 20px;
   display: inline-block;
   width: 100%;
+
+  .file-name-group {
+    display: block;
+    padding: 5px 0 5px 15px;
+
+    .file-name-label {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .file-name {
+      display: inline-block;
+      font-weight: 500;
+    }
+  }
 }
 
 .is-invalid {
@@ -226,6 +241,7 @@ input[type="file"] {
   width: 20%;
   min-width: 100px;
   margin: 10px;
+  color: $white-color;
 }
 
 td.links {

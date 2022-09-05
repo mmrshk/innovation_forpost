@@ -27,7 +27,7 @@
           <%= attachment_presenter.check_media_file_for_preview %>
         </td>
         <td class="title-attachment button-functions">
-        <td class="title-attachment"><%= link_to fa_icon('eye', text: t('admin.attachments.view_link')), attachment_presenter.check_media_file_for_url, class: "attachment-link button-functions" %></td>
+        <td class="title-attachment"><%= link_to fa_icon('eye', text: t('admin.attachments.view_link')), admins_attachment_path(attachment), class: "attachment-link button-functions" %></td>
         <td class="title-attachment"><%= link_to fa_icon('edit', text: t('admin.attachments.edit_link')), edit_admins_attachment_path(attachment), class: "attachment-link button-functions" %></td> 
         <td class="title-attachment"><%= link_to fa_icon('trash', text: t('admin.attachments.delete_link')), admins_attachment_path(attachment), method: :delete, class: "attachment-link button-functions" %></td> 
       </tr>

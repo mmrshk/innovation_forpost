@@ -11,14 +11,18 @@ module Admins
       @pagy, @attachments = pagy(Attachment.includes(media_file_attachment: :blob).all)
     end
 
-    def show; end
+    def show
+      @presenter = AttachmentPresenter.new(@attachment)
+    end
 
     def new
       @attachment = Attachment.new
+      @presenter = AttachmentPresenter.new(@attachment)
     end
 
     def create
       @attachment = Attachment.new(attachment_params)
+      @presenter = AttachmentPresenter.new(@attachment)
 
       if @attachment.save
         flash[:success] = I18n.t('admins.attachments.create_attachment')
@@ -28,9 +32,12 @@ module Admins
       end
     end
 
-    def edit; end
+    def edit
+      @presenter = AttachmentPresenter.new(@attachment)
+    end
 
     def update
+      @presenter = AttachmentPresenter.new(@attachment)
       if @attachment.update(attachment_params)
         flash[:success] = I18n.t('admins.attachments.edit_attachment')
         redirect_to admins_attachment_path(@attachment.id)

@@ -17,6 +17,7 @@
           label_html: { class: 'attachment-field media' }, 
           required: false %>
       <% end %>
+        <%= @presenter.media_file_filename %>
     </div>
 
     <%= f.submit t('admin.attachments.save_button'), class: 'submit-button' %>

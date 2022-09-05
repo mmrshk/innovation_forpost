@@ -19,6 +19,7 @@ uk:
       name: "Ім'я"
       links: "Функції"
       choose_file: "Оберіть файл"
+      file_name: "Ім'я файлу:"
       title:
         edit: "Редагувати вкладення:"
         create_new_attachment: "Створити нове вкладення:"
@@ -26,6 +27,7 @@ uk:
       edit_link: "Редагувати"
       delete_link: "Видалити"
       save_button: "Зберегти"
+      view_docs_button: "Переглянути документ"
   admins:
     users:
       create_success: 'Користувач успішно доданий.'
