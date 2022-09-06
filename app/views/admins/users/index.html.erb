@@ -1,26 +1,25 @@
 <div class= "body-container">
-
   <div class="add-features">
-    <%= link_to 'Create new user', new_admins_user_path, class: 'new-user' %>
+    <%= link_to t('admins.users.create_new_user'), new_admins_user_path, class: 'new-user' %>
   </div>
 
   <div class="container-records-and-filters">
     <div class="container-records">
       <%== pagy_items_selector_js(@pagy) %>
     </div>
-    <%= render 'shared/filter' %>
+    <%= render 'shared/filter_users' %>
   </div>
-  
 
   <% if current_user.role_super_admin? %>
+  
     <table class="body-table">
       <thead>
         <tr>
-          <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Id', class:'fa-icon'), :sort => "id" %> </th>
-          <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Email', class:'fa-icon'), :sort => "email"%> </th>
-          <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Tel.', class:'fa-icon'), :sort => "phone_number"%> </th>
-          <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Role', class:'fa-icon'), :sort => "role"%> </th>
-          <th colspan="3", class="title-table-user">Functions <%= fa_icon('gear', class:'fa-icon')%> </th>
+          <th class="title-table-user"> <%= sort_link(@q, :id, 'Id', default_order: :asc) %></th>
+          <th class="title-table-user"> <%= sort_link(@q, :email, t('admins.users.email'), default_order: :asc)%> </th>
+          <th class="title-table-user"> <%= sort_link(@q, :phone_number, t('admins.users.phone'), default_order: :asc)%> </th>
+          <th class="title-table-user"> <%= sort_link(@q, :role, t('admins.users.role'), default_order: :asc)%> </th>
+          <th colspan="3", class="title-table-user"><%= t('admins.users.functions') %> <%= fa_icon('gear')%> </th>
         </tr>
       </thead>
       <tbody>
@@ -30,14 +29,14 @@
             <td class="field-table-user"><%= user.email %></td>
             <td class="field-table-user"><%= user.phone_number %></td>
             <td class="field-table-user"><%= user.role %></td>
-            <td class="field-table-user button-functions"><%= link_to fa_icon('eye', text: 'View'), admins_user_path(user), class: "button-functions" %></td>
-            <td class="field-table-user button-functions"><%= link_to fa_icon('edit', text: 'Edit'), edit_admins_user_path(user), class: "button-functions" %></td>
+            <td class="field-table-user button-functions"><%= link_to fa_icon('eye', text: t('admin.attachments.view_link')), admins_user_path(user), class: "button-functions" %></td>
+            <td class="field-table-user button-functions"><%= link_to fa_icon('edit', text: t('admin.attachments.edit_link')), edit_admins_user_path(user), class: "button-functions" %></td>
 
             <% if user.current_user_last_super_admin? %>
               <td class="last-super-admin-msg field-table-user"><%= t('admins.users.last_super_admin') %></td>
             <% else %>
               <td class="field-table-user button-functions">
-                <%= link_to fa_icon('trash', text: 'Delete'),
+                <%= link_to fa_icon('trash', text: t('admin.attachments.delete_link')),
                   admins_user_path(user), 
                   method: :delete, 
                   data: { confirm: 'Are you sure?' }, 
