@@ -16,9 +16,9 @@ RSpec.describe AnswerMailer, type: :mailer do
     end
 
     it 'contains necessary info' do
-      expect(subject.body.encoded).to match question.title
-      expect(subject.body.encoded).to match question.body
-      expect(subject.body.encoded).to match answer.body
+      expect(subject.body.encoded).to match(question.title)
+      expect(subject.body.encoded).to match(question.body)
+      expect(subject.body.encoded).to match(answer.body)
     end
   end
 end

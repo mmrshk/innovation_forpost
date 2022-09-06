@@ -5,7 +5,6 @@ require 'rails_helper'
 RSpec.describe 'Answers', type: :request do
   let!(:question) { create(:question, :question_with_answer) }
   let!(:answer) { question.answers.first }
-
   let(:admin) { create(:user, :super_admin) }
 
   before do
@@ -48,6 +47,7 @@ RSpec.describe 'Answers', type: :request do
         expect(response.body).to include('Answer created!')
       end
     end
+
     context 'with invalid parameters' do
       let(:invalid_answer) { attributes_for(:answer, :invalid_answer) }
 
