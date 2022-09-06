@@ -99,7 +99,8 @@
   border: none;
 }
 
-select {
+
+select.browser-default {
   appearance: none;
 }
 
@@ -211,7 +212,7 @@ select {
     }
   }
 
-  .input-field {
+  .input-fields {
     margin: 10px 13px;
     width: 340px;
     height: 52px;
