@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_12_152503) do
+ActiveRecord::Schema.define(version: 2022_09_02_070934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,18 @@ ActiveRecord::Schema.define(version: 2022_08_12_152503) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "url"
     t.index ["article_id"], name: "index_ck_editor_images_on_article_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "start_year", default: 2010
+    t.integer "projects_count", default: 0
+    t.integer "clients_count", default: 0
+    t.integer "grants_count", default: 0
+    t.string "text_about", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "language", default: 0
   end
 
   create_table "documents", force: :cascade do |t|
