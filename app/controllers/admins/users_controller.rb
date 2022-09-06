@@ -7,8 +7,8 @@ module Admins
     before_action :require_one_superadmin!, only: :update
 
     def index
-      @pagy, @users = pagy(policy_scope(User))
-      @q = User.ransack(params[:q])
+      @users = policy_scope(User)
+      @q = @users.ransack(params[:q])
       @pagy, @users = pagy(@q.result)
     end
 
