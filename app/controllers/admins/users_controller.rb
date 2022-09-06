@@ -4,9 +4,12 @@ module Admins
   class UsersController < AdminsController
     before_action :user, only: %i[edit show update destroy]
     before_action :authenticate_user!, except: [:update]
+    before_action :require_one_superadmin!, only: :update
 
     def index
       @pagy, @users = pagy(policy_scope(User))
+      @q = User.ransack(params[:q])
+      @pagy, @users = pagy(@q.result)
     end
 
     def show
@@ -33,20 +36,15 @@ module Admins
       authorize @user
     end
 
-    # rubocop:disable Metrics/AbcSize
     def update
       authorize @user
-      if user.current_user_last_super_admin? && params[:user][:role] != 'super_admin'
-        flash[:success] = I18n.t('admins.users.super_admin_change_prohibited')
-        redirect_to admins_user_url(@user)
-      elsif @user.update(user_params)
+      if @user.update(user_params)
         flash[:success] = I18n.t('admins.users.users.update_success')
         redirect_to admins_user_url(@user)
       else
         render :edit, status: :unprocessable_entity
       end
     end
-    # rubocop:enable Metrics/AbcSize
 
     def destroy
       authorize @user
@@ -67,6 +65,17 @@ module Admins
 
     def user_params
       params.require(:user).permit(:email, :phone_number, :role, :password, :password_confirmation)
+    end
+
+    def require_one_superadmin!
+      return unless last_super_admin?
+
+      flash[:success] = I18n.t('admins.users.super_admin_change_prohibited')
+      redirect_to admins_user_url(@user)
+    end
+
+    def last_super_admin?
+      user.current_user_last_super_admin? && params[:user][:role] != 'super_admin'
     end
   end
 end
