@@ -7,6 +7,8 @@ class User < ApplicationRecord
     super_admin: 'super_admin'
   }.freeze
 
+  ADMIN_ROLES = %w[super_admin admin]
+
   enum role: USER_ROLES, _prefix: :role
 
   # Include default devise modules. Others available are:
@@ -20,7 +22,11 @@ class User < ApplicationRecord
   validates :password, presence: true
   validates :password_confirmation, presence: true
 
-  scope :only_admins, -> { where(role: %i[super_admin admin]) }
+  scope :only_admins, -> { where(role: ADMIN_ROLES) }
+
+  def in_admin_group?
+    ADMIN_ROLES.include?(role)
+  end
 
   def current_user_last_super_admin?
     role_super_admin? && last_super_admin?

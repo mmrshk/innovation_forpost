@@ -6,17 +6,21 @@ module Admins
     before_action :authenticate_user!, except: [:update]
 
     def index
-      @pagy, @users = pagy(User.all)
+      @pagy, @users = pagy(policy_scope(User))
     end
 
-    def show; end
+    def show
+      authorize @user
+    end
 
     def new
       @user = User.new
+      authorize @user
     end
 
     def create
       @user = User.new(user_params)
+      authorize @user
       if @user.save
         flash[:success] = I18n.t('admins.users.create_success')
         redirect_to admins_user_url(@user)
@@ -25,10 +29,13 @@ module Admins
       end
     end
 
-    def edit; end
+    def edit
+      authorize @user
+    end
 
     # rubocop:disable Metrics/AbcSize
     def update
+      authorize @user
       if user.current_user_last_super_admin? && params[:user][:role] != 'super_admin'
         flash[:success] = I18n.t('admins.users.super_admin_change_prohibited')
         redirect_to admins_user_url(@user)
@@ -42,6 +49,7 @@ module Admins
     # rubocop:enable Metrics/AbcSize
 
     def destroy
+      authorize @user
       if @user == current_user
         flash[:success] = I18n.t('admins.users.current_user_account_destroy_prohibited')
       else

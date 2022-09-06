@@ -2,9 +2,9 @@
 
 class ApplicationController < ActionController::Base
   include Pagy::Backend
-  before_action :set_locale
-  
   include Pundit::Authorization
+  
+  before_action :set_locale
 
   private
 
