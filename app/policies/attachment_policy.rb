@@ -14,14 +14,19 @@ class AttachmentPolicy < ApplicationPolicy
     user.in_admin_group?
   end
 
-  # def show;
-  # end
+  def show?
+    true
+  end
 
   def create?
     user.in_admin_group?
   end
 
   def update?
+    user.role_super_admin?
+  end
+
+  def destroy?
     user.role_super_admin?
   end
 end
