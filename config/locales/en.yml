@@ -9,15 +9,6 @@ en:
     signout: "Sign out"
     login: "Log in"
     articles: "Articles"
-    profile: "Profile"
-    users: "Users"
-    settings: "Settings"
-    attachments: "Attachments"
-  errors:
-    internal_server_error: "Sorry, something went wrong on our end. We are currently trying to fix the problem."  
-    unprocessable_entity: "Your browser did something unexpected. Please try again. If the error continues, try disabling all browser extensions."
-    not_found: "The content you are looking for is either moved or doesn't exist."
-    back_button: "Go back"
   admins:
     users:
       create_success: 'User was successfully created.'
@@ -36,7 +27,6 @@ en:
       update_success: 'Article was successfully updated.'
       update_unsuccess: 'Could not update the article. Please try again.'
       destroy_success: 'The article was successfully destroyed.'
-      search_articles: "Search articles"
       upload_image_unsuccess: "The image upload failed. Error: %{errors}"
       views:
         title: 'Articles'
@@ -82,38 +72,4 @@ en:
       update_success: 'Company was successfully updated.'
       update_unsuccess: 'Could not update the Company. Please try again.'
       destroy_success: 'The Company was successfully destroyed.'
-      views:
-        title: 'Companies'
-        new_company: 'New company'
-        edit_company: 'Edit company'
-        labels:
-          name: 'Name'
-          start_year: 'Year'
-          projects_count: 'Projects'
-          clients_count: 'Clients'
-          grants_count: 'Grants'
-          text_about: 'About company'
-          logo: 'Logo'
-          language: 'Lang.'
-          functions: 'Functions'
-        buttons:
-          new_company: 'Add company'
-          view: 'View'
-          edit: 'Edit'
-          delete: 'Delete'
-          back: 'Back'
-          create_company: 'Create company'
-          update_company: 'Update company'
-          all_companies: 'All companies'
-          upload_logo: 'Upload logo'
-        placeholders:
-          companies_name: 'Type the name here...'
-          start_year: 'Type the founding year here...'
-          projects_count: 'Type the number of projects here...'
-          clients_count: 'Type the number of customers here...'
-          grants_count: 'Type the number of grants here...'
-          text_about: 'Type company information here...'
-        hints:
-          logo_present: 'Logo present'
-          logo_absent: 'Logo absent'
   log_in_first: 'Please log in first'
