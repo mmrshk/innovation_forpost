@@ -1,0 +1,105 @@
+<div class='body-container'>
+  <div class='admin-article-group'>
+  <h1 class='admin-article-title'><%= t('admins.companies.views.title') %></h1>
+  <%= link_to t('admins.companies.views.buttons.new_company'), new_admins_company_path, class:'admin-article-button text' %>
+  </div>
+
+  <div class="container-records-and-filters">
+    <div class="container-records">
+      <%== pagy_items_selector_js(@pagy) %>
+    </div>
+    <%= render 'shared/filter' %>
+  </div>
+
+  <div class='wrapper-table-company'>
+    <div class='header-table-company'>
+      <div class='header-cell-company'>
+        <%= t('admins.companies.views.labels.name') %>
+      </div>
+      <div class='header-cell-company'>
+        <%= t('admins.companies.views.labels.start_year') %>
+      </div>
+      <div class='header-cell-company'>
+        <%= t('admins.companies.views.labels.projects_count') %>
+      </div>
+      <div class='header-cell-company'>
+        <%= t('admins.companies.views.labels.clients_count') %>
+      </div>
+      <div class='header-cell-company'>
+        <%= t('admins.companies.views.labels.grants_count') %>
+      </div>
+      <div class='header-cell-company'>
+        <%= t('admins.companies.views.labels.text_about') %>
+      </div>
+      <div class='header-cell-company'>
+        <%= t('admins.companies.views.labels.logo') %>
+      </div>
+      <div class='header-cell-company'>
+        <%= t('admins.companies.views.labels.language') %>
+      </div>
+      <div class='header-cell-company'>
+        <span><%= t('admins.companies.views.labels.functions') %><%= fa_icon('gear', class:'fa-icon-functions label')%></span>
+      </div>
+    </div>
+    <div class='body-table-company'>
+      <% @companies.each do |company| %>
+      <div class='row-table-company'>
+        <div class="cell-company" data-label="<%= t('admins.companies.views.labels.name') %>:"><%= company.name %></div>
+        <div class="cell-company" data-label="<%= t('admins.companies.views.labels.start_year') %>:"><%= company.start_year %></div>
+        <div class="cell-company" data-label="<%= t('admins.companies.views.labels.projects_count') %>:"><%= company.projects_count %></div>
+        <div class="cell-company" data-label="<%= t('admins.companies.views.labels.clients_count') %>:"><%= company.clients_count %></div>
+        <div class="cell-company" data-label="<%= t('admins.companies.views.labels.grants_count') %>:"><%= company.grants_count %></div>
+        <div class="cell-company" data-label="<%= t('admins.companies.views.labels.text_about') %>:">
+          <span class='hover-target word-transfer'><%= truncate(company.text_about, length: 50) %></span>
+          <aside class='hover-popup about-popup'><%= company.text_about %></aside>
+        </div>
+        <div class="cell-company" data-label="<%= t('admins.companies.views.labels.logo') %>:">
+          <% if company.media_file %>
+            <span class=''>
+              <i class='material-icons hover-target-company'>check_circle</i>
+              <aside class='hover-popup-company-button logo'><%= t('admins.companies.views.hints.logo_present') %></aside>
+            </span>
+          <% else %>
+            <span>
+              <i class='material-icons hover-target'>remove_circle</i>
+              <aside class='hover-popup-company-button'><%= t('admins.companies.views.hints.logo_absent') %></aside>
+            </span>
+          <% end %>
+        </div>
+        <div class="cell-company" data-label="<%= t('admins.companies.views.labels.language') %>:"><%= company.language %></div>
+        <div class="cell-company" data-label="<%= t('admins.companies.views.labels.functions') %>:">
+          <div class='button-functions-articles'>
+
+            <%= link_to companies_path, class: 'button-functions-articles' do %>
+              <span>
+                <i class='material-icons hover-target-company'>remove_red_eye</i>
+                <aside class='hover-popup-company-button first'><%= t('admins.companies.views.buttons.view') %></aside>
+                <span><%= t('admins.companies.views.buttons.view') %></span>
+              </span>
+            <% end %>
+
+            <%= link_to edit_admins_company_path(company), class: 'button-functions-articles' do %>
+              <span>
+                <i class='material-icons hover-target-company'>edit</i>
+                <aside class='hover-popup-company-button'><%= t('admins.companies.views.buttons.edit') %></aside>
+                <span><%= t('admins.companies.views.buttons.edit') %></span>
+              </span>
+            <% end %>
+
+            <%= link_to admins_company_path(company), method: :delete, data: { confirm: "Are you sure?" }, class: 'button-functions-articles' do %>
+              <span>
+                <i class='material-icons hover-target-company'>delete</i>
+                <aside class='hover-popup-company-button last'><%= t('admins.companies.views.buttons.delete') %></aside>
+                <span><%= t('admins.companies.views.buttons.delete') %></span>
+              </span>
+            <% end %>
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    </div>
+  </div>
+  <%== render partial: 'shared/pagination', locals: {pagy: @pagy} %>
+</div>
