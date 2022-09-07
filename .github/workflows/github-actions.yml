@@ -47,9 +47,9 @@ jobs:
         env:
           DATABASE_URL: postgres://postgres:@localhost:5432/test
           RAILS_ENV: test
+          RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }} 
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          RAILS_MASTER_KEY: 8baeaa2bb94e230dc50fa38980f93d49
         run: |
           bin/rails db:setup
           RAILS_ENV=test bundle exec rspec
