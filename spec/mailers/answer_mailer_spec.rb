@@ -15,7 +15,7 @@ RSpec.describe AnswerMailer, type: :mailer do
     it 'renders the headers' do
       expect(subject.subject).to eq('Question answered')
       expect(subject.to).to eq([question.user_email])
-      expect(subject.from).to eq([sender_email])
+      expect(subject.from).to eq(['innovation.forpost@gmail.com'])
     end
 
     it 'contains necessary info' do
