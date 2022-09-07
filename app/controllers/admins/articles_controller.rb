@@ -17,13 +17,13 @@ module Admins
     def new
       @form = Articles::BaseForm.new(params: {})
       @presenter = ArticlePresenter.new(@form.article)
-      authorize @article
+      authorize @form.article
     end
 
     def create
-      authorize @article
       @form = Articles::CreateUpdateForm.new(params: article_params)
       @presenter = ArticlePresenter.new(@form.article)
+      authorize @form.article
       if @form.save
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.create_success')
       else
@@ -33,15 +33,15 @@ module Admins
     end
 
     def edit
-      authorize @article
       @form = Articles::BaseForm.new(params: {}, article: article)
       @presenter = ArticlePresenter.new(@form.article)
+      authorize @form.article
     end
 
     def update
-      authorize @article
       @form = Articles::CreateUpdateForm.new(params: article_params, article: article)
       @presenter = ArticlePresenter.new(@form.article)
+      authorize @form.article
       if @form.save
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.update_success')
       else
@@ -51,8 +51,8 @@ module Admins
     end
 
     def destroy
-      authorize @article
       @form = Articles::DestroyForm.new(params: {}, article: article)
+      authorize @form.article
       if @form.save
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.destroy_success')
       else
