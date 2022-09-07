@@ -1,7 +1,13 @@
 <%= turbo_frame_tag "modal" do %>
-  <h1>Resident form</h1>
+  <%= tag.div data: { controller: "turbo-modal",
+                    turbo_modal_target: "modal",
+                    action: "turbo:submit-end->turbo-modal#submitEnd 
+                    keyup@window->turbo-modal#closeWithKeyboard 
+                    click@window->turbo-modal#closeBackground" } do %>    
+                    
+    <h1>Resident form</h1>
 
-  <%= simple_form_for(@resident) do |f| %>
+    <%= simple_form_for(@resident) do |f| %>
       <%= f.input :customer_full_name %>
       <%= f.input :in_person %>
       <%= f.input :project_name %>
@@ -13,7 +19,10 @@
       <%= f.input :danger_class %>
       <%= f.input :electicity_supply %>
       <%= f.input :reqirements %>
-
+  
       <%= f.button :submit %>
+    <% end %>
+
+    <%= button_tag "Close", data: { action: "turbo-modal#hideModal" }, type: "button" %>
   <% end %>
 <% end %>

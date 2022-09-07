@@ -353,6 +353,8 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     ssrf_filter (1.0.8)
+    stimulus-rails (1.1.0)
+      railties (>= 6.0.0)
     thor (1.2.1)
     thread_safe (0.3.6)
     tilt (2.0.11)
@@ -431,6 +433,7 @@ DEPENDENCIES
   simplecov
   spring (~> 2.1.1)
   spring-watcher-listen (~> 2.0.0)
+  stimulus-rails
   turbo-rails (~> 1.1, >= 1.1.1)
   web-console (>= 3.3.0)
   webdrivers (~> 5.0.0)

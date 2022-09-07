@@ -18,6 +18,7 @@
     <%= render 'shared/header' %>
     <div class="start-block container">
       <%= render 'shared/messages' %>
+      <%= turbo_frame_tag "modal" %>
       <%= yield %>
     </div>
     <%= render 'shared/footer' %>

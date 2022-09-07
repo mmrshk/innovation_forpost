@@ -1,8 +1,6 @@
-<%= turbo_frame_tag "modal" %>
-
 <h2>Hello World</h2>
 <p>
   The time is now: <%= Time.now %>
 </p>
 
-<%= link_to 'New Resident Request', new_resident_form_path, data: { turbo_frame: 'modal' } %>
+<%= button_to 'New Resident', new_resident_form_path, method: :get, data: { turbo_frame: 'modal' } %>
