@@ -50,7 +50,6 @@ jobs:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
           RAILS_MASTER_KEY: ${{ secrets.RAILS_MASTER_KEY }}
-          RAILS_TEST_KEY: ${{ secrets.RAILS_TEST_KEY }}
         run: |
           bin/rails db:setup
           RAILS_ENV=test bundle exec rspec
