@@ -7,7 +7,7 @@ class User < ApplicationRecord
     super_admin: 'super_admin'
   }.freeze
 
-  ADMIN_ROLES = %w[super_admin admin]
+  ADMIN_ROLES = %w[super_admin admin].freeze
 
   enum role: USER_ROLES, _prefix: :role
 

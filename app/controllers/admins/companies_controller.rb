@@ -14,8 +14,8 @@ module Admins
     end
 
     def new
-      authorize @company
       @company = Company.new
+      authorize @company
     end
 
     def create

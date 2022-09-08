@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::Base
   include Pagy::Backend
   include Pundit::Authorization
-  
+
   before_action :set_locale
 
   private
@@ -21,8 +21,8 @@ class ApplicationController < ActionController::Base
     I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale.to_sym : nil
   end
 
-  rescue_from Pundit::NotAuthorizedError do |exception|
+  rescue_from Pundit::NotAuthorizedError do |_exception|
     redirect_to root_path
-    flash[:success] = "You are not authorized as an admin or super admin"
+    flash[:error] = I18n.t('admins.policy.authorized')
   end
 end

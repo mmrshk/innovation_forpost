@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class QuestionPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
@@ -10,6 +12,10 @@ class QuestionPolicy < ApplicationPolicy
         raise Pundit::NotAuthorizedError, 'not allowed to view this action'
       end
     end
+  end
+
+  def create?
+    user.in_admin_group?
   end
 
   def show?

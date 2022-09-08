@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ArticlePolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
@@ -28,5 +30,5 @@ class ArticlePolicy < ApplicationPolicy
 
   def destroy?
     user.role_super_admin?
-  end  
+  end
 end

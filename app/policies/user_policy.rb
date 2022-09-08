@@ -11,7 +11,7 @@ class UserPolicy < ApplicationPolicy
       end
     end
   end
-  
+
   def index?
     user.in_admin_group?
   end

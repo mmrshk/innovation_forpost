@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
     return not_found unless Article.find(params[:id]).published?
 
     @article = Article.find(params[:id])
-    authorize @form.article
+    authorize @article
   end
 
   def not_found

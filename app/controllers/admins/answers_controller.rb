@@ -18,7 +18,7 @@ module Admins
 
     def destroy
       answer = @question.answers.find(params[:id])
-      authorize @answer
+      authorize answer
       if answer.destroy
         redirect_to admins_question_path, notice: 'Answer destroyed!'
       else
