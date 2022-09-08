@@ -1,12 +1,10 @@
 # frozen_string_literal: true
 
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 RSpec.describe AnswerMailer, type: :mailer do
   before do
-    subject.from = sender_email
+    allow(Rails.application.credentials.google_account).to receive(:[]).with(:SMTP_USERNAME).and_return(sender_email)
   end
 
   describe 'question_answered' do

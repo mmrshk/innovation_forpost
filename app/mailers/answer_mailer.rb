@@ -8,7 +8,7 @@ class AnswerMailer < ApplicationMailer
     @greeting = 'Hi'
 
     mail(
-      from: 'innovation.forpost@gmail.com',
+      from: Rails.application.credentials.google_account[:SMTP_USERNAME],
       to: @question.user_email
     )
   end
