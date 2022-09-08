@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-class UserPolicy < ApplicationPolicy
+class AnswerPolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
@@ -11,22 +9,9 @@ class UserPolicy < ApplicationPolicy
       end
     end
   end
-  
-  def index?
-    user.in_admin_group?
-  end
-
-  def show?
-    # user == record
-    true
-  end
 
   def create?
     user.in_admin_group?
-  end
-
-  def update?
-    user.role_super_admin?
   end
 
   def destroy?

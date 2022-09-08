@@ -5,17 +5,22 @@ module Admins
     before_action :company, only: %i[show edit update destroy]
 
     def index
+      @companies = policy_scope(Company)
       @pagy, @companies = pagy(Company.all)
     end
 
-    def show; end
+    def show
+      authorize @company
+    end
 
     def new
+      authorize @company
       @company = Company.new
     end
 
     def create
       @company = Company.new(company_params)
+      authorize @company
 
       if @company.save
         redirect_to admins_companies_path, notice: I18n.t('admins.companies.create_success')
@@ -28,6 +33,7 @@ module Admins
     def edit; end
 
     def update
+      authorize @company
       if @company.update(company_params)
         redirect_to admins_companies_path, notice: I18n.t('admins.companies.update_success')
       else
@@ -37,6 +43,7 @@ module Admins
     end
 
     def destroy
+      authorize @company
       if @company.destroy
         redirect_to admins_companies_path, notice: I18n.t('admins.companies.destroy_success')
       else

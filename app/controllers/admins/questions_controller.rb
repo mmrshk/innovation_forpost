@@ -5,17 +5,21 @@ module Admins
     before_action :question, only: %i[edit update destroy show]
 
     def index
-      @questions = Question.all
+      @questions = policy_scope(Question)
     end
 
     def show
+      authorize @question
       @answer = @question.answers.build
       @answers = @question.answers.all
     end
 
-    def edit; end
+    def edit
+      authorize @question
+    end
 
     def update
+      authorize @question
       if @question.update(question_params)
         redirect_to admins_questions_path, notice: 'Question updated!'
       else
@@ -24,6 +28,7 @@ module Admins
     end
 
     def destroy
+      authorize @question
       if @question.destroy
         redirect_to admins_questions_path, notice: 'Question destroyed!'
       else

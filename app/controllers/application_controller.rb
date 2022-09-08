@@ -20,4 +20,9 @@ class ApplicationController < ActionController::Base
     parsed_locale = params[:locale]
     I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale.to_sym : nil
   end
+
+  rescue_from Pundit::NotAuthorizedError do |exception|
+    redirect_to root_path
+    flash[:success] = "You are not authorized as an admin or super admin"
+  end
 end

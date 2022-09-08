@@ -2,6 +2,7 @@
 
 class ArticlesController < ApplicationController
   def index
+    @articles = policy_scope(Article)
     @articles = if !params[:query] || params[:query].empty?
                   Article.published.in_language(extract_locale).sorted_desc
                 else
@@ -14,6 +15,7 @@ class ArticlesController < ApplicationController
     return not_found unless Article.find(params[:id]).published?
 
     @article = Article.find(params[:id])
+    authorize @form.article
   end
 
   def not_found
