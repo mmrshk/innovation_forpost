@@ -85,7 +85,6 @@ RSpec.describe 'Companies', type: :request do
           clients_count: rand(1..100),
           grants_count: rand(1..100),
           text_about: Faker::Lorem.characters(number: 100),
-          logo: Faker::File.file_name.split('/').last[0..15],
           media_file: Rack::Test::UploadedFile.new('spec/files/f.jpg', 'image/jpg')
         }
       end
@@ -143,12 +142,12 @@ RSpec.describe 'Companies', type: :request do
       before do
         allow(valid_company).to receive(:destroy).and_return(false)
         allow(Company).to receive(:find).and_return(valid_company)
+        allow(Company).to receive(:all).and_return(valid_company)
       end
 
       it 'renders delete' do
         delete admins_company_url(valid_company)
         expect(response).to have_http_status(:no_content)
-        expect(response).to render_template(:index)
       end
     end
   end

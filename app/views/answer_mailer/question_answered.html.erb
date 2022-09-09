@@ -1,5 +1,17 @@
-<h1>Answer#question_answered</h1>
-<%= @question.user_email%> receive answer <%= @answer.body%> by <%= @admin.email%>
-<p>
-  <%= @greeting %>, find me in app/views/answer_mailer/question_answered.html.erb
-</p>
+<header class="page-header">
+    <h1  style='color: white; background:#302ea3; text-align:center; height:35px; padding: 25px 0;';>
+      <%= @question.title%>
+    </h1>
+</header>
+<div>
+  <h1 style='font-size:20px'><%= @greeting %>, <%= @question.user_email%></h1>
+  <p style='font-size:14px'>
+    Your question was: <q><b><%= @question.body%></b></q>
+  </p>
+
+  <p style='font-size:14px'>You receive answer: <q><b><%= @answer.body%></b></q> from <cite><%= @admin.email%></p></cite>
+</div>
+
+<footer style="background-color:#302ea3; color:white; padding:10px 20px;">
+  <p> &copy; InnovationForpost, Ltd. Al Rights Reserved</p>
+</footer>

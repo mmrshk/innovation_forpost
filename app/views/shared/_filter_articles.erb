@@ -1,0 +1,85 @@
+<div class="dropdown-trigger-1 filter-button right" href='#' data-target="filter-dropdown">
+  <i class="material-icons filter">tune</i>
+  <%= link_to t('admins.articles.views.filter.filter'), request.path, class: "filter-title" %>
+  <i class="material-icons dropdown">arrow_drop_down</i>
+  <div id='filter-dropdown' class='dropdown-content'>
+
+    <div class="row">
+      <form class="col s12"> 
+        <%= search_form_for @q, url: admins_articles_path do |f| %>
+          <%= hidden_field_tag :locale, params[:locale] %>
+          <div class="input-top">
+            <div class="input-field col s6">
+              <label class="filter-text-label"><%= t('admins.articles.views.labels.status') %></label>
+              <i class="material-icons select">arrow_drop_down</i>
+                <%= f.select(:status_eq, 
+                    options_for_select(Article.statuses.map {|k, v| [k.humanize.capitalize, v]}, f.object.status_eq), 
+                    { include_blank: true }, 
+                    {class: "form-control filter" })
+                %>
+            </div>
+
+            <div class="input-field col s6">
+              <label class="filter-text-label"><%= t('admins.articles.views.labels.language') %></label>
+              <i class="material-icons select">arrow_drop_down</i>
+                <%= f.select(:language_eq, 
+                    options_for_select(Article.languages.map {|k, v| [k.humanize.capitalize, v]}, f.object.language_eq), 
+                    { include_blank: true }, 
+                    {class: "form-control filter" })
+                %>
+            </div>
+          </div>
+
+          <div class="input-middle">
+            <div class="input-field col s6">
+              <label class="filter-text-label"><%= t('admins.articles.views.labels.title') %></label>
+              <i class="material-icons select">arrow_drop_down</i>
+                <select class="browser-default filter-option">
+                    <option value="1">Contains</option>
+                </select>
+            </div>
+            <div class="input-field col s6">
+              <label class="filter-text-label"><%= t('admins.articles.views.labels.author') %></label>
+              <i class="material-icons select">arrow_drop_down</i>
+                <select class="browser-default filter-option">
+                    <option value="1">Equals</option>
+                </select>
+            </div>
+            <div class="input-field col s6">            
+              <%= f.text_field :title_cont, placeholder: t('admins.articles.views.labels.title'), class: 'form-control' %>
+            </div>
+            <div class="input-field col s6">
+              <%= f.text_field :user_email_cont, placeholder: t('admins.articles.views.labels.author'), class: 'form-control' %>
+            </div>
+          </div> 
+
+          <div class="input-bottom">      
+            <div class="input-field col s6">
+              <%= f.text_field :created_at_gteq,  placeholder: "Start at:", class: 'datepicker' %>   
+              <i class="material-icons calendar">date_range</i>          
+              <%= f.label :created_at, t('admins.articles.views.filter.created_at'), class: 'filter-field-name' %>    
+            </div>
+            <div class="input-field col s6">
+              <%= f.text_field :updated_at_gteq,  placeholder: "Start at:", class: 'datepicker' %>   
+              <i class="material-icons calendar">date_range</i>          
+              <%= f.label :updated_at, t('admins.articles.views.filter.updated_at'), class: 'filter-field-name' %>  
+            </div>
+            <div class="input-field col s6">
+              <%= f.text_field :created_at_lteq,  placeholder: "End at:", class: 'datepicker' %>   
+              <i class="material-icons calendar">date_range</i>
+            </div>
+            <div class="input-field col s6">
+              <%= f.text_field :updated_at_lteq,  placeholder: "End at:", class: 'datepicker' %>   
+              <i class="material-icons calendar">date_range</i>
+            </div>
+          </div>   
+
+          <div class="buttons">
+            <div><%= f.submit t('admins.articles.views.buttons.search'), class: "filter-buttons" %></div>
+            <%= link_to t('admins.articles.views.buttons.clear'), admins_articles_path, class: "filter-buttons" %>
+          </div>
+        <% end %>
+      </form> 
+    </div>  
+  </div>  
+</div>

@@ -8,7 +8,7 @@
 <h2 class='question-title'>List of answers</h1>
 <%= simple_form_for ([:admins, @question, @answer]) do |form| %>
   <%= form.input :body, label: 'Body' %>
-  <%= form.button :submit%>
+  <%= form.button :submit %>
 <% end %>
 <% @answers.each do |answer| %>
   <p class='answer-body'><%= answer.body %></p>

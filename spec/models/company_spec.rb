@@ -35,6 +35,8 @@ RSpec.describe Company, type: :model do
     it { should validate_length_of(:text_about).is_at_least(20) }
     it { should validate_length_of(:text_about).is_at_most(1000) }
     it { should validate_presence_of(:media_file) }
+    it { should validate_presence_of(:language) }
+    it { should define_enum_for(:language).with_values(Company::LANGUAGES) }
   end
 
   describe 'creates successful' do
