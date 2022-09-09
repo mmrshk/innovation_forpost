@@ -14,10 +14,10 @@
   <table class="body-table">
       <thead>
         <tr>
-          <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Id', class:'fa-icon'), :sort => "id" %> </th>
-          <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Title', class:'fa-icon'), :sort => "title"%> </th>
-          <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Email', class:'fa-icon'), :sort => "email"%> </th>
-          <th colspan="3", class="title-table-user">Functions <%= fa_icon('gear', class:'fa-icon')%> </th>
+          <th class="title-table-user"> <%= sort_link(@q, :id, 'Id', default_order: :asc) %> </th>
+          <th class="title-table-user"> <%= sort_link(@q, :title, "Title", default_order: :asc)%> </th>
+          <th class="title-table-user"> <%= sort_link(@q, :user_email, "Email", default_order: :asc)%> </th>
+          <th colspan="3", class="title-table-user">Functions <%= fa_icon('gear')%> </th>
         </tr>
       </thead>
 

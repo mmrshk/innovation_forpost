@@ -5,7 +5,9 @@ module Admins
     before_action :question, only: %i[edit update destroy show]
 
     def index
-      @pagy, @questions = pagy(Question.all)
+      # @pagy, @questions = pagy(Question.all)
+      @q = Question.ransack(params[:q])
+      @pagy, @questions = pagy(@q.result)
     end
 
     def show
