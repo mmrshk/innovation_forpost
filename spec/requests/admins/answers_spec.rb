@@ -26,9 +26,9 @@ RSpec.describe 'Answers', type: :request do
       let(:valid_answer) { attributes_for(:answer) }
 
       it 'enqueue actionmailer' do
-        expect { post admins_question_answers_path(question), params: { answer: params } }.to have_enqueued_job {
-                                                                                                ActionMailer::DeliveryJob
-                                                                                              }
+        expect { post admins_question_answers_path(question), params: { answer: params } }.to(have_enqueued_job do
+          ActionMailer::DeliveryJob
+        end)
       end
 
       it 'creates a new instance of Answer with correct values' do
