@@ -5,7 +5,7 @@ module Admins
     before_action :company, only: %i[show edit update destroy]
 
     def index
-      @companies = Company.all
+      @pagy, @companies = pagy(Company.all)
     end
 
     def show; end
@@ -40,7 +40,6 @@ module Admins
       if @company.destroy
         redirect_to admins_companies_path, notice: I18n.t('admins.companies.destroy_success')
       else
-        render :index, status: :no_content
         flash[:notice] = @company.errors
       end
     end
@@ -58,7 +57,8 @@ module Admins
                                       :clients_count,
                                       :grants_count,
                                       :text_about,
-                                      :media_file)
+                                      :media_file,
+                                      :language)
     end
   end
 end
