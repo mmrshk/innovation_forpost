@@ -5,6 +5,7 @@ module Admins
     before_action :user, only: %i[edit show update destroy]
     before_action :authenticate_user!, except: [:update]
     before_action :require_one_superadmin!, only: :update
+    before_action :authorize_user, only: %i[show edit update destroy]
 
     def index
       @users = policy_scope(User)
@@ -12,9 +13,7 @@ module Admins
       @pagy, @users = pagy(@q.result)
     end
 
-    def show
-      authorize @user
-    end
+    def show; end
 
     def new
       @user = User.new
@@ -32,12 +31,9 @@ module Admins
       end
     end
 
-    def edit
-      authorize @user
-    end
+    def edit; end
 
     def update
-      authorize @user
       if @user.update(user_params)
         flash[:success] = I18n.t('admins.users.users.update_success')
         redirect_to admins_user_url(@user)
@@ -47,7 +43,6 @@ module Admins
     end
 
     def destroy
-      authorize @user
       if @user == current_user
         flash[:success] = I18n.t('admins.users.current_user_account_destroy_prohibited')
       else
@@ -61,6 +56,10 @@ module Admins
 
     def user
       @user ||= User.find(params[:id])
+    end
+
+    def authorize_user
+      authorize @user
     end
 
     def user_params

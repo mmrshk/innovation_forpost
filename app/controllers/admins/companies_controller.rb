@@ -3,15 +3,14 @@
 module Admins
   class CompaniesController < AdminsController
     before_action :company, only: %i[show edit update destroy]
+    before_action :authorize_company, only: %i[show edit update destroy]
 
     def index
       @companies = policy_scope(Company)
       @pagy, @companies = pagy(Company.all)
     end
 
-    def show
-      authorize @company
-    end
+    def show; end
 
     def new
       @company = Company.new
@@ -33,7 +32,6 @@ module Admins
     def edit; end
 
     def update
-      authorize @company
       if @company.update(company_params)
         redirect_to admins_companies_path, notice: I18n.t('admins.companies.update_success')
       else
@@ -43,7 +41,6 @@ module Admins
     end
 
     def destroy
-      authorize @company
       if @company.destroy
         redirect_to admins_companies_path, notice: I18n.t('admins.companies.destroy_success')
       else
@@ -55,6 +52,10 @@ module Admins
 
     def company
       @company ||= Company.find(params[:id])
+    end
+
+    def authorize_company
+      authorize @company
     end
 
     def company_params

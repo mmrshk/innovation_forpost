@@ -25,10 +25,10 @@ class AttachmentPolicy < ApplicationPolicy
   end
 
   def update?
-    user.role_super_admin?
+    user.in_admin_group?
   end
 
   def destroy?
-    user.role_super_admin?
+    user.in_admin_group?
   end
 end

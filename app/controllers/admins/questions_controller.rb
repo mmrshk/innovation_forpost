@@ -3,23 +3,20 @@
 module Admins
   class QuestionsController < AdminsController
     before_action :question, only: %i[edit update destroy show]
+    before_action :authorize_question, only: %i[show edit update destroy]
 
     def index
       @questions = policy_scope(Question)
     end
 
     def show
-      authorize @question
       @answer = @question.answers.build
       @answers = @question.answers.all
     end
 
-    def edit
-      authorize @question
-    end
+    def edit; end
 
     def update
-      authorize @question
       if @question.update(question_params)
         redirect_to admins_questions_path, notice: 'Question updated!'
       else
@@ -28,7 +25,6 @@ module Admins
     end
 
     def destroy
-      authorize @question
       if @question.destroy
         redirect_to admins_questions_path, notice: 'Question destroyed!'
       else
@@ -40,6 +36,10 @@ module Admins
 
     def question
       @question ||= Question.find(params[:id])
+    end
+
+    def authorize_question
+      authorize @question
     end
 
     def question_params
