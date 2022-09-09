@@ -1,1 +1,10 @@
+<% provide(:button_text, 'Edit') %>
 
+<div class="form-container">
+  <div class="form row">
+    <div class="col s12">
+      <h1 class="center-align">Editing Question</h1>
+      <%= render 'form', question: @question, url: admins_question_path(@question),  method: :put %>
+    </div>
+  </div>
+</div>
