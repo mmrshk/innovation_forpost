@@ -9,14 +9,13 @@
       <div class="container-records">
         <%== pagy_items_selector_js(@pagy) %>
       </div>
-     
   </div>
 
   <table class="body-table">
       <thead>
         <tr>
           <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Id', class:'fa-icon'), :sort => "id" %> </th>
-          <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Title', class:'fa-icon'), :sort => "role"%> </th>
+          <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Title', class:'fa-icon'), :sort => "title"%> </th>
           <th class="title-table-user"> <%= link_to fa_icon('sort', text: 'Email', class:'fa-icon'), :sort => "email"%> </th>
           <th colspan="3", class="title-table-user">Functions <%= fa_icon('gear', class:'fa-icon')%> </th>
         </tr>
