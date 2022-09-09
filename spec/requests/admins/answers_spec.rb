@@ -1,12 +1,11 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-
 RSpec.describe 'Answers', type: :request do
   let!(:question) { create(:question, :question_with_answer) }
   let!(:answer) { question.answers.first }
   let(:admin) { create(:user, :super_admin) }
-
+  include Pagy::Backend
   before do
     sign_in admin
   end
@@ -26,9 +25,9 @@ RSpec.describe 'Answers', type: :request do
       let(:valid_answer) { attributes_for(:answer) }
 
       it 'enqueue actionmailer' do
-        expect { post admins_question_answers_path(question), params: { answer: params } }.to have_enqueued_job {
-                                                                                                ActionMailer::DeliveryJob
-                                                                                              }
+        expect { post admins_question_answers_path(question), params: { answer: params } }.to(have_enqueued_job do
+          ActionMailer::DeliveryJob
+        end)
       end
 
       it 'creates a new instance of Answer with correct values' do
@@ -50,8 +49,7 @@ RSpec.describe 'Answers', type: :request do
 
     context 'with invalid parameters' do
       let(:invalid_answer) { attributes_for(:answer, :invalid_answer) }
-
-      it 'creates a new instance of Question with incorrect values' do
+      it 'creates a new instance of Answer with incorrect values' do
         expect do
           post admins_question_answers_url(question), params: { answer: invalid_answer }
         end.not_to change(Answer, :count)

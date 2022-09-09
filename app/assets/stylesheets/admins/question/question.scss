@@ -1,0 +1,131 @@
+.admin-question-title {
+  width: 100%;
+  margin: 0;
+  font-family: roboto, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 59px;
+  color: $background-color-title;
+}
+
+.admin-question-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+
+  .admin-question-button {
+    margin: 20px 0px;
+    padding: 0;
+    height: 60px;
+    width: 295px;
+    min-width: 295px;
+    background: $admin-background-color-button;
+    border-radius: 30px;
+    font-family: roboto, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 35px;
+    text-transform: capitalize;
+    text-decoration: none;
+    letter-spacing: .5px;
+    color: $white-color;
+    transition: background-color .2s ease-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $background-color-title;
+    }
+
+    &:focus {
+      background-color: $admin-background-color-button;
+    }
+
+    &.text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 2px;
+    }
+
+    &_icon-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 12px;
+      padding-right: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 640px) {
+
+  .admin-question-group {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 20px;
+    width: 100%;
+
+    &.reverse {
+      flex-direction: column-reverse;
+    }
+  }
+
+  .admin-question-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .admin-question-button {
+    width: 100%;
+    margin: 20px 0px;
+    padding: 3px 30px;
+
+    &_icon-text {
+      padding-top: 3px;
+    }
+  }
+}
+
+.question-title {
+  margin: 0 0 20px;
+  font-family: "metropolisblack",sans-serif;;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 35px;
+  line-height: 1.25;
+  color: $black-color;
+  margin-top: 20px;
+  &:hover {
+    color: $base-color;
+  }
+}
+
+.question-body{
+  margin: 0 0 20px;
+  font-family: "metropolisblack",sans-serif;;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1.25;
+  color: $black-color;
+}
+.question-contacts{
+  margin: 0 0 20px;
+  font-family: "metropolisblack",sans-serif;;
+  font-style: normal;
+  font-size: 15px;
+  line-height: 1.25;
+  color: $black-color;
+}
+.answer-body{
+  font-family: "metropolisblack",sans-serif;;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 1.25;
+  color: $black-color;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}

@@ -5,12 +5,13 @@ module Admins
     before_action :question, only: %i[edit update destroy show]
 
     def index
-      @questions = Question.all
+      @pagy, @questions = pagy(Question.all)
     end
 
     def show
       @answer = @question.answers.build
-      @answers = @question.answers.all
+      # @answers = @question.answers.all
+      @pagy, @answers = pagy(@question.answers.all)
     end
 
     def edit; end
