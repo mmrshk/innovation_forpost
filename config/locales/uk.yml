@@ -8,6 +8,7 @@ uk:
     signout: "Вийти"
     login: "Увійти"
     articles: "Статті"
+    articles_all: "Скинути фільтр"
   admin:
     attachments:
       media_file: "Вкладення"

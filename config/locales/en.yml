@@ -8,6 +8,7 @@ en:
     signout: "Sign out"
     login: "Log in"
     articles: "Articles"
+    articles_all: "Reset filter"
   admins:
     users:
       create_success: 'User was successfully created.'
