@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
     if params[:q]
       @articles = Tag.find_by(name: params[:q]).articles.published.in_language(extract_locale)
     else
-      @articles = Article.all.published.in_language(extract_locale)
+      @articles = Article.all.includes(:article_tags, :tags).published.in_language(extract_locale)
     end
     @tags = Tag.all
   end
