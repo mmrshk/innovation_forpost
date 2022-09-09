@@ -12,12 +12,15 @@
       <%= f.input :in_person %>
       <%= f.input :project_name %>
       <%= f.input :address %>
-      <%= f.input :phone_email %>
+      <%= f.input :phone %>
+      <%= f.input :email %>
       <%= f.input :purpose %>
       <%= f.input :activity %>
+      <%= f.input :start_date, input_html: { class: 'browser-default' } %>
+      <%= f.input :end_date, input_html: { class: 'browser-default' }  %>
       <%= f.input :area %>
-      <%= f.input :danger_class %>
-      <%= f.input :electicity_supply %>
+      <%= f.input :danger_class, input_html: { class: 'browser-default' }  %>
+      <%= f.input :electicity_supply  %>
       <%= f.input :reqirements %>
   
       <%= f.button :submit %>

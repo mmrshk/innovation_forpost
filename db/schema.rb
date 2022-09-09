@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_26_044027) do
+ActiveRecord::Schema.define(version: 2022_09_09_115221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,17 @@ ActiveRecord::Schema.define(version: 2022_08_26_044027) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "url"
     t.index ["article_id"], name: "index_ck_editor_images_on_article_id"
+  end
+
+  create_table "companies", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "start_year", default: 2010
+    t.integer "projects_count", default: 0
+    t.integer "clients_count", default: 0
+    t.integer "grants_count", default: 0
+    t.string "text_about", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "documents", force: :cascade do |t|
@@ -168,16 +179,19 @@ ActiveRecord::Schema.define(version: 2022_08_26_044027) do
   end
 
   create_table "resident_forms", force: :cascade do |t|
-    t.string "customer_full_name"
-    t.string "in_person"
-    t.string "project_name"
-    t.string "address"
-    t.string "phone_email"
-    t.string "purpose"
-    t.string "activity"
-    t.integer "area"
-    t.integer "danger_class"
-    t.boolean "electicity_supply"
+    t.string "customer_full_name", null: false
+    t.string "in_person", null: false
+    t.string "project_name", null: false
+    t.string "address", null: false
+    t.string "phone", null: false
+    t.string "email", null: false
+    t.string "purpose", null: false
+    t.string "activity", null: false
+    t.date "start_date", null: false
+    t.date "end_date", null: false
+    t.integer "area", null: false
+    t.integer "danger_class", null: false
+    t.boolean "electicity_supply", null: false
     t.text "reqirements"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
