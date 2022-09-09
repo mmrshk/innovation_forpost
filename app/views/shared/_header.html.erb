@@ -50,19 +50,21 @@
         <li class="item"><%= link_to t('menu.articles'), articles_path %></li>
         <li class="item"><%= link_to t('menu.about'), '#' %></li>
         <li class="item"><%= link_to t('menu.contacts'), '#' %></li>
+        <li class="item"><%= link_to t('menu.articles'), articles_path %></li>
         <% if user_signed_in? %>        
           <div id="user-menu">
             <i class="small material-icons">account_circle</i>
             <ul class="user-menu_content">
-              <li><%= link_to "Profile", admins_user_path(current_user) %></li>
-              <li><%= link_to "Settings", edit_user_registration_path %></li>
-              <li><%= link_to t('menu.signout'), destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to t('menu.profile'), admins_user_path(current_user) %></li>
               <% if current_user.role_admin? || current_user.role_super_admin? %>
-                <li><%= link_to "Articles", admins_articles_path  %></li>
+                <li><%= link_to t('menu.articles'), admins_articles_path  %></li>
+                <li><%= link_to t('menu.attachments'), admins_attachments_path  %></li>
                 <% if current_user.role_super_admin? %>
-                  <li><%= link_to "Users", admins_users_path %></li>
+                  <li><%= link_to t('menu.users'), admins_users_path %></li>
                 <% end %>
               <% end %>
+              <li><%= link_to t('menu.settings'), edit_user_registration_path %></li>
+              <li><%= link_to t('menu.signout'), destroy_user_session_path, method: :delete %></li>
             </ul>
           </div>
         <% else %>

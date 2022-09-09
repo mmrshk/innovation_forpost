@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :users
     resources :attachments
     resources :questions, except: %i[create new] do
-      resources :answers
+      resources :answers, only: %i[create destroy]
     end
  
     resources :articles, except: :show do
@@ -15,6 +15,8 @@ Rails.application.routes.draw do
         post :upload
       end
     end
+
+    resources :companies, except: :show
   end
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -28,10 +30,11 @@ Rails.application.routes.draw do
     resources :articles, only: %i[index show] 
     resources :tags, only: %i[index show]
     root to: "home#index"
-    resources :questions, only: %i[index new create show] 
-  end
+    resources :questions, only: %i[index new create show]
+    get '/companies', to: 'companies#index'
 
-  get '/404', to: 'errors#not_found'
-  get '/422', to: 'errors#unprocessable_entity'
-  get '/500', to: 'errors#internal_server_error'
+    get "/404", to: "errors#not_found"
+    get '/422', to: 'errors#unprocessable_entity'
+    get '/500', to: 'errors#internal_server_error'
+  end
 end

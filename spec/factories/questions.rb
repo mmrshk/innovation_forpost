@@ -13,5 +13,9 @@ FactoryBot.define do
       user_email { Faker::Lorem.characters(number: 30) } # wrong email
       body { Faker::Lorem.paragraph }
     end
+
+    trait :question_with_answer do
+      answers { build_list :answer, 1 }
+    end
   end
 end
