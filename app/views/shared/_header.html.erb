@@ -1,6 +1,7 @@
 <div class="mobile-menu">
   <ul class="mobile-menu_list">
     <li class="item"><%= link_to t('menu.innovateForpost'), '#' %></li>
+    <li class="item"><%= link_to t('menu.company'), companies_path %></li>
     <li class="item"><%= link_to t('menu.articles'), articles_path %></li>
     <li class="item"><%= link_to t('menu.about'), '#' %></li>
     <li class="item"><%= link_to t('menu.contacts'), '#' %></li>
@@ -47,16 +48,17 @@
       <% end %>
       <ul class="menu">
         <li class="item"><%= link_to t('menu.innovateForpost'), '#' %></li>
+        <li class="item"><%= link_to t('menu.company'), companies_path %></li>
         <li class="item"><%= link_to t('menu.articles'), articles_path %></li>
         <li class="item"><%= link_to t('menu.about'), '#' %></li>
         <li class="item"><%= link_to t('menu.contacts'), '#' %></li>
-        <li class="item"><%= link_to t('menu.articles'), articles_path %></li>
         <% if user_signed_in? %>        
           <div id="user-menu">
             <i class="small material-icons">account_circle</i>
             <ul class="user-menu_content">
               <li><%= link_to t('menu.profile'), admins_user_path(current_user) %></li>
               <% if current_user.role_admin? || current_user.role_super_admin? %>
+                <li><%= link_to t('menu.company'), admins_companies_path  %></li>
                 <li><%= link_to t('menu.articles'), admins_articles_path  %></li>
                 <li><%= link_to t('menu.attachments'), admins_attachments_path  %></li>
                 <% if current_user.role_super_admin? %>
