@@ -1,23 +1,30 @@
 <%= simple_form_for(question, url: url, method: method ) do |f| %>
-  <div class="input-field col s12">
-    <%= f.input :title, class: "validate", required: false %>
-  </div>
+  <div>
+    <div class="input-field col s12">
+      <%= f.input :title, class: "validate"%>
+    </div>
 
-  <div class="input-field col s12">
-    <%= f.input :user_email %>
-  </div>
+    <div class="input-field col s12">
+      <%= f.input :user_email, required: false %>
+    </div>
 
-   <div class="input-field col s12">
-    <%= f.input :user_name %>
-  </div>
+    <div class="input-field col s12">
+      <%= f.input :user_name %>
+    </div>
 
-  <div class="input-field col s12">
-    <%= f.input :body %>
+    <div class="input-field col s12">
+      <%= f.input :body %>
+    </div>
   </div>
 
   <div class="waves-effect waves-light btn">
     <%= f.submit yield(:button_text), class: "btn-area" %>
   </div>
 
-  <%= link_to 'Back to users', admins_questions_path, class: "btn-flat" %>
+  <div class='group-buttons', style="width:100%;">
+    <%= link_to"All questions", admins_questions_path, class: 'article-button outline' %>
+    <%= link_to url_for(:back), class: 'article-button outline' do %>
+      <span><i class='material-icons'>arrow_back</i><%= t('admins.articles.views.buttons.back') %></span>
+    <% end %>
+  </div>
 <% end %>

@@ -12,8 +12,10 @@ module Admins
 
     def show
       @answer = @question.answers.build
-      # @answers = @question.answers.all
-      @pagy, @answers = pagy(@question.answers.all)
+      # @pagy, @answers = pagy(@question.answers.all)
+
+      @q = @question.answers.ransack(params[:q])
+      @pagy, @answers = pagy(@q.result)
     end
 
     def edit; end
