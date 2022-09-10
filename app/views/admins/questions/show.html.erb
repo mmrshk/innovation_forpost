@@ -10,13 +10,20 @@
       <div class="container-records">
         <%== pagy_items_selector_js(@pagy) %>
       </div>
-     
   </div>
 <%= simple_form_for ([:admins, @question, @answer]) do |form| %>
   <%= form.input :body, label: 'Write your answer' %>
   <%= form.button :submit %>
-
+ <%= form.input :language, label: "Language",
+                      label_html: { class: 'name-field-form' },
+                      input_html: { class: 'inline-select' },
+                      collection: Answer.languages.keys,
+                      selected: @answer.language,
+                      include_blank: false %>
 <% end %>
+
+
+
 
 <table class="body-table">
       <thead>
