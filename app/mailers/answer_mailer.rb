@@ -5,7 +5,7 @@ class AnswerMailer < ApplicationMailer
     @question = params[:question]
     @answer = params[:answer]
     @admin = params[:admin]
-    @greeting = 'Hi'
+    @greeting = t('admins.question_mailers.greeting')
 
     mail(
       from: Rails.application.credentials.google_account[:SMTP_USERNAME],

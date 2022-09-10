@@ -76,6 +76,12 @@ en:
       create_attachmennt: 'You added a new attachment!'
       edit_attachment: 'You successfully edited an attachment!'
       delete_attachment: 'You deleted an attachment!'
+    question_mailers:
+      greeting: 'Hi'
+      question: 'Your question was: '
+      answer: 'You receive answer: '
+      from: 'from'
+      rights: 'All Rights Reserved'
     companies:
       create_success: 'Company was successfully created.'
       create_unsuccess: 'Could not create the Company. Please try again'

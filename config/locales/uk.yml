@@ -99,6 +99,12 @@ uk:
       create_attachment: 'Вкладення успішно створено!'
       edit_attachment: 'Вкладення успішно відредаговано'
       delete_attachment: 'Вкладення видалено'
+    question_mailers:
+      greeting: 'Привіт'
+      question: 'Ви поставили питання: '
+      answer: 'Ви отримали відповідь: '
+      from: 'від'
+      rights: 'Всі права захищені'
     companies:
       create_success: 'Компанія успішно створена.'
       create_unsuccess: 'Неможливо створити компанію. Виправте помилки.'
