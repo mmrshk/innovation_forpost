@@ -207,7 +207,7 @@ ActiveRecord::Schema.define(version: 2022_09_02_070934) do
   add_foreign_key "articles", "users"
   add_foreign_key "ck_editor_images", "articles"
 
-  create_view "return_articles", sql_definition:
+  create_view "return_articles", sql_definition: <<-SQL
       SELECT articles.id AS article_id,
       users.id AS user_id,
       users.email,
@@ -220,8 +220,7 @@ ActiveRecord::Schema.define(version: 2022_09_02_070934) do
        JOIN users ON ((articles.user_id = users.id)))
        JOIN tags ON ((article_tags.tag_id = tags.id)))
        JOIN ck_editor_images ON ((articles.id = ck_editor_images.id)));
-
-  create_view "articles_db_views", sql_definition:
+  create_view "articles_db_views", sql_definition: <<-SQL
       SELECT article_tags.article_id,
       articles.title,
       articles.created_at,
