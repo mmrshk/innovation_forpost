@@ -5,7 +5,6 @@ class AnswerMailer < ApplicationMailer
     @question = params[:question]
     @answer = params[:answer]
     @admin = params[:admin]
-    @greeting = t('admins.question_mailers.greeting')
 
     mail(
       to: @question.user_email
