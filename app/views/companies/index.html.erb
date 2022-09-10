@@ -1,43 +1,36 @@
 <div class="body-container">
-  <h1 class="company-headline"><%= t('admins.companies.views.title') %></h1>
-  <div class="wrapper-companies">
+<h1 class="company-headline _container"><%= t('admins.companies.views.title') %></h1>
+<div class="wrapper-companies _container">
   <% @companies.each do |company| %>
+    <% presenter = CompanyPresenter.new(company) %>
     <div class="wrapper-company">
-
       <div class="container-info">
-
         <div class="container-logo"><%= image_tag(company.media_file, class: "company-logo")%></div>
-
-        <div class="company-name"><%= company.name %></div>
-
-        <% for i in [0, 2] do %>
-          <div class="company-info-row">
-            <% for j in [0, 1] do %>
+        <div class="company-info-block">
+          <div class="company-name"><%= company.name %></div>
+          <div class="company-info-rows">
+            <% presenter.company_info.each_with_index do |item, index|%>
               <div class="company-info">
                 <div class="info-number">
-                  <%= CompanyPresenter.new(company).company_info[i + j] %>
+                  <%= item %>
                 </div>
                 <div class="info-text">
-                  <%= CompanyPresenter.new(company).company_label_texts[i + j] %>
+                  <%= presenter.company_label_texts[index] %>
                 </div>
               </div>
             <% end %>
           </div>
-        <% end %>
-
+        </div>
       </div>
-
       <div class="container-about">
         <div class="text-about"><%= company.text_about %></div>
       </div>
-
     </div>
   <% end %>
-  </div>
- 
-  <%= render 'news', articles: @articles %>
-  <%= render 'docs', documents: @documents %>
+</div>
 
-  <%= javascript_pack_tag 'load_more' %>
+<%= render 'news', articles: @articles %>
+<%= render 'docs', documents: @documents %>
+<%= javascript_pack_tag 'load_more' %>
 
 </div>

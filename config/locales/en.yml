@@ -125,3 +125,7 @@ en:
       grants_text: 'grants won'
   news:
     headline: 'News'
+    button_more: 'More news'
+  docs:
+    headline: 'Documents'
+    button_more: 'More documents'
