@@ -6,8 +6,6 @@ class AnswerMailer < ApplicationMailer
     @answer = params[:answer]
     @admin = params[:admin]
 
-    mail(
-      to: @question.user_email
-    )
+    mail(to: @question.user_email)
   end
 end
