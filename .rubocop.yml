@@ -2,10 +2,6 @@ Metrics/ClassLength:
   Description: 'Avoid classes longer than 100 lines of code.'
   Max: 100
   Enabled: true
-Metrics/ModuleLength:
-  Description: 'Avoid modules longer than 100 lines of code.'
-  Max: 100
-  Enabled: true
 Metrics/ParameterLists:
   Description: 'Pass no more than four parameters into a method.'
   Max: 4
@@ -17,6 +13,10 @@ Metrics/AbcSize:
 Metrics/ModuleLength:
   Description: 'Avoid modules longer than 100 lines of code.'
   Max: 100
+  Enabled: true
+Metrics/MethodLength:
+  Description: 'Avoid methods longer than 20 lines of code.'
+  Max: 20
   Enabled: true
 Metrics/BlockLength:
   CountComments: false
