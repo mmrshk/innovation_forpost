@@ -8,7 +8,6 @@ class AnswerMailer < ApplicationMailer
     @greeting = t('admins.question_mailers.greeting')
 
     mail(
-      from: Rails.application.credentials.google_account[:SMTP_USERNAME],
       to: @question.user_email
     )
   end
