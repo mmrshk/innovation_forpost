@@ -99,6 +99,32 @@ uk:
       create_attachment: 'Вкладення успішно створено!'
       edit_attachment: 'Вкладення успішно відредаговано'
       delete_attachment: 'Вкладення видалено'
+    questions:
+      create: 'Питання успішно створене!'
+      edit: 'Питання успішно відредаговано!'
+      delete: 'Питання успішно видалено!'
+      delete_unsuccess: 'Помилка, щось пішло не так!'
+      title_edit: 'Редагування питаня'
+      buttons:
+        edit: 'Редагувати'
+        all: 'Всі питання'
+        add: 'Створити питання'
+      tables:
+        title: 'Заголовок'
+        email: 'Ел. пошта'
+        functions: 'Функції'
+        view: 'Переглянути'
+        edit: 'Редагувати'
+        delete: 'Видалити'
+      show:
+        name: "Ім'я користувача:"
+    answers:
+      create: 'Відповідь успішно створена!'
+      delete: 'Відповідь видалена!'
+      delete_unsuccess: 'Помилка, щось пішло не так!'
+      list: 'Список всіх відповідей'
+      language: 'Мова'
+      body: 'Текст відповіді'
     question-mailers:
       greeting: 'Привіт'
       pre_question: 'Ваше питання'

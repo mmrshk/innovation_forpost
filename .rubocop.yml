@@ -7,8 +7,8 @@ Metrics/ParameterLists:
   Max: 4
   Enabled: true
 Metrics/AbcSize:
-  Description: 'Avoid AbcSize longer than 20 lines of code.'
-  Max: 20
+  Description: 'Avoid AbcSize longer than 30 lines of code.'
+  Max: 30
   Enabled: true
 Metrics/ModuleLength:
   Description: 'Avoid modules longer than 100 lines of code.'

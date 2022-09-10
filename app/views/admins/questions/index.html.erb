@@ -1,7 +1,7 @@
 <div class='body-container'>
   <div class='admin-question-group'>
-  <h1 class='admin-question-title'><%= 'Questions' %></h1>
-  <%= link_to "Add question", new_question_path, class:'admin-question-button text' %>
+  <h1 class='admin-question-title'><%= t('admins.questions.buttons.all') %></h1>
+  <%= link_to t('admins.questions.buttons.add'), new_question_path, class:'admin-question-button text' %>
   </div>
 
 
@@ -15,9 +15,9 @@
       <thead>
         <tr>
           <th class="title-table-user"> <%= sort_link(@q, :id, 'Id', default_order: :asc) %> </th>
-          <th class="title-table-user"> <%= sort_link(@q, :title, "Title", default_order: :asc)%> </th>
-          <th class="title-table-user"> <%= sort_link(@q, :user_email, "Email", default_order: :asc)%> </th>
-          <th colspan="3", class="title-table-user">Functions <%= fa_icon('gear')%> </th>
+          <th class="title-table-user"> <%= sort_link(@q, :title, t('admins.questions.tables.title'), default_order: :asc) %> </th>
+          <th class="title-table-user"> <%= sort_link(@q, :user_email, t('admins.questions.tables.email'), default_order: :asc) %> </th>
+          <th colspan="3", class="title-table-user"><%= t('admins.questions.tables.functions') %> <%= fa_icon('gear') %> </th>
         </tr>
       </thead>
 
@@ -27,9 +27,9 @@
             <td class="field-table-user"><%= question.id %></td>
             <td class="field-table-user"><%= question.title %></td>
             <td class="field-table-user"><%= question.user_email %></td>
-            <td class="field-table-user button-functions"><%= link_to fa_icon('eye', text: 'View'), admins_question_path(question), class: "button-functions" %></td>
-            <td class="field-table-user button-functions"><%= link_to fa_icon('edit', text: 'Edit'), edit_admins_question_path(question), class: "button-functions" %></td>
-            <td class="field-table-user button-functions"><%= link_to fa_icon('trash', text: 'Delete'),admins_question_path(question), method: :delete, data: { confirm: 'Are you sure?' }, class: "button-functions" %></td>
+            <td class="field-table-user button-functions"><%= link_to fa_icon('eye', text: t('admins.questions.tables.view')), admins_question_path(question), class: "button-functions" %></td>
+            <td class="field-table-user button-functions"><%= link_to fa_icon('edit', text: t('admins.questions.tables.edit')), edit_admins_question_path(question), class: "button-functions" %></td>
+            <td class="field-table-user button-functions"><%= link_to fa_icon('trash', text: t('admins.questions.tables.delete')),admins_question_path(question), method: :delete, data: { confirm: 'Are you sure?' }, class: "button-functions" %></td>
           </tr>
         <% end %>
       </tbody>

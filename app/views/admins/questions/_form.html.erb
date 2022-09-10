@@ -22,7 +22,7 @@
   </div>
 
   <div class='group-buttons', style="width:100%;">
-    <%= link_to"All questions", admins_questions_path, class: 'article-button outline' %>
+    <%= link_to t('admins.questions.buttons.all'), admins_questions_path, class: 'article-button outline' %>
     <%= link_to url_for(:back), class: 'article-button outline' do %>
       <span><i class='material-icons'>arrow_back</i><%= t('admins.articles.views.buttons.back') %></span>
     <% end %>

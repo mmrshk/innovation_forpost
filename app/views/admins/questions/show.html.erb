@@ -2,10 +2,10 @@
 
 <p class='question-body'><%= sanitize @question.body %></p>
 
-<p class='question-contacts'>Name: <%= @question.user_name %></p>
-<p class='question-contacts'>email: <i><%= @question.user_email %></i></p>
+<p class='question-contacts'><%= t('admins.questions.show.name') %> <%= @question.user_name %></p>
+<p class='question-contacts'><%= t('admins.questions.tables.email') %>: <i><%= @question.user_email %></i></p>
 <hr class='article-hr'>
-<h2 class='question-title'>List of answers</h1>
+<h2 class='question-title'><%= t('admins.answers.list') %></h1>
  <div class="container-records-and-filters">
       <div class="container-records">
         <%== pagy_items_selector_js(@pagy) %>
@@ -14,7 +14,7 @@
 <%= simple_form_for ([:admins, @question, @answer]) do |form| %>
   <%= form.input :body, label: 'Write your answer' %>
   <%= form.button :submit %>
- <%= form.input :language, label: "Language",
+ <%= form.input :language, label: t('admins.answers.language'),
                       label_html: { class: 'name-field-form' },
                       input_html: { class: 'inline-select' },
                       collection: @question.answers.languages.keys,
@@ -29,9 +29,9 @@
       <thead>
         <tr>
           <th class="title-table-user"> <%= sort_link(@q, :id, 'Id', default_order: :asc) %> </th>
-          <th class="title-table-user"> <%= sort_link(@q, :body, "Body", default_order: :asc)%> </th>
-          <th class="title-table-user"> <%= sort_link(@q, :language, 'Language', default_order: :asc) %> </th>
-          <th colspan="3", class="title-table-user">Functions <%= fa_icon('gear')%> </th>
+          <th class="title-table-user"> <%= sort_link(@q, :body, t('admins.answers.body'), default_order: :asc)%> </th>
+          <th class="title-table-user"> <%= sort_link(@q, :language, t('admins.answers.language'), default_order: :asc) %> </th>
+          <th colspan="3", class="title-table-user"><%= t('admins.questions.tables.functions') %> <%= fa_icon('gear')%> </th>
         </tr>
       </thead>
 
@@ -41,14 +41,14 @@
             <td class="field-table-user"><%= answer.id %></td>
             <td class="field-table-user"><%= answer.body %></td>
             <td class="field-table-user"><%= answer.language %></td>
-            <td style="display:flex;", class="field-table-user button-functions"><%= link_to fa_icon('trash', text: 'Delete'),admins_question_answer_path(@question, answer), method: :delete, data: { confirm: 'Are you sure?' }, class: "button-functions"%></td>
+            <td style="display:flex;", class="field-table-user button-functions"><%= link_to fa_icon('trash', text: t('admins.questions.tables.delete')),admins_question_answer_path(@question, answer), method: :delete, data: { confirm: 'Are you sure?' }, class: "button-functions"%></td>
           </tr>
         <% end %>
       </tbody>
   </table>
 
 <div class='group-buttons'>
-    <%= link_to"All questions", admins_questions_path, class: 'article-button outline' %>
+    <%= link_to t('admins.questions.buttons.all'), admins_questions_path, class: 'article-button outline' %>
     <%= link_to url_for(:back), class: 'article-button outline' do %>
       <span><i class='material-icons'>arrow_back</i><%= t('admins.articles.views.buttons.back') %></span>
     <% end %>

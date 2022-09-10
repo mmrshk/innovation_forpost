@@ -1,9 +1,9 @@
-<% provide(:button_text, 'Edit') %>
+<% provide(:button_text, t('admins.questions.buttons.edit')) %>
 
 <div class="form-container">
   <div class="form row">
     <div class="col s12">
-      <h1 class="center-align">Editing Question</h1>
+      <h1 class="center-align"><%= t('admins.questions.title_edit') %></h1>
       <%= render 'form', question: @question, url: admins_question_path(@question),  method: :put %>
     </div>
   </div>

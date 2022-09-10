@@ -5,15 +5,12 @@ module Admins
     before_action :question, only: %i[edit update destroy show]
 
     def index
-      # @pagy, @questions = pagy(Question.all)
       @q = Question.ransack(params[:q])
       @pagy, @questions = pagy(@q.result)
     end
 
     def show
       @answer = @question.answers.build
-      # @pagy, @answers = pagy(@question.answers.all)
-
       @q = @question.answers.ransack(params[:q])
       @pagy, @answers = pagy(@q.result)
     end
@@ -22,7 +19,7 @@ module Admins
 
     def update
       if @question.update(question_params)
-        redirect_to admins_questions_path, notice: 'Question updated!'
+        redirect_to admins_questions_path, notice: I18n.t('admins.questions.edit')
       else
         render :edit, status: :unprocessable_entity
       end
@@ -30,9 +27,9 @@ module Admins
 
     def destroy
       if @question.destroy
-        redirect_to admins_questions_path, notice: 'Question destroyed!'
+        redirect_to admins_questions_path, notice: I18n.t('admins.questions.delete')
       else
-        flash[:notice] = 'Error, something goes wrong'
+        flash[:notice] = I18n.t('admins.questions.delete_unsuccess')
       end
     end
 

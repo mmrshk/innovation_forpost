@@ -76,6 +76,32 @@ en:
       create_attachmennt: 'You added a new attachment!'
       edit_attachment: 'You successfully edited an attachment!'
       delete_attachment: 'You deleted an attachment!'
+    questions:
+      create: 'You successfully created a question!'
+      edit: 'You successfully edited a question!'
+      delete: 'Question deleted!'
+      delete_unsuccess: 'Error, something goes wrong!'
+      title_edit: 'Editing question'
+      buttons:
+        edit: 'Edit'
+        all: 'All questions'
+        add: 'Add question'
+      tables:
+        title: 'Title'
+        email: 'Email'
+        functions: 'Functions'
+        view: 'View'
+        edit: 'Edit'
+        delete: 'Delete'
+      show:
+        name: "Username:"
+    answers:
+      create: 'You successfully created an answer!'
+      delete: 'Answer deleted!'
+      delete_unsuccess: 'Error, something goes wrong!'
+      list: 'List of answers'
+      language: 'Language'
+      body: 'Text of answer'
     question-mailers:
       greeting: 'Hi'
       pre_question: 'Your question'
