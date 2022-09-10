@@ -129,3 +129,25 @@
   margin-top: 20px;
   margin-bottom: 10px;
 }
+
+.name-field-form {
+  display: flex;
+  align-items: center;
+  font-family: roboto, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 29px;
+  color: $admin-label-color;
+}
+
+.inline-select-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.inline-select {
+  display: block;
+  opacity: 1;
+  margin: 0 0 10px 0;
+}

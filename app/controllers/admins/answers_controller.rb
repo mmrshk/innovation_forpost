@@ -29,7 +29,7 @@ module Admins
     private
 
     def answer_params
-      params.require(:answer).permit(:body)
+      params.require(:answer).permit(:body, :language)
     end
 
     def question
