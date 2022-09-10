@@ -220,6 +220,8 @@ ActiveRecord::Schema.define(version: 2022_09_02_070934) do
        JOIN users ON ((articles.user_id = users.id)))
        JOIN tags ON ((article_tags.tag_id = tags.id)))
        JOIN ck_editor_images ON ((articles.id = ck_editor_images.id)));
+  SQL
+
   create_view "articles_db_views", sql_definition: <<-SQL
       SELECT article_tags.article_id,
       articles.title,
