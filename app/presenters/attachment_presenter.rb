@@ -5,20 +5,20 @@ class AttachmentPresenter
   include ActionView::Context
   include Rails.application.routes.url_helpers
 
+  ATTACHMENTS_TYPES = {
+    pdf: 'application/pdf',
+    docx: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    png: 'image/png',
+    jpeg: 'image/jpeg',
+    jpg: 'image/jpeg'
+  }.freeze
+
   def initialize(attachment)
     @attachment = attachment
   end
 
   def check_media_file_for_preview
-    if @attachment.media_file.image?
-      link_to image_tag(media_file_blob_url,
-                        size: '84x84',
-                        class: 'image-attachment'),
-              admins_attachment_path(@attachment)
-    else
-      link_to content_tag(:i, 'insert_drive_file', class: 'material-icons large'),
-              media_file_blob_url, target: '_blank'
-    end
+    link_to image_tag(icon_for_preview, size: '84x84'), attachment_path(@attachment, locale: I18n.locale)
   end
 
   def check_media_file_for_show
@@ -44,5 +44,25 @@ class AttachmentPresenter
       @attachment.media_file.blob,
       Rails.application.config.action_mailer.default_url_options
     )
+  end
+
+  private
+
+  def attachment_type
+    @attachment.media_file.blob.content_type
+  end
+
+  def icon_for_preview
+    image_types = %i[png jpeg jpg]
+    case ATTACHMENTS_TYPES.key(attachment_type)
+    when *image_types
+      media_file_blob_url
+    when :pdf
+      '/icons/pdf-file.png'
+    when :docx
+      '/icons/doc-file.png'
+    else
+      '/icons/other-file.png'
+    end
   end
 end
