@@ -31,7 +31,7 @@ class AttachmentPresenter
   end
 
   def media_file_filename
-    return unless @attachment.media_file.attached?
+    return if @attachment.nil? || !@attachment.media_file.attached?
 
     content_tag :div, class: 'file-name-group' do
       content_tag(:span, I18n.t('admin.attachments.file_name'), class: 'file-name-label') +

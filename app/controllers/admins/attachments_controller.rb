@@ -4,6 +4,7 @@ module Admins
   class AttachmentsController < ApplicationController
     before_action :attachment, only: %i[show edit update destroy]
     before_action :authenticate_user!
+    before_action :presenter, only: %i[show new create edit update]
 
     def index
       @q = Attachment.ransack(params[:q])
@@ -11,18 +12,14 @@ module Admins
       @pagy, @attachments = pagy(@q.result.includes(media_file_attachment: :blob).all)
     end
 
-    def show
-      @presenter = AttachmentPresenter.new(@attachment)
-    end
+    def show; end
 
     def new
       @attachment = Attachment.new
-      @presenter = AttachmentPresenter.new(@attachment)
     end
 
     def create
       @attachment = Attachment.new(attachment_params)
-      @presenter = AttachmentPresenter.new(@attachment)
 
       if @attachment.save
         flash[:success] = I18n.t('admins.attachments.create_attachment')
@@ -32,12 +29,9 @@ module Admins
       end
     end
 
-    def edit
-      @presenter = AttachmentPresenter.new(@attachment)
-    end
+    def edit; end
 
     def update
-      @presenter = AttachmentPresenter.new(@attachment)
       if @attachment.update(attachment_params)
         flash[:success] = I18n.t('admins.attachments.edit_attachment')
         redirect_to admins_attachment_path(@attachment.id)
@@ -56,6 +50,10 @@ module Admins
 
     def attachment
       @attachment ||= Attachment.find(params[:id])
+    end
+
+    def presenter
+      @presenter = AttachmentPresenter.new(@attachment)
     end
 
     def attachment_params
