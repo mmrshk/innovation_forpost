@@ -3,20 +3,15 @@
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: center;
-
-  .docs-headline {
-    font-size: 25px;
-  }
 
   .docs-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: space-between;
     align-items: center;
-    height: 440px;
+    column-gap: calc(10px + (15 - 10) * ((100vw - 320px) / (1920 - 320)));
+    margin: 20px;
+    height: 520px;
     overflow: hidden;
 
     a > .docs-block {
@@ -24,12 +19,11 @@
       flex-direction: column;
       flex-wrap: nowrap;
       align-items: center;
-      width: 300px;
-      height: auto;
+      width: 360px;
+      height: 200px;
       padding: 20px 5px;
       color: $black-color;
-
-      margin: 0 10px 20px 10px;
+      margin: 0 20px 20px 20px;
       transition:all .3s ease-in-out;
       cursor: pointer;
 
@@ -48,18 +42,44 @@
       }
 
       .docs-image-preview {
-        display: block; 
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 85px;
+        }
       }
 
       .docs-title-block {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin-top: 20px;
         font-weight: 500;
-        font-size: 16px;
+        font-size: 24px;
+        line-height: 28px;
         color: $black-color;
+      }
+
+      @media screen and (max-width: 1458px) {
+        max-width: 300px;
+      }
+
+      @media screen and (max-width: 1248px) {
+        max-width: 290px;
+      }
+
+      @media screen and (max-width: 1201px) {
+        margin: 0 10px 20px 10px;
+      }
+
+      @media screen and (max-width: 1163px) {
+        max-width: 230px;
       }
     }
 
-    @media screen and (max-width: 770px) {
-      justify-content: center;
+    @media screen and (max-width: 1128px) {
+      justify-content: space-evenly;
     }
   }
 }

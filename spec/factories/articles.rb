@@ -45,6 +45,14 @@ FactoryBot.define do
       end
     end
 
+    trait :with_image_url_inside_text do
+      text do
+        "#{Faker::Lorem.sentence(word_count: 5)}\
+        <p><figure class=\"image\"><img src=\"/uploads/ck_editor_image/file/1/clk1.jpeg\"></figure></p>\
+        #{Faker::Lorem.paragraphs(number: 10).join}"
+      end
+    end
+
     trait :with_random_user do
       user_id { User.only_admins.sample.id }
     end

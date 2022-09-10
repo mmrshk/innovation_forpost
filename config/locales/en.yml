@@ -30,6 +30,9 @@ en:
       last_super_admin: 'You are a last super admin'
       user_sucessfully_deleted: "User successfully deleted."
       current_user_account_destroy_prohibited: "Current user account destroy prohibited."
+      search: "Search"
+      email: "Email"
+      phone: "Phone"
     articles:
       create_success: 'Article was successfully created.'
       create_unsuccess: 'Could not create the article. Please try again'
@@ -61,6 +64,12 @@ en:
           create_article: 'Create article'
           update_article: 'Update article'
           all_articles: 'All articles'
+          search: 'Search'
+          clear: 'Clear'
+        filter:
+          filter: "Filter"
+          created_at: "Created at:"
+          updated_at: "Updated at:"
         placeholders:
           article_title: 'Type your title here...'
           article_tag: 'Type your tags here...'
@@ -119,3 +128,7 @@ en:
       grants_text: 'grants won'
   news:
     headline: 'News'
+    button_more: 'More news'
+  docs:
+    headline: 'Documents'
+    button_more: 'More documents'

@@ -46,6 +46,16 @@ uk:
       last_super_admin: 'Ви є остінній super admin'
       user_sucessfully_deleted: "Користувач успішно видалений."
       current_user_account_destroy_prohibited: "Поточний користувач не може видаляти власний обліковий запис."
+      email: "Пошта"
+      role: "Роль"
+      phone: "Телефон"
+      functions: "Функції"
+      create_new_user: "Створити нового користуача"
+      filter: "Фільтр"
+      created_at: "Створено:"
+      updated_at: "Оновлено:"
+      search: "Пошук"
+      clear: "Очистити"
     articles:
       create_success: 'Стаття успішно створена.'
       create_unsuccess: 'Неможливо створити статтю. Виправте помилки.'
@@ -76,6 +86,12 @@ uk:
           create_article: 'Створити статтю'
           update_article: 'Оновити статтю'
           all_articles: 'Всі статті'
+          search: 'Пошук'
+          clear: 'Очистити'
+        filter:
+          filter: "Фільтр"
+          created_at: "Створено:"
+          updated_at: "Оновлено:"
         placeholders:
           article_title: 'Введіть заголовок тут...'
           article_tag: 'Введіть теги тут...'
