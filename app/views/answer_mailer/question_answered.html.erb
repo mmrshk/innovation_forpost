@@ -4,14 +4,16 @@
     </h1>
 </header>
 <div>
-  <h1 style='font-size:20px'><%= @greeting %>, <%= @question.user_email%></h1>
+  <h1 style='font-size:20px'><%= @question.user_email%></h1>
   <p style='font-size:14px'>
-    <%= t('admins.question_mailers.question') %> <q><b><%= @question.body %></b></q>
+    <%= t('admins.question-mailers.pre_question') %>
+     <q><b><%= @question.body%></b></q>
   </p>
 
-  <p style='font-size:14px'><%= t('admins.question_mailers.answer') %> <q><b><%= @answer.body %></b></q> <%= t('admins.question_mailers.from') %> <cite><%= @admin.email%></p></cite>
+  <p style='font-size:14px'><%= t('admins.question-mailers.answer') %>
+  <q><b><%= @answer.body%></b></q> <%= t('admins.question-mailers.from') %> <cite><%= @admin.email%></p></cite>
 </div>
 
 <footer style="background-color:#302ea3; color:white; padding:10px 20px;">
-  <p> &copy; InnovationForpost, Ltd. <%= t('admins.question_mailers.rights') %></p>
+  <p> &copy; InnovationForpost, Ltd. <%= t('admins.question-mailers.rights') %></p>
 </footer>

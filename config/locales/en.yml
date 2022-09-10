@@ -76,10 +76,10 @@ en:
       create_attachmennt: 'You added a new attachment!'
       edit_attachment: 'You successfully edited an attachment!'
       delete_attachment: 'You deleted an attachment!'
-    question_mailers:
+    question-mailers:
       greeting: 'Hi'
-      question: 'Your question was: '
-      answer: 'You receive answer: '
+      pre_question: 'Your question'
+      answer: 'You receive answer:'
       from: 'from'
       rights: 'All Rights Reserved'
     companies:

@@ -99,10 +99,10 @@ uk:
       create_attachment: 'Вкладення успішно створено!'
       edit_attachment: 'Вкладення успішно відредаговано'
       delete_attachment: 'Вкладення видалено'
-    question_mailers:
+    question-mailers:
       greeting: 'Привіт'
-      question: 'Ви поставили питання: '
-      answer: 'Ви отримали відповідь: '
+      pre_question: 'Ваше питання'
+      answer: 'Ви отримали відповідь:'
       from: 'від'
       rights: 'Всі права захищені'
     companies:
