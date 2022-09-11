@@ -1,13 +1,13 @@
-SELECT Articles.id AS article_id, 
-	Users.id AS user_id, 
-	Users.email, 
-	Tags.name, 
-	Articles.status, 
-	Articles.language, 
-	COUNT(ck_editor_images.file ) 
-FROM Articles
-INNER JOIN article_tags ON Articles.id = article_tags.id
-INNER JOIN Users ON Articles.user_id = Users.id
-INNER JOIN tags ON article_tags.tag_id = tags.id 
-INNER JOIN ck_editor_images ON Articles.id = ck_editor_images.id 
-GROUP BY Articles.id, Users.id, Tags.name
+SELECT articles.id AS article_id, 
+	articles.status, 
+	articles.language, 
+	users.id AS user_id, 
+	users.email, 
+	string_agg(Tags.name, ',') AS tag_names,
+	COUNT(ck_editor_images.file ) AS images_count
+FROM articles
+LEFT JOIN article_tags ON articles.id = article_tags.article_id
+INNER JOIN users ON articles.user_id = users.id
+LEFT JOIN tags ON article_tags.tag_id = tags.id 
+LEFT JOIN ck_editor_images ON Articles.id = ck_editor_images.id 
+GROUP BY articles.id,users.id;
