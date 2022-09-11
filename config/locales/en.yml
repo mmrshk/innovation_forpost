@@ -119,10 +119,18 @@ en:
   log_in_first: 'Please log in first'
   companies:
     labels:
-      years_text: 'years on the market'
-      projects_text: 'created projects'
-      clients_text: 'satisfied customers'
-      grants_text: 'grants won'
+      years_text:
+        one: 'year on the market'
+        other: 'years on the market'
+      projects_text:
+        one: 'created project'
+        other: 'created projects'
+      clients_text:
+        one: 'satisfied customer'
+        other: 'satisfied customers'
+      grants_text:
+        one: 'grant won'
+        other: 'grants won'
   news:
     headline: 'News'
     button_more: 'More news'

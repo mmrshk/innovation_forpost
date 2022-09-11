@@ -142,9 +142,15 @@ uk:
   log_in_first: 'Залогуйтесь будь ласка.'
   companies:
     labels:
-      years_text: 'років на ринку'
-      projects_text: 'створених проєктів'
-      clients_text: 'задоволених клієнтів'
+      years_text:
+        one: 'рік на ринку'
+        many: 'років на ринку'
+      projects_text:
+        one: 'створениий проєкт'
+        many: 'створених проєктів'
+      clients_text:
+        one: 'задоволений клієнт'
+        many: 'задоволених клієнтів'
       grants_text: 'виграних грантів'
   news:
     headline: 'Новини'

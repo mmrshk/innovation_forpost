@@ -13,9 +13,9 @@ class CompanyPresenter
   end
 
   def company_label_texts
-    [I18n.t('companies.labels.years_text'),
-     I18n.t('companies.labels.projects_text'),
-     I18n.t('companies.labels.clients_text'),
-     I18n.t('companies.labels.grants_text')]
+    [I18n.t('companies.labels.years_text', count: Date.today.year - @company.start_year),
+     I18n.t('companies.labels.projects_text', count: @company.projects_count),
+     I18n.t('companies.labels.clients_text', count: @company.clients_count),
+     I18n.t('companies.labels.grants_text', count: @company.grants_count)]
   end
 end
