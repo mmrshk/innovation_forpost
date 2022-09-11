@@ -28,7 +28,7 @@ en:
         title: 'Articles'
         new_article: 'New Article'
         edit_article: 'Edit Article'
-        labels:
+        s:
           records_per_page: 'records per page'
           title: 'Title'
           author: 'Author'

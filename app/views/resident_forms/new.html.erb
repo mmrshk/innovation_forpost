@@ -1,31 +1,76 @@
 <%= turbo_frame_tag "modal" do %>
-  <%= tag.div data: { controller: "turbo-modal",
-                    turbo_modal_target: "modal",
-                    action: "turbo:submit-end->turbo-modal#submitEnd 
-                    keyup@window->turbo-modal#closeWithKeyboard 
-                    click@window->turbo-modal#closeBackground" } do %>    
-                    
-    <h1>Resident form</h1>
-
-    <%= simple_form_for(@resident) do |f| %>
-      <%= f.input :customer_full_name %>
-      <%= f.input :in_person %>
-      <%= f.input :project_name %>
-      <%= f.input :address %>
-      <%= f.input :phone %>
-      <%= f.input :email %>
-      <%= f.input :purpose %>
-      <%= f.input :activity %>
-      <%= f.input :start_date, input_html: { class: 'browser-default' } %>
-      <%= f.input :end_date, input_html: { class: 'browser-default' }  %>
-      <%= f.input :area %>
-      <%= f.input :danger_class, input_html: { class: 'browser-default' }  %>
-      <%= f.input :electicity_supply  %>
-      <%= f.input :reqirements %>
+  <div class="modal-background">
+    <%= tag.div data: { controller: "turbo-modal",
+                      turbo_modal_target: "modal",
+                      action: "turbo:submit-end->turbo-modal#submitEnd 
+                      keyup@window->turbo-modal#closeWithKeyboard" } do %>
   
-      <%= f.button :submit %>
+                      
+        <div class="modal-popup"> 
+          <div class="modal-title">
+            <p>ЗАЯВКА</p>
+            про намір набуття статусу учасника Індустріального парку «INNOVATION FORPOST»
+            <p>в місті Дніпрі</p>
+          </div>
+      
+          <%= simple_form_for(@resident) do |f| %>
+            <fieldset>
+              <legend> Повна назва заявника відповідно до установчих документів із зазначенням організаційно-правової форми / прізвище, ім'я, по батькові (за наявності) індивідуального підприємця)
+              (далі – Заявник)</legend>
+              <%= f.input :customer_full_name, label: false  %>
+            </fieldset>
+            <fieldset>
+              <legend>(Посада, П.І.Б. заявника)
+                просить розглянути заявку про намір стати учасником Індустріального парку «INNOVATION FORPOST» з метою здійснення фінансово-господарської діяльності та реалізації інвестиційного
+                проєкту:</legend>
+              <%= f.input :in_person, label: false  %>
+            </fieldset>
+            <div class="field">
+              <%= f.input :project_name, label: "В особі" %>
+            </div>
+            <div class="field">
+              <%= f.input :address, label: "Поштова адреса" %>
+            </div>
+            <div class="field">
+              <%= f.input :phone, label: "Телефон" %>
+            </div>
+            <div class="field">
+              <%= f.input :email, label: "e-mail" %>
+            </div>
+            <div class="field">
+              <%= f.input :purpose, label: "Мета (виробнича ідея) інвестиційного проєкту Заявника:" %>
+            </div>
+            <div class="field">
+              <%= f.input :activity, label: "Види підприємницької діяльності, які Заявник планує здійснювати на території Індустріального парку:" %>
+            </div>
+            <div class="field">
+              <%= f.input :start_date, input_html: { class: 'browser-default' }, label: "Термін початку реалізації інвестиційного проєкту Заявника:" %>
+            </div>
+            <div class="field">
+              <%= f.input :end_date, input_html: { class: 'browser-default' }, label: "Термін виходу на проєктну потужність: " %>
+            </div>
+            <div class="field">
+              <%= f.input :area, label: "Загальна площа ділянки необхідної для реалізації проєкту Заявника", placeholder: "га"%>
+            </div>
+            <div class="field">
+              <%= f.input :danger_class, input_html: { class: 'browser-default' }, label: "Клас небезпеки підприємства відповідно до Державних санітарних правил планування та забудови населених пунктів (не нижче 4 та 5)" %>
+            </div>
+            <div class="field">
+              <%= f.input :electicity_supply, label: "Потреба в електропостачанні:" %>
+            </div>
+            <div class="field">
+              <%= f.input :reqirements, label: "Особливі вимоги" %>
+            </div>
+  
+            
+        
+            <%= f.button :submit %>
+            <%= button_tag "Close", class:"btn blue darken-4", data: { action: "turbo-modal#hideModal" }, type: "button" %>
+          <% end %>
+      
+          
+        </div>  
+        
     <% end %>
-
-    <%= button_tag "Close", data: { action: "turbo-modal#hideModal" }, type: "button" %>
-  <% end %>
-<% end %>
+  </div>  
+<% end %> 

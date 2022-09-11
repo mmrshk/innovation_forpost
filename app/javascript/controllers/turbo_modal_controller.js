@@ -19,10 +19,4 @@ export default class extends Controller {
     }
   }
 
-  closeBackground(e) {
-    if (e && this.modalTarget.contains(e.target)) {
-      return
-    }
-    this.hideModal()
-  }
 }
