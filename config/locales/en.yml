@@ -21,6 +21,11 @@ en:
   admin:
     attachments:
       view_docs_button: "View document"
+      save_button: "Save"
+      file_name: "File name:"
+      view_link: "View"
+      edit_link: "Edit"
+      delete_link: "Delete"
   admins:
     users:
       create_success: 'User was successfully created.'
