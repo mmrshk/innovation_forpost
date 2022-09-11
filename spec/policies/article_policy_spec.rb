@@ -14,6 +14,6 @@ RSpec.describe ArticlePolicy, type: :policy do
 
   context 'being a super admin or admin' do
     let(:user) { create(:user, :super_admin, :admin) }
-    it { is_expected.to permit_actions([:create, :update, :destroy]) }
+    it { is_expected.to permit_actions(%i[create update destroy]) }
   end
 end

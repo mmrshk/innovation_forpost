@@ -3,12 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe UserPolicy, type: :policy do
-
   subject { described_class.new(user, user) }
 
   context 'being a super admin' do
     let(:user) { create(:user, :super_admin) }
-    it { is_expected.to permit_actions([:update, :destroy]) }
+    it { is_expected.to permit_actions(%i[update destroy]) }
   end
 
   context 'being a admin' do

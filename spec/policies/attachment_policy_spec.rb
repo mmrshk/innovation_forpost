@@ -5,7 +5,7 @@ require 'rails_helper'
 RSpec.describe AttachmentPolicy, type: :policy do
   let!(:attachment) { create(:attachment) }
   let!(:user) { create(:user) }
-  
+
   subject { described_class }
 
   permissions :create? do
@@ -14,7 +14,7 @@ RSpec.describe AttachmentPolicy, type: :policy do
     end
   end
 
-  permissions :update? do 
+  permissions :update? do
     context 'for user not in admin groups' do
       it { expect(subject).not_to permit(user) }
     end
