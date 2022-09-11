@@ -49,8 +49,8 @@
       transition:all .3s ease-in-out;
 
       &:hover{
-          box-shadow:0 5px 40px -10px #a8a8a8;
-          transform:translateY(-.9%);
+        box-shadow:0 5px 40px -10px #a8a8a8;
+        transform:translateY(-.9%);
       }
 
       &:nth-child(-n+6) {
@@ -137,7 +137,6 @@
 
   @media screen and (max-width: 1199px) {
     .news-container {
-
       .news-block {
         max-width: 300px;
       }
