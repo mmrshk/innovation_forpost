@@ -151,7 +151,7 @@
   display: block;
   opacity: 1;
   margin: 0 0 10px 0;
-  width: 50px;
+  width: 60px;
   height: 35px;
   border-radius: 10px;
 }
@@ -161,6 +161,7 @@
 }
 
 .submit-question-button {
+  margin-top: 20px;
   background-color: $background-color-title !important;
   border-radius: 10px !important;
   width: 10%;
