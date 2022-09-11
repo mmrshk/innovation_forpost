@@ -4,6 +4,7 @@ en:
   activemodel:
   menu:
     innovateForpost: "Innovate fortpost"
+    company: 'Management company'
     about: "About"
     contacts: "Contacts"
     signout: "Sign out"
