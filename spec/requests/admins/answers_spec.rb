@@ -5,6 +5,7 @@ RSpec.describe 'Answers', type: :request do
   let!(:question) { create(:question, :question_with_answer) }
   let!(:answer) { question.answers.first }
   let(:admin) { create(:user, :super_admin) }
+
   before do
     sign_in admin
   end
