@@ -64,4 +64,5 @@ group :test do
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', require: false
   gem 'webdrivers', '~> 5.0.0'
+  gem 'pundit-matchers', '~> 1.7.0'
 end

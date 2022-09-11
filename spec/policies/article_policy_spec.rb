@@ -3,27 +3,18 @@
 require 'rails_helper'
 
 RSpec.describe ArticlePolicy, type: :policy do
-  let(:user) { User.new }
+  let!(:artcle) { create(:article) }
+  let(:article) { Article.create }
 
-  subject { described_class }
+  subject { described_class.new(user, article) }
 
-  permissions '.scope' do
-    pending "add some examples to (or delete) #{__FILE__}"
+  context 'being a visitor' do
+    let(:user) { nil }
+    it { is_expected.to permit_action(:show) }
   end
 
-  permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
+  context 'being a super admin or admin' do
+    let(:user) { create(:user, :super_admin, :admin) }
+    it { is_expected.to permit_actions([:create, :update, :destroy]) }
   end
 end
