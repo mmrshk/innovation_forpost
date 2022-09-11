@@ -14,7 +14,7 @@
 <%= simple_form_for ([:admins, @question, @answer]) do |form| %>
   <%= form.input :body, label: 'Write your answer' %>
   <%= form.button :submit %>
- <%= form.input :language, label: t('admins.answers.language'),
+  <%= form.input :language, label: t('admins.answers.language'),
                       label_html: { class: 'name-field-form' },
                       input_html: { class: 'inline-select' },
                       collection: @question.answers.languages.keys,
