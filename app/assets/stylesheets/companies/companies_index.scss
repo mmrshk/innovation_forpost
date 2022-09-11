@@ -1,4 +1,4 @@
-$font_main_company: Inter, sans-serif;
+$font_main_company: 'Gotham', 'GothamCyrillic';;
 
 ._container {
   max-width: 1280px;
@@ -99,7 +99,7 @@ $font_main_company: Inter, sans-serif;
         background-color: $white-color;
         width: calc(250px + (275 - 250) * ((100vw - 1164px) / (1822 - 1164)));
         height: calc(250px + (275 - 250) * ((100vw - 1164px) / (1822 - 1164)));
-        box-shadow: 0px -10px 25px rgba(0, 0, 0, 0.25);
+        box-shadow: 0px -10px 25px $shadow-grey;
 
         @media screen and (max-width: 1370px) {
           left: calc(13.5% + (19 - 13.5) * ((100vw - 900px) / (1370 - 900)));
@@ -108,7 +108,6 @@ $font_main_company: Inter, sans-serif;
         .company-logo {
           max-height: 158px;
           max-width: 158px;
-
         }
       }
 
@@ -169,7 +168,7 @@ $font_main_company: Inter, sans-serif;
           align-items: center;
           font-style: normal;
           font-weight: 700;
-          font-size: calc(60px + (74 - 60) * ((100vw - 320px) / (1920 - 320)));
+          font-size: calc(50px + (74 - 50) * ((100vw - 320px) / (1920 - 320)));
           line-height: 87px;
 
           &:hover {
@@ -180,7 +179,7 @@ $font_main_company: Inter, sans-serif;
         .info-text {
           display: flex;
           align-items: center;
-          font-size: calc(11px + (15 - 11) * ((100vw - 320px) / (1920 - 320)));
+          font-size: calc(12px + (15 - 12) * ((100vw - 320px) / (1920 - 320)));
           line-height: 19px;
           white-space: nowrap;
 
@@ -210,7 +209,7 @@ $font_main_company: Inter, sans-serif;
         text-align: justify;
 
         @media screen and (max-width: 1450px) {
-          font-size: calc(14px + (23 - 14) * ((100vw - 320px) / (1920 - 320)));
+          font-size: calc(15px + (23 - 15) * ((100vw - 320px) / (1920 - 320)));
         }
       }
     }
@@ -219,16 +218,13 @@ $font_main_company: Inter, sans-serif;
   @media screen and (max-width: 1163px) {
 
     .wrapper-company {
-
       &:nth-child(odd) {
-
         .container-about {
           border-radius: 40px;
         }
       }
 
       &:nth-child(even) {
-
         .container-about {
           border-radius: 40px;
         }
@@ -247,10 +243,9 @@ $font_main_company: Inter, sans-serif;
     }
   }
 
-  @media screen and (max-width: 899px) {
+  @media screen and (max-width: 992px) {
 
     .wrapper-company {
-
       &:nth-child(odd) {
         flex-direction: column;
 
@@ -341,9 +336,7 @@ $font_main_company: Inter, sans-serif;
   @media screen and (max-width: 800px) {
 
     .wrapper-company {
-
       &:nth-child(even) {
-
         .container-about {
           margin-bottom: 50px;
         }
@@ -418,6 +411,63 @@ $font_main_company: Inter, sans-serif;
         .text-about {
           padding: 0 20px 20px 20px;
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .wrapper-companies {
+    .wrapper-company {
+      &:nth-child(odd) {
+        .container-about {
+          border-right: 5px solid $color-company;
+          border-bottom: 5px solid $color-company;
+          border-left: 5px solid $color-company;
+        }
+      }
+
+      &:nth-child(even) {
+        .container-about {
+          border-right: 5px solid $color-company;
+          border-bottom: 5px solid $color-company;
+          border-left: 5px solid $color-company;
+        }
+      }
+
+      .container-info {
+        border: 5px solid $color-company;
+        height: auto;
+
+        .container-logo {
+          border: 5px solid $color-company;
+          width: 200px;
+          height: 200px;
+          min-width: 200px;
+          min-height: 200px;
+
+          .company-logo {
+            max-height: 120px;
+            max-width: 120px;
+          }
+        }
+
+        .company-name {
+          margin-top: -80px;
+          margin-right: auto;
+          margin-bottom: 20px;
+          margin-left: auto;
+        }
+
+        .company-info-rows {
+          justify-content: space-evenly;
+          margin: 10px auto;
+        }
+      }
+
+      .container-about {
+        width: 100%;
+        height: auto;
       }
     }
   }
