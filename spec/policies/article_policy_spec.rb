@@ -3,8 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe ArticlePolicy, type: :policy do
-  let!(:artcle) { create(:article) }
-  let(:article) { Article.create }
+  let!(:article) { create(:article) }
 
   subject { described_class.new(user, article) }
 
