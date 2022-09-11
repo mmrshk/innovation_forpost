@@ -223,17 +223,17 @@ ActiveRecord::Schema.define(version: 2022_09_02_070934) do
   SQL
   create_view "return_articles", sql_definition: <<-SQL
       SELECT articles.id AS article_id,
-      users.id AS user_id,
-      users.email,
-      tags.name,
       articles.status,
       articles.language,
-      count(ck_editor_images.file) AS count
+      users.id AS user_id,
+      users.email,
+      string_agg((tags.name)::text, ','::text) AS tag_names,
+      count(ck_editor_images.file) AS images_count
      FROM ((((articles
-       JOIN article_tags ON ((articles.id = article_tags.id)))
+       LEFT JOIN article_tags ON ((articles.id = article_tags.article_id)))
        JOIN users ON ((articles.user_id = users.id)))
-       JOIN tags ON ((article_tags.tag_id = tags.id)))
-       JOIN ck_editor_images ON ((articles.id = ck_editor_images.id)))
-    GROUP BY articles.id, users.id, tags.name;
+       LEFT JOIN tags ON ((article_tags.tag_id = tags.id)))
+       LEFT JOIN ck_editor_images ON ((articles.id = ck_editor_images.id)))
+    GROUP BY articles.id, users.id;
   SQL
 end
