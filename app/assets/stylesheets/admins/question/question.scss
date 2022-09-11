@@ -136,7 +136,7 @@
   font-family: roboto, sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 29px;
   color: $admin-label-color;
 }
@@ -151,4 +151,16 @@
   opacity: 1;
   margin: 0 0 10px 0;
   width: 50px;
+  height: 35px;
+  border-radius: 10px;
+}
+
+.general-form{
+  border-radius: 10px;
+}
+
+.submit-question-button {
+  background-color: $background-color-title !important;
+  border-radius: 10px !important;
+  width: 10%;
 }

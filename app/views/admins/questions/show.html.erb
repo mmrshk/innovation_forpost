@@ -12,14 +12,18 @@
       </div>
   </div>
 <%= simple_form_for ([:admins, @question, @answer]) do |form| %>
-  <%= form.input :body, label: 'Write your answer' %>
-  <%= form.button :submit %>
-  <%= form.input :language, label: t('admins.answers.language'),
-                      label_html: { class: 'name-field-form' },
-                      input_html: { class: 'inline-select' },
-                      collection: @question.answers.languages.keys,
-                      selected: @answer.language,
-                      include_blank: false %>
+  <form>
+    <fieldset class='general-form'>
+     <%= form.input :language, label: t('admins.answers.language'),
+                          label_html: { class: 'name-field-form' },
+                          input_html: { class: 'inline-select' },
+                          collection: @question.answers.languages.keys,
+                          selected: @answer.language,
+                          include_blank: false %>
+      <%= form.input :body, label: 'Write your answer', input_html: { class: 'general-form' } %>
+      <%= form.button :submit, "Submit", class: 'submit-question-button' %>
+    </fieldset>                      
+  </form>
 <% end %>
 
 
