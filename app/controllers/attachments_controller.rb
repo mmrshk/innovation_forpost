@@ -2,7 +2,7 @@
 
 class AttachmentsController < ApplicationController
   def show
-    @attachment ||= Attachment.find(params[:id])
+    @attachment = Attachment.find(params[:id])
     @presenter = AttachmentPresenter.new(@attachment)
   end
 end
