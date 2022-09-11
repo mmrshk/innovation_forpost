@@ -42,7 +42,7 @@ RSpec.describe 'Answers', type: :request do
         follow_redirect!
         expect(response).to have_http_status(:success)
         expect(response).to render_template(:show)
-        expect(response.body).to include('Answer created!')
+        expect(response.body).to include(I18n.t('admins.answers.create'))
       end
     end
 
