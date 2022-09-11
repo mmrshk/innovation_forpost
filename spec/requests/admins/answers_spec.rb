@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
-
 RSpec.describe 'Answers', type: :request do
   let!(:question) { create(:question, :question_with_answer) }
   let!(:answer) { question.answers.first }
@@ -44,14 +43,13 @@ RSpec.describe 'Answers', type: :request do
         follow_redirect!
         expect(response).to have_http_status(:success)
         expect(response).to render_template(:show)
-        expect(response.body).to include('Answer created!')
+        expect(response.body).to include(I18n.t('admins.answers.create'))
       end
     end
 
     context 'with invalid parameters' do
       let(:invalid_answer) { attributes_for(:answer, :invalid_answer) }
-
-      it 'creates a new instance of Question with incorrect values' do
+      it 'creates a new instance of Answer with incorrect values' do
         expect do
           post admins_question_answers_url(question), params: { answer: invalid_answer }
         end.not_to change(Answer, :count)
