@@ -16,7 +16,8 @@ class Company < ApplicationRecord
             :clients_count,
             :grants_count,
             :text_about,
-            :language, presence: true
+            :language,
+            :priority, presence: true
   validates :start_year, numericality: { only_integer: true, greater_than: 0, less_than_or_equal_to: Date.today.year }
   validates :projects_count,
             :clients_count,
@@ -24,6 +25,8 @@ class Company < ApplicationRecord
   validates :text_about, length: { in: 20..1000 }
   validates :media_file, attached: true, content_type: %i[png jpg jpeg],
                          size: { less_than: 5.megabytes, message: 'is too large' }
+  validates :priority, numericality: { only_integer: true }
 
   scope :in_language, ->(language) { where(language: language) }
+  scope :order_by_priority, -> { order(priority: :asc) }
 end

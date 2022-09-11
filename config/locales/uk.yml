@@ -153,6 +153,7 @@ uk:
           logo: 'Логотип'
           language: 'Мова'
           functions: 'Функції'
+          priority: 'Пріоритет'
         buttons:
           new_company: 'Додати компанію'
           view: 'Переглянути'
@@ -170,6 +171,7 @@ uk:
           clients_count: 'Введіть кількість клієнтів тут...'
           grants_count: 'Введіть кількість грантів тут...'
           text_about: 'Введіть інформацію про компанію тут...'
+          priority: 'Порядок відображення'
         hints:
           logo_present: 'Логотип наявний'
           logo_absent: 'Логотип відсутній'
