@@ -11,10 +11,11 @@ let docsContainer = document.querySelector('.docs-container');
 function loadMoreButtonClick(btn, currentItemsLimit, step, container, className) {
   btn?.addEventListener('click', (e) => {
     let boxes = [...document.querySelectorAll(className)];
-    let reshta = boxes.length-1 - currentItemsLimit
-    if(reshta < step ) {
-      step = reshta
+    let remainder = boxes.length-1 - currentItemsLimit
+    if(remainder < step ) {
+      step = remainder
     }
+
     for (let i = currentItemsLimit; i < currentItemsLimit + step; i++){
       if(currentItemsLimit - boxes.length < 3){
         boxes[i+1].style.display = 'flex';
@@ -31,4 +32,4 @@ function loadMoreButtonClick(btn, currentItemsLimit, step, container, className)
 };
 
 loadMoreButtonClick(loadMoreBtnNews, currentItemsNews, STEP_LOAD, newsContainer, '.news-block')
-loadMoreButtonClick(loadMoreBtnDocs, currentItemsDocs, STEP_LOAD, docsContainer, '.docs-block')
+loadMoreButtonClick(loadMoreBtnDocs, currentItemsDocs, STEP_LOAD, docsContainer, '.link-doc')

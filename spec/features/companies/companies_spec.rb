@@ -13,7 +13,7 @@ RSpec.describe 'Company', type: :feature do
   end
 
   context 'when user visits company page' do
-    it 'index page - company part' do
+    it 'index page - shows company part' do
       expect(page).to have_current_path companies_path(locale: I18n.locale)
       expect(page).to have_content(Date.today.year - company.start_year)
       expect(page).to have_content(company.projects_count)
@@ -22,19 +22,27 @@ RSpec.describe 'Company', type: :feature do
       expect(page).to have_content(company.text_about)
     end
 
-    it 'index page - news part' do
+    it 'index page - shows news part' do
       expect(page).to have_current_path companies_path(locale: I18n.locale)
       news_list.each do |news|
-        expect(page).to have_content news.title
+        expect(page).to have_content(news.title)
       end
-      expect(page).to have_selector('.news-title', count: 9)
     end
 
-    it 'index page - documents part' do
+    it 'index page - shows news cards' do
+      expect(page).to have_current_path companies_path(locale: I18n.locale)
+      expect(page).to have_selector('.news-block', count: 9)
+    end
+
+    it 'index page - shows documents part' do
       expect(page).to have_current_path companies_path(locale: I18n.locale)
       docs_list.each do |doc|
-        expect(page).to have_content doc.name
+        expect(page).to have_content(doc.name)
       end
+    end
+
+    it 'index page - shows documents cards' do
+      expect(page).to have_current_path companies_path(locale: I18n.locale)
       expect(page).to have_selector('.docs-block', count: 12)
     end
   end
@@ -44,7 +52,7 @@ RSpec.describe 'Company', type: :feature do
       expect(page).to have_current_path companies_path(locale: I18n.locale)
       find('.news-title', text: news_list.first.title).click
       expect(page).to have_current_path article_path(news_list.first, locale: I18n.locale)
-      expect(page).to have_content news_list.first.title
+      expect(page).to have_content(news_list.first.title)
     end
   end
 
@@ -55,7 +63,7 @@ RSpec.describe 'Company', type: :feature do
       expect(page).to have_current_path companies_path(locale: I18n.locale)
       find('a', text: docs_list.first.name).click
       expect(page).to have_current_path admins_attachment_path(docs_list.first, locale: I18n.locale)
-      expect(page).to have_content docs_list.first.name
+      expect(page).to have_content(docs_list.first.name)
     end
   end
 end
