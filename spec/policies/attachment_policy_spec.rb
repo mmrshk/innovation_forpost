@@ -3,27 +3,26 @@
 require 'rails_helper'
 
 RSpec.describe AttachmentPolicy, type: :policy do
-  let(:user) { User.new }
-
+  let!(:attachment) { create(:attachment) }
+  let!(:user) { create(:user) }
+  
   subject { described_class }
 
-  permissions '.scope' do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
-  permissions :show? do
-    pending "add some examples to (or delete) #{__FILE__}"
-  end
-
   permissions :create? do
-    pending "add some examples to (or delete) #{__FILE__}"
+    context 'for user not in admin groups' do
+      it { expect(subject).not_to permit(user) }
+    end
   end
 
-  permissions :update? do
-    pending "add some examples to (or delete) #{__FILE__}"
+  permissions :update? do 
+    context 'for user not in admin groups' do
+      it { expect(subject).not_to permit(user) }
+    end
   end
 
   permissions :destroy? do
-    pending "add some examples to (or delete) #{__FILE__}"
+    context 'for user not in admin groups' do
+      it { expect(subject).not_to permit(user) }
+    end
   end
 end
