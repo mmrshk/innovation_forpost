@@ -4,7 +4,6 @@
   <%= link_to t('admins.questions.buttons.add'), new_question_path, class:'admin-question-button text' %>
   </div>
 
-
   <div class="container-records-and-filters">
       <div class="container-records">
         <%== pagy_items_selector_js(@pagy) %>
@@ -34,7 +33,5 @@
         <% end %>
       </tbody>
   </table>
-
  <%== render partial: 'shared/pagination', locals: {pagy: @pagy} %>
-
 </div>
