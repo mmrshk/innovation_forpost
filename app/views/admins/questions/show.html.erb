@@ -15,8 +15,8 @@
   <form>
     <fieldset class='general-form'>
      <%= form.input :language, label: t('admins.answers.language'),
-                          label_html: { class: 'name-field-form' },
-                          input_html: { class: 'inline-select' },
+                          label_html: { class: 'name-field-for-form' },
+                          input_html: { class: 'inline-select-form' },
                           collection: @question.answers.languages.keys,
                           selected: @answer.language,
                           include_blank: false %>
