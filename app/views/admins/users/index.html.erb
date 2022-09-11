@@ -1,6 +1,7 @@
-<div class= "body-container">
-  <div class="add-features">
-    <%= link_to t('admins.users.create_new_user'), new_admins_user_path, class: 'new-user' %>
+<div class='body-container'>
+  <div class='admin-user-group'>
+    <h1 class='admin-user-title'><%= t('admins.users.views.title') %></h1>
+    <%= link_to t('admins.users.create_new_user'), new_admins_user_path, class:'admin-user-button text' %>
   </div>
 
   <div class="container-records-and-filters">
@@ -11,7 +12,6 @@
   </div>
 
   <% if current_user.role_super_admin? %>
-  
     <table class="body-table">
       <thead>
         <tr>
@@ -37,9 +37,9 @@
             <% else %>
               <td class="field-table-user button-functions">
                 <%= link_to fa_icon('trash', text: t('admin.attachments.delete_link')),
-                  admins_user_path(user), 
-                  method: :delete, 
-                  data: { confirm: 'Are you sure?' }, 
+                  admins_user_path(user),
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' },
                   class: "button-functions" %>
               </td>
             <% end %>
