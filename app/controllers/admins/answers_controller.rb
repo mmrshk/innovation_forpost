@@ -3,6 +3,7 @@
 module Admins
   class AnswersController < AdminsController
     before_action :question
+
     def create
       @answer = @question.answers.build(answer_params)
 
@@ -20,6 +21,7 @@ module Admins
 
     def destroy
       answer = @question.answers.find(params[:id])
+
       if answer.destroy
         redirect_to admins_question_path, notice: I18n.t('admins.answers.delete')
       else

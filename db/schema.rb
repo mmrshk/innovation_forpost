@@ -207,4 +207,19 @@ ActiveRecord::Schema.define(version: 2022_09_10_175816) do
   add_foreign_key "article_tags", "tags"
   add_foreign_key "articles", "users"
   add_foreign_key "ck_editor_images", "articles"
+
+  create_view "articles_db_views", sql_definition: <<-SQL
+      SELECT article_tags.article_id,
+      articles.title,
+      articles.created_at,
+      tags.name AS tag_name,
+      articles.text
+     FROM ((articles
+       LEFT JOIN article_tags ON ((article_tags.article_id = articles.id)))
+       LEFT JOIN tags ON ((article_tags.tag_id = tags.id)))
+    WHERE ((articles.user_id = ( SELECT users.id
+             FROM users
+            WHERE ((users.email)::text = 'admin@example.com'::text))) AND ( SELECT (date_part('day'::text, ((CURRENT_DATE)::timestamp without time zone - articles.updated_at)) < (14)::double precision)) AND ( SELECT ((tags.name)::text = ANY ((ARRAY['work'::character varying, 'Work'::character varying, 'робота'::character varying, 'Робота'::character varying])::text[]))))
+    ORDER BY articles.created_at DESC;
+  SQL
 end
