@@ -22,11 +22,12 @@
     letter-spacing: 1px;
     color: $black-color;
 
-    &:hover {
-      background: $base-color;
+    &.active, &:hover {
+      background-color: $base-color;
       color: $white-color;
     }
   }
+
 
   .button-search {
     margin: 40px 0 0;
