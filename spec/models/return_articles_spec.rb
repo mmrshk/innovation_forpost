@@ -3,32 +3,27 @@
 require 'rails_helper'
 
 RSpec.describe ReturnArticle, type: :model do
-  let!(:user) { create(:user, email: 'admin@example.com') }
+  let!(:user) { create(:user) }
   let!(:article) { create(:article, user: user) }
-  let!(:tag) { create(:tag, name: 'Work') }
+  let!(:tag) { create(:tag) }
   let!(:article_tag) { create(:article_tag, article: article, tag: tag) }
+  let!(:ck_editor_image) { create(:ck_editor_image) }
 
-  context 'with incorrect tag' do
-    let!(:tag) { create(:tag, name: 'Job') }
-
-    it 'does not return a record' do
-      expect(ReturnArticle.count).to eq(0)
+  context 'with a valid data' do
+    it 'returns a record', :truncation_mode do
+      expect(ReturnArticle.count).to eq(1)
     end
   end
 
-  context 'with too old article' do
-    let!(:article) { create(:article, user: user, created_at: 5.weeks.ago) }
-
-    it 'does not return a record' do
-      expect(ReturnArticle.count).to eq(0)
+  context 'with tag' do
+    it 'return a record' do
+      expect(ReturnArticle.count).to eq(1)
     end
   end
 
-  context 'with wrong user' do
-    let!(:user) { create(:user, email: 'admin1@example.com') }
-
-    it 'does not return a record' do
-      expect(ReturnArticle.count).to eq(0)
+  context 'with attached file' do
+    it 'return a record' do
+      expect(ReturnArticle.count).to eq(1)
     end
   end
 end

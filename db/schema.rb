@@ -139,16 +139,6 @@ ActiveRecord::Schema.define(version: 2022_09_02_070934) do
   add_foreign_key "articles", "users"
   add_foreign_key "ck_editor_images", "articles"
 
-  create_view "return_articles", sql_definition: <<-SQL
-      SELECT articles.id,
-      users.id AS user_id,
-      tags.name
-     FROM (((articles
-       JOIN users ON ((articles.user_id = users.id)))
-       JOIN article_tags ON ((articles.id = article_tags.id)))
-       JOIN tags ON (((article_tags.tag_id = tags.id) AND ((tags.name)::text = ANY (ARRAY[('Work'::character varying)::text, ('Робота'::character varying)::text])))))
-    WHERE (((users.email)::text = 'admin@example.com'::text) AND (articles.created_at > ((now())::date - 14)));
-  SQL
   create_view "articles_db_views", sql_definition: <<-SQL
       SELECT article_tags.article_id,
       articles.title,
@@ -162,5 +152,20 @@ ActiveRecord::Schema.define(version: 2022_09_02_070934) do
              FROM users
             WHERE ((users.email)::text = 'admin@example.com'::text))) AND ( SELECT (date_part('day'::text, ((CURRENT_DATE)::timestamp without time zone - articles.updated_at)) < (14)::double precision)) AND ( SELECT ((tags.name)::text = ANY ((ARRAY['work'::character varying, 'Work'::character varying, 'робота'::character varying, 'Робота'::character varying])::text[]))))
     ORDER BY articles.created_at DESC;
+  SQL
+  create_view "return_articles", sql_definition: <<-SQL
+      SELECT articles.id AS article_id,
+      articles.status,
+      articles.language,
+      users.id AS user_id,
+      users.email,
+      string_agg((tags.name)::text, ','::text) AS tag_names,
+      count(ck_editor_images.file) AS images_count
+     FROM ((((articles
+       LEFT JOIN article_tags ON ((articles.id = article_tags.article_id)))
+       JOIN users ON ((articles.user_id = users.id)))
+       LEFT JOIN tags ON ((article_tags.tag_id = tags.id)))
+       LEFT JOIN ck_editor_images ON ((articles.id = ck_editor_images.id)))
+    GROUP BY articles.id, users.id;
   SQL
 end
