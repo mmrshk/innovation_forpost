@@ -59,6 +59,7 @@
               <% if current_user.role_admin? || current_user.role_super_admin? %>
                 <li><%= link_to t('menu.articles'), admins_articles_path  %></li>
                 <li><%= link_to t('menu.attachments'), admins_attachments_path  %></li>
+                <li><%= link_to t('menu.questions'), admins_questions_path  %></li>
                 <% if current_user.role_super_admin? %>
                   <li><%= link_to t('menu.users'), admins_users_path %></li>
                 <% end %>
