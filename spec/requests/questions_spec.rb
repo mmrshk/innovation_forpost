@@ -40,7 +40,7 @@ RSpec.describe 'Questions', type: :request do
         follow_redirect!
         expect(response).to have_http_status(:success)
         expect(response).to render_template(:index)
-        expect(response.body).to include('Question created successfully')
+        expect(response.body).to include(I18n.t('admins.questions.create'))
       end
 
       it 'creates a new instance of Question with correct values' do

@@ -8,10 +8,12 @@ module Admins
       @answer = @question.answers.build(answer_params)
 
       if @answer.save
-        AnswerMailer.question_answered(answer: @answer, question: @question, admin: current_user).deliver_later
+        AnswerMailer.with(answer: @answer, question: @question, admin: current_user).question_answered.deliver_later
 
-        redirect_to admins_question_path(@question), notice: 'Answer created!'
+        redirect_to admins_question_path(@question), notice: I18n.t('admins.answers.create')
       else
+        @q = @question.answers.ransack(params[:q])
+        @pagy, @answers = pagy(@q.result)
         @answers = @question.answers.all
         render '/admins/questions/show', status: :unprocessable_entity
       end
@@ -21,16 +23,16 @@ module Admins
       answer = @question.answers.find(params[:id])
 
       if answer.destroy
-        redirect_to admins_question_path, notice: 'Answer destroyed!'
+        redirect_to admins_question_path, notice: I18n.t('admins.answers.delete')
       else
-        flash[:notice] = 'Error, something goes wrong'
+        flash[:notice] = I18n.t('admins.answers.delete_unsuccess')
       end
     end
 
     private
 
     def answer_params
-      params.require(:answer).permit(:body)
+      params.require(:answer).permit(:body, :language)
     end
 
     def question
