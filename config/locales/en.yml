@@ -13,6 +13,11 @@ en:
     users: "Users"
     settings: "Settings"
     attachments: "Attachments"
+  about: 
+    communicate: "Contact us"
+    team: "The team is ready to help you"
+    work_here: "We work here"
+    fortpost: "Dnipro city council"
   errors:
     internal_server_error: "Sorry, something went wrong on our end. We are currently trying to fix the problem."  
     unprocessable_entity: "Your browser did something unexpected. Please try again. If the error continues, try disabling all browser extensions."
