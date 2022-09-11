@@ -29,8 +29,8 @@
             <td class="field-table-user"><%= user.email %></td>
             <td class="field-table-user"><%= user.phone_number %></td>
             <td class="field-table-user"><%= user.role %></td>
-            <td class="field-table-user button-functions"><%= link_to fa_icon('eye', text: t('admin.attachments.view_link')), admins_user_path(user), class: "button-functions" %></td>
-            <td class="field-table-user button-functions"><%= link_to fa_icon('edit', text: t('admin.attachments.edit_link')), edit_admins_user_path(user), class: "button-functions" %></td>
+            <td class="field-table-user button-functions"><%= link_to fa_icon('eye', text: t('admins.attachments.view_link')), admins_user_path(user), class: "button-functions" %></td>
+            <td class="field-table-user button-functions"><%= link_to fa_icon('edit', text: t('admins.attachments.edit_link')), edit_admins_user_path(user), class: "button-functions" %></td>
 
             <% if user.current_user_last_super_admin? %>
               <td class="last-super-admin-msg field-table-user"><%= t('admins.users.last_super_admin') %></td>
