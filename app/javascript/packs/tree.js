@@ -47,7 +47,7 @@ let treeData = [
  }
 ];
 
-var margin = {
+let margin = {
   top: 90,
   right: 500,
   bottom: 80,
@@ -56,19 +56,19 @@ var margin = {
 width = 900 - margin.right - margin.left,
 height = 360 - margin.top - margin.bottom;
 
-var i = 0,
+let i = 0,
 duration = 750,
 rectW = 180,
 rectH = 50;
 
-var tree = d3.layout.tree().nodeSize([height, width]);
+let tree = d3.layout.tree().nodeSize([height, width]);
 
-var diagonal = d3.svg.diagonal()
+let diagonal = d3.svg.diagonal()
 .projection(function(d) {
   return [d.x, d.y];
 });
 
-var accountSvg = d3.select(".tree").append("svg")
+let accountSvg = d3.select(".tree").append("svg")
 .attr("width", 1000)
 .attr("height", 1000)
 .append("g")
@@ -95,7 +95,7 @@ d3.select(".tree").style("455", "weight");
 function update(source) {
 
 // Compute the new tree layout.
-var nodes = tree.nodes(root).reverse(),
+let nodes = tree.nodes(root).reverse(),
   links = tree.links(nodes);
 
 // Normalize for fixed-depth.
@@ -104,13 +104,13 @@ nodes.forEach(function(d) {
 });
 
 // Update the nodes…
-var node = accountSvg.selectAll("g.node")
+let node = accountSvg.selectAll("g.node")
   .data(nodes, function(d) {
     return d.id || (d.id = ++i);
   });
 
 // Enter any new nodes at the parent's previous position.
-var nodeEnter = node.enter().append("g")
+let nodeEnter = node.enter().append("g")
   .attr("class", "node")
   .attr("transform", function(d) {
     return "translate(" + source.x0 + "," + source.y0 + ")";
@@ -139,7 +139,7 @@ nodeEnter.append("text")
  });
 
 // Transition nodes to their new position.
-var nodeUpdate = node.transition()
+let nodeUpdate = node.transition()
   .duration(duration)
   .attr("transform", function(d) {
     return "translate(" + d.x + "," + d.y + ")";
@@ -161,7 +161,7 @@ nodeUpdate.select("text")
   
 
 // Transition exiting nodes to the parent's new position.
-var nodeExit = node.exit().transition()
+let nodeExit = node.exit().transition()
   .duration(duration)
   .attr("transform", function(d) {
     return "translate(" + source.x + "," + source.y + ")";
@@ -177,11 +177,11 @@ nodeExit.select("rect")
 nodeExit.select("text");
 
 function calculateTextWrap(element, data) {
-  var text = d3.select(element);
+  let text = d3.select(element);
   if (text.node().getComputedTextLength() < 170) {
       //console.log("No need to wrap");
   } else {
-      var words = text.text().split("").reverse(),
+      let words = text.text().split("").reverse(),
           word,
           line = [],
           lineNumber = 0,
@@ -202,13 +202,13 @@ function calculateTextWrap(element, data) {
           }
       }
   }
-var rectHeight = text.node().getBBox().height;
+let rectHeight = text.node().getBBox().height;
 if(rectHeight < 30) rectHeight = 30;
 data.rectHeight = rectHeight + 10 ;
 }
 
 // Update the links…
-var link = accountSvg.selectAll("path.link")
+let link = accountSvg.selectAll("path.link")
   .data(links, function(d) {
     return d.target.id;
   });
@@ -220,7 +220,7 @@ link.enter().insert("path", "g")
   //    return "translate(" + rectW + "," + rectH / 2 + ")";
   //})
   .attr("d", function(d) {
-    var o = {
+    let o = {
       x: source.x0,
       y: source.y0
     };
@@ -234,11 +234,11 @@ link.enter().insert("path", "g")
 link.transition()
   .duration(duration)
   .attr("d", function(d) {
-    var s = {
+    let s = {
       y: d.source.y + rectW / 4,
       x: d.source.x + rectW / 2
     };
-    var t = {
+    let t = {
       x: d.target.x + rectW / 2, 
       y: d.target.y
     };
@@ -253,7 +253,7 @@ link.transition()
 link.exit().transition()
   .duration(duration)
   .attr("d", function(d) {
-    var o = {
+    let o = {
       x: source.x,
       y: source.y
     };
@@ -271,11 +271,11 @@ nodes.forEach(function(d) {
 });
 }
 
-var doubleClickTime = 0;
-var threshold = 200;
+let doubleClickTime = 0;
+let threshold = 200;
 // Toggle children on click.
 function click(d) {
-var t0 = new Date();
+let t0 = new Date();
 if (t0 - doubleClickTime > threshold) {
   setTimeout(function() {
     if (t0 - doubleClickTime > threshold) {
