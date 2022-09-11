@@ -15,7 +15,7 @@ class QuestionPolicy < ApplicationPolicy
   end
 
   def create?
-    user.in_admin_group?
+    true
   end
 
   def show?
