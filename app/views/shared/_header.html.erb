@@ -65,8 +65,8 @@
                 <%= link_to admins_questions_path do %>
                   <div class='unread_question_wrapper'>
                     <div><%=t('menu.questions')%></div>
-                    <% if unread_questions_count > 0%>
-                      <div class='number-in-menu'><%="#{unread_questions_count}"%></div>
+                    <% if unread_questions_size > 0 %>
+                      <div class='number-in-menu'><%="#{unread_questions_size}"%></div>
                     <%end%>
                   </div>
                 <% end %>
