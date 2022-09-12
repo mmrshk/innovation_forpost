@@ -2,7 +2,7 @@
 
 require 'factory_bot_rails'
 
-admin = User.create!(
+User.create!(
   email: 'admin@example.com',
   password: '123456',
   password_confirmation: '123456',

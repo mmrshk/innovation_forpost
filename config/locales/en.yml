@@ -16,7 +16,7 @@ en:
     attachments: "Attachments"
     questions: "Questions"
   errors:
-    internal_server_error: "Sorry, something went wrong on our end. We are currently trying to fix the problem."  
+    internal_server_error: "Sorry, something went wrong on our end. We are currently trying to fix the problem."
     unprocessable_entity: "Your browser did something unexpected. Please try again. If the error continues, try disabling all browser extensions."
     not_found: "The content you are looking for is either moved or doesn't exist."
     back_button: "Go back"
@@ -32,6 +32,9 @@ en:
       search: "Search"
       email: "Email"
       phone: "Phone"
+      create_new_user: "Create User"
+      views:
+        title: Users
     articles:
       create_success: 'Article was successfully created.'
       create_unsuccess: 'Could not create the article. Please try again'
@@ -75,6 +78,7 @@ en:
         hints:
           article_tag: 'Enter tags separated by commas.'
     attachments:
+      create_new_attachment: 'Create attachment'
       create_attachmennt: 'You added a new attachment!'
       edit_attachment: 'You successfully edited an attachment!'
       delete_attachment: 'You deleted an attachment!'

@@ -16,6 +16,7 @@
   margin: 0 auto;
   background-color: $white-color;
   border-radius: 0 0 20px 20px;
+  font-family: 'Gotham', 'GothamCyrillic';
 
   &.active {
     background-color: $mobile-red-color;
@@ -112,7 +113,7 @@
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-  
+
     &:hover {
       background-color: $gray-color;
     }
@@ -121,7 +122,7 @@
 
 .dropdown:hover .dropdown-cont {display: block;}
 
-#user-menu { 
+#user-menu {
   display: block;
   height: 30px;
   border-radius: 100%;
@@ -134,7 +135,7 @@
   transition: all 0.15s linear;
 
   &:hover {
-    color: #898989; 
+    color: #898989;
   }
 
   &.click {
