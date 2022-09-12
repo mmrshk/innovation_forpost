@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'Company', type: :feature do
   let(:admin) { create(:user, :super_admin) }
-  let!(:company_list) { create_list(:company, 2) }
+  let!(:company) { create(:company, :uk) }
   let!(:news_list) { create_list(:article, 9, :published, :uk) }
   let!(:docs_list) { create_list(:attachment, 12) }
 
@@ -15,14 +15,11 @@ RSpec.describe 'Company', type: :feature do
   context 'when user visits company page' do
     it 'index page - shows company part' do
       expect(page).to have_current_path companies_path(locale: I18n.locale)
-      company_list.each do |company|
-        expect(page).to have_content(company.name)
-        expect(page).to have_content(Date.today.year - company.start_year)
-        expect(page).to have_content(company.projects_count)
-        expect(page).to have_content(company.clients_count)
-        expect(page).to have_content(company.grants_count)
-        expect(page).to have_content(company.text_about)
-      end
+      expect(page).to have_content(Date.today.year - company.start_year)
+      expect(page).to have_content(company.projects_count)
+      expect(page).to have_content(company.clients_count)
+      expect(page).to have_content(company.grants_count)
+      expect(page).to have_content(company.text_about)
     end
 
     it 'index page - shows news part' do
@@ -67,17 +64,6 @@ RSpec.describe 'Company', type: :feature do
       find('a', text: docs_list.first.name).click
       expect(page).to have_current_path admins_attachment_path(docs_list.first, locale: I18n.locale)
       expect(page).to have_content(docs_list.first.name)
-    end
-  end
-
-  context 'when showing by priority' do
-    it 'shows by prioryty' do
-      expect(page).to have_current_path companies_path(locale: I18n.locale)
-      actual_company_list = []
-      company_list.each do |company|
-        actual_company_list << find('.company-name', text: company.name).text
-      end
-      expect(actual_company_list).to eq(company_list.pluck(:name))
     end
   end
 end

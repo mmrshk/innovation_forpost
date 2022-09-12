@@ -20,6 +20,14 @@ en:
     unprocessable_entity: "Your browser did something unexpected. Please try again. If the error continues, try disabling all browser extensions."
     not_found: "The content you are looking for is either moved or doesn't exist."
     back_button: "Go back"
+  admin:
+    attachments:
+      view_docs_button: "View document"
+      save_button: "Save"
+      file_name: "File name:"
+      view_link: "View"
+      edit_link: "Edit"
+      delete_link: "Delete"
   admins:
     users:
       create_success: 'User was successfully created.'

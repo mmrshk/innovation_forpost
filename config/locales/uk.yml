@@ -24,6 +24,21 @@ uk:
     unprocessable_entity: "Ваш браузер зробив щось несподіване. Будь ласка спробуйте ще раз. Якщо помилка не зникне, спробуйте вимкнути всі розширення браузера."
     not_found: "Вміст який ви шукаєте переміщено або не існує."
     back_button: "Назад"
+  admin:
+    attachments:
+      media_file: "Вкладення"
+      name: "Ім'я"
+      links: "Функції"
+      choose_file: "Оберіть файл"
+      file_name: "Ім'я файлу:"
+      title:
+        edit: "Редагувати вкладення:"
+        create_new_attachment: "Створити нове вкладення:"
+      view_link: "Переглянути"
+      edit_link: "Редагувати"
+      delete_link: "Видалити"
+      save_button: "Зберегти"
+      view_docs_button: "Переглянути документ"
   admins:
     users:
       create_success: 'Користувач успішно доданий.'
