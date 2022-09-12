@@ -3,7 +3,7 @@
   table-layout: fixed;
   width: 100%;
   margin: 0 0 40px 0;
-  font-family: roboto, sans-serif;
+  font-family: 'Gotham', 'GothamCyrillic';
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -20,7 +20,7 @@
   .header-cell:first-child {
     width: 23%;
     padding: 6px 12px 6px 30px;
-    border-top-left-radius: 30px; 
+    border-top-left-radius: 30px;
     border-bottom-left-radius: 30px;
   }
 
@@ -43,8 +43,8 @@
   .header-cell:last-child {
     width: 31%;
     padding: 6px 30px 6px 12px;
-    border-bottom-right-radius: 30px; 
-    border-top-right-radius: 30px; 
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
   }
 
   .header-cell {
@@ -101,7 +101,7 @@
   display: table-row;
   min-height: 60px;
 
-  @media screen and (max-width: $breakpoint) { 
+  @media screen and (max-width: $breakpoint) {
     & {
       display: flex;
       flex-flow: column nowrap;
@@ -156,11 +156,11 @@
     justify-content: space-between;
     padding: 0 6px;
     color: $black-color;
-  
+
     &:hover {
       color: $base-color;
     }
-  
+
     span {
       display: flex;
       flex-direction: column;
@@ -192,7 +192,7 @@
       }
     }
 
-    @media screen and (max-width: $breakpoint) { 
+    @media screen and (max-width: $breakpoint) {
       display: flex;
       flex-direction: row;
       flex-wrap: nowrap;
@@ -226,7 +226,7 @@
     }
   }
 
-  @media screen and (max-width: $breakpoint) { 
+  @media screen and (max-width: $breakpoint) {
     &.hidden-small { display: none; }
 
     & {

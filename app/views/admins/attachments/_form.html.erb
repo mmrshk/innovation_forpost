@@ -1,24 +1,24 @@
 <div class="block-form">
   <%= simple_form_for @attachment, html: { class: "form-attachment"}, local: true, url: (@attachment.new_record? ? admins_attachments_path : admins_attachment_path), data: { turbo: false } do |f| %>
-    
+
     <div class="form-group">
-      <%= f.input :name, label: t('admin.attachments.name'), 
-        class: 'name-field form-control', 
-        error_html: { 'class': "input_error"}, 
-        label_html: { class: 'attachment-field' }, 
+      <%= f.input :name, label: t('admins.attachments.name'),
+        class: 'name-field form-control',
+        error_html: { 'class': "input_error"},
+        label_html: { class: 'attachment-field' },
         required: false %>
     </div>
 
     <div class="form-group">
       <%= f.label :media_file, class: "form-control"  do %>
-        <%= f.input :media_file, label: t('admin.attachments.choose_file'), 
-          class: 'name-field form-control', 
-          error_html: { 'class': "input_error error-media"}, 
-          label_html: { class: 'attachment-field media' }, 
+        <%= f.input :media_file, label: t('admins.attachments.choose_file'),
+          class: 'name-field form-control',
+          error_html: { 'class': "input_error error-media"},
+          label_html: { class: 'attachment-field media' },
           required: false %>
       <% end %>
     </div>
 
-    <%= f.submit t('admin.attachments.save_button'), class: 'submit-button' %>
+    <%= f.submit t('admins.attachments.save_button'), class: 'submit-button' %>
     <% end %>
 </div>

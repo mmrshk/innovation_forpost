@@ -6,6 +6,7 @@ $breakpoint-wide: 1110px;
   width: 100%;
   margin: 0 0 40px 0;
   font-size: 16px;
+  font-family: 'Gotham', 'GothamCyrillic';
 
   @media screen and (max-width: $breakpoint-wide) {
     display: flex;
