@@ -16,6 +16,7 @@
 @import 'tag/*';
 @import 'new_ckeditor/ckeditor';
 @import 'admins/companies/*';
+@import 'companies/*';
 @import 'admins/question/*';
 
 @font-face {
@@ -32,4 +33,10 @@
 
 .start-block {
   padding-top: 130px;
+}
+
+@media only screen and (min-width: 1164px) {
+  .start-block.container {
+    width: 85%;
+  }
 }

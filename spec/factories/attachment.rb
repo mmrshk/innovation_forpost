@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :attachment do
-    name { 'fake_image.png' }
+    name { "#{Faker::Lorem.word}_file" }
     media_file { Rack::Test::UploadedFile.new('spec/files/f.jpg', 'image/jpg') }
   end
 end
