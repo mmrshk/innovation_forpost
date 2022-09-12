@@ -13,6 +13,12 @@ class AttachmentPresenter
     jpg: 'image/jpeg'
   }.freeze
 
+  ICON_PREVIEW_PATH = {
+    pdf: '/icons/pdf-file.png',
+    docx: '/icons/doc-file.png',
+    else: '/icons/other-file.png'
+  }.freeze
+
   def initialize(attachment)
     @attachment = attachment
   end
@@ -54,15 +60,16 @@ class AttachmentPresenter
 
   def icon_for_preview
     image_types = %i[png jpeg jpg]
+
     case ATTACHMENTS_TYPES.key(attachment_type)
     when *image_types
       media_file_blob_url
     when :pdf
-      '/icons/pdf-file.png'
+      ICON_PREVIEW_PATH[:pdf]
     when :docx
-      '/icons/doc-file.png'
+      ICON_PREVIEW_PATH[:docx]
     else
-      '/icons/other-file.png'
+      ICON_PREVIEW_PATH[:else]
     end
   end
 end

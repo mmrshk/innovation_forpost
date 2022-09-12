@@ -53,7 +53,7 @@ module Admins
     end
 
     def presenter
-      @presenter = AttachmentPresenter.new(@attachment)
+      @presenter ||= AttachmentPresenter.new(@attachment)
     end
 
     def attachment_params
