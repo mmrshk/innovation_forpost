@@ -27,7 +27,7 @@ RSpec.describe 'Filter users', type: :feature do
 
   scenario 'view user profile' do
     visit admins_users_path
-    click_on I18n.t('admin.attachments.view_link')
+    click_on I18n.t('admins.attachments.view_link')
     expect(page).to have_content(user.email)
     expect(page).to have_content(user.phone_number)
   end
