@@ -142,6 +142,7 @@ en:
           logo: 'Logo'
           language: 'Lang.'
           functions: 'Functions'
+          priority: 'Priority'
         buttons:
           new_company: 'Add company'
           view: 'View'
@@ -159,6 +160,7 @@ en:
           clients_count: 'Type the number of customers here...'
           grants_count: 'Type the number of grants here...'
           text_about: 'Type company information here...'
+          priority: 'Display priority'
         hints:
           logo_present: 'Logo present'
           logo_absent: 'Logo absent'
