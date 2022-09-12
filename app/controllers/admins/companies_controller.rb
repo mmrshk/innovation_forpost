@@ -58,7 +58,8 @@ module Admins
                                       :grants_count,
                                       :text_about,
                                       :media_file,
-                                      :language)
+                                      :language,
+                                      :priority)
     end
   end
 end
