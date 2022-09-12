@@ -70,6 +70,7 @@
   height: 60px;
   font-weight: 400;
   padding-left: 30px;
+  font-family: 'Gotham', 'GothamCyrillic';
 
   a {
     color: $white-color;
@@ -165,7 +166,7 @@
 .name-field-for-form {
   display: flex;
   align-items: center;
-  font-family: roboto, sans-serif;
+  font-family: 'Gotham', 'GothamCyrillic';
   font-style: normal;
   font-weight: 400;
   font-size: 20px;
