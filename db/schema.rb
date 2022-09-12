@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_02_070934) do
+ActiveRecord::Schema.define(version: 2022_09_10_175816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 2022_09_02_070934) do
     t.bigint "question_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "language", default: 0
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
@@ -206,4 +207,19 @@ ActiveRecord::Schema.define(version: 2022_09_02_070934) do
   add_foreign_key "article_tags", "tags"
   add_foreign_key "articles", "users"
   add_foreign_key "ck_editor_images", "articles"
+
+  create_view "articles_db_views", sql_definition: <<-SQL
+      SELECT article_tags.article_id,
+      articles.title,
+      articles.created_at,
+      tags.name AS tag_name,
+      articles.text
+     FROM ((articles
+       LEFT JOIN article_tags ON ((article_tags.article_id = articles.id)))
+       LEFT JOIN tags ON ((article_tags.tag_id = tags.id)))
+    WHERE ((articles.user_id = ( SELECT users.id
+             FROM users
+            WHERE ((users.email)::text = 'admin@example.com'::text))) AND ( SELECT (date_part('day'::text, ((CURRENT_DATE)::timestamp without time zone - articles.updated_at)) < (14)::double precision)) AND ( SELECT ((tags.name)::text = ANY (ARRAY[('work'::character varying)::text, ('Work'::character varying)::text, ('робота'::character varying)::text, ('Робота'::character varying)::text]))))
+    ORDER BY articles.created_at DESC;
+  SQL
 end

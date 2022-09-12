@@ -8,6 +8,7 @@
 @import 'admins/attachment';
 @import 'errors';
 @import 'admin';
+@import 'users';
 @import "font-awesome";
 @import 'admins/article/*';
 @import 'article/*';
@@ -15,6 +16,14 @@
 @import 'tag/*';
 @import 'new_ckeditor/ckeditor';
 @import 'admins/companies/*';
+@import 'admins/question/*';
+
+@font-face {
+  font-family: 'Gotham';
+  src: font-url('Gotham.ttf');
+  font-family: 'GothamCyrillic';
+  src: font-url('GothamCyrillic.otf');
+}
 
 * {
   margin: 0;

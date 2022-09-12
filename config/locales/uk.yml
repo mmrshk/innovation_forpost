@@ -8,6 +8,7 @@ uk:
         madia_file: "Вкладення"
   menu:
     innovateForpost: "Індустріальні парки"
+    company: 'Керуюча компанія'
     about: "Про нас"
     contacts: "Контакти"
     signout: "Вийти"
@@ -17,24 +18,12 @@ uk:
     users: "Користувачі"
     settings: "Налаштування"
     attachments: "Вкладення"
+    questions: "Питання"
   errors:
     internal_server_error: "Вибачте, з нашого боку щось пішло не так. Зараз ми намагаємося вирішити проблему."
     unprocessable_entity: "Ваш браузер зробив щось несподіване. Будь ласка спробуйте ще раз. Якщо помилка не зникне, спробуйте вимкнути всі розширення браузера."
     not_found: "Вміст який ви шукаєте переміщено або не існує."
     back_button: "Назад"
-  admin:
-    attachments:
-      media_file: "Вкладення"
-      name: "Ім'я"
-      links: "Функції"
-      choose_file: "Оберіть файл"
-      title:
-        edit: "Редагувати вкладення:"
-        create_new_attachment: "Створити нове вкладення:"
-      view_link: "Переглянути"
-      edit_link: "Редагувати"
-      delete_link: "Видалити"
-      save_button: "Зберегти"
   admins:
     users:
       create_success: 'Користувач успішно доданий.'
@@ -48,12 +37,14 @@ uk:
       role: "Роль"
       phone: "Телефон"
       functions: "Функції"
-      create_new_user: "Створити нового користуача"
+      create_new_user: "Створити користувача"
       filter: "Фільтр"
       created_at: "Створено:"
       updated_at: "Оновлено:"
       search: "Пошук"
       clear: "Очистити"
+      views:
+        title: Користувачі
     articles:
       create_success: 'Стаття успішно створена.'
       create_unsuccess: 'Неможливо створити статтю. Виправте помилки.'
@@ -99,6 +90,48 @@ uk:
       create_attachment: 'Вкладення успішно створено!'
       edit_attachment: 'Вкладення успішно відредаговано'
       delete_attachment: 'Вкладення видалено'
+      media_file: "Вкладення"
+      name: "Ім'я"
+      links: "Функції"
+      choose_file: "Оберіть файл"
+      create_new_attachment: "Створити вкладення"
+      view_link: "Переглянути"
+      edit_link: "Редагувати"
+      delete_link: "Видалити"
+      save_button: "Зберегти"
+      title: 'Статті'
+    questions:
+      create: 'Питання успішно створене!'
+      edit: 'Питання успішно відредаговано!'
+      delete: 'Питання успішно видалено!'
+      delete_unsuccess: 'Помилка, щось пішло не так!'
+      title_edit: 'Редагування питаня'
+      buttons:
+        edit: 'Редагувати'
+        all: 'Всі питання'
+        add: 'Створити питання'
+      tables:
+        title: 'Заголовок'
+        email: 'Ел. пошта'
+        functions: 'Функції'
+        view: 'Переглянути'
+        edit: 'Редагувати'
+        delete: 'Видалити'
+      show:
+        name: "Ім'я користувача:"
+    answers:
+      create: 'Відповідь успішно створена!'
+      delete: 'Відповідь видалена!'
+      delete_unsuccess: 'Помилка, щось пішло не так!'
+      list: 'Список всіх відповідей'
+      language: 'Мова'
+      body: 'Текст відповіді'
+    question-mailers:
+      greeting: 'Привіт'
+      pre_question: 'Ваше питання'
+      answer: 'Ви отримали відповідь:'
+      from: 'від'
+      rights: 'Всі права захищені'
     companies:
       create_success: 'Компанія успішно створена.'
       create_unsuccess: 'Неможливо створити компанію. Виправте помилки.'
@@ -142,4 +175,4 @@ uk:
     policy:
       authorized: 'Ви не авторизовані як admin або super admin'
   log_in_first: 'Залогуйтесь будь ласка.'
-  
+
