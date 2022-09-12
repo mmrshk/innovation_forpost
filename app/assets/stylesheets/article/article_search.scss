@@ -14,7 +14,7 @@
 .article-search-btn {
   color: black;
   border: none;
-  background-color: transparent;  
+  background-color: transparent;
   outline: black;
 }
 
@@ -38,6 +38,7 @@
   height: 51px;
   font-size: 35px;
   line-height: 1;
+  font-family: 'Gotham', 'GothamCyrillic';
 }
 
 #article-text-input::placeholder {
@@ -73,7 +74,7 @@
   background-color: transparent;
   border-radius: 50%;
   transition: 0.5s ease all;
-} 
+}
 
 .td span {
   position: absolute;

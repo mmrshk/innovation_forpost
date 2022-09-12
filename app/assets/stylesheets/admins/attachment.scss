@@ -44,14 +44,14 @@ $invalid-color: red;
 
 .title-table-attachment:first-child {
   border-left-style: solid;
-  border-top-left-radius: 30px; 
+  border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
 }
 
 .title-table-attachment:last-child {
   border-right-style: solid;
-  border-bottom-right-radius: 30px; 
-  border-top-right-radius: 30px; 
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
   text-align: center;
 }
 
@@ -113,18 +113,66 @@ $invalid-color: red;
   min-width: 80px;
 }
 
-.path-new-attachment {
-  min-width: 210px;
-  height: 50px;
-  color: #fff;
-  background-color: #62B5E5;
-  font-size: 18px;
-  border-radius: 30px;
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;  
-  float: right;
-  margin-bottom: 20px;
+.admin-attachment-title {
+  width: 100%;
+  margin: 0;
+  font-family: 'Gotham', 'GothamCyrillic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 59px;
+  color: $background-color-title;
+}
+
+.admin-attachment-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+
+  .admin-attachment-button {
+    margin: 20px 0px;
+    padding: 0;
+    height: 60px;
+    width: 295px;
+    min-width: 295px;
+    background: $admin-background-color-button;
+    border-radius: 30px;
+    font-family: 'Gotham', 'GothamCyrillic';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 35px;
+    text-transform: capitalize;
+    text-decoration: none;
+    letter-spacing: .5px;
+    color: $white-color;
+    transition: background-color .2s ease-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $background-color-title;
+    }
+
+    &:focus {
+      background-color: $admin-background-color-button;
+    }
+
+    &.text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 2px;
+    }
+
+    &_icon-text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 12px;
+      padding-right: 10px;
+    }
+  }
 }
 
 .attachment-link {

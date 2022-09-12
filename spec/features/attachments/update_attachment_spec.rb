@@ -12,9 +12,9 @@ RSpec.describe 'Updating an attachment', type: :feature do
 
   scenario 'with valid name' do
     visit admins_attachments_path
-    click_on I18n.t('admin.attachments.edit_link')
-    fill_in I18n.t('admin.attachments.name'), with: 'NewName'
-    click_on I18n.t('admin.attachments.save_button')
+    click_on I18n.t('admins.attachments.edit_link')
+    fill_in I18n.t('admins.attachments.name'), with: 'NewName'
+    click_on I18n.t('admins.attachments.save_button')
     expect(page).to have_content('NewName')
   end
 end
