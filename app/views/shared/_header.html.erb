@@ -62,14 +62,14 @@
                 <li><%= link_to t('menu.articles'), admins_articles_path  %></li>
                 <li><%= link_to t('menu.attachments'), admins_attachments_path  %></li>
                 <li>
-                <%= link_to admins_questions_path do %>
-                  <div class='unread_question_wrapper'>
-                    <div><%=t('menu.questions')%></div>
-                    <% if unread_questions_size > 0 %>
-                      <div class='number-in-menu'><%="#{unread_questions_size}"%></div>
-                    <% end %>
-                  </div>
-                <% end %>
+                  <%= link_to admins_questions_path do %>
+                    <div class='unread_question_wrapper'>
+                      <div><%=t('menu.questions')%></div>
+                      <% if unread_questions_size > 0 %>
+                        <div class='number-in-menu'><%="#{unread_questions_size}"%></div>
+                      <% end %>
+                    </div>
+                  <% end %>
                 </li>
                 <% if current_user.role_super_admin? %>
                   <li><%= link_to t('menu.users'), admins_users_path %></li>
