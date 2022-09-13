@@ -1,12 +1,7 @@
-// Place all the styles related to the Resident_forms controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
-
-
 .modal-popup {
-  height: 800px;
-  overflow-y: auto;
   position: absolute; 
+  height: 810px;
+  overflow-y: auto;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -16,29 +11,139 @@
   -webkit-box-shadow: 0 2px 10px 3px rgba(0,0,0,.2);
   -moz-box-shadow: 0 2px 10px 3px rgba(0,0,0,.2);
   box-shadow: 0 2px 10px 3px rgba(0,0,0,.2);
-  border-radius: 10px;
+  z-index: 5;
+
+  legend {
+    text-align: center;
+    font-size: 17px;
+  }
+
+  fieldset {
+    margin-bottom: 20px;
+  }
+
+  fieldset {
+    &.start-date-fieldset {
+      width: 45%;
+    }
+
+    &.end-date-fieldset {
+      width: 45%;
+    }
+  }
+
+  abbr {
+    display: none;
+  }
+
+  textarea#resident_form_reqirements {
+    max-width: 1000px;
+    min-height: 80px;
+    padding: 10px;
+  }
+  
+  .error {
+    color: red;
+  }
+
+  [type="checkbox"]:checked+span:not(.lever):before {
+    border-right: 2px solid #190fd1;
+    border-bottom: 2px solid #190fd1
+  }
+
+  @mixin resident-blue-border {
+    border-bottom: 1px solid #190fd1;
+    box-shadow: 0 1px 0 0 #190fd1;
+  }
+
+  input {
+    &[type=text]:not(.browser-default):focus:not([readonly]) {
+      @include resident-blue-border;
+    }
+  
+    &[type=date]:not(.browser-default):focus:not([readonly]) {
+      @include resident-blue-border;
+    }
+  
+    &[type=number]:not(.browser-default):focus:not([readonly]) {
+      @include resident-blue-border;
+    }
+  
+    &[type=email]:not(.browser-default):focus:not([readonly]) {
+      @include resident-blue-border;
+    }
+    
+    &[type=tel]:not(.browser-default):focus:not([readonly]) {
+      @include resident-blue-border;
+    }
+  }
+
+  input {
+    &#resident_form_end_date {
+      text-align: center;
+    }
+
+    &#resident_form_start_date {
+      text-align: center;
+    }
+
+    &#resident_form_address {
+      width: 96%;
+    }
+
+    &#resident_form_email {
+      width: 94%;
+    }
+  }
 }
 
+.overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 4;
+}
 
 .modal-title {
  text-align: center;
  font-size: 20px;
+ font-weight: bold;
  margin-bottom: 20px;
 }
 
-.string.required {
+.resident-contacts {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin resident-required-fields {
+  text-align: center;
   font-size: 16px;
   color: black;
 }
 
-
-abbr {
-  display: none;
+.string.required {
+  @include resident-required-fields;
 }
 
-fieldset {
- margin-bottom: 10px;
+.tel.required {
+  @include resident-required-fields;
 }
 
+.email.required {
+  @include resident-required-fields;
+}
 
+.date-fields {
+  display: flex;
+  justify-content: space-evenly;
+}
 
+.electicity-supply-field {
+  color: black;
+}

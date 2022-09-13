@@ -6,7 +6,7 @@ class ResidentForm < ApplicationRecord
   validates :project_name, presence: true
   validates :address, presence: true
   validates :phone, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :purpose, presence: true
   validates :activity, presence: true
   validates :start_date, presence: true
