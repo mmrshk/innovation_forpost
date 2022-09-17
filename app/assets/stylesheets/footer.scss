@@ -18,7 +18,7 @@
   padding-top: 50px;
   border-top: 2px solid $black-color;
 
-  #logo-main {
+  .logo-main {
     width: 114px;
   }
 }
@@ -28,7 +28,7 @@
   list-style: none;
 
   &_item {
-    padding: 10px 70px 20px 0;
+    padding: 10px 30px 20px 0;
 
     a {
       text-decoration: none;
@@ -51,12 +51,12 @@
   }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 640px) {
   .footer-top {
     flex-wrap: wrap;
     flex-direction: column;
 
-    #logo-main {
+    .logo-main {
       margin-bottom: 50px;
       order: 1;
     }
