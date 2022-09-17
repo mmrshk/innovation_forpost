@@ -31,7 +31,8 @@ Rails.application.routes.draw do
     resources :tags, only: %i[index show]
     root to: "home#index"
     resources :questions, only: %i[index new create show]
-    get '/companies', to: 'companies#index'
+    resources :attachments, only: :show
+    resources :companies, only: :index
 
     get "/404", to: "errors#not_found"
     get '/422', to: 'errors#unprocessable_entity'

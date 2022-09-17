@@ -24,6 +24,21 @@ uk:
     unprocessable_entity: "Ваш браузер зробив щось несподіване. Будь ласка спробуйте ще раз. Якщо помилка не зникне, спробуйте вимкнути всі розширення браузера."
     not_found: "Вміст який ви шукаєте переміщено або не існує."
     back_button: "Назад"
+  admin:
+    attachments:
+      media_file: "Вкладення"
+      name: "Ім'я"
+      links: "Функції"
+      choose_file: "Оберіть файл"
+      file_name: "Ім'я файлу:"
+      title:
+        edit: "Редагувати вкладення:"
+        create_new_attachment: "Створити нове вкладення:"
+      view_link: "Переглянути"
+      edit_link: "Редагувати"
+      delete_link: "Видалити"
+      save_button: "Зберегти"
+      view_docs_button: "Переглянути документ"
   admins:
     users:
       create_success: 'Користувач успішно доданий.'
@@ -152,6 +167,7 @@ uk:
           logo: 'Логотип'
           language: 'Мова'
           functions: 'Функції'
+          priority: 'Пріоритет'
         buttons:
           new_company: 'Додати компанію'
           view: 'Переглянути'
@@ -169,8 +185,32 @@ uk:
           clients_count: 'Введіть кількість клієнтів тут...'
           grants_count: 'Введіть кількість грантів тут...'
           text_about: 'Введіть інформацію про компанію тут...'
+          priority: 'Порядок відображення'
         hints:
           logo_present: 'Логотип наявний'
           logo_absent: 'Логотип відсутній'
   log_in_first: 'Залогуйтесь будь ласка.'
-
+  companies:
+    labels:
+      years_text:
+        one: 'рік на ринку'
+        many: 'років на ринку'
+        few: 'роки на ринку'
+      projects_text:
+        one: 'створениий проєкт'
+        many: 'створених проєктів'
+        few: 'створених проєкти'
+      clients_text:
+        one: 'задоволений клієнт'
+        many: 'задоволених клієнтів'
+        few: 'задоволених клієнти'
+      grants_text:
+        one: 'виграний грант'
+        many: 'виграних грантів'
+        few: 'виграних гранти'
+  news:
+    headline: 'Новини'
+    button_more: 'Більше новин'
+  docs:
+    headline: 'Документи'
+    button_more: 'Більше документів'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_10_175816) do
+ActiveRecord::Schema.define(version: 2022_09_11_183728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2022_09_10_175816) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "language", default: 0
+    t.integer "priority", default: 0, null: false
   end
 
   create_table "documents", force: :cascade do |t|
@@ -219,7 +220,7 @@ ActiveRecord::Schema.define(version: 2022_09_10_175816) do
        LEFT JOIN tags ON ((article_tags.tag_id = tags.id)))
     WHERE ((articles.user_id = ( SELECT users.id
              FROM users
-            WHERE ((users.email)::text = 'admin@example.com'::text))) AND ( SELECT (date_part('day'::text, ((CURRENT_DATE)::timestamp without time zone - articles.updated_at)) < (14)::double precision)) AND ( SELECT ((tags.name)::text = ANY (ARRAY[('work'::character varying)::text, ('Work'::character varying)::text, ('робота'::character varying)::text, ('Робота'::character varying)::text]))))
+            WHERE ((users.email)::text = 'admin@example.com'::text))) AND ( SELECT (date_part('day'::text, ((CURRENT_DATE)::timestamp without time zone - articles.updated_at)) < (14)::double precision)) AND ( SELECT ((tags.name)::text = ANY ((ARRAY['work'::character varying, 'Work'::character varying, 'робота'::character varying, 'Робота'::character varying])::text[]))))
     ORDER BY articles.created_at DESC;
   SQL
 end

@@ -200,6 +200,7 @@ $breakpoint-wide: 1110px;
     flex-direction: row;
     justify-content: space-between;
     color: $black-color;
+    padding-right: 5px;
 
     &:hover {
       color: $base-color;

@@ -9,11 +9,9 @@ RSpec.describe AnswerMailer, type: :mailer do
   let(:sender_email) { 'innovation.forpost@gmail.com' }
 
   before do
-    # rubocop:disable Style/OpenStructUse
     allow(Rails.application).to receive(:credentials).and_return(
-      JSON.parse(credentials.to_json, object_class: OpenStruct)
+      JSON.parse(credentials.to_json, object_class: Hash)
     )
-    # rubocop:enable Style/OpenStructUse
   end
 
   describe 'question_answered' do

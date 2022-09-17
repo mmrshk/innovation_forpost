@@ -3,6 +3,7 @@
 class ApplicationController < ActionController::Base
   include Pagy::Backend
   before_action :set_locale
+  helper_method :unread_questions_size
 
   private
 
@@ -17,5 +18,9 @@ class ApplicationController < ActionController::Base
   def extract_locale
     parsed_locale = params[:locale]
     I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale.to_sym : nil
+  end
+
+  def unread_questions_size
+    Question.without_answer.size
   end
 end
