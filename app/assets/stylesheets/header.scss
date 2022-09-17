@@ -4,10 +4,6 @@
   width: 100%;
   position: fixed;
   z-index: 3;
-
-  #logo-main {
-    fill: $base-color;
-  }
 }
 
 .header-container {
@@ -21,21 +17,11 @@
   &.active {
     background-color: $mobile-red-color;
     box-shadow: none;
-
-    #logo-main {
-      fill: $white-color;
-    }
   }
 
   &.scroll {
     box-shadow: 0 0 60px 0 $scrool-gray-color;
   }
-}
-
-#logo-main {
-  margin-top: 10px;
-  width: 114px;
-  height: 41px;
 }
 
 .menu {
@@ -71,6 +57,11 @@
   justify-content: space-between;
   padding: 30px 0;
   transition: all 0.5s ease;
+
+  #logo-main {
+    margin-top: 12px;
+    width: 160px;
+  }
 
   &.active {
     padding: 25px 0;

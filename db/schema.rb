@@ -220,7 +220,7 @@ ActiveRecord::Schema.define(version: 2022_09_11_183728) do
        LEFT JOIN tags ON ((article_tags.tag_id = tags.id)))
     WHERE ((articles.user_id = ( SELECT users.id
              FROM users
-            WHERE ((users.email)::text = 'admin@example.com'::text))) AND ( SELECT (date_part('day'::text, ((CURRENT_DATE)::timestamp without time zone - articles.updated_at)) < (14)::double precision)) AND ( SELECT ((tags.name)::text = ANY ((ARRAY['work'::character varying, 'Work'::character varying, 'робота'::character varying, 'Робота'::character varying])::text[]))))
+            WHERE ((users.email)::text = 'admin@example.com'::text))) AND ( SELECT (date_part('day'::text, ((CURRENT_DATE)::timestamp without time zone - articles.updated_at)) < (14)::double precision)) AND ( SELECT ((tags.name)::text = ANY (ARRAY[('work'::character varying)::text, ('Work'::character varying)::text, ('робота'::character varying)::text, ('Робота'::character varying)::text]))))
     ORDER BY articles.created_at DESC;
   SQL
 end
