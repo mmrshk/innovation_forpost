@@ -13,22 +13,22 @@
   <table class="body-table">
       <thead>
         <tr>
-          <th class="title-table-user"> <%= sort_link(@q, :id, 'Id', default_order: :asc) %> </th>
-          <th class="title-table-user"> <%= sort_link(@q, :title, t('admins.questions.tables.title'), default_order: :asc) %> </th>
-          <th class="title-table-user"> <%= sort_link(@q, :user_email, t('admins.questions.tables.email'), default_order: :asc) %> </th>
-          <th colspan="3", class="title-table-user"><%= t('admins.questions.tables.functions') %> <%= fa_icon('gear') %> </th>
+          <th class="title-table-question"> <%= sort_link(@q, :id, 'Id', default_order: :asc) %> </th>
+          <th class="title-table-question"> <%= sort_link(@q, :title, t('admins.questions.tables.title'), default_order: :asc) %> </th>
+          <th class="title-table-question"> <%= sort_link(@q, :user_email, t('admins.questions.tables.email'), default_order: :asc) %> </th>
+          <th colspan="3", class="title-table-question"><%= t('admins.questions.tables.functions') %> <%= fa_icon('gear') %> </th>
         </tr>
       </thead>
 
       <tbody>
         <% @questions.each do |question| %>
           <tr>
-            <td class="field-table-user"><%= question.id %></td>
-            <td class="field-table-user"><%= question.title %></td>
-            <td class="field-table-user"><%= question.user_email %></td>
-            <td class="field-table-user button-functions"><%= link_to fa_icon('eye', text: t('admins.questions.tables.view')), admins_question_path(question), class: "button-functions" %></td>
-            <td class="field-table-user button-functions"><%= link_to fa_icon('edit', text: t('admins.questions.tables.edit')), edit_admins_question_path(question), class: "button-functions" %></td>
-            <td class="field-table-user button-functions"><%= link_to fa_icon('trash', text: t('admins.questions.tables.delete')),admins_question_path(question), method: :delete, data: { confirm: 'Are you sure?' }, class: "button-functions" %></td>
+            <td class="field-table-question"><%= question.id %></td>
+            <td class="field-table-question"><%= question.title %></td>
+            <td class="field-table-question"><%= question.user_email %></td>
+            <td class="field-table-question button-functions"><%= link_to fa_icon('eye', text: t('admins.questions.tables.view')), admins_question_path(question), class: "button-functions" %></td>
+            <td class="field-table-question button-functions"><%= link_to fa_icon('edit', text: t('admins.questions.tables.edit')), edit_admins_question_path(question), class: "button-functions" %></td>
+            <td class="field-table-question button-functions"><%= link_to fa_icon('trash', text: t('admins.questions.tables.delete')),admins_question_path(question), method: :delete, data: { confirm: 'Are you sure?' }, class: "button-functions" %></td>
           </tr>
         <% end %>
       </tbody>
