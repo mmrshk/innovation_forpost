@@ -11,21 +11,17 @@ let docsContainer = document.querySelector('.docs-container');
 function loadMoreButtonClick(btn, currentItemsLimit, step, container, className) {
   btn?.addEventListener('click', (e) => {
     let boxes = [...document.querySelectorAll(className)];
-    let remainder = boxes.length-1 - currentItemsLimit
-    if(remainder < step ) {
-      step = remainder
-    }
 
     for (let i = currentItemsLimit; i < currentItemsLimit + step; i++){
-      if(currentItemsLimit - boxes.length < 3){
-        boxes[i+1].style.display = 'flex';
+      if(boxes[i]){
+        boxes[i].style.display = 'flex';
         container.style.height = 'auto';
       }
     }
 
     currentItemsLimit += step;
-  
-    if(currentItemsLimit >= boxes.length){
+
+    if(currentItemsLimit > boxes.length){
       btn.style.display = 'none';
     }
   });
