@@ -1,3 +1,5 @@
+@import 'colors';
+
 .about {
   h4, h5, h6, p {
     text-align: center;
@@ -14,7 +16,7 @@
 
   .collage {
     margin-top: 670px;
-   
+
     .photos {
       display: flex;
       justify-content: space-evenly;
@@ -113,7 +115,7 @@
           }
         }
       }
-      
+
     }
 
     .prev, .next {
