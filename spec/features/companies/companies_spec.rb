@@ -55,15 +55,4 @@ RSpec.describe 'Company', type: :feature do
       expect(page).to have_content(news_list.first.title)
     end
   end
-
-  context 'when user click on doc card' do
-    it 'open news page' do
-      # Will be changed to attachment_path for the client side after merging the corresponding pull request
-      sign_in admin
-      expect(page).to have_current_path companies_path(locale: I18n.locale)
-      find('a', text: docs_list.first.name).click
-      expect(page).to have_current_path admins_attachment_path(docs_list.first, locale: I18n.locale)
-      expect(page).to have_content(docs_list.first.name)
-    end
-  end
 end
