@@ -29,6 +29,7 @@ gem 'redis', '~> 4.0'
 gem 'sass-rails', '>= 6'
 gem 'scenic', '~> 1.6'
 gem 'simple_form', '~> 5.1'
+gem 'stimulus-rails'
 gem 'turbo-rails', '~> 1.1', '>= 1.1.1'
 gem 'webpacker', '~> 4.0'
 

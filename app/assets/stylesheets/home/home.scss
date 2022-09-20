@@ -1,0 +1,12 @@
+.home-container {
+  display: flex;
+  justify-content: center;
+
+  form {
+    .resident-form {
+      &-button {
+        @include button;
+      }
+    }
+  }
+}
