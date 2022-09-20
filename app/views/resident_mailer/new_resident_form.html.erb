@@ -1,4 +1,12 @@
-<h1>ResidentMailer#new_resident_form</h1>
-<p>
-  Hi <%= @resident.email%>, resident form was successfully created.
-</p>
+<header class="page-header">
+  Форма резидента була відправлена
+</header>
+
+<div>
+  Дякуємо за заповнення форми, <%= @resident.email%>.
+  Найближчим часом ми з вами зв'яжемось.
+</div>
+
+<footer style="background-color:#302ea3; color:white; padding:10px 20px;">
+  <p> &copy; InnovationForpost, Ltd. <%= t('admins.question-mailers.rights') %></p>
+</footer>
