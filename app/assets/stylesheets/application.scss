@@ -8,12 +8,24 @@
 @import 'admins/attachment';
 @import 'errors';
 @import 'admin';
+@import 'users';
 @import "font-awesome";
 @import 'admins/article/*';
 @import 'article/*';
+@import 'article/article_search';
 @import 'tag/*';
 @import 'new_ckeditor/ckeditor';
+@import 'admins/companies/*';
+@import 'companies/*';
+@import 'admins/question/*';
 @import 'resident_forms';
+
+@font-face {
+  font-family: 'Gotham';
+  src: font-url('Gotham.ttf');
+  font-family: 'GothamCyrillic';
+  src: font-url('GothamCyrillic.otf');
+}
 
 * {
   margin: 0;
@@ -23,3 +35,4 @@
 .start-block {
   padding-top: 130px;
 }
+

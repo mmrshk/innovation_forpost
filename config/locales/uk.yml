@@ -1,25 +1,44 @@
 uk:
   en: "EN"
   uk: "UA"
+  activemodel:
+    attributes:
+      attachment:
+        name: "Ім'я"
+        madia_file: "Вкладення"
   menu:
     innovateForpost: "Індустріальні парки"
+    company: 'Керуюча компанія'
     about: "Про нас"
     contacts: "Контакти"
     signout: "Вийти"
     login: "Увійти"
     articles: "Статті"
+    profile: "Профіль"
+    users: "Користувачі"
+    settings: "Налаштування"
+    attachments: "Вкладення"
+    questions: "Питання"
+  errors:
+    internal_server_error: "Вибачте, з нашого боку щось пішло не так. Зараз ми намагаємося вирішити проблему."
+    unprocessable_entity: "Ваш браузер зробив щось несподіване. Будь ласка спробуйте ще раз. Якщо помилка не зникне, спробуйте вимкнути всі розширення браузера."
+    not_found: "Вміст який ви шукаєте переміщено або не існує."
+    back_button: "Назад"
   admin:
     attachments:
       media_file: "Вкладення"
       name: "Ім'я"
+      links: "Функції"
       choose_file: "Оберіть файл"
+      file_name: "Ім'я файлу:"
       title:
         edit: "Редагувати вкладення:"
-        new: "Створити нове вкладення:"
+        create_new_attachment: "Створити нове вкладення:"
       view_link: "Переглянути"
       edit_link: "Редагувати"
       delete_link: "Видалити"
       save_button: "Зберегти"
+      view_docs_button: "Переглянути документ"
   admins:
     users:
       create_success: 'Користувач успішно доданий.'
@@ -29,12 +48,25 @@ uk:
       last_super_admin: 'Ви є остінній super admin'
       user_sucessfully_deleted: "Користувач успішно видалений."
       current_user_account_destroy_prohibited: "Поточний користувач не може видаляти власний обліковий запис."
+      email: "Пошта"
+      role: "Роль"
+      phone: "Телефон"
+      functions: "Функції"
+      create_new_user: "Створити користувача"
+      filter: "Фільтр"
+      created_at: "Створено:"
+      updated_at: "Оновлено:"
+      search: "Пошук"
+      clear: "Очистити"
+      views:
+        title: Користувачі
     articles:
       create_success: 'Стаття успішно створена.'
       create_unsuccess: 'Неможливо створити статтю. Виправте помилки.'
       update_success: 'Стаття була успішно оновлена.'
       update_unsuccess: 'Неможливо оновити статтю. Виправте помилки.'
       destroy_success: 'Стаття була успішно видалена.'
+      search_articles: "Пошук статей"
       views:
         title: 'Статті'
         new_article: 'Нова стаття'
@@ -58,11 +90,127 @@ uk:
           create_article: 'Створити статтю'
           update_article: 'Оновити статтю'
           all_articles: 'Всі статті'
+          search: 'Пошук'
+          clear: 'Очистити'
+        filter:
+          filter: "Фільтр"
+          created_at: "Створено:"
+          updated_at: "Оновлено:"
         placeholders:
           article_title: 'Введіть заголовок тут...'
           article_tag: 'Введіть теги тут...'
         hints:
           article_tag: 'Введіть теги розділені комами'
+    attachments:
+      create_attachment: 'Вкладення успішно створено!'
+      edit_attachment: 'Вкладення успішно відредаговано'
+      delete_attachment: 'Вкладення видалено'
+      media_file: "Вкладення"
+      name: "Ім'я"
+      links: "Функції"
+      choose_file: "Оберіть файл"
+      create_new_attachment: "Створити вкладення"
+      view_link: "Переглянути"
+      edit_link: "Редагувати"
+      delete_link: "Видалити"
+      save_button: "Зберегти"
+      title: 'Статті'
+    questions:
+      create: 'Питання успішно створене!'
+      edit: 'Питання успішно відредаговано!'
+      delete: 'Питання успішно видалено!'
+      delete_unsuccess: 'Помилка, щось пішло не так!'
+      title_edit: 'Редагування питаня'
+      buttons:
+        edit: 'Редагувати'
+        all: 'Всі питання'
+        add: 'Створити питання'
+      tables:
+        title: 'Заголовок'
+        email: 'Ел. пошта'
+        functions: 'Функції'
+        view: 'Переглянути'
+        edit: 'Редагувати'
+        delete: 'Видалити'
+      show:
+        name: "Ім'я користувача:"
+    answers:
+      create: 'Відповідь успішно створена!'
+      delete: 'Відповідь видалена!'
+      delete_unsuccess: 'Помилка, щось пішло не так!'
+      list: 'Список всіх відповідей'
+      language: 'Мова'
+      body: 'Текст відповіді'
+    question-mailers:
+      greeting: 'Привіт'
+      pre_question: 'Ваше питання'
+      answer: 'Ви отримали відповідь:'
+      from: 'від'
+      rights: 'Всі права захищені'
+    companies:
+      create_success: 'Компанія успішно створена.'
+      create_unsuccess: 'Неможливо створити компанію. Виправте помилки.'
+      update_success: 'Компанія була успішно оновлена.'
+      update_unsuccess: 'Неможливо оновити компанію. Виправте помилки.'
+      destroy_success: 'Компанія була успішно видалена.'
+      views:
+        title: 'Компанії'
+        new_company: 'Нова компанія'
+        edit_company: 'Редагувати компанію'
+        labels:
+          name: 'Назва'
+          start_year: 'Рік'
+          projects_count: 'Проєктів'
+          clients_count: 'Клієнтів'
+          grants_count: 'Грантів'
+          text_about: 'Про компанію'
+          logo: 'Логотип'
+          language: 'Мова'
+          functions: 'Функції'
+          priority: 'Пріоритет'
+        buttons:
+          new_company: 'Додати компанію'
+          view: 'Переглянути'
+          edit: 'Редагувати'
+          delete: 'Видалити'
+          back: 'Назад'
+          create_company: 'Створити'
+          update_company: 'Оновити'
+          all_companies: 'Всі компанії'
+          upload_logo: 'Додати лого'
+        placeholders:
+          companies_name: 'Введіть назву тут...'
+          start_year: 'Введіть рік заснування тут...'
+          projects_count: 'Введіть кількість проєктів тут...'
+          clients_count: 'Введіть кількість клієнтів тут...'
+          grants_count: 'Введіть кількість грантів тут...'
+          text_about: 'Введіть інформацію про компанію тут...'
+          priority: 'Порядок відображення'
+        hints:
+          logo_present: 'Логотип наявний'
+          logo_absent: 'Логотип відсутній'
   log_in_first: 'Залогуйтесь будь ласка.'
-
-
+  companies:
+    labels:
+      years_text:
+        one: 'рік на ринку'
+        many: 'років на ринку'
+        few: 'роки на ринку'
+      projects_text:
+        one: 'створениий проєкт'
+        many: 'створених проєктів'
+        few: 'створених проєкти'
+      clients_text:
+        one: 'задоволений клієнт'
+        many: 'задоволених клієнтів'
+        few: 'задоволених клієнти'
+      grants_text:
+        one: 'виграний грант'
+        many: 'виграних грантів'
+        few: 'виграних гранти'
+  news:
+    headline: 'Новини'
+    button_more: 'Більше новин'
+  docs:
+    headline: 'Документи'
+    button_more: 'Більше документів'

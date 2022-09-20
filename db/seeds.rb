@@ -2,45 +2,18 @@
 
 require 'factory_bot_rails'
 
-admin = User.create!(
+User.create!(
   email: 'admin@example.com',
   password: '123456',
   password_confirmation: '123456',
+  phone_number: Faker::PhoneNumber.cell_phone,
   role: :super_admin
 )
 
-5.times do
-  password = Faker::Internet.password(min_length: 8, max_length: 20, mix_case: true, special_characters: true)
-  User.create!(
-    email: Faker::Internet.email,
-    password: password,
-    password_confirmation: password,
-    role: User.roles[User.roles.keys.sample],
-    phone_number: Faker::PhoneNumber.cell_phone
-  )
-end
+FactoryBot.create_list(:user, 50, :with_random_role)
 
-25.times do
-  Article.create!(
-    title: Faker::Lorem.sentence(word_count: 3),
-    user_id: User.all.sample.id,
-    text: (Faker::Lorem.paragraphs(number: 10)).join,
-    language: Article.languages[Article.languages.keys.sample],
-    status: Article.statuses[Article.statuses.keys.sample]
-  )
-end
+FactoryBot.create_list(:article, 25, :with_random_user, :with_random_status, :with_random_language, :with_random_count_tags)
 
 FactoryBot.create_list(:answer, 20)
 
-10.times do |x|
-  Tag.create!(
-    name: Faker::Lorem.word + x.to_s
-  )
-end
-
-Tag.all.each do |tag|
-    ArticleTag.create!(
-      tag_id: tag.id,
-      article_id: Article.all.sample.id
-    )
-end
+FactoryBot.create_list(:company, 4, :with_random_language)

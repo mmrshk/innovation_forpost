@@ -19,7 +19,7 @@
 
     .tag-link {
       text-align: center;
-      font-family: "metropolisblack",sans-serif;
+      font-family: 'Gotham', 'GothamCyrillic';
       font-weight: 700;
       font-size: 18px;
       letter-spacing: 1px;
@@ -39,16 +39,26 @@
 }
 
 .article-tags {
-  border-radius: 100px;
-  padding: 2px 8px;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  white-space: nowrap;
-  color: $dark-grey-text;
-  font-size: 13px;
-  background-color: $light-grey-text;
+  display: flex;
+  flex-flow: row wrap;
 
-  &:hover {
-    background: $base-color;
-    color: $white-color;
+  .article-tag {
+    margin: 2px;
+    padding: 3px 20px;
+    border-radius: 100px;
+    white-space: nowrap;
+    color: $dark-grey-text;
+    font-size: 13px;
+    background-color: $light-grey-text;
+
+    &:hover {
+      background: $base-color;
+      color: $white-color;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+      justify-content: center;
+      margin-bottom: 5px;
   }
 }

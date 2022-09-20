@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-family: 'Gotham', 'GothamCyrillic';
 
   .article-title-text-block {
     display: flex;
@@ -10,13 +11,27 @@
     padding-right: 30px;
   }
 
-  .article-image-preview {
+  .article-preview-image {
     min-width: 112px;
 
     .image-preview {
       width: 112px;
       height: 112px;
       object-fit: cover;
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    flex-direction: column;
+    align-items: center;
+
+    .article-title-text-block {
+      width: 100%;
+      padding-right: 0;
+    }
+
+    .article-preview-image {
+      padding-top: 20px;
     }
   }
 }
@@ -85,6 +100,8 @@
 
   div.button-continue {
     margin-left: auto;
+    margin-top: 7px;
+    margin-bottom: 7px;
   }
 
   .continue {
@@ -100,6 +117,15 @@
     &:hover {
       background: $base-color;
       color: $white-color;
+    }
+  }
+
+  @media screen and (max-width: 450px) {
+    flex-direction: column-reverse;
+    align-items: center;
+
+    .point {
+      display: none;
     }
   }
 }

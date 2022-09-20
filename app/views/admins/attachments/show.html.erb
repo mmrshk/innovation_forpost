@@ -1,15 +1,15 @@
 <div class="view-attachment">
   <div class="view-attachment-info">
     <p class="view-attachment-text">ID: <%= @attachment.id %></p>
-    <p class="view-attachment-text">Name: <%= @attachment.name %></p>   
-  </div> 
+    <p class="view-attachment-text">Name: <%= @attachment.name %></p>
+  </div>
 
   <div class="view-attachment-media">
-    <%= image_tag @attachment.media_file, class: 'view-attachment-img'  %>
+    <%= @presenter.check_media_file_for_show %>
   </div>
   <div class="view-attachment-functions">
-    <span class="view-attachment-links"><%= link_to t('admin.attachments.edit_link'), edit_admins_attachment_path(@attachment), class: "view-attachment-links-text" %></span>
-    <span class="view-attachment-links"><%= link_to t('admin.attachments.delete_link'), admins_attachment_path(@attachment), method: :delete, class: "view-attachment-links-text" %></span>
+    <span class="view-attachment-links"><%= link_to t('admins.attachments.edit_link'), edit_admins_attachment_path(@attachment), class: "view-attachment-links-text" %></span>
+    <span class="view-attachment-links"><%= link_to t('admins.attachments.delete_link'), admins_attachment_path(@attachment), method: :delete, class: "view-attachment-links-text" %></span>
   </div>
 </div>
 

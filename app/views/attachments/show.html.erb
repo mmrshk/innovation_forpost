@@ -1,0 +1,13 @@
+<div class="view-attachment">
+  <div class="view-attachment-info">
+    <p class="view-attachment-text">Name: <%= @attachment.name %></p>   
+  </div> 
+
+  <div class="view-attachment-media">
+    <%= @presenter.check_media_file_for_show %>
+  </div>
+</div>
+
+<div class="back-button">
+  <%= link_to fa_icon('arrow-left', text: 'Back'), url_for(:back), class: "back-button-text"%>
+</div>
