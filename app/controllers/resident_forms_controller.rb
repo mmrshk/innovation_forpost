@@ -7,6 +7,7 @@ class ResidentFormsController < ApplicationController
 
   def create
     @resident = ResidentForm.new(resident_params)
+
     respond_to do |format|
       if @resident.save
         ResidentMailer.with(resident: @resident).new_resident_form.deliver_later

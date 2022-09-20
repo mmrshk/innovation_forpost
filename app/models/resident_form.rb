@@ -1,17 +1,7 @@
 # frozen_string_literal: true
 
 class ResidentForm < ApplicationRecord
-  validates :customer_full_name, presence: true
-  validates :in_person, presence: true
-  validates :project_name, presence: true
-  validates :address, presence: true
-  validates :phone, presence: true
-  validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
-  validates :purpose, presence: true
-  validates :activity, presence: true
-  validates :start_date, presence: true
-  validates :end_date, presence: true
-  validates :area, presence: true
-  validates :danger_class, presence: true
-  validates :electicity_supply, presence: true
+  validates :customer_full_name, :in_person, :project_name, :address, :phone, :email, :purpose, :activity, :start_date,
+            :end_date, :area, :danger_class, :electicity_supply, presence: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 end

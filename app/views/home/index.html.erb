@@ -1,1 +1,3 @@
-<%= button_to 'Анкета резидента', new_resident_form_path, class: "btn blue darken-4", method: :get, data: { turbo_frame: 'modal' } %>
+<div class='home-container'>
+  <%= button_to t('.resident_form'), new_resident_form_path, class: 'resident-form-button', method: :get, data: { turbo_frame: 'modal' } %>
+</div>

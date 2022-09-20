@@ -1,79 +1,76 @@
 <%= turbo_frame_tag "modal" do %>
   <%= tag.div data: { controller: "turbo-modal",
                     turbo_modal_target: "modal",
-                    action: "turbo:submit-end->turbo-modal#submitEnd 
+                    action: "turbo:submit-end->turbo-modal#submitEnd
                     keyup@window->turbo-modal#closeWithKeyboard" }, class: "overlay" do %>
 
-      <div class="modal-popup"> 
+      <div class="modal-popup">
         <div class="modal-title">
           <%= button_tag "X", class:"btn-floating btn-small blue darken-4 right", data: { action: "turbo-modal#hideModal" }, type: "button" %>
-          <p>ЗАЯВКА</p>
-          про намір набуття статусу учасника Індустріального парку «INNOVATION FORPOST»
-          <p>в місті Дніпрі</p>
-        </div>  
-    
+          <%= raw t('.application') %>
+        </div>
+
         <%= simple_form_for(@resident) do |f| %>
           <fieldset>
-            <legend> Повна назва заявника відповідно до установчих документів із зазначенням організаційно-правової форми / прізвище, ім'я, по батькові (за наявності) індивідуального підприємця)
-            (далі – Заявник)</legend>
+            <legend><%= t('.full_name') %></legend>
             <%= f.input :customer_full_name, label: false  %>
           </fieldset>
           <fieldset>
-            <legend>В особі (Посада, П.І.Б. заявника)</legend>  
+            <legend><%= t('.in_person') %></legend>
             <%= f.input :project_name, label: false %>
           </fieldset>
           <fieldset>
-            <legend>
-              Просить розглянути заявку про намір стати учасником Індустріального парку «INNOVATION FORPOST» з метою здійснення фінансово-господарської діяльності та реалізації інвестиційного
-              проєкту:</legend>
+            <legend><%= t('.asks_to_look') %></legend>
             <%= f.input :in_person, label: false  %>
           </fieldset>
             <fieldset class="resident-contacts">
-              <legend>Дані про заявника</legend>
-              <%= f.input :address, label: "Юридична та поштова адреса" %>
-              <%= f.input :phone, label: "Телефон" %>
-              <%= f.input :email,label: "e-mail" %>
+              <legend><%= t('.info_about_applicant') %></legend>
+              <%= f.input :address, label: t('.legal_email_address') %>
+              <%= f.input :phone, label: t('.phone') %>
+              <%= f.input :email,label: t('.email') %>
             </fieldset>
           <fieldset>
-            <legend>Мета (виробнича ідея) інвестиційного проєкту Заявника</legend>
+            <legend><%= t('.goal') %></legend>
             <%= f.input :purpose, label: false %>
           </fieldset>
           <fieldset>
-            <legend>Види підприємницької діяльності, які Заявник планує здійснювати на території Індустріального парку</legend>
+            <legend><%= t('.types_of_entrepreneurial_activity') %></legend>
             <%= f.input :activity, label: false  %>
           </fieldset>
          <div class="date-fields">
             <fieldset class="start-date-fieldset">
-              <legend>Термін початку реалізації інвестиційного проєкту</legend>
+              <legend><%= t('.start') %></legend>
               <%= f.text_field :start_date, type: "date" %>
             </fieldset>
             <fieldset class="end-date-fieldset">
-              <legend>Термін виходу на проєктну потужність:</legend>
+              <legend><%= t('.end') %></legend>
               <%= f.text_field :end_date, type: "date" %>
-            </fieldset>  
+            </fieldset>
           </div>
           <fieldset>
-            <legend>Загальна площа ділянки необхідної для реалізації проєкту Заявника</legend>
-            <%= f.input :area, label: false, placeholder: "В гектарах"%>
+            <legend><%= t('.square') %></legend>
+            <%= f.input :area, label: false, placeholder: t('.in_hectares') %>
           </fieldset>
           <fieldset>
-            <legend>Клас небезпеки підприємства відповідно до Державних санітарних правил планування та забудови населених пунктів (не нижче 4 та 5)</legend>
-            <%= f.input :danger_class, collection: 1..5, prompt: "Виберіть клас небезпеки підприємства", input_html: { class: 'browser-default' },
+            <legend><%= t('.class') %></legend>
+            <%= f.input :danger_class, collection: 1..5, prompt: t('.check_class'), input_html: { class: 'browser-default' },
              label: false %>
           </fieldset>
           <div class="field">
             <label>
               <%= f.input_field :electicity_supply, boolean_style: :inline %>
-              <span class="electicity-supply-field">Потреба в електропостачанні</span>
+              <span class="electicity-supply-field"><%= t('.power_supply') %></span>
             </label>
           </div>
           <fieldset>
-            <legend>Додаткові вимоги</legend>
+            <legend><%= t('.additional_requirements') %></legend>
             <%= f.input :reqirements, label: false %>
           </fieldset>
 
-          <%= f.button :submit, "Відправити форму", class: "btn blue darken-4" %>
+          <div class='modal-popup__button-container'>
+            <%= f.button :submit, t('.send_form') %>
+          </div>
         <% end %>
-      </div>  
-  <% end %> 
-<% end %> 
+      </div>
+  <% end %>
+<% end %>

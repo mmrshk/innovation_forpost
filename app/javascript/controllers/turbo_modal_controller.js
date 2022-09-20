@@ -18,5 +18,4 @@ export default class extends Controller {
       this.hideModal()
     }
   }
-
 }
