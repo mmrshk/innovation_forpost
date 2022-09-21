@@ -1,4 +1,5 @@
 @import 'fonts';
+@import 'colors';
 
 .tb {
   display: flex;
@@ -14,19 +15,20 @@
 
 #article-text-input,
 .article-search-btn {
-  color: black;
+  color: $black-color;
   border: none;
   background-color: transparent;
-  outline: black;
+  outline: $black-color;
 }
 
 #cover {
+  margin: 20px 0px;
   width: 100%;
   height: 100px;
   padding: 25px;
-  background-color: #fff;
+  background-color: $white-color;
   border-radius: 20px;
-  box-shadow: 0 10px 40px #bbb8e7, 0 0 0 20px #fff;
+  box-shadow: 0 10px 40px $selective-yellow, 0 0 0 20px $white-color;
   transform: scale(0.6);
   margin-bottom: 20px;
 }
@@ -72,7 +74,7 @@
   height: 35px;
   margin-top: 0;
   border-width: 15px;
-  border: 7px solid black;
+  border: 2px solid $black-color;
   background-color: transparent;
   border-radius: 50%;
   transition: 0.5s ease all;
@@ -98,7 +100,7 @@
   right: 12px;
   width: 23px;
   height: 8px;
-  background-color: black;
+  background-color: $black-color;
   border-radius: 7px;
   transform: rotateZ(0);
   transition: 0.5s linear;
@@ -109,7 +111,7 @@
   width: 45px;
   height: 9px;
   border-width: 0;
-  background-color: black;
+  background-color: $black-color;
   border-radius: 10px;
 }
 
@@ -134,5 +136,5 @@
 #s-cover:hover button span:after {
   right: -6px;
   width: 33px;
-  background-color: black;
+  background-color: $black-color;
 }

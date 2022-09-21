@@ -35,7 +35,7 @@ FactoryBot.define do
       end
 
       after(:create) do |article, evaluator|
-        evaluator.tags_count.times do 
+        evaluator.tags_count.times do
           tag = create(:tag, name: "#{article.language} #{Faker::Lorem.unique.word}")
 
           create(:article_tag, tag: tag, article: article)

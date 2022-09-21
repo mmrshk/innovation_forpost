@@ -10,7 +10,7 @@
   <div id="cover">
     <%= form_tag articles_path, id: 'article-search-form', method: :get do %>
       <div class="tb">
-        <%= text_field_tag :query, params[:query], id: 'article-text-input', placeholder: t('admins.articles.search_articles') %>
+        <%= text_field_tag :search, params[:search], id: 'article-text-input', placeholder: t('admins.articles.search_articles') %>
         
         <div class="td" id="s-cover">
           <%= button_tag class: "article-search-btn", name: nil do %>
