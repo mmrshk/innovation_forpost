@@ -1,3 +1,5 @@
+@import 'fonts';
+
 .group-tag {
   display: flex;
   flex-wrap: nowrap;
@@ -16,7 +18,7 @@
     margin: 7px;
     white-space: nowrap;
     text-align: center;
-    font-family: 'Gotham', 'GothamCyrillic';
+    font-family: $font_main_company;
     font-weight: 700;
     font-size: 18px;
     letter-spacing: 1px;
@@ -28,13 +30,12 @@
     }
   }
 
-
   .button-search {
     margin: 40px 0 0;
     padding: 16px 20px;
     border-radius: 50px;
     font-size: 18px;
-    font-family: 'Gotham', 'GothamCyrillic';
+    font-family: $font_main_company;
     font-weight: 700;
     letter-spacing: 1px;
     cursor: pointer;
@@ -42,10 +43,11 @@
     &:hover {
       background: $base-color;
       color: $white-color;
+    }
 
     .tag-link {
       text-align: center;
-      font-family: 'Gotham', 'GothamCyrillic';
+      font-family: $font_main_company;
       font-weight: 700;
       font-size: 18px;
       letter-spacing: 1px;

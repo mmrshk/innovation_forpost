@@ -2,12 +2,13 @@
 
 class ArticlesController < ApplicationController
   def index
-    @articles = if !params[:query] || params[:query].empty?
+    @articles = if !params[:q] || params[:q].empty?
                   articles.sorted_desc
                 else
-                  articles.articles_search(params[:query]).sorted_desc
+                  articles.articles_search(params[:q]).sorted_desc
                 end
-    @tags = Tag.all
+
+    @tags = Tag.joins(article_tags: :article).where('articles.language = ?', Article::LANGUAGES[extract_locale])
   end
 
   def show

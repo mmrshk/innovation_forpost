@@ -1,8 +1,10 @@
+@import 'fonts';
+
 .article-preview-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-family: 'Gotham', 'GothamCyrillic';
+  font-family: $font_main_company;
 
   .article-title-text-block {
     display: flex;

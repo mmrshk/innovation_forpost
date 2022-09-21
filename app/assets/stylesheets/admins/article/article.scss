@@ -1,7 +1,9 @@
+@import 'fonts';
+
 .admin-article-title {
   width: 100%;
   margin: 0;
-  font-family: 'Gotham', 'GothamCyrillic';
+  font-family: $font_main_company;
   font-style: normal;
   font-weight: 400;
   font-size: 50px;
@@ -23,7 +25,7 @@
     min-width: 295px;
     background: $admin-background-color-button;
     border-radius: 30px;
-    font-family: 'Gotham', 'GothamCyrillic';
+    font-family: $font_main_company;
     font-style: normal;
     font-weight: 400;
     font-size: 25px;
