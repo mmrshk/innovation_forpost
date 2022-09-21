@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
 
     if @question.save
-      redirect_to questions_path, notice: 'Question created successfully!'
+      redirect_to questions_path, notice: I18n.t('admins.questions.create')
     else
       render :new, status: :unprocessable_entity
     end

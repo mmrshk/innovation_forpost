@@ -1,14 +1,34 @@
 en:
   en: "EN"
   uk: "UA"
+  activemodel:
   menu:
     innovateForpost: "Innovate fortpost"
+    company: 'Management company'
     about: "About"
     contacts: "Contacts"
     signout: "Sign out"
     login: "Log in"
     articles: "Articles"
     articles_all: "Reset filter"
+    profile: "Profile"
+    users: "Users"
+    settings: "Settings"
+    attachments: "Attachments"
+    questions: "Questions"
+  errors:
+    internal_server_error: "Sorry, something went wrong on our end. We are currently trying to fix the problem."
+    unprocessable_entity: "Your browser did something unexpected. Please try again. If the error continues, try disabling all browser extensions."
+    not_found: "The content you are looking for is either moved or doesn't exist."
+    back_button: "Go back"
+  admin:
+    attachments:
+      view_docs_button: "View document"
+      save_button: "Save"
+      file_name: "File name:"
+      view_link: "View"
+      edit_link: "Edit"
+      delete_link: "Delete"
   admins:
     users:
       create_success: 'User was successfully created.'
@@ -18,12 +38,19 @@ en:
       last_super_admin: 'You are a last super admin'
       user_sucessfully_deleted: "User successfully deleted."
       current_user_account_destroy_prohibited: "Current user account destroy prohibited."
+      search: "Search"
+      email: "Email"
+      phone: "Phone"
+      create_new_user: "Create User"
+      views:
+        title: Users
     articles:
       create_success: 'Article was successfully created.'
       create_unsuccess: 'Could not create the article. Please try again'
       update_success: 'Article was successfully updated.'
       update_unsuccess: 'Could not update the article. Please try again.'
       destroy_success: 'The article was successfully destroyed.'
+      search_articles: "Search articles"
       upload_image_unsuccess: "The image upload failed. Error: %{errors}"
       views:
         title: 'Articles'
@@ -48,9 +75,114 @@ en:
           create_article: 'Create article'
           update_article: 'Update article'
           all_articles: 'All articles'
+          search: 'Search'
+          clear: 'Clear'
+        filter:
+          filter: "Filter"
+          created_at: "Created at:"
+          updated_at: "Updated at:"
         placeholders:
           article_title: 'Type your title here...'
           article_tag: 'Type your tags here...'
         hints:
           article_tag: 'Enter tags separated by commas.'
+    attachments:
+      create_new_attachment: 'Create attachment'
+      create_attachmennt: 'You added a new attachment!'
+      edit_attachment: 'You successfully edited an attachment!'
+      delete_attachment: 'You deleted an attachment!'
+    questions:
+      create: 'You successfully created a question!'
+      edit: 'You successfully edited a question!'
+      delete: 'Question deleted!'
+      delete_unsuccess: 'Error, something goes wrong!'
+      title_edit: 'Editing question'
+      buttons:
+        edit: 'Edit'
+        all: 'All questions'
+        add: 'Add question'
+      tables:
+        title: 'Title'
+        email: 'Email'
+        functions: 'Functions'
+        view: 'View'
+        edit: 'Edit'
+        delete: 'Delete'
+      show:
+        name: "Username:"
+    answers:
+      create: 'You successfully created an answer!'
+      delete: 'Answer deleted!'
+      delete_unsuccess: 'Error, something goes wrong!'
+      list: 'List of answers'
+      language: 'Language'
+      body: 'Text of answer'
+    question-mailers:
+      greeting: 'Hi'
+      pre_question: 'Your question'
+      answer: 'You receive answer:'
+      from: 'from'
+      rights: 'All Rights Reserved'
+    companies:
+      create_success: 'Company was successfully created.'
+      create_unsuccess: 'Could not create the Company. Please try again'
+      update_success: 'Company was successfully updated.'
+      update_unsuccess: 'Could not update the Company. Please try again.'
+      destroy_success: 'The Company was successfully destroyed.'
+      views:
+        title: 'Companies'
+        new_company: 'New company'
+        edit_company: 'Edit company'
+        labels:
+          name: 'Name'
+          start_year: 'Year'
+          projects_count: 'Projects'
+          clients_count: 'Clients'
+          grants_count: 'Grants'
+          text_about: 'About company'
+          logo: 'Logo'
+          language: 'Lang.'
+          functions: 'Functions'
+          priority: 'Priority'
+        buttons:
+          new_company: 'Add company'
+          view: 'View'
+          edit: 'Edit'
+          delete: 'Delete'
+          back: 'Back'
+          create_company: 'Create company'
+          update_company: 'Update company'
+          all_companies: 'All companies'
+          upload_logo: 'Upload logo'
+        placeholders:
+          companies_name: 'Type the name here...'
+          start_year: 'Type the founding year here...'
+          projects_count: 'Type the number of projects here...'
+          clients_count: 'Type the number of customers here...'
+          grants_count: 'Type the number of grants here...'
+          text_about: 'Type company information here...'
+          priority: 'Display priority'
+        hints:
+          logo_present: 'Logo present'
+          logo_absent: 'Logo absent'
   log_in_first: 'Please log in first'
+  companies:
+    labels:
+      years_text:
+        one: 'year on the market'
+        other: 'years on the market'
+      projects_text:
+        one: 'created project'
+        other: 'created projects'
+      clients_text:
+        one: 'satisfied customer'
+        other: 'satisfied customers'
+      grants_text:
+        one: 'grant won'
+        other: 'grants won'
+  news:
+    headline: 'News'
+    button_more: 'More news'
+  docs:
+    headline: 'Documents'
+    button_more: 'More documents'

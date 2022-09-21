@@ -1,0 +1,4 @@
+<div class='body-container'>
+  <h1 class='admin-article-title'><%= t('admins.companies.views.edit_company') %></h1>
+  <div class='block-form-article'><%= render 'form', company: @company, url: admins_company_path, method: 'patch' %></div>
+</div>

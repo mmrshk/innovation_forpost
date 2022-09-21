@@ -16,12 +16,16 @@
 
   <body>
     <%= render 'shared/header' %>
+
     <div class="start-block container">
       <%= render 'shared/messages' %>
+      <%= turbo_frame_tag "modal" %>
       <%= yield %>
     </div>
+
     <%= render 'shared/footer' %>
     <%= javascript_pack_tag 'down_scripts' %>
+    <%= javascript_pack_tag 'limit_records' %>
     <%= javascript_pack_tag 'active_button' %>
     <%= yield :js_snippet %>
   </body>
