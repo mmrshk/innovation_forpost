@@ -14,6 +14,7 @@ uk:
     signout: "Вийти"
     login: "Увійти"
     articles: "Статті"
+    articles_all: "Скинути фільтр"
     profile: "Профіль"
     users: "Користувачі"
     settings: "Налаштування"

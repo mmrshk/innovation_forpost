@@ -1,9 +1,11 @@
+@import 'fonts';
+
 .wrapper-table {
   display: table;
   table-layout: fixed;
   width: 100%;
   margin: 0 0 40px 0;
-  font-family: 'Gotham', 'GothamCyrillic';
+  font-family: $font_main_company;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;

@@ -7,6 +7,7 @@ import 'materialize-css/dist/js/materialize'
 import './scripts/scroll'
 import './ckeditor_embed_snippet'
 import './accordions'
+import './active_button'
 import './limit_records'
 import './load_more'
 

@@ -1,10 +1,12 @@
+@import 'fonts';
+
 .group-tag {
   display: flex;
   flex-wrap: nowrap;
   align-items: baseline;
 }
 
-.tag-links {
+.tag-search {
   display: flex;
   flex-wrap: wrap;
 
@@ -13,13 +15,39 @@
     border: 2px solid $base-color;
     border-radius: 7px;
     cursor: pointer;
-    vertical-align: middle;
     margin: 7px;
     white-space: nowrap;
+    text-align: center;
+    font-family: $font_main_company;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: $black-color;
+
+    &.active, &:hover {
+      background-color: $base-color;
+      color: $white-color;
+    }
+  }
+
+  .button-search {
+    margin: 40px 0 0;
+    padding: 16px 20px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-family: $font_main_company;
+    font-weight: 700;
+    letter-spacing: 1px;
+    cursor: pointer;
+
+    &:hover {
+      background: $base-color;
+      color: $white-color;
+    }
 
     .tag-link {
       text-align: center;
-      font-family: 'Gotham', 'GothamCyrillic';
+      font-family: $font_main_company;
       font-weight: 700;
       font-size: 18px;
       letter-spacing: 1px;

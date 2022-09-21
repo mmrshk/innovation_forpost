@@ -10,6 +10,7 @@ en:
     signout: "Sign out"
     login: "Log in"
     articles: "Articles"
+    articles_all: "Reset filter"
     profile: "Profile"
     users: "Users"
     settings: "Settings"
