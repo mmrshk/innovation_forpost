@@ -1,3 +1,5 @@
+@import 'fonts';
+
 #error_explanation {
   color: $admin-invalid-color;
 }
@@ -13,7 +15,7 @@
   .name-field-form {
     display: flex;
     align-items: center;
-    font-family: roboto, sans-serif;
+    font-family: $font_main_company;
     font-style: normal;
     font-weight: 400;
     font-size: 20px;

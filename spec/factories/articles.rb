@@ -35,13 +35,25 @@ FactoryBot.define do
       end
 
       after(:create) do |article, evaluator|
-        evaluator.tags_count.times { create(:article_tag, tag_id: create(:tag).id, article_id: article.id) }
+        evaluator.tags_count.times do
+          tag = create(:tag, name: "#{article.language} #{Faker::Lorem.unique.word}")
+
+          create(:article_tag, tag: tag, article: article)
+        end
       end
     end
 
     trait :with_image do
       after(:create) do |article|
         create(:ck_editor_image, article_id: article.id)
+      end
+    end
+
+    trait :with_image_url_inside_text do
+      text do
+        "#{Faker::Lorem.sentence(word_count: 5)}\
+        <p><figure class=\"image\"><img src=\"/uploads/ck_editor_image/file/1/clk1.jpeg\"></figure></p>\
+        #{Faker::Lorem.paragraphs(number: 10).join}"
       end
     end
 

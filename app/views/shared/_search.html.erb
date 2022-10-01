@@ -1,0 +1,7 @@
+<div class="tag-search vertical short">
+  <% @tags.each do |tag| %>
+    <%= link_to "#{tag.name}", articles_path(q: tag.name), class: 'tag-search-item' %>
+  <% end %>
+
+  <%= link_to t('menu.articles_all'), articles_path, class: 'tag-search-item button-search' %>
+</div>

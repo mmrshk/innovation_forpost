@@ -2,7 +2,7 @@
 
 require 'factory_bot_rails'
 
-admin = User.create!(
+User.create!(
   email: 'admin@example.com',
   password: '123456',
   password_confirmation: '123456',
@@ -16,4 +16,4 @@ FactoryBot.create_list(:article, 25, :with_random_user, :with_random_status, :wi
 
 FactoryBot.create_list(:answer, 20)
 
-FactoryBot.create_list(:company, 2)
+FactoryBot.create_list(:company, 4, :with_random_language)

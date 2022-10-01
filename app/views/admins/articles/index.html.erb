@@ -1,32 +1,32 @@
 <div class='body-container'>
   <div class='admin-article-group'>
-  <h1 class='admin-article-title'><%= t('admins.articles.views.title') %></h1>
-  <%= link_to t('admins.articles.views.buttons.new_article'), new_admins_article_path, class:'admin-article-button text' %>
+    <h1 class='admin-article-title'><%= t('admins.articles.views.title') %></h1>
+    <%= link_to t('admins.articles.views.buttons.new_article'), new_admins_article_path, class:'admin-article-button text' %>
   </div>
 
   <div class="container-records-and-filters">
     <div class="container-records">
       <%== pagy_items_selector_js(@pagy) %>
     </div>
-    <%= render 'shared/filter' %>
+    <%= render 'shared/filter_articles' %>
   </div>
 
   <div class='wrapper-table'>
     <div class='header-table'>
       <div class='header-cell'>
-        <%= link_to fa_icon('sort', text: t('admins.articles.views.labels.title'), class:'fa-icon'), sort: "title" %>
+        <%= sort_link(@q, :title, t('admins.articles.views.labels.title'), default_order: :asc) %>
       </div>
       <div class='header-cell'>
-        <%= link_to fa_icon('sort', text: t('admins.articles.views.labels.author'), class:'fa-icon'), sort: "user_id" %>
+        <%= sort_link(@q, :user_id, t('admins.articles.views.labels.author'), default_order: :asc) %>
       </div>
       <div class='header-cell'>
-        <%= link_to fa_icon('sort', text: t('admins.articles.views.labels.status'), class:'fa-icon'), sort:"status" %>
+        <%= sort_link(@q, :status, t('admins.articles.views.labels.status'), default_order: :asc) %>
       </div>
       <div class='header-cell'>
-        <%= link_to fa_icon('sort', text: t('admins.articles.views.labels.language'), class:'fa-icon'), sort:"language" %>
+        <%= sort_link(@q, :language, t('admins.articles.views.labels.language'), default_order: :asc) %>
       </div>
       <div class='header-cell'>
-        <%= link_to fa_icon('sort', text: t('admins.articles.views.labels.date'), class:'fa-icon'), sort:"updated_at" %>
+        <%= sort_link(@q, :updated_at, t('admins.articles.views.labels.date'), default_order: :asc) %>
       </div>
       <div class='header-cell'>
         <span><%= t('admins.articles.views.labels.functions') %><%= fa_icon('gear', class:'fa-icon-functions label')%></span>

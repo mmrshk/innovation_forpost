@@ -1,19 +1,39 @@
 
-@import "colors";
+@import 'colors';
+@import 'fonts';
 @import 'materialize-css/dist/css/materialize';
+@import 'mixins/*';
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,700');
+
 @import 'header';
 @import 'footer';
-@import 'admins/attachment';
 @import 'errors';
-@import 'admin';
-@import "font-awesome";
-@import 'admins/article/*';
+
+@import 'font-awesome';
+
 @import 'article/*';
+@import 'article/article_search';
+@import 'companies/*';
+@import 'home/*';
+@import 'users';
+@import 'resident_forms';
 @import 'tag/*';
 @import 'new_ckeditor/ckeditor';
 @import 'tree';
+
+@import 'admin';
+@import 'admins/attachment';
+@import 'admins/article/*';
+@import 'admins/companies/*';
+@import 'admins/question/*';
+
+@font-face {
+  font-family: 'Gotham';
+  src: font-url('Gotham.ttf');
+  font-family: 'GothamCyrillic';
+  src: font-url('GothamCyrillic.otf');
+}
 
 * {
   margin: 0;
@@ -23,3 +43,4 @@
 .start-block {
   padding-top: 130px;
 }
+

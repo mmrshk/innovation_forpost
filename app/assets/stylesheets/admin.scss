@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'fonts';
 @import "font-awesome";
 
 .form-container {
@@ -25,8 +26,6 @@
   }
 
   .form {
-    max-width: 600px;
-
     .error {
       color: $mobile-red-color;
     }
@@ -64,6 +63,7 @@
     display: flex;
     align-items: center;
     margin-right: 85px;
+    color: $white-color;
   }
 
   &-button {
@@ -76,6 +76,7 @@
     font-size: 18px;
     color: $white-color;
     user-select: none;
+    cursor: pointer;
   }
 
   &-option {
@@ -90,7 +91,17 @@
   }
 }
 
-select {
+.form-control.filter {
+  margin: 7px;
+  margin-left: -5px;
+  width: 240px;
+  background-color: #fff;
+  border-radius: 18px;
+  border: none;
+}
+
+
+select.browser-default {
   appearance: none;
 }
 
@@ -113,8 +124,8 @@ select {
   }
 
   &.dropdown {
-    margin: 0 5px;
     font-size: 35px;
+    margin-left: -20px;
   }
 
   &.calendar {
@@ -137,7 +148,7 @@ select {
   background-color: $blue-filter-color;
   border-radius: 18px;
 
-  #filter-buttons {
+  .filter-buttons {
     width: 340px;
     height: 52px;
     background-color: #62B5E5;
@@ -146,6 +157,28 @@ select {
     border-radius: 30px;
     margin: 18px 0 0 23px;
     border: #62B5E5;
+    text-align: center;
+    padding: 13px;
+  }
+
+  .buttons {
+    display: flex;
+  }
+
+  #id {
+    width: 340px;
+    height: 52px;
+    background-color: #62B5E5;
+    color: $white-color;
+    font-size: 18px;
+    border-radius: 30px;
+    margin: 18px 0 0 23px;
+    border: #62B5E5;
+  }
+
+  #filter-button-clear {
+    width: 340px;
+    height: 52px;
   }
 
   .filter-text-label {
@@ -162,15 +195,21 @@ select {
 
   .input {
     &-top {
-      margin: 32px 12px;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      margin-left: 10px;
+      display: inline-block;
     }
 
     &-middle {
-      margin: 123px 12px;
+      display: inline-block;
+      margin-bottom: 15px;
+      margin-left: 10px;
     }
-    
+
     &-bottom {
-      margin: 285px 12px;
+      display: inline-block;
+      margin-left: 10px;
     }
   }
 
@@ -180,14 +219,14 @@ select {
     height: 52px;
     background-color: $white-color;
     border-radius: 18px;
-    
+
     ::placeholder {
       display: flex;
       align-items: center;
       font-size: 18px;
       color: rgba(0, 40, 85, 0.5);
     }
-    
+
     input[type="text"] {
       margin: 4px;
       border-bottom: none;
@@ -195,10 +234,16 @@ select {
   }
 }
 
+.datepicker-modal.open{
+  min-width: 450px;
+  width: 100%;
+}
+
 .container-records-and-filters {
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
+  font-family: $font_main_company;
 
   .container-records {
     display: flex;
@@ -233,6 +278,12 @@ select {
   }
 }
 
+.filter-field-name {
+  color: #fff !important;
+  font-size: 22px !important;
+  margin-top: -15px;
+}
+
 @media screen and (max-width: 755px) {
   .container-records-and-filters {
     flex-direction: column;
@@ -240,7 +291,7 @@ select {
     text-align: center;
     flex-wrap: wrap;
   }
-}  
+}
 
 .pagination {
   display: flex;
@@ -286,15 +337,16 @@ select {
     .pagination-number {
       margin: 5px;
     }
-  }  
+  }
 }
 
-.body-table { 
-  border-collapse: separate; 
-  border-spacing: 0 10px; 
-  margin-top: 10px; 
+.body-table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  margin-top: 10px;
   margin-bottom: 10px;
-  font-size: 20px;
+  font-size: 15px;
+  font-family: $font_main_company;
 }
 
 .title-table-user {
@@ -315,14 +367,14 @@ select {
 
 .title-table-user:first-child {
   border-left-style: solid;
-  border-top-left-radius: 30px; 
+  border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
 }
 
 .title-table-user:last-child {
   border-right-style: solid;
-  border-bottom-right-radius: 30px; 
-  border-top-right-radius: 30px; 
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
 .button-functions {
@@ -337,21 +389,4 @@ select {
 
 .field-table-user {
   padding-left: 30px;
-}
-
-.add-features {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 50px;
-
-  .new-user {
-    width: 210px;
-    height: 50px;
-    color: $white-color;
-    background-color: #62B5E5;
-    font-size: 18px;
-    border-radius: 30px;
-    padding: 10px;
-    text-align: center;
-  }
 }

@@ -7,9 +7,9 @@ Rails.application.routes.draw do
     resources :users
     resources :attachments
     resources :questions, except: %i[create new] do
-      resources :answers
+      resources :answers, only: %i[create destroy]
     end
- 
+
     resources :articles, except: :show do
       collection do
         post :upload
@@ -18,23 +18,26 @@ Rails.application.routes.draw do
 
     resources :companies, except: :show
   end
-  
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   # devise said he wants to have a specified root rout, so:
-  
+
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     devise_for :users, controllers: {
       registrations: 'registrations'
     }
-    resources :articles, only: %i[index show] 
-    resources :tags, only: %i[index show]
     root to: "home#index"
-    resources :questions, only: %i[index new create show]
-    get '/companies', to: 'companies#index'
-  end
 
-  get '/404', to: 'errors#not_found'
-  get '/422', to: 'errors#unprocessable_entity'
-  get '/500', to: 'errors#internal_server_error'
+    resources :articles, only: %i[index show]
+    resources :tags, only: %i[index show]
+    resources :questions, only: %i[index new create show]
+    resources :attachments, only: :show
+    resources :companies, only: :index
+    resources :resident_forms
+
+    get "/404", to: "errors#not_found"
+    get '/422', to: 'errors#unprocessable_entity'
+    get '/500', to: 'errors#internal_server_error'
+  end
 end

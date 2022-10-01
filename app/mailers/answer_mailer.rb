@@ -5,11 +5,9 @@ class AnswerMailer < ApplicationMailer
     @question = params[:question]
     @answer = params[:answer]
     @admin = params[:admin]
-    @greeting = 'Hi'
 
-    mail(
-      from: Rails.application.credentials.google_account[:SMTP_USERNAME],
-      to: @question.user_email
-    )
+    I18n.with_locale(@answer.language) do
+      mail(to: @question.user_email)
+    end
   end
 end

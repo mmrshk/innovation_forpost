@@ -1,0 +1,16 @@
+<div class="wrapper-docs">
+  <div class="company-headline sub-headline"><%= t('docs.headline') %></div>
+  <div class="docs-container">
+    <% documents.each do |document|%>
+      <%= link_to admins_attachment_path(document), class: 'link-doc' do %>
+        <div class="docs-block">
+          <div class="docs-image-preview">
+            <%= image_tag('/icons/doc-file.png') %>
+          </div>
+          <div class="docs-title-block"><%= document.name %></div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="button-load-more btn-docs "><%= t('docs.button_more') %></div>
+</div>
