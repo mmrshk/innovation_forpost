@@ -64,15 +64,15 @@ rectH = 50;
 let tree = d3.layout.tree().nodeSize([height, width]);
 
 let diagonal = d3.svg.diagonal()
-.projection(function(d) {
-  return [d.x, d.y];
-});
+                  .projection(function(d) {
+                    return [d.x, d.y];
+                  });
 
 let accountSvg = d3.select(".tree").append("svg")
-.attr("width", 1000)
-.attr("height", 1000)
-.append("g")
-.attr("transform", "translate(" + margin.left + "," + margin.left + ")");
+                    .attr("width", 1000)
+                    .attr("height", 1000)
+                    .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.left + ")");
 
 
 root = treeData[0];
@@ -158,7 +158,7 @@ nodeUpdate.select("text")
   .style("fill-opacity", 1)
   .style("fill", 'black');
 
-  
+
 
 // Transition exiting nodes to the parent's new position.
 let nodeExit = node.exit().transition()
@@ -239,7 +239,7 @@ link.transition()
       x: d.source.x + rectW / 2
     };
     let t = {
-      x: d.target.x + rectW / 2, 
+      x: d.target.x + rectW / 2,
       y: d.target.y
     };
     return diagonal({

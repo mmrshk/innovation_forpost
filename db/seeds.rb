@@ -17,3 +17,6 @@ FactoryBot.create_list(:article, 25, :with_random_user, :with_random_status, :wi
 FactoryBot.create_list(:answer, 20)
 
 FactoryBot.create_list(:company, 4, :with_random_language)
+
+FactoryBot.create_list(:document, 3, :with_children)
+FactoryBot.create_list(:document, 3, :with_children_and_their_children)
