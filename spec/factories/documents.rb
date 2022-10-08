@@ -6,7 +6,14 @@ FactoryBot.define do
 
     trait :with_children do
       after(:create) do |document|
-        create_list(:document, 2, parent_id: document.id)
+        create_list(:document, 2, ancestry: document.id)
+      end
+    end
+
+    trait :with_children_and_their_children do
+      after(:create) do |document|
+        new_document = create(:document, ancestry: document.id)
+        create(:document, ancestry: new_document.id)
       end
     end
   end

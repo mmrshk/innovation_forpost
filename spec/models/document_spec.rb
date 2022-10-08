@@ -13,3 +13,4 @@ RSpec.describe Document, type: :model do
     it { expect(document.children.count).to eql(2) }
   end
 end
+😄
