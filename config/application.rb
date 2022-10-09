@@ -24,5 +24,6 @@ module InnovationForpost
     config.factory_bot.definition_file_paths = ["spec/factories"]
     config.action_view.sanitized_allowed_tags = %w(h1 h2 h3 h4 b i p u a div span br ul ol li em abbr blockquote hr strong strike img figure iframe oembed button length document)
     config.action_view.sanitized_allowed_attributes = %w(href target title src url height weight alt class contenteditable data-oembed-url style frameborder allowfullscreen allow)
+    config.assets.paths << "#{Rails.root}/app/assets/videos"
   end
 end
