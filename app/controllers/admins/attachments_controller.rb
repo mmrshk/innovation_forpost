@@ -4,6 +4,7 @@ module Admins
   class AttachmentsController < ApplicationController
     before_action :attachment, only: %i[show edit update destroy]
     before_action :authenticate_user!
+    before_action :presenter, only: %i[show new create edit update]
 
     def index
       @q = Attachment.ransack(params[:q])
@@ -49,6 +50,10 @@ module Admins
 
     def attachment
       @attachment ||= Attachment.find(params[:id])
+    end
+
+    def presenter
+      @presenter ||= AttachmentPresenter.new(@attachment)
     end
 
     def attachment_params

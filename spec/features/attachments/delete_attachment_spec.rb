@@ -12,7 +12,7 @@ RSpec.describe 'Deleting an attachment', type: :feature do
 
   scenario 'delete an attachment' do
     visit admins_attachments_path
-    click_on I18n.t('admin.attachments.delete_link')
+    click_on I18n.t('admins.attachments.delete_link')
     expect(page).to_not have_content(attachment.name)
   end
 end

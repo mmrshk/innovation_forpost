@@ -1,0 +1,149 @@
+@import 'fonts';
+@import 'colors';
+
+.modal-popup {
+  padding: 20px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  margin: 30px;
+  overflow-y: auto;
+  background: #fff;
+  box-shadow: 0 2px 10px 3px rgba(0,0,0,.2);
+  z-index: 5;
+  max-height: -webkit-fill-available;
+  font-family: $font_main_company;
+
+  legend {
+    text-align: center;
+    font-size: 16px;
+  }
+
+  fieldset {
+    margin-bottom: 20px;
+  }
+
+  abbr {
+    display: none;
+  }
+
+  textarea {
+    #resident_form_reqirements {
+      min-height: 80px;
+    }
+  }
+
+  .error {
+    color: red;
+  }
+
+  [type="checkbox"]:checked+span:not(.lever):before {
+    border-right: 2px solid #190fd1;
+    border-bottom: 2px solid #190fd1
+  }
+
+  @mixin resident-blue-border {
+    border-bottom: 1px solid #190fd1;
+    box-shadow: 0 1px 0 0 #190fd1;
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: center;
+
+    input {
+      &[type=submit] {
+        height: 60px;
+        background: $load_more_button;
+        border-radius: 20px;
+        font-family: $font_main_company;
+        cursor: pointer;
+
+        &:hover {
+          background: $base-color;
+        }
+      }
+    }
+  }
+
+  input {
+    text-align: center;
+
+    &[type=text]:not(.browser-default):focus:not([readonly]) {
+      @include resident-blue-border;
+    }
+
+    &[type=date]:not(.browser-default):focus:not([readonly]) {
+      @include resident-blue-border;
+    }
+
+    &[type=number]:not(.browser-default):focus:not([readonly]) {
+      @include resident-blue-border;
+    }
+
+    &[type=email]:not(.browser-default):focus:not([readonly]) {
+      @include resident-blue-border;
+    }
+
+    &[type=tel]:not(.browser-default):focus:not([readonly]) {
+      @include resident-blue-border;
+    }
+  }
+}
+
+.overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 4;
+}
+
+.modal-title {
+ text-align: center;
+ font-size: $font_big_size;
+ font-weight: bold;
+ margin-bottom: 20px;
+}
+
+.resident-contacts {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin resident-required-fields {
+  text-align: center;
+  font-size: $font_medium_size;
+  color: black;
+}
+
+.string.required {
+  @include resident-required-fields;
+}
+
+.tel.required {
+  @include resident-required-fields;
+}
+
+.email.required {
+  @include resident-required-fields;
+}
+
+.date-fields {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+
+  fieldset {
+    width: 100%;
+    margin: 0 10px;
+  }
+}
+
+.electicity-supply-field {
+  color: black;
+}

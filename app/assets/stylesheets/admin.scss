@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'fonts';
 @import "font-awesome";
 
 .form-container {
@@ -205,7 +206,7 @@ select.browser-default {
       margin-bottom: 15px;
       margin-left: 10px;
     }
-    
+
     &-bottom {
       display: inline-block;
       margin-left: 10px;
@@ -218,14 +219,14 @@ select.browser-default {
     height: 52px;
     background-color: $white-color;
     border-radius: 18px;
-    
+
     ::placeholder {
       display: flex;
       align-items: center;
       font-size: 18px;
       color: rgba(0, 40, 85, 0.5);
     }
-    
+
     input[type="text"] {
       margin: 4px;
       border-bottom: none;
@@ -242,6 +243,7 @@ select.browser-default {
   display: flex;
   justify-content: space-between;
   margin-bottom: 30px;
+  font-family: $font_main_company;
 
   .container-records {
     display: flex;
@@ -335,15 +337,16 @@ select.browser-default {
     .pagination-number {
       margin: 5px;
     }
-  }  
+  }
 }
 
-.body-table { 
-  border-collapse: separate; 
-  border-spacing: 0 10px; 
-  margin-top: 10px; 
+.body-table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  margin-top: 10px;
   margin-bottom: 10px;
-  font-size: 20px;
+  font-size: 15px;
+  font-family: $font_main_company;
 }
 
 .title-table-user {
@@ -364,14 +367,14 @@ select.browser-default {
 
 .title-table-user:first-child {
   border-left-style: solid;
-  border-top-left-radius: 30px; 
+  border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
 }
 
 .title-table-user:last-child {
   border-right-style: solid;
-  border-bottom-right-radius: 30px; 
-  border-top-right-radius: 30px; 
+  border-bottom-right-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
 .button-functions {
@@ -386,21 +389,4 @@ select.browser-default {
 
 .field-table-user {
   padding-left: 30px;
-}
-
-.add-features {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 50px;
-
-  .new-user {
-    min-width: 210px;
-    height: 50px;
-    color: $white-color;
-    background-color: #62B5E5;
-    font-size: 18px;
-    border-radius: 30px;
-    padding: 10px;
-    text-align: center;
-  }
 }

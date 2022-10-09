@@ -6,6 +6,8 @@ class AnswerMailer < ApplicationMailer
     @answer = params[:answer]
     @admin = params[:admin]
 
-    mail(to: @question.user_email)
+    I18n.with_locale(@answer.language) do
+      mail(to: @question.user_email)
+    end
   end
 end

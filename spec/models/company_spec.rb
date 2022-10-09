@@ -6,7 +6,9 @@ RSpec.describe Company, type: :model do
   describe 'validations' do
     it { should validate_presence_of(:name) }
     it { should validate_presence_of(:start_year) }
+    it { should validate_presence_of(:priority) }
     it { should validate_numericality_of(:start_year).only_integer }
+    it { should validate_numericality_of(:priority).only_integer }
     it { should validate_numericality_of(:start_year).is_less_than_or_equal_to(Date.today.year) }
     it { should validate_numericality_of(:start_year).is_greater_than(0) }
     it { should_not allow_value(-1).for(:start_year) }
