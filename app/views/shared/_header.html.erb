@@ -3,8 +3,7 @@
     <li class="item"><%= link_to t('menu.innovateForpost'), '#' %></li>
     <li class="item"><%= link_to t('menu.company'), companies_path %></li>
     <li class="item"><%= link_to t('menu.articles'), articles_path %></li>
-    <li class="item"><%= link_to t('menu.about'), about_path %></li>
-    <li class="item"><%= link_to t('menu.contacts'), '#' %></li>
+    <li class="item"><%= link_to t('menu.contacts'), about_path %></li>
     <% if user_signed_in? %>
       <li class="item"><%= link_to t('menu.signout'), destroy_user_session_path, method: :delete, class: "mobile-log" %></li>
     <% else %>
@@ -28,8 +27,7 @@
         <li class="item"><%= link_to t('menu.innovateForpost'), '#' %></li>
         <li class="item"><%= link_to t('menu.company'), companies_path %></li>
         <li class="item"><%= link_to t('menu.articles'), articles_path %></li>
-        <li class="item"><%= link_to t('menu.about'), about_path %></li>
-        <li class="item"><%= link_to t('menu.contacts'), '#' %></li>
+        <li class="item"><%= link_to t('menu.contacts'), about_path %></li>
         <% if user_signed_in? %>
           <div id="user-menu">
             <i class="small material-icons">account_circle</i>

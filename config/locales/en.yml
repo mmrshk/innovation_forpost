@@ -21,6 +21,7 @@ en:
     team: "The team is ready to help you"
     work_here: "We work here"
     fortpost: "Dnipro city council"
+    site: 'Link to the page of the Dnipro Development Agency on the website of the Dnipro City Council'
   errors:
     internal_server_error: "Sorry, something went wrong on our end. We are currently trying to fix the problem."
     unprocessable_entity: "Your browser did something unexpected. Please try again. If the error continues, try disabling all browser extensions."
