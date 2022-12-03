@@ -26,27 +26,7 @@
               <p>test@gmail.com</p>
               <p>+380778772409</p>
             </div>
-          </div>  
-          <div class="member">
-            <span class="member-cup">Steven Armstrong</span>
-            <div class="member-info">
-              <div class="profile-photo"></div>
-              <p class="position">Developer</p>
-              <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque necessitatibus nisi iste neque aspernatur officiis consequuntur.</p>
-              <p>test@gmail.com</p>
-              <p>+380778772409</p>
-            </div>
-          </div>  
-          <div class="member">
-            <span class="member-cup">Steven Armstrong</span>
-            <div class="member-info">
-              <div class="profile-photo"></div>
-              <p class="position">Developer</p>
-              <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque necessitatibus nisi iste neque aspernatur officiis consequuntur.</p>
-              <p>test@gmail.com</p>
-              <p>+380778772409</p>
-            </div>
-          </div>  
+          </div>
           <div class="member">
             <span class="member-cup">Steven Armstrong</span>
             <div class="member-info">
@@ -66,27 +46,7 @@
               <p>test@gmail.com</p>
               <p>+380778772409</p>
             </div>
-          </div>  
-          <div class="member">
-            <span class="member-cup">Steven Armstrong</span>
-            <div class="member-info">
-              <div class="profile-photo"></div>
-              <p class="position">Developer</p>
-              <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque necessitatibus nisi iste neque aspernatur officiis consequuntur.</p>
-              <p>test@gmail.com</p>
-              <p>+380778772409</p>
-            </div>
-          </div>  
-          <div class="member">
-            <span class="member-cup">Steven Armstrong</span>
-            <div class="member-info">
-              <div class="profile-photo"></div>
-              <p class="position">Developer</p>
-              <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque necessitatibus nisi iste neque aspernatur officiis consequuntur.</p>
-              <p>test@gmail.com</p>
-              <p>+380778772409</p>
-            </div>
-          </div>  
+          </div>
           <div class="member">
             <span class="member-cup">Steven Armstrong</span>
             <div class="member-info">
@@ -106,7 +66,7 @@
               <p>test@gmail.com</p>
               <p>+380778772409</p>
             </div>
-          </div>  
+          </div>
           <div class="member">
             <span class="member-cup">Steven Armstrong</span>
             <div class="member-info">
@@ -116,7 +76,7 @@
               <p>test@gmail.com</p>
               <p>+380778772409</p>
             </div>
-          </div>  
+          </div>
           <div class="member">
             <span class="member-cup">Steven Armstrong</span>
             <div class="member-info">
@@ -126,12 +86,52 @@
               <p>test@gmail.com</p>
               <p>+380778772409</p>
             </div>
-          </div>  
+          </div>
+          <div class="member">
+            <span class="member-cup">Steven Armstrong</span>
+            <div class="member-info">
+              <div class="profile-photo"></div>
+              <p class="position">Developer</p>
+              <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque necessitatibus nisi iste neque aspernatur officiis consequuntur.</p>
+              <p>test@gmail.com</p>
+              <p>+380778772409</p>
+            </div>
+          </div>
+          <div class="member">
+            <span class="member-cup">Steven Armstrong</span>
+            <div class="member-info">
+              <div class="profile-photo"></div>
+              <p class="position">Developer</p>
+              <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque necessitatibus nisi iste neque aspernatur officiis consequuntur.</p>
+              <p>test@gmail.com</p>
+              <p>+380778772409</p>
+            </div>
+          </div>
+          <div class="member">
+            <span class="member-cup">Steven Armstrong</span>
+            <div class="member-info">
+              <div class="profile-photo"></div>
+              <p class="position">Developer</p>
+              <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque necessitatibus nisi iste neque aspernatur officiis consequuntur.</p>
+              <p>test@gmail.com</p>
+              <p>+380778772409</p>
+            </div>
+          </div>
+          <div class="member">
+            <span class="member-cup">Steven Armstrong</span>
+            <div class="member-info">
+              <div class="profile-photo"></div>
+              <p class="position">Developer</p>
+              <p class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque necessitatibus nisi iste neque aspernatur officiis consequuntur.</p>
+              <p>test@gmail.com</p>
+              <p>+380778772409</p>
+            </div>
+          </div>
         </div>
       </div>
       <a class="prev">&#10094;</a>
       <a class="next">&#10095;</a>
-    </div> 
+    </div>
 <%
 =end%>
   </div>
@@ -139,7 +139,7 @@
   <div class="collage">
     <h5><%= t('about.fortpost') %></h5>
 
-    <div class="photos">  
+    <div class="photos">
       <%= image_tag "about/picture_2" %>
       <%= image_tag "about/picture_1" %>
       <%= image_tag "about/picture_3" %>
@@ -159,23 +159,23 @@
 
     <div class="phone">
       <div class="phone-child">
-        <p><%= t('about.phone.kapliy.name') %></p>
-        <p><i class="fa fa-phone" aria-hidden="true"></i> <%= t('about.phone.kapliy.number') %></p>
+        <p class="phone-child__name"><%= t('about.phone.kapliy.name') %></p>
+        <p classphone-child__phone-number><i class="fa fa-phone" aria-hidden="true"></i> <%= phone_to t('about.phone.kapliy.number') %></p>
       </div>
 
       <div class="phone-child">
-        <p><%= t('about.phone.vitvytskiy.name') %></p>
-        <p><i class="fa fa-phone" aria-hidden="true"></i> <%= t('about.phone.vitvytskiy.number') %></p>
+        <p class="phone-child__name"><%= t('about.phone.vitvytskiy.name') %></p>
+        <p classphone-child__phone-number><i class="fa fa-phone" aria-hidden="true"></i> <%= t('about.phone.vitvytskiy.number') %></p>
       </div>
 
       <div class="phone-child">
-        <p><%= t('about.phone.ivanytska.name') %></p>
-        <p><i class="fa fa-phone" aria-hidden="true"></i> <%= t('about.phone.ivanytska.number') %></p>
+        <p class="phone-child__name"><%= t('about.phone.ivanytska.name') %></p>
+        <p classphone-child__phone-number><i class="fa fa-phone" aria-hidden="true"></i> <%= t('about.phone.ivanytska.number') %></p>
       </div>
 
       <div class="phone-child">
-        <p><%= t('about.phone.neznaiko.name') %></p>
-        <p><i class="fa fa-phone" aria-hidden="true"></i> <%= t('about.phone.neznaiko.number') %></p>
+        <p class="phone-child__name"><%= t('about.phone.neznaiko.name') %></p>
+        <p classphone-child__phone-number><i class="fa fa-phone" aria-hidden="true"></i> <%= t('about.phone.neznaiko.number') %></p>
       </div>
     </div>
 

@@ -17,12 +17,14 @@
   .collage {
     .photos {
       display: flex;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
+      overflow-x: auto;
+
 
       img {
         height: 250px;
         width: 400px;
+        margin: 0 16px;
+        border-radius: 8px;
       }
 
       @media screen and (max-width: $breakpoint_720) {
@@ -159,7 +161,7 @@
       right: 325px;
     }
   }
-  
+
   .info {
     div {
       padding: 10px;
@@ -177,19 +179,19 @@
         font-family: $font_main_company;
         transition: all .3s;
         cursor: pointer;
-      
+
         &.outline {
           background: transparent;
           border-color: $black-color;
           color: $black-color;
           text-align: center;
-      
+
           &:hover {
             background: $black-color;
             color: $white-color;
           }
         }
-      
+
         span {
           display: flex;
           align-items: center;
@@ -202,7 +204,19 @@
       display: flex;
       justify-content: space-evenly;
 
-      &.child {
+      &-child {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 200px;
+        border: 1px solid #cdcdcd;
+        border-radius: 6px;
+
+        &__phone-number {
+          cursor: pointer;
+        }
+
         .fa {
           font-size: $font_medium_size;
         }

@@ -1,3 +1,27 @@
 <div class='home-container'>
+  <div class="home-container__video">
+    <iframe width="100%" height="360" src="https://www.youtube.com/embed/S8zBmGofmKU?controls=0&autoplay=1" title="Innovation forpost presentation" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; gyroscope;" allowfullscreen="false"></iframe>
+    <div class="home-container__video-title">
+      <%= t('.welcome_video_title') %>
+    </div>
+  </div>
+  <div class="home-container__info">
+    <div class="home-container__info-item">
+      <div>
+        <%= fa_icon('map-location-dot') %>
+        <%= t('.address') %>
+      </div>
+    </div>
+    <div class="home-container__info-item">
+      <div>
+        <%= t('.sq_info') %>
+      </div>
+    </div>
+    <div class="home-container__info-item">
+      <div>
+        <%= t('.time_range') %>
+      </div>
+    </div>
+  </div>
   <%= button_to t('.resident_form'), new_resident_form_path, class: 'resident-form-button', method: :get, data: { turbo_frame: 'modal' } %>
 </div>
