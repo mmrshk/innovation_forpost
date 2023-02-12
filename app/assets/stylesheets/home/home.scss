@@ -1,36 +1,75 @@
+@import "font-awesome";
+
 .home-container {
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
 
-  .welcome-video {
-    width: 100vw;
+  &__wrapper {
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    flex-direction: row;
+    width: 100%;
+    max-height: 534px;
 
-    &__scroll-icon {
-      display: none;
-      bottom: 10px;
-      width: 50px;
+    @media #{$viewport-l} {
+      max-height: 354px;
+    }
 
-      @media screen and (max-width: 1280px) {
-        position: fixed;
-        display: block;
+    &-main {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      padding: 20px 20px 0 0;
+      background: linear-gradient(to right,#9afebf,#087ef6);
+    }
+
+    &-description {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      &--wrapper {
+        display: flex;
+        flex: 1;
+        padding: 0 20px 20px 20px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      &-title {
+        text-align: center;
+        border-bottom: 1px #959595 solid;
+        margin: 20px 30px;
+        padding-bottom: 20px;
+        @include font-heading-m;
+      }
+
+      &-message {
+        padding: 0 20px;
+        @include font-general-m;
+      }
+    }
+  }
+
+  .welcome-video {
+    flex: 1;
+    
+    &__hider {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+
+      @media #{$viewport-l} {
+        min-height: 400px;
       }
     }
 
     iframe {
       width: 100%;
-      min-height: 720px;
-    }
-
-    &__hider {
-      position: absolute;
-      width: 100%;
-      min-height: 720px;
-      z-index: 100;
+      min-height: 100%;
+      border: none;
     }
   }
 
@@ -39,6 +78,35 @@
       &-button {
         @include button;
       }
+    }
+  }
+
+  &__cases {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    min-height: 150px;
+
+    @include font-general-m;
+
+    &-item {
+      i {
+        font-size: 36px;
+      }
+
+      img {
+        margin-bottom: 10px;
+        width: 20px;
+      }
+
+      flex: 1;
+      min-height: 110px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
     }
   }
 }

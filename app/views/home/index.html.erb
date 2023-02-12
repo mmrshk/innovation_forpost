@@ -1,8 +1,36 @@
 <div class='home-container'>
-  <div class="welcome-video">
-    <div class="welcome-video__hider"></div>
-    <iframe src="https://www.youtube.com/embed/Wnqc0i-8b7A?controls=0&autoplay=1&mute=1" frameborder="0" allow="autoplay; encrypted-media;"></iframe>
-    <%= image_tag('scroll-icon.png', class: 'welcome-video__scroll-icon') %>
+  <div class="home-container__wrapper">
+    <div class="home-container__wrapper-main">
+      <div class="home-container__wrapper-description">
+        <div class="home-container__wrapper-description-title">
+          Індустріальний парк<br/>«INNOVATION FORPOST»
+        </div>
+        <div class="home-container__wrapper-description--wrapper">
+          <div class="home-container__wrapper-description-message">
+            Найкраща пропозиція промислових земельних ділянок в центрі міста Дніпра
+          </div>
+          <div class="home-container__cases">
+            <div class="home-container__cases-item">
+              <%= image_tag("/icons/pin.png", :alt => "pin") %>
+              <div class="home-container__cases-item-text">Адреса вулиця Столєтова, 21Д, в районі проспекту Слобожанського
+              </div>
+            </div>
+            <div class="home-container__cases-item">
+              <%= image_tag("/icons/measure.png", :alt => "measure") %>
+              <div class="home-container__cases-item-text">Площа 50 га</div>
+            </div>
+            <div class="home-container__cases-item">
+              <%= image_tag("/icons/timeline.png", :alt => "timeline") %>
+              <div class="home-container__cases-item-text">Термін створення 45 років</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="welcome-video">
+      <div class="welcome-video__hider"></div>
+      <iframe src="https://www.youtube.com/embed/Wnqc0i-8b7A?controls=0&autoplay=1&mute=1" allow="autoplay; encrypted-media;"></iframe>
+    </div>
   </div>
   <%= button_to t('.resident_form'), new_resident_form_path, class: 'resident-form-button', method: :get, data: { turbo_frame: 'modal' } %>
 </div>

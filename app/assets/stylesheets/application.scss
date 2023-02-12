@@ -1,16 +1,22 @@
 
 @import 'colors';
 @import 'fonts';
-@import 'materialize-css/dist/css/materialize';
+@import 'breakpoints';
 @import 'mixins/*';
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,700');
+@import "font-awesome";
+// importing core styling file
+@import "fontawesome6/scss/fontawesome";
+
+// our project needs Solid + Brands
+@import "fontawesome6/scss/solid";
+@import "fontawesome6/scss/brands";
+
 
 @import 'header';
 @import 'footer';
 @import 'errors';
-
-@import 'font-awesome';
 
 @import 'article/*';
 @import 'article/article_search';
