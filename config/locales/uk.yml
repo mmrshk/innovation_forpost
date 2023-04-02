@@ -211,6 +211,8 @@ uk:
         hints:
           logo_present: 'Логотип наявний'
           logo_absent: 'Логотип відсутній'
+    policy:
+      authorized: 'Ви не авторизовані як admin або super admin'
   log_in_first: 'Залогуйтесь будь ласка.'
   companies:
     labels:

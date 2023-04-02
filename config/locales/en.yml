@@ -184,6 +184,8 @@ en:
         hints:
           logo_present: 'Logo present'
           logo_absent: 'Logo absent'
+    policy:
+      authorized: 'You are not authorized as an admin or super admin'
   log_in_first: 'Please log in first'
   companies:
     labels:

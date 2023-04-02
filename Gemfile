@@ -23,6 +23,7 @@ gem 'pagy', '~> 5.10'
 gem 'pg', '~> 1.4.1'
 gem 'pg_search'
 gem 'puma', '~> 4.1'
+gem 'pundit'
 gem 'rails-i18n', '~> 6.0'
 gem 'ransack'
 gem 'redis', '~> 4.0'
@@ -61,6 +62,7 @@ end
 group :test do
   gem 'capybara', '>= 2.15'
   gem 'database_cleaner', '~> 2.0.1'
+  gem 'pundit-matchers', '~> 1.7.0'
   gem 'selenium-webdriver', '~> 4.3.0'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', require: false

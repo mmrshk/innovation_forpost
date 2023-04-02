@@ -229,6 +229,10 @@ GEM
     public_suffix (5.0.0)
     puma (4.3.12)
       nio4r (~> 2.0)
+    pundit (2.2.0)
+      activesupport (>= 3.0.0)
+    pundit-matchers (1.7.0)
+      rspec-rails (>= 3.0.0)
     racc (1.6.0)
     rack (2.2.4)
     rack-proxy (0.7.2)
@@ -436,6 +440,8 @@ DEPENDENCIES
   pg_search
   pry (~> 0.14.1)
   puma (~> 4.1)
+  pundit
+  pundit-matchers (~> 1.7.0)
   rails (~> 6.0.5)
   rails-controller-testing (~> 1.0.5)
   rails-i18n (~> 6.0)

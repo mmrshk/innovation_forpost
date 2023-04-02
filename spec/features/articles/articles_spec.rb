@@ -5,6 +5,11 @@ require 'rails_helper'
 RSpec.describe 'Articles', type: :feature do
   let!(:article) { create(:article, :published, :uk, :with_tags) }
   let!(:unpablished_article) { create(:article, :draft, :uk, :with_tags) }
+  let!(:user) { create(:user, :super_admin) }
+
+  before do
+    sign_in user
+  end
 
   context 'when user visits an articles' do
     it 'index page' do

@@ -2,10 +2,11 @@
 
 class TagsController < ApplicationController
   def index
-    @tags = Tag.all
+    @tags = policy_scope(Tag)
   end
 
   def show
     @tag = Tag.find(params[:id])
+    authorize @tag
   end
 end

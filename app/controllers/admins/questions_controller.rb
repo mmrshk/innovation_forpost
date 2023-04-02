@@ -3,8 +3,10 @@
 module Admins
   class QuestionsController < AdminsController
     before_action :question, only: %i[edit update destroy show]
+    before_action :authorize_question, only: %i[show edit update destroy]
 
     def index
+      @questions = policy_scope(Question)
       @q = Question.ransack(params[:q])
       @pagy, @questions = pagy(@q.result)
     end
@@ -37,6 +39,10 @@ module Admins
 
     def question
       @question ||= Question.find(params[:id])
+    end
+
+    def authorize_question
+      authorize @question
     end
 
     def question_params

@@ -5,20 +5,25 @@ module Admins
     before_action :article, only: %i[show edit update destroy]
 
     def index
+      @articles = policy_scope(Article)
       @q = Article.ransack(params[:q])
       @pagy, @articles = pagy(@q.result.includes(:user).not_trashed.sorted_desc)
     end
 
-    def show; end
+    def show
+      authorize @article
+    end
 
     def new
       @form = Articles::BaseForm.new(params: {})
       @presenter = ArticlePresenter.new(@form.article)
+      authorize @form.article
     end
 
     def create
       @form = Articles::CreateUpdateForm.new(params: article_params)
       @presenter = ArticlePresenter.new(@form.article)
+      authorize @form.article
       if @form.save
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.create_success')
       else
@@ -30,11 +35,13 @@ module Admins
     def edit
       @form = Articles::BaseForm.new(params: {}, article: article)
       @presenter = ArticlePresenter.new(@form.article)
+      authorize @form.article
     end
 
     def update
       @form = Articles::CreateUpdateForm.new(params: article_params, article: article)
       @presenter = ArticlePresenter.new(@form.article)
+      authorize @form.article
       if @form.save
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.update_success')
       else
@@ -45,6 +52,7 @@ module Admins
 
     def destroy
       @form = Articles::DestroyForm.new(params: {}, article: article)
+      authorize @form.article
       if @form.save
         redirect_to admins_articles_path, notice: I18n.t('admins.articles.destroy_success')
       else

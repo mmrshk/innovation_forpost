@@ -2,6 +2,8 @@
 
 class ApplicationController < ActionController::Base
   include Pagy::Backend
+  include Pundit::Authorization
+
   before_action :set_locale
   helper_method :unread_questions_size
 
@@ -23,4 +25,8 @@ class ApplicationController < ActionController::Base
   def unread_questions_size
     Question.without_answer.size
   end
+  
+  rescue_from Pundit::NotAuthorizedError do |_exception|
+    redirect_to root_path
+    flash[:error] = I18n.t('admins.policy.authorized')
 end
