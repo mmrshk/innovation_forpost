@@ -25,8 +25,9 @@ class ApplicationController < ActionController::Base
   def unread_questions_size
     Question.without_answer.size
   end
-  
+
   rescue_from Pundit::NotAuthorizedError do |_exception|
     redirect_to root_path
     flash[:error] = I18n.t('admins.policy.authorized')
+  end
 end
