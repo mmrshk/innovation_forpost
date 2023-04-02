@@ -1,0 +1,27 @@
+@mixin button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-top: 40px;
+  margin-right:  20px;
+  margin-bottom: calc(50px + (70 - 50) * ((100vw - 320px) / (1920 - 320)));
+  margin-left:  20px;
+  padding: calc(10px + (22 - 10) * ((100vw - 320px) / (1920 - 320)));
+  width: calc(290px + (400 - 290) * ((100vw - 320px) / (1920 - 320)));
+  height: 60px;
+  background: $load_more_button;
+  border-radius: 20px;
+  border: none;
+  font-weight: 500;
+  font-size: 24px;
+  font-family: $font_main_company;
+  line-height: 28px;
+  color: $white-color;
+  cursor: pointer;
+
+  &:hover {
+    background: $base-color;
+  }
+}

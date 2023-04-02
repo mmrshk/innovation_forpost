@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_09_10_175816) do
+ActiveRecord::Schema.define(version: 2022_09_11_183728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2022_09_10_175816) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "language", default: 0
+    t.integer "priority", default: 0, null: false
   end
 
   create_table "documents", force: :cascade do |t|
@@ -176,6 +177,25 @@ ActiveRecord::Schema.define(version: 2022_09_10_175816) do
     t.string "user_name", null: false
     t.string "user_email"
     t.text "body", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "resident_forms", force: :cascade do |t|
+    t.string "customer_full_name", null: false
+    t.string "in_person", null: false
+    t.string "project_name", null: false
+    t.string "address", null: false
+    t.string "phone", null: false
+    t.string "email", null: false
+    t.string "purpose", null: false
+    t.string "activity", null: false
+    t.date "start_date", null: false
+    t.date "end_date", null: false
+    t.integer "area", null: false
+    t.integer "danger_class", null: false
+    t.boolean "electicity_supply", null: false
+    t.text "reqirements"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

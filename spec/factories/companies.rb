@@ -7,6 +7,7 @@ FactoryBot.define do
     projects_count { rand(1..100) }
     clients_count { rand(1..100) }
     grants_count { rand(1..100) }
+    priority { rand(1..100) }
     text_about { Faker::Lorem.sentences(number: 10).join }
     media_file { Rack::Test::UploadedFile.new('spec/files/f.jpg', 'image/jpg') }
 
@@ -23,6 +24,7 @@ FactoryBot.define do
     projects_count { 0 }
     clients_count { nil }
     grants_count { -1 }
+    priority { 0.5 }
     text_about { Faker::Lorem.characters(number: 10) }
     media_file { Rack::Test::UploadedFile.new('spec/files/image') }
     language { Company::LANGUAGES.keys.sample }

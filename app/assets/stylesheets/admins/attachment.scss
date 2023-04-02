@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 @import "font-awesome";
+@import 'fonts';
 
 $invalid-color: red;
 
@@ -18,6 +19,10 @@ $invalid-color: red;
 
   .image-attachment {
     border-radius: 10px;
+  }
+
+  .material-icons {
+    color: $black-color;
   }
 }
 
@@ -112,7 +117,7 @@ $invalid-color: red;
 .admin-attachment-title {
   width: 100%;
   margin: 0;
-  font-family: 'Gotham', 'GothamCyrillic';
+  font-family: $font_main_company;
   font-style: normal;
   font-weight: 400;
   font-size: 50px;
@@ -134,7 +139,7 @@ $invalid-color: red;
     min-width: 295px;
     background: $admin-background-color-button;
     border-radius: 30px;
-    font-family: 'Gotham', 'GothamCyrillic';
+    font-family: $font_main_company;
     font-style: normal;
     font-weight: 400;
     font-size: 25px;
@@ -211,6 +216,21 @@ input[type="file"] {
   margin-bottom: 20px;
   display: inline-block;
   width: 100%;
+
+  .file-name-group {
+    display: block;
+    padding: 5px 0 5px 15px;
+
+    .file-name-label {
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    .file-name {
+      display: inline-block;
+      font-weight: 500;
+    }
+  }
 }
 
 .is-invalid {
@@ -270,6 +290,7 @@ input[type="file"] {
   width: 20%;
   min-width: 100px;
   margin: 10px;
+  color: $white-color;
 }
 
 td.links {

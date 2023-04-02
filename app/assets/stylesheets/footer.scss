@@ -17,14 +17,18 @@
   align-items: center;
   padding-top: 50px;
   border-top: 2px solid $black-color;
+
+  .logo-main {
+    width: 114px;
+  }
 }
 
-.footer-links { 
+.footer-links {
   display: flex;
   list-style: none;
 
   &_item {
-    padding: 10px 70px 20px 0;
+    padding: 10px 30px 20px 0;
 
     a {
       text-decoration: none;
@@ -41,18 +45,18 @@
 .copyright {
   margin-top: 50px;
   padding: 10px 0;
-  
+
   p {
     font-size: 15px;
   }
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 640px) {
   .footer-top {
     flex-wrap: wrap;
     flex-direction: column;
 
-    #logo-main {
+    .logo-main {
       margin-bottom: 50px;
       order: 1;
     }
@@ -66,7 +70,7 @@
     }
   }
 
-  .footer-links { 
+  .footer-links {
     order: 2;
     flex-wrap: wrap;
 

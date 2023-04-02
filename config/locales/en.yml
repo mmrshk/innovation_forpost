@@ -10,16 +10,44 @@ en:
     signout: "Sign out"
     login: "Log in"
     articles: "Articles"
+    articles_all: "Reset filter"
     profile: "Profile"
     users: "Users"
     settings: "Settings"
     attachments: "Attachments"
     questions: "Questions"
+  about:
+    communicate: "Contact us"
+    team: "The team is ready to help you"
+    work_here: "We work here"
+    fortpost: "Dnipro city council"
+    site: 'Link to the page of the Dnipro Development Agency on the website of the Dnipro City Council'
+    phone:
+      kapliy:
+        name: Олександр Каплій – директор Агентства розвитку Дніпра
+        number: 0979105413
+      vitvytskiy:
+        name: Олександр Витвицький – заступник директора Агентства розвитку Дніпра
+        number: 0973989362
+      ivanytska:
+        name: Олена Іваницька – проєктування
+        number: 0975744947
+      neznaiko:
+        name: Анна Незнайко – державні закупівлі
+        number: 0636382635
   errors:
     internal_server_error: "Sorry, something went wrong on our end. We are currently trying to fix the problem."
     unprocessable_entity: "Your browser did something unexpected. Please try again. If the error continues, try disabling all browser extensions."
     not_found: "The content you are looking for is either moved or doesn't exist."
     back_button: "Go back"
+  admin:
+    attachments:
+      view_docs_button: "View document"
+      save_button: "Save"
+      file_name: "File name:"
+      view_link: "View"
+      edit_link: "Edit"
+      delete_link: "Delete"
   admins:
     users:
       create_success: 'User was successfully created.'
@@ -134,6 +162,7 @@ en:
           logo: 'Logo'
           language: 'Lang.'
           functions: 'Functions'
+          priority: 'Priority'
         buttons:
           new_company: 'Add company'
           view: 'View'
@@ -151,9 +180,33 @@ en:
           clients_count: 'Type the number of customers here...'
           grants_count: 'Type the number of grants here...'
           text_about: 'Type company information here...'
+          priority: 'Display priority'
         hints:
           logo_present: 'Logo present'
           logo_absent: 'Logo absent'
     policy:
       authorized: 'You are not authorized as an admin or super admin'
   log_in_first: 'Please log in first'
+  companies:
+    labels:
+      years_text:
+        one: 'year on the market'
+        other: 'years on the market'
+      projects_text:
+        one: 'created project'
+        other: 'created projects'
+      clients_text:
+        one: 'satisfied customer'
+        other: 'satisfied customers'
+      grants_text:
+        one: 'grant won'
+        other: 'grants won'
+  news:
+    headline: 'News'
+    button_more: 'More news'
+  docs:
+    headline: 'Documents'
+    button_more: 'More documents'
+  home:
+    index:
+      welcome_video_title: 'Індустріальний парк «INNOVATION FORPOST» – найкраща пропозиція промислових земельних ділянок в центрі міста Дніпра'

@@ -4,6 +4,7 @@ module Admins
   class AttachmentsController < ApplicationController
     before_action :attachment, only: %i[show edit update destroy]
     before_action :authenticate_user!
+    before_action :presenter, only: %i[show new create edit update]
     before_action :authorize_attachment, only: %i[show edit update destroy]
 
     def index
@@ -55,6 +56,10 @@ module Admins
 
     def authorize_attachment
       authorize @attachment
+    end
+
+    def presenter
+      @presenter ||= AttachmentPresenter.new(@attachment)
     end
 
     def attachment_params
