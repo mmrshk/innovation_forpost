@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
     return not_found unless Article.find(params[:id]).published?
 
     @article = Article.find(params[:id])
+    authorize @article
   end
 
   def not_found
@@ -26,6 +27,6 @@ class ArticlesController < ApplicationController
   private
 
   def articles
-    @articles ||= Article.includes(:article_tags, :tags).published.in_language(extract_locale)
+    @articles = policy_scope(Article.includes(:article_tags, :tags).published.in_language(extract_locale))
   end
 end

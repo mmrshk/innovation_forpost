@@ -5,9 +5,11 @@ module Admins
     before_action :user, only: %i[edit show update destroy]
     before_action :authenticate_user!, except: [:update]
     before_action :require_one_superadmin!, only: :update
+    before_action :authorize_user, only: %i[show edit update destroy]
 
     def index
-      @q = User.ransack(params[:q])
+      @users = policy_scope(User)
+      @q = @users.ransack(params[:q])
       @pagy, @users = pagy(@q.result)
     end
 
@@ -15,10 +17,12 @@ module Admins
 
     def new
       @user = User.new
+      authorize @user
     end
 
     def create
       @user = User.new(user_params)
+      authorize @user
       if @user.save
         flash[:success] = I18n.t('admins.users.create_success')
         redirect_to admins_user_url(@user)
@@ -52,6 +56,10 @@ module Admins
 
     def user
       @user ||= User.find(params[:id])
+    end
+
+    def authorize_user
+      authorize @user
     end
 
     def user_params

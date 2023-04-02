@@ -28,6 +28,7 @@ Rails.application.routes.draw do
       registrations: 'registrations'
     }
     root to: "home#index"
+    get 'about', to: 'home#about'
 
     resources :articles, only: %i[index show]
     resources :tags, only: %i[index show]

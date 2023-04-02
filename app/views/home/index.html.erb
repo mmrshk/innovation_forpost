@@ -32,5 +32,23 @@
       <iframe src="https://www.youtube.com/embed/Wnqc0i-8b7A?controls=0&autoplay=1&mute=1" allow="autoplay; encrypted-media;"></iframe>
     </div>
   </div>
+  <div class="home-container__info">
+    <div class="home-container__info-item">
+      <div>
+        <%= fa_icon('map-location-dot') %>
+        <%= t('.address') %>
+      </div>
+    </div>
+    <div class="home-container__info-item">
+      <div>
+        <%= t('.sq_info') %>
+      </div>
+    </div>
+    <div class="home-container__info-item">
+      <div>
+        <%= t('.time_range') %>
+      </div>
+    </div>
+  </div>
   <%= button_to t('.resident_form'), new_resident_form_path, class: 'resident-form-button', method: :get, data: { turbo_frame: 'modal' } %>
 </div>

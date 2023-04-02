@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Creating an attachment', type: :feature do
-  let!(:user) { create(:user) }
+  let!(:user) { create(:user, :super_admin) }
 
   before do
     sign_in user

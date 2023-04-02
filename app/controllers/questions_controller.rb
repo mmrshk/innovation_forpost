@@ -4,11 +4,12 @@ class QuestionsController < ApplicationController
   before_action :question, only: %i[show]
 
   def index
-    @questions = Question.all
+    @questions = policy_scope(Question)
   end
 
   def new
     @question = Question.new
+    authorize @question
   end
 
   def create

@@ -5,10 +5,11 @@ module Admins
     before_action :attachment, only: %i[show edit update destroy]
     before_action :authenticate_user!
     before_action :presenter, only: %i[show new create edit update]
+    before_action :authorize_attachment, only: %i[show edit update destroy]
 
     def index
-      @q = Attachment.ransack(params[:q])
-      @attachments = Attachment.includes(media_file_attachment: :blob).all
+      @attachments = policy_scope(Attachment)
+      @q = @attachments.ransack(params[:q])
       @pagy, @attachments = pagy(@q.result.includes(media_file_attachment: :blob).all)
     end
 
@@ -16,11 +17,12 @@ module Admins
 
     def new
       @attachment = Attachment.new
+      authorize @attachment
     end
 
     def create
       @attachment = Attachment.new(attachment_params)
-
+      authorize @attachment
       if @attachment.save
         flash[:success] = I18n.t('admins.attachments.create_attachment')
         redirect_to admins_attachments_path
@@ -50,6 +52,10 @@ module Admins
 
     def attachment
       @attachment ||= Attachment.find(params[:id])
+    end
+
+    def authorize_attachment
+      authorize @attachment
     end
 
     def presenter
