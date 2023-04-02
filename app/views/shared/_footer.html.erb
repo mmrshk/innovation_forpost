@@ -2,9 +2,9 @@
   <div class="footer-container">
     <div class="footer-top">
       <ul class="footer-links">
-        <li class="footer-links_item"><%= link_to t('menu.innovateForpost'), '#' %></li>
-        <li class="footer-links_item"><%= link_to t('menu.about'), '#' %></li>
-        <li class="footer-links_item"><%= link_to t('menu.contacts'), '#' %></li>
+        <li class="footer-links_item"><%= link_to t('menu.company'), companies_path %></li>
+        <li class="footer-links_item"><%= link_to t('menu.articles'), articles_path %></li>
+        <li class="footer-links_item"><%= link_to t('menu.contacts'), about_path %></li>
       </ul>
       <%= link_to root_path do %>
         <%= image_tag('logo.png', class: 'logo-main') %>

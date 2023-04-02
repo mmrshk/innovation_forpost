@@ -51,7 +51,7 @@
         padding-right: calc(30px + (56 - 30) * ((100vw - 320px) / (1920 - 320)));
         padding-bottom: calc(30px + (40 - 30) * ((100vw - 320px) / (1920 - 320)));
         padding-left: calc(26px + (46 - 26) * ((100vw - 320px) / (1920 - 320)));
-        margin-left: -10px;
+        margin-left: -2px;
         border-radius: 0 40px 40px 0;
       }
     }
@@ -66,7 +66,7 @@
         padding-right: calc(26px + (46 - 26) * ((100vw - 320px) / (1920 - 320)));
         padding-bottom: calc(20px + (40 - 20) * ((100vw - 320px) / (1920 - 320)));
         padding-left: calc(30px + (56 - 30) * ((100vw - 320px) / (1920 - 320)));
-        margin-right: -10px;
+        margin-right: -2px;
         border-radius: 40px 0 0 40px;
       }
     }
@@ -77,7 +77,7 @@
       flex-wrap: nowrap;
       position: relative;
       box-sizing: border-box;
-      border: 10px solid $color-company;
+      border: 2px solid $color-company;
       width: calc(320px + (505 - 320) * ((100vw - 320px) / (1920 - 320)));
       height: 591px;
       border-radius: 40px;
@@ -92,7 +92,7 @@
         top: -107px;
         left: calc(19% + (22 - 19) * ((100vw - 1370px) / (1822 - 1371)));
         box-sizing: border-box;
-        border: 10px solid $color-company;
+        border: 2px solid $color-company;
         border-radius: 50%;
         background-color: $white-color;
         width: calc(250px + (275 - 250) * ((100vw - 1164px) / (1822 - 1164)));
@@ -196,7 +196,7 @@
       position: relative;
       width: 760px;
       height: 460px;
-      border: 10px solid $color-company;
+      border: 2px solid $color-company;
       cursor: auto;
 
       .text-about {
@@ -434,11 +434,11 @@
       }
 
       .container-info {
-        border: 5px solid $color-company;
+        border: 2px solid $color-company;
         height: auto;
 
         .container-logo {
-          border: 5px solid $color-company;
+          border: 2px solid $color-company;
           width: 200px;
           height: 200px;
           min-width: 200px;

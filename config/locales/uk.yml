@@ -7,7 +7,6 @@ uk:
         name: "Ім'я"
         madia_file: "Вкладення"
   menu:
-    innovateForpost: "Індустріальні парки"
     company: 'Керуюча компанія'
     about: "Про нас"
     contacts: "Контакти"
@@ -241,10 +240,13 @@ uk:
   home:
     index:
       resident_form: Анкета резидента
-      welcome_video_title: 'Індустріальний парк «INNOVATION FORPOST» – найкраща пропозиція промислових земельних ділянок в центрі міста Дніпра'
       address: Адреса вулиця Столєтова, 21Д, в районі проспекту Слобожанського
       sq_info: Площа 50 га
       time_range: Термін створення 45 років
+      welcome_video:
+        title_uk: 'Індустріальний парк'
+        title_en: '«INNOVATION FORPOST»'
+        desc: 'Hайкраща пропозиція промислових земельних ділянок в центрі міста Дніпра'
   resident_forms:
     new:
       application:

@@ -8,18 +8,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
-  align-items: center;
 
   &__wrapper {
-    display: flex;
-    flex-direction: row;
     width: 100%;
-    max-height: 534px;
-
-    @media #{$viewport-l} {
-      max-height: 354px;
-    }
 
     &-main {
       display: flex;
@@ -45,7 +36,7 @@
 
       &-title {
         text-align: center;
-        border-bottom: 1px #959595 solid;
+        border-bottom: 1px solid;
         margin: 20px 30px;
         padding-bottom: 20px;
         @include font-heading-m;
@@ -59,8 +50,8 @@
   }
 
   .welcome-video {
-    flex: 1;
-    
+    height: 100vh;
+
     &__hider {
       position: absolute;
       width: 100%;
@@ -72,9 +63,14 @@
     }
 
     iframe {
+      height: 100vh;
       width: 100%;
       min-height: 100%;
       border: none;
+
+      @media #{$viewport-xs} {
+        height: auto;
+      }
     }
   }
 
@@ -119,6 +115,7 @@
     .resident-form {
       &-button {
         @include button;
+        margin-bottom: 0;
       }
     }
   }
@@ -142,13 +139,18 @@
         width: 20px;
       }
 
+      &-text {
+        text-align: center;
+      }
+
       flex: 1;
       min-height: 110px;
       padding: 10px;
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
+      align-items: center;
+      justify-content: center;
     }
   }
 }
+

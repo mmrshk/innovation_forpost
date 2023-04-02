@@ -209,4 +209,7 @@ en:
     button_more: 'More documents'
   home:
     index:
-      welcome_video_title: 'Індустріальний парк «INNOVATION FORPOST» – найкраща пропозиція промислових земельних ділянок в центрі міста Дніпра'
+      welcome_video:
+        title_uk: 'Індустріальний парк'
+        title_en: '«INNOVATION FORPOST»'
+        desc: 'Hайкраща пропозиція промислових земельних ділянок в центрі міста Дніпра'

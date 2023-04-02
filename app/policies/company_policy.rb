@@ -3,6 +3,8 @@
 class CompanyPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
+      return scope.all unless user
+
       if user.in_admin_group?
         scope.all
       else
