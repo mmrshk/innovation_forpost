@@ -1,3 +1,9 @@
+$viewport-xl: "(min-width: 1920px)";
+$viewport-l: "(min-width: 1280px) and (max-width: 1919px)";
+$viewport-m: "(min-width: 1024px) and (max-width: 1279px)";
+$viewport-s: "(min-width: 768px) and (max-width: 1023px)";
+$viewport-xs: "(max-width: 767px)";
 $breakpoint_640: 640px;
 $breakpoint_720: 720px;
 $breakpoint_1080: 1080px;
+

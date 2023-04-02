@@ -57,6 +57,7 @@ group :development do
   gem 'spring', '~> 2.1.1'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
+  gem "font-awesome-sass", "~> 6.2.1"
 end
 
 group :test do

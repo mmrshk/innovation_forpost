@@ -154,6 +154,8 @@ GEM
       nokogiri (>= 1.5.11, < 2.0.0)
     font-awesome-rails (4.7.0.8)
       railties (>= 3.2, < 8.0)
+    font-awesome-sass (6.2.1)
+      sassc (~> 2.0)
     formatador (1.1.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
@@ -409,6 +411,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-darwin-22
   x86_64-linux
 
 DEPENDENCIES
@@ -427,6 +430,7 @@ DEPENDENCIES
   faker (~> 2)
   fog-aws (~> 3.14.0)
   font-awesome-rails (>= 4.7)
+  font-awesome-sass (~> 6.2.1)
   jbuilder (~> 2.7)
   letter_opener
   listen (~> 3.2)

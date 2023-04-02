@@ -6,20 +6,23 @@ $font-heading-s: 30px;
 $font-heading-m: 36px;
 $font-heading-l: 40px;
 
-@mixin font-heading-s {
-  font-size: 30px;
-  font-weight: 200;
-  line-height: 34px;
-}
-
 @mixin font-heading-m {
-  font-size: 36px;
-  font-weight: 200;
-  line-height: 38px;
+  font-family: $font_main_company;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 36px;
 }
 
-@mixin font-heading-l {
-  font-size: 40px;
-  font-weight: 400;
-  line-height: 40px;
+@mixin font-heading-s {
+  font-family: $font_main_company;
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+@mixin font-general-m {
+  font-family: $font_main_company;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
 }
