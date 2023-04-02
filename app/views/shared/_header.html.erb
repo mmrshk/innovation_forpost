@@ -30,6 +30,7 @@
           <div id="user-menu">
             <i class="small material-icons">account_circle</i>
             <ul class="user-menu_content">
+              <li><%= link_to 'Переклад', lit_path  %></li>
               <li><%= link_to t('menu.profile'), admins_user_path(current_user) %></li>
               <% if current_user.role_admin? || current_user.role_super_admin? %>
                 <li><%= link_to t('menu.company'), admins_companies_path  %></li>

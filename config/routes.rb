@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     resources :articles, only: %i[index show]
     resources :tags, only: %i[index show]
     resources :questions, only: %i[index new create show]
-    resources :attachments, only: :show
+    resources :attachments, only: %i[show download]
     resources :companies, only: :index
     resources :resident_forms
 

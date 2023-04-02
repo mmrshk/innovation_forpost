@@ -1,4 +1,4 @@
-<div class='body-container'>
+<div class='container'>
   <div class='admin-attachment-group'>
     <h1 class='admin-attachment-title'><%= t('admins.attachments.title') %></h1>
     <%= link_to t('admins.attachments.create_new_attachment'), new_admins_attachment_path, class:'admin-attachment-button text' %>
@@ -30,8 +30,8 @@
           </td>
           <td class="title-attachment button-functions">
           <td class="title-attachment"><%= link_to fa_icon('eye', text: t('admin.attachments.view_link')), admins_attachment_path(attachment), class: "attachment-link button-functions" %></td>
-          <td class="title-attachment"><%= link_to fa_icon('edit', text: t('admin.attachments.edit_link')), edit_admins_attachment_path(attachment), class: "attachment-link button-functions" %></td> 
-          <td class="title-attachment"><%= link_to fa_icon('trash', text: t('admin.attachments.delete_link')), admins_attachment_path(attachment), method: :delete, class: "attachment-link button-functions" %></td> 
+          <td class="title-attachment"><%= link_to fa_icon('edit', text: t('admin.attachments.edit_link')), edit_admins_attachment_path(attachment), class: "attachment-link button-functions" %></td>
+          <td class="title-attachment"><%= link_to fa_icon('trash', text: t('admin.attachments.delete_link')), admins_attachment_path(attachment), method: :delete, class: "attachment-link button-functions" %></td>
         </tr>
       <% end %>
     <tbody>

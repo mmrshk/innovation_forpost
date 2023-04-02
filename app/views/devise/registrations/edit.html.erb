@@ -1,4 +1,4 @@
-<div class="form-container">
+<div class="container form-container">
   <div class="form row">
     <h2 class="center-align">Edit <%= resource_name.to_s.humanize %></h2>
 
@@ -6,7 +6,7 @@
 
       <div class="input-field col s12">
         <%= f.input :email, class: "validate", required: false %>
-      </div>  
+      </div>
 
       <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
@@ -15,7 +15,7 @@
       <div class="input-field col s12">
         <%= f.input :phone_number %>
       </div>
-      
+
       <div class="input-field col s12">
         <%= f.input :password, required: false, label: "New password" %>
       </div>
@@ -23,7 +23,7 @@
       <div class="input-field col s12">
         <%= f.input :password_confirmation, required: false, label: "New password confirmation" %>
       </div>
-      
+
       <div class="input-field col s12">
         <%= f.input :current_password, required: false %>
       </div>

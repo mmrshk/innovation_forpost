@@ -5,4 +5,7 @@ class AttachmentsController < ApplicationController
     @attachment = Attachment.find(params[:id])
     @presenter = AttachmentPresenter.new(@attachment)
   end
+
+  def download
+  end
 end
